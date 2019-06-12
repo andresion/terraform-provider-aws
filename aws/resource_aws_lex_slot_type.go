@@ -28,6 +28,7 @@ func resourceAwsLexSlotType() *schema.Resource {
 
 		Timeouts: &schema.ResourceTimeout{
 			Update: schema.DefaultTimeout(time.Minute),
+			Delete: schema.DefaultTimeout(5 * time.Minute),
 		},
 
 		Schema: map[string]*schema.Schema{
@@ -205,7 +206,7 @@ func resourceAwsLexSlotTypeDelete(d *schema.ResourceData, meta interface{}) erro
 		return nil
 	})
 	if err != nil {
-		return fmt.Errorf("error deleteing slot type %s: %s", d.Id(), err)
+		return fmt.Errorf("error deleting slot type %s: %s", d.Id(), err)
 	}
 
 	return nil

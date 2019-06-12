@@ -77,7 +77,7 @@ For example, a pizza ordering bot could have a slot type that specifies the type
 
     Additional values related to the slot type value.
 
-* `value` _(Required)_:
+* `value` _(**Required**)_:
 
 	  The value of the slot type.
 
@@ -86,6 +86,7 @@ For example, a pizza ordering bot could have a slot type that specifies the type
 The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/docs/configuration/resources.html#timeouts) for certain actions:
 
 * `update` - (Defaults to 1 mins) Used when updating the slot type
+* `delete` - (Defaults to 5 mins) Used when deleting the slot type
 
 ## Attributes Reference
 
