@@ -4,7 +4,6 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/lexmodelbuildingservice"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/validation"
 )
 
 // Many of the Lex resources require complex nested objects. Terraform maps only support simple key
@@ -22,25 +21,6 @@ func expandLexSet(s *schema.Set) (items []map[string]interface{}) {
 	}
 
 	return
-}
-
-var lexEnumerationValueResource = &schema.Resource{
-	Schema: map[string]*schema.Schema{
-		"synonyms": {
-			Type:     schema.TypeList,
-			Optional: true,
-			MinItems: 1,
-			Elem: &schema.Schema{
-				Type:         schema.TypeString,
-				ValidateFunc: validation.StringLenBetween(lexEnumerationValueSynonymMinLength, lexEnumerationValueSynonymMaxLength),
-			},
-		},
-		"value": {
-			Type:         schema.TypeString,
-			Required:     true,
-			ValidateFunc: validation.StringLenBetween(lexEnumerationValueMinLength, lexEnumerationValueMaxLength),
-		},
-	},
 }
 
 func flattenLexEnumerationValues(values []*lexmodelbuildingservice.EnumerationValue) (flattened []map[string]interface{}) {

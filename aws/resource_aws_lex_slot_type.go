@@ -2,11 +2,12 @@ package aws
 
 import (
 	"fmt"
-	"log"
 	"regexp"
+	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/lexmodelbuildingservice"
+	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/validation"
 )
@@ -18,7 +19,15 @@ func resourceAwsLexSlotType() *schema.Resource {
 		Update: resourceAwsLexSlotTypeUpdate,
 		Delete: resourceAwsLexSlotTypeDelete,
 		Importer: &schema.ResourceImporter{
-			State: schema.ImportStatePassthrough,
+			State: func(d *schema.ResourceData, m interface{}) ([]*schema.ResourceData, error) {
+				// The version is not required for import but it is required for the get request.
+				d.Set("version", "$LATEST")
+				return []*schema.ResourceData{d}, nil
+			},
+		},
+
+		Timeouts: &schema.ResourceTimeout{
+			Update: schema.DefaultTimeout(time.Minute),
 		},
 
 		Schema: map[string]*schema.Schema{
@@ -29,28 +38,45 @@ func resourceAwsLexSlotType() *schema.Resource {
 			"description": {
 				Type:         schema.TypeString,
 				Optional:     true,
-				ValidateFunc: validation.StringLenBetween(lexDescriptionMinLength, lexDescriptionMaxLength),
+				ValidateFunc: validation.StringLenBetween(0, 200),
 			},
 			"enumeration_value": {
 				Type:     schema.TypeSet,
 				Optional: true,
-				MinItems: lexEnumerationValuesMin,
-				MaxItems: lexEnumerationValuesMax,
-				Elem:     lexEnumerationValueResource,
+				MinItems: 1,
+				MaxItems: 10000,
+				Elem: &schema.Resource{
+					Schema: map[string]*schema.Schema{
+						"synonyms": {
+							Type:     schema.TypeList,
+							Optional: true,
+							MinItems: 1,
+							Elem: &schema.Schema{
+								Type:         schema.TypeString,
+								ValidateFunc: validation.StringLenBetween(1, 140),
+							},
+						},
+						"value": {
+							Type:         schema.TypeString,
+							Required:     true,
+							ValidateFunc: validation.StringLenBetween(1, 140),
+						},
+					},
+				},
 			},
 			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 				ForceNew: true,
 				ValidateFunc: validation.All(
-					validation.StringLenBetween(lexSlotTypeMinLength, lexSlotTypeMaxLength),
-					validation.StringMatch(regexp.MustCompile(lexSlotTypeRegex), ""),
+					validation.StringLenBetween(1, 100),
+					validation.StringMatch(regexp.MustCompile(`^((AMAZON\.)_?|[A-Za-z]_?)+`), ""),
 				),
 			},
 			"value_selection_strategy": {
 				Type:     schema.TypeString,
 				Optional: true,
-				Default:  lexSlotTypeValueSelectionStrategyDefault,
+				Default:  lexmodelbuildingservice.SlotValueSelectionStrategyOriginalValue,
 				ValidateFunc: validation.StringInSlice([]string{
 					lexmodelbuildingservice.SlotValueSelectionStrategyOriginalValue,
 					lexmodelbuildingservice.SlotValueSelectionStrategyTopResolution,
@@ -59,10 +85,10 @@ func resourceAwsLexSlotType() *schema.Resource {
 			"version": {
 				Type:     schema.TypeString,
 				Optional: true,
-				Default:  lexVersionDefault,
+				Default:  "$LATEST",
 				ValidateFunc: validation.All(
-					validation.StringLenBetween(lexVersionMinLength, lexVersionMaxLength),
-					validation.StringMatch(regexp.MustCompile(lexVersionRegex), ""),
+					validation.StringLenBetween(1, 64),
+					validation.StringMatch(regexp.MustCompile(`\$LATEST|[0-9]+`), ""),
 				),
 			},
 		},
@@ -77,8 +103,6 @@ func resourceAwsLexSlotTypeCreate(d *schema.ResourceData, meta interface{}) erro
 		Name:                   aws.String(name),
 		ValueSelectionStrategy: aws.String(d.Get("value_selection_strategy").(string)),
 	}
-
-	// optional attributes
 
 	if v, ok := d.GetOk("description"); ok {
 		input.Description = aws.String(v.(string))
@@ -100,35 +124,24 @@ func resourceAwsLexSlotTypeCreate(d *schema.ResourceData, meta interface{}) erro
 func resourceAwsLexSlotTypeRead(d *schema.ResourceData, meta interface{}) error {
 	conn := meta.(*AWSClient).lexmodelconn
 
-	version := lexVersionLatest
-	if v, ok := d.GetOk("version"); ok {
-		version = v.(string)
-	}
-
 	resp, err := conn.GetSlotType(&lexmodelbuildingservice.GetSlotTypeInput{
 		Name:    aws.String(d.Id()),
-		Version: aws.String(version),
+		Version: aws.String(d.Get("version").(string)),
 	})
-	if err != nil {
-		if isAWSErr(err, lexmodelbuildingservice.ErrCodeNotFoundException, "") {
-			log.Printf("[WARN] Slot type (%s) not found, removing from state", d.Id())
-			d.SetId("")
-			return nil
-		}
+	if isAWSErr(err, lexmodelbuildingservice.ErrCodeNotFoundException, "") {
+		d.SetId("")
+		return nil
+	}
 
+	if err != nil {
 		return fmt.Errorf("error getting slot type %s: %s", d.Id(), err)
 	}
 
 	d.Set("checksum", resp.Checksum)
+	d.Set("description", resp.Description)
 	d.Set("name", resp.Name)
 	d.Set("value_selection_strategy", resp.ValueSelectionStrategy)
 	d.Set("version", resp.Version)
-
-	// optional attributes
-
-	if resp.Description != nil {
-		d.Set("description", resp.Description)
-	}
 
 	if resp.EnumerationValues != nil {
 		d.Set("enumeration_value", flattenLexEnumerationValues(resp.EnumerationValues))
@@ -147,8 +160,6 @@ func resourceAwsLexSlotTypeUpdate(d *schema.ResourceData, meta interface{}) erro
 		ValueSelectionStrategy: aws.String(d.Get("value_selection_strategy").(string)),
 	}
 
-	// optional attributes
-
 	if v, ok := d.GetOk("description"); ok {
 		input.Description = aws.String(v.(string))
 	}
@@ -157,8 +168,17 @@ func resourceAwsLexSlotTypeUpdate(d *schema.ResourceData, meta interface{}) erro
 		input.EnumerationValues = expandLexEnumerationValues(expandLexSet(v.(*schema.Set)))
 	}
 
-	_, err := RetryOnAwsCodes([]string{lexmodelbuildingservice.ErrCodeConflictException}, func() (interface{}, error) {
-		return conn.PutSlotType(input)
+	err := resource.Retry(d.Timeout(schema.TimeoutUpdate), func() *resource.RetryError {
+		_, err := conn.PutSlotType(input)
+
+		if isAWSErr(err, lexmodelbuildingservice.ErrCodeConflictException, "") {
+			return resource.RetryableError(fmt.Errorf("%q: slot type still updating", d.Id()))
+		}
+		if err != nil {
+			return resource.NonRetryableError(err)
+		}
+
+		return nil
 	})
 	if err != nil {
 		return fmt.Errorf("error updating slot type %s: %s", d.Id(), err)
@@ -170,14 +190,22 @@ func resourceAwsLexSlotTypeUpdate(d *schema.ResourceData, meta interface{}) erro
 func resourceAwsLexSlotTypeDelete(d *schema.ResourceData, meta interface{}) error {
 	conn := meta.(*AWSClient).lexmodelconn
 
-	out, err := RetryOnAwsCodes([]string{lexmodelbuildingservice.ErrCodeConflictException}, func() (interface{}, error) {
-		return conn.DeleteSlotType(&lexmodelbuildingservice.DeleteSlotTypeInput{
+	err := resource.Retry(d.Timeout(schema.TimeoutDelete), func() *resource.RetryError {
+		_, err := conn.DeleteSlotType(&lexmodelbuildingservice.DeleteSlotTypeInput{
 			Name: aws.String(d.Id()),
 		})
-	})
 
+		if isAWSErr(err, lexmodelbuildingservice.ErrCodeConflictException, "") {
+			return resource.RetryableError(fmt.Errorf("%q: slot type still deleting", d.Id()))
+		}
+		if err != nil {
+			return resource.NonRetryableError(err)
+		}
+
+		return nil
+	})
 	if err != nil {
-		return fmt.Errorf("error deleteing slot type %s: %s %#v", d.Id(), err, out)
+		return fmt.Errorf("error deleteing slot type %s: %s", d.Id(), err)
 	}
 
 	return nil

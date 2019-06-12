@@ -44,22 +44,22 @@ resource "aws_lex_slot_type" "flower_types" {
 
 The following arguments are supported:
 
-* `description` _(Optional, Type: string, Min: 0, Max: 200)_:
+* `description` _(Optional)_:
 
 	A description of the slot type.
 
-* `enumeration_value` _(**Required**, Type: list, Min: 1, Max: 10000)_:
+* `enumeration_value` _(**Required**)_:
 
 	A list of EnumerationValue objects that defines the values that the slot type can take. Each
 	value can have a list of synonyms, which are additional values that help train the machine
 	learning model about the values that it resolves for a slot. Attributes are documented under
   [enumeration_value](#enumeration_value-1).
 
-* `name` _(**Required**, Type: string, Min: 1, Max: 100, Regex: \^([A-Za-z]\_?)+$)_:
+* `name` _(**Required**)_:
 
 	The name of the slot type. The name is not case sensitive.
 
-* `value_selection_strategy` _(Optional, Type: string, Values: ORIGINAL_VALUE | TOP_RESOLUTION, Default: ORIGINAL_VALUE)_:
+* `value_selection_strategy` _(Optional)_:
 
 	Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
 	*ORIGINAL_VALUE* returns the value entered by the user if the user value is similar to the slot
@@ -73,13 +73,19 @@ can take.
 
 For example, a pizza ordering bot could have a slot type that specifies the type of crust that the pizza should have. The slot type could include the values: thick, thin, stuffed.
 
-* `synonyms` _(Optional, Type: list of strings, Min: 1, Max:140)_:
+* `synonyms` _(Optional)_:
 
     Additional values related to the slot type value.
 
-* `value` _(Required, Type: string, Min: 1, Max: 140)_:
+* `value` _(Required)_:
 
 	  The value of the slot type.
+
+### Timeouts
+
+The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/docs/configuration/resources.html#timeouts) for certain actions:
+
+* `update` - (Defaults to 1 mins) Used when updating the slot type
 
 ## Attributes Reference
 

@@ -34,10 +34,9 @@ func dataSourceAwsLexSlotType() *schema.Resource {
 			"name": {
 				Type:     schema.TypeString,
 				Required: true,
-				ForceNew: true,
 				ValidateFunc: validation.All(
-					validation.StringLenBetween(lexNameMinLength, lexNameMaxLength),
-					validation.StringMatch(regexp.MustCompile(lexNameRegex), ""),
+					validation.StringLenBetween(1, 100),
+					validation.StringMatch(regexp.MustCompile(`^([A-Za-z]_?)+$`), ""),
 				),
 			},
 			"value_selection_strategy": {
@@ -47,10 +46,9 @@ func dataSourceAwsLexSlotType() *schema.Resource {
 			"version": {
 				Type:     schema.TypeString,
 				Required: true,
-				ForceNew: true,
 				ValidateFunc: validation.All(
-					validation.StringLenBetween(lexVersionMinLength, lexVersionMaxLength),
-					validation.StringMatch(regexp.MustCompile(lexVersionRegex), ""),
+					validation.StringLenBetween(1, 64),
+					validation.StringMatch(regexp.MustCompile(`\$LATEST|[0-9]+`), ""),
 				),
 			},
 		},
@@ -59,16 +57,12 @@ func dataSourceAwsLexSlotType() *schema.Resource {
 
 func dataSourceAwsLexSlotTypeRead(d *schema.ResourceData, meta interface{}) error {
 	slotTypeName := d.Get("name").(string)
-	slotTypeVersion := "$LATEST"
-	if v, ok := d.GetOk("version"); ok {
-		slotTypeVersion = v.(string)
-	}
 
 	conn := meta.(*AWSClient).lexmodelconn
 
 	resp, err := conn.GetSlotType(&lexmodelbuildingservice.GetSlotTypeInput{
 		Name:    aws.String(slotTypeName),
-		Version: aws.String(slotTypeVersion),
+		Version: aws.String(d.Get("version").(string)),
 	})
 	if err != nil {
 		return fmt.Errorf("error getting slot type %s: %s", slotTypeName, err)

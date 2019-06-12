@@ -19,12 +19,12 @@ func TestAccLexSlotType(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:     func() { testAccPreCheck(t) },
 		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexSlotTypeDestroy(testSlotTypeID, lexVersionLatest),
+		CheckDestroy: testAccCheckAwsLexSlotTypeDestroy(testSlotTypeID, "$LATEST"),
 		Steps: []resource.TestStep{
 			{
 				Config: fmt.Sprintf(testAccAwsLexSlotTypeConfig, testID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckAwsLexSlotTypeExists(testSlotTypeID, lexVersionLatest),
+					testAccCheckAwsLexSlotTypeExists(testSlotTypeID, "$LATEST"),
 
 					// user defined attributes
 					resource.TestCheckResourceAttr(resourceName, "description", "Types of flowers to pick up"),
