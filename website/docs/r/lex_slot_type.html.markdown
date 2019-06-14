@@ -85,6 +85,7 @@ For example, a pizza ordering bot could have a slot type that specifies the type
 
 The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/docs/configuration/resources.html#timeouts) for certain actions:
 
+* `create` - (Defaults to 1 mins) Used when updating the slot type
 * `update` - (Defaults to 1 mins) Used when updating the slot type
 * `delete` - (Defaults to 5 mins) Used when deleting the slot type
 

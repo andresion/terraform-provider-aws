@@ -16,19 +16,6 @@ import (
 // value pairs and not complex or mixed types. That is why these resources are defined using the
 // schema.TypeList and a max of 1 item instead of the schema.TypeMap.
 
-func expandLexSet(s *schema.Set) (items []map[string]interface{}) {
-	for _, rawItem := range s.List() {
-		item, ok := rawItem.(map[string]interface{})
-		if !ok {
-			continue
-		}
-
-		items = append(items, item)
-	}
-
-	return
-}
-
 func flattenLexEnumerationValues(values []*lexmodelbuildingservice.EnumerationValue) (flattened []map[string]interface{}) {
 	for _, value := range values {
 		flattened = append(flattened, map[string]interface{}{
@@ -40,18 +27,20 @@ func flattenLexEnumerationValues(values []*lexmodelbuildingservice.EnumerationVa
 	return
 }
 
-// Expects a slice of maps representing the Lex objects.
-// The value passed into this function should have been run through the expandLexSet function.
-// Example: []map[value: lilies synonyms:[]lirium]]
-func expandLexEnumerationValues(rawValues []map[string]interface{}) (enums []*lexmodelbuildingservice.EnumerationValue) {
+func expandLexEnumerationValues(rawValues []interface{}) []*lexmodelbuildingservice.EnumerationValue {
+	enums := make([]*lexmodelbuildingservice.EnumerationValue, 0, len(rawValues))
 	for _, rawValue := range rawValues {
+		value, ok := rawValue.(map[string]interface{})
+		if !ok {
+			continue
+		}
+
 		enums = append(enums, &lexmodelbuildingservice.EnumerationValue{
-			Synonyms: expandStringList(rawValue["synonyms"].([]interface{})),
-			Value:    aws.String(rawValue["value"].(string)),
+			Synonyms: expandStringList(value["synonyms"].([]interface{})),
+			Value:    aws.String(value["value"].(string)),
 		})
 	}
-
-	return
+	return enums
 }
 
 func resourceAwsLexSlotType() *schema.Resource {
@@ -69,6 +58,7 @@ func resourceAwsLexSlotType() *schema.Resource {
 		},
 
 		Timeouts: &schema.ResourceTimeout{
+			Create: schema.DefaultTimeout(time.Minute),
 			Update: schema.DefaultTimeout(time.Minute),
 			Delete: schema.DefaultTimeout(5 * time.Minute),
 		},
@@ -152,10 +142,23 @@ func resourceAwsLexSlotTypeCreate(d *schema.ResourceData, meta interface{}) erro
 	}
 
 	if v, ok := d.GetOk("enumeration_value"); ok {
-		input.EnumerationValues = expandLexEnumerationValues(expandLexSet(v.(*schema.Set)))
+		input.EnumerationValues = expandLexEnumerationValues(v.(*schema.Set).List())
 	}
 
-	if _, err := conn.PutSlotType(input); err != nil {
+	err := resource.Retry(d.Timeout(schema.TimeoutCreate), func() *resource.RetryError {
+		output, err := conn.PutSlotType(input)
+
+		if isAWSErr(err, lexmodelbuildingservice.ErrCodeConflictException, "") {
+			input.Checksum = output.Checksum
+			return resource.RetryableError(fmt.Errorf("%q: slot type still creating", d.Id()))
+		}
+		if err != nil {
+			return resource.NonRetryableError(err)
+		}
+
+		return nil
+	})
+	if err != nil {
 		return fmt.Errorf("error creating slot type %s: %s", name, err)
 	}
 
@@ -208,7 +211,7 @@ func resourceAwsLexSlotTypeUpdate(d *schema.ResourceData, meta interface{}) erro
 	}
 
 	if v, ok := d.GetOk("enumeration_value"); ok {
-		input.EnumerationValues = expandLexEnumerationValues(expandLexSet(v.(*schema.Set)))
+		input.EnumerationValues = expandLexEnumerationValues(v.(*schema.Set).List())
 	}
 
 	err := resource.Retry(d.Timeout(schema.TimeoutUpdate), func() *resource.RetryError {
