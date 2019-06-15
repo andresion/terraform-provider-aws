@@ -22,6 +22,7 @@ func TestAccDataSourceAwsLexSlotType(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName, "checksum", resourceName, "checksum"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "description", resourceName, "description"),
+					resource.TestCheckResourceAttrPair(dataSourceName, "enumeration_value", resourceName, "enumeration_value"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "name", resourceName, "name"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "value_selection_strategy", resourceName, "value_selection_strategy"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "version", resourceName, "version"),

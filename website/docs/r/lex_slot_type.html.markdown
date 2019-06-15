@@ -15,7 +15,8 @@ Provides an Amazon Lex Slot Type resource. For more information see
 
 ```hcl
 resource "aws_lex_slot_type" "flower_types" {
-  description = "Types of flowers to order"
+  create_version = false
+  description    = "Types of flowers to order"
 
   enumeration_value {
     synonyms = [
@@ -43,6 +44,11 @@ resource "aws_lex_slot_type" "flower_types" {
 ## Argument Reference
 
 The following arguments are supported:
+
+* `create_version` _(Optional)_:
+
+  Determines if a new slot type version is created when the inital resource is created and on each
+  update. Defaults to true.
 
 * `description` _(Optional)_:
 

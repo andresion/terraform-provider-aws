@@ -27,6 +27,25 @@ func dataSourceAwsLexSlotType() *schema.Resource {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
+			"enumeration_value": {
+				Type:     schema.TypeSet,
+				Computed: true,
+				Elem: &schema.Resource{
+					Schema: map[string]*schema.Schema{
+						"synonyms": {
+							Type:     schema.TypeList,
+							Computed: true,
+							Elem: &schema.Schema{
+								Type: schema.TypeString,
+							},
+						},
+						"value": {
+							Type:     schema.TypeString,
+							Computed: true,
+						},
+					},
+				},
+			},
 			"last_updated_date": {
 				Type:     schema.TypeString,
 				Computed: true,
@@ -71,6 +90,7 @@ func dataSourceAwsLexSlotTypeRead(d *schema.ResourceData, meta interface{}) erro
 	d.Set("checksum", resp.Checksum)
 	d.Set("created_date", resp.CreatedDate.UTC().String())
 	d.Set("description", resp.Description)
+	d.Set("enumeration_value", flattenLexEnumerationValues(resp.EnumerationValues))
 	d.Set("last_updated_date", resp.LastUpdatedDate.UTC().String())
 	d.Set("name", resp.Name)
 	d.Set("value_selection_strategy", resp.ValueSelectionStrategy)

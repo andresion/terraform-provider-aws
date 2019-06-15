@@ -51,8 +51,9 @@ func resourceAwsLexSlotType() *schema.Resource {
 		Delete: resourceAwsLexSlotTypeDelete,
 		Importer: &schema.ResourceImporter{
 			State: func(d *schema.ResourceData, m interface{}) ([]*schema.ResourceData, error) {
-				// The version is not required for import but it is required for the get request.
-				d.Set("version", "$LATEST")
+				if _, ok := d.GetOk("create_version"); !ok {
+					d.Set("create_version", true)
+				}
 				return []*schema.ResourceData{d}, nil
 			},
 		},
@@ -68,9 +69,15 @@ func resourceAwsLexSlotType() *schema.Resource {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
+			"create_version": {
+				Type:     schema.TypeBool,
+				Optional: true,
+				Default:  true,
+			},
 			"description": {
 				Type:         schema.TypeString,
 				Optional:     true,
+				Default:      "",
 				ValidateFunc: validation.StringLenBetween(0, 200),
 			},
 			"enumeration_value": {
@@ -117,12 +124,7 @@ func resourceAwsLexSlotType() *schema.Resource {
 			},
 			"version": {
 				Type:     schema.TypeString,
-				Optional: true,
-				Default:  "$LATEST",
-				ValidateFunc: validation.All(
-					validation.StringLenBetween(1, 64),
-					validation.StringMatch(regexp.MustCompile(`\$LATEST|[0-9]+`), ""),
-				),
+				Computed: true,
 			},
 		},
 	}
@@ -133,12 +135,10 @@ func resourceAwsLexSlotTypeCreate(d *schema.ResourceData, meta interface{}) erro
 	name := d.Get("name").(string)
 
 	input := &lexmodelbuildingservice.PutSlotTypeInput{
+		CreateVersion:          aws.Bool(d.Get("create_version").(bool)),
+		Description:            aws.String(d.Get("description").(string)),
 		Name:                   aws.String(name),
 		ValueSelectionStrategy: aws.String(d.Get("value_selection_strategy").(string)),
-	}
-
-	if v, ok := d.GetOk("description"); ok {
-		input.Description = aws.String(v.(string))
 	}
 
 	if v, ok := d.GetOk("enumeration_value"); ok {
@@ -172,13 +172,12 @@ func resourceAwsLexSlotTypeRead(d *schema.ResourceData, meta interface{}) error 
 
 	resp, err := conn.GetSlotType(&lexmodelbuildingservice.GetSlotTypeInput{
 		Name:    aws.String(d.Id()),
-		Version: aws.String(d.Get("version").(string)),
+		Version: aws.String("$LATEST"),
 	})
 	if isAWSErr(err, lexmodelbuildingservice.ErrCodeNotFoundException, "") {
 		d.SetId("")
 		return nil
 	}
-
 	if err != nil {
 		return fmt.Errorf("error getting slot type %s: %s", d.Id(), err)
 	}
@@ -187,7 +186,7 @@ func resourceAwsLexSlotTypeRead(d *schema.ResourceData, meta interface{}) error 
 	d.Set("description", resp.Description)
 	d.Set("name", resp.Name)
 	d.Set("value_selection_strategy", resp.ValueSelectionStrategy)
-	d.Set("version", resp.Version)
+	d.Set("version", "$LATEST")
 
 	if resp.EnumerationValues != nil {
 		d.Set("enumeration_value", flattenLexEnumerationValues(resp.EnumerationValues))
@@ -200,14 +199,11 @@ func resourceAwsLexSlotTypeUpdate(d *schema.ResourceData, meta interface{}) erro
 	conn := meta.(*AWSClient).lexmodelconn
 
 	input := &lexmodelbuildingservice.PutSlotTypeInput{
-		Name:                   aws.String(d.Id()),
 		Checksum:               aws.String(d.Get("checksum").(string)),
-		CreateVersion:          aws.Bool(true),
+		CreateVersion:          aws.Bool(d.Get("create_version").(bool)),
+		Description:            aws.String(d.Get("description").(string)),
+		Name:                   aws.String(d.Id()),
 		ValueSelectionStrategy: aws.String(d.Get("value_selection_strategy").(string)),
-	}
-
-	if v, ok := d.GetOk("description"); ok {
-		input.Description = aws.String(v.(string))
 	}
 
 	if v, ok := d.GetOk("enumeration_value"); ok {
