@@ -47,7 +47,7 @@ The following arguments are supported:
 
 * `create_version` _(Optional)_:
 
-  Determines if a new slot type version is created when the inital resource is created and on each
+  Determines if a new slot type version is created when the initial resource is created and on each
   update. Defaults to true.
 
 * `description` _(Optional)_:
