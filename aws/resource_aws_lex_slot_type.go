@@ -50,12 +50,7 @@ func resourceAwsLexSlotType() *schema.Resource {
 		Update: resourceAwsLexSlotTypeUpdate,
 		Delete: resourceAwsLexSlotTypeDelete,
 		Importer: &schema.ResourceImporter{
-			State: func(d *schema.ResourceData, m interface{}) ([]*schema.ResourceData, error) {
-				if _, ok := d.GetOk("create_version"); !ok {
-					d.Set("create_version", true)
-				}
-				return []*schema.ResourceData{d}, nil
-			},
+			State: schema.ImportStatePassthrough,
 		},
 
 		Timeouts: &schema.ResourceTimeout{

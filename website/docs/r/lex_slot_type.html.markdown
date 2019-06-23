@@ -45,47 +45,30 @@ resource "aws_lex_slot_type" "flower_types" {
 
 The following arguments are supported:
 
-* `create_version` _(Optional)_:
-
-  Determines if a new slot type version is created when the initial resource is created and on each
-  update. Defaults to true.
-
-* `description` _(Optional)_:
-
-	A description of the slot type.
-
-* `enumeration_value` _(**Required**)_:
-
-	A list of EnumerationValue objects that defines the values that the slot type can take. Each
-	value can have a list of synonyms, which are additional values that help train the machine
-	learning model about the values that it resolves for a slot. Attributes are documented under
-  [enumeration_value](#enumeration_value-1).
-
-* `name` _(**Required**)_:
-
-	The name of the slot type. The name is not case sensitive.
-
-* `value_selection_strategy` _(Optional)_:
-
-	Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
-	*ORIGINAL_VALUE* returns the value entered by the user if the user value is similar to the slot
-	value. *TOP_RESOLUTION* returns the first value in the resolution list if there is a resolution
-	list for the slot, otherwise null is returned.
+* `create_version` - (Optional) 
+Determines if a new slot type version is created when the initial resource is created and on each 
+update. Defaults to true.
+* `description` - (Optional) A description of the slot type.
+* `enumeration_value` - (Required) A list of EnumerationValue objects that defines the values that 
+the slot type can take. Each value can have a list of synonyms, which are additional values that help 
+train the machine learning model about the values that it resolves for a slot. Attributes are 
+documented under [enumeration_value](#enumeration_value-1).
+* `name` - (Required) The name of the slot type. The name is not case sensitive.
+* `value_selection_strategy` - (Optional) Determines the slot resolution strategy that Amazon Lex 
+uses to return slot type values. *ORIGINAL_VALUE* returns the value entered by the user if the user 
+value is similar to the slot value. *TOP_RESOLUTION* returns the first value in the resolution list 
+if there is a resolution list for the slot, otherwise null is returned.
 
 ### enumeration_value
 
 Each slot type can have a set of values. Each enumeration value represents a value the slot type
 can take.
 
-For example, a pizza ordering bot could have a slot type that specifies the type of crust that the pizza should have. The slot type could include the values: thick, thin, stuffed.
+For example, a pizza ordering bot could have a slot type that specifies the type of crust that the 
+pizza should have. The slot type could include the values: thick, thin, stuffed.
 
-* `synonyms` _(Optional)_:
-
-    Additional values related to the slot type value.
-
-* `value` _(**Required**)_:
-
-	  The value of the slot type.
+* `synonyms` - (Optional) Additional values related to the slot type value.
+* `value` - (Required) The value of the slot type.
 
 ### Timeouts
 
@@ -99,22 +82,11 @@ The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/d
 
 The following attributes are exported in addition to the arguments listed above:
 
-* `checksum`
-
-	Checksum identifying the version of the slot type that was created. The checksum is not included
-	as an argument because the resource will add it automatically when updating the slot type.
-
-* `created_date`
-
-	The date when the slot type version was created.
-
-* `last_updated_date`
-
-	The date when the $LATEST version of this slot type was updated.
-
-* `version`
-
-	The version of the slot type.
+* `checksum` - Checksum identifying the version of the slot type that was created. The checksum is 
+not included as an argument because the resource will add it automatically when updating the slot type.
+* `created_date` - The date when the slot type version was created.
+* `last_updated_date` - The date when the $LATEST version of this slot type was updated.
+* `version` - The version of the slot type.
 
 ## Import
 

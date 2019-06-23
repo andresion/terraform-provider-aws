@@ -34,9 +34,10 @@ func TestAccLexSlotType_basic(t *testing.T) {
 				),
 			},
 			{
-				ResourceName:      resourceName,
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"create_version"},
 			},
 		},
 	})
@@ -60,11 +61,10 @@ func TestAccAwsLexSlotType_CreateVersion(t *testing.T) {
 				),
 			},
 			{
-				ResourceName: resourceName,
-				ImportState:  true,
-				// Cannot verify import for create_version other than true because we don't have
-				// that info at import, it is not returned from the AWS API.
-				// ImportStateVerify: true,
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"create_version"},
 			},
 			{
 				Config: fmt.Sprintf(testAccAwsLexSlotTypeUpdateCreateVersionConfig, testSlotTypeID),
@@ -74,9 +74,10 @@ func TestAccAwsLexSlotType_CreateVersion(t *testing.T) {
 				),
 			},
 			{
-				ResourceName:      resourceName,
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"create_version"},
 			},
 		},
 	})
@@ -100,9 +101,10 @@ func TestAccAwsLexSlotType_Description(t *testing.T) {
 				),
 			},
 			{
-				ResourceName:      resourceName,
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"create_version"},
 			},
 			{
 				Config: fmt.Sprintf(testAccAwsLexSlotTypeUpdateDescriptionConfig, testSlotTypeID),
@@ -112,9 +114,10 @@ func TestAccAwsLexSlotType_Description(t *testing.T) {
 				),
 			},
 			{
-				ResourceName:      resourceName,
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"create_version"},
 			},
 		},
 	})
@@ -138,9 +141,10 @@ func TestAccAwsLexSlotType_EnumerationValue(t *testing.T) {
 				),
 			},
 			{
-				ResourceName:      resourceName,
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"create_version"},
 			},
 			{
 				Config: fmt.Sprintf(testAccAwsLexSlotTypeUpdateEnumerationValueConfig, testSlotTypeID),
@@ -150,9 +154,10 @@ func TestAccAwsLexSlotType_EnumerationValue(t *testing.T) {
 				),
 			},
 			{
-				ResourceName:      resourceName,
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"create_version"},
 			},
 		},
 	})
@@ -178,9 +183,10 @@ func TestAccAwsLexSlotType_Name(t *testing.T) {
 				),
 			},
 			{
-				ResourceName:      resourceName,
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"create_version"},
 			},
 			{
 				Config: fmt.Sprintf(testAccAwsLexSlotTypeBasicConfig, testSlotTypeID2),
@@ -190,9 +196,10 @@ func TestAccAwsLexSlotType_Name(t *testing.T) {
 				),
 			},
 			{
-				ResourceName:      resourceName,
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"create_version"},
 			},
 		},
 	})
@@ -216,9 +223,10 @@ func TestAccAwsLexSlotType_ValueSelectionStrategy(t *testing.T) {
 				),
 			},
 			{
-				ResourceName:      resourceName,
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"create_version"},
 			},
 			{
 				Config: fmt.Sprintf(testAccAwsLexSlotTypeUpdateValueSelectionStrategyConfig, testSlotTypeID),
@@ -228,9 +236,10 @@ func TestAccAwsLexSlotType_ValueSelectionStrategy(t *testing.T) {
 				),
 			},
 			{
-				ResourceName:      resourceName,
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"create_version"},
 			},
 		},
 	})
