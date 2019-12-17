@@ -3,14 +3,7 @@ package aws
 import (
 	"fmt"
 	"os"
-	"testing"
-
-	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
 )
-
-func TestMain(m *testing.M) {
-	resource.TestMain(m)
-}
 
 // sharedClientForRegion returns a common AWSClient setup needed for the sweeper
 // functions for a given region
