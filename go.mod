@@ -11,9 +11,10 @@ require (
 	github.com/golangci/golangci-lint v1.23.8
 	github.com/hashicorp/aws-sdk-go-base v0.4.0
 	github.com/hashicorp/go-cleanhttp v0.5.1
+	github.com/hashicorp/go-getter v1.4.1 // indirect
 	github.com/hashicorp/go-multierror v1.0.0
 	github.com/hashicorp/go-version v1.2.0
-	github.com/hashicorp/terraform-plugin-sdk v1.8.0
+	github.com/hashicorp/terraform-plugin-sdk v1.8.1-0.20200318154437-be9aa2a263d1
 	github.com/hashicorp/vault v0.10.4
 	github.com/jen20/awspolicyequivalence v1.1.0
 	github.com/katbyte/terrafmt v0.2.1-0.20200303174203-e6a3e82cb21b
