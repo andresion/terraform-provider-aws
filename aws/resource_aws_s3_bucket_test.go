@@ -163,10 +163,6 @@ func TestAccAWSS3Bucket_basic(t *testing.T) {
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck: func() { testAccPreCheck(t) },
-		/*
-			IDRefreshName:   resourceName,
-			IDRefreshIgnore: []string{"force_destroy"},
-		*/
 		Providers:    testAccProviders,
 		CheckDestroy: testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
@@ -174,20 +170,31 @@ func TestAccAWSS3Bucket_basic(t *testing.T) {
 				Config: testAccAWSS3BucketConfig(rInt),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckAWSS3BucketExists(resourceName),
-					resource.TestCheckResourceAttr(
-						resourceName, "hosted_zone_id", hostedZoneID),
-					resource.TestCheckResourceAttr(
-						resourceName, "region", region),
-					resource.TestCheckNoResourceAttr(
-						resourceName, "website_endpoint"),
-					resource.TestMatchResourceAttr(
-						resourceName, "arn", arnRegexp),
-					resource.TestCheckResourceAttr(
-						resourceName, "bucket", testAccBucketName(rInt)),
-					resource.TestCheckResourceAttr(
-						resourceName, "bucket_domain_name", testAccBucketDomainName(rInt)),
-					resource.TestCheckResourceAttr(
-						resourceName, "bucket_regional_domain_name", testAccBucketRegionalDomainName(rInt, region)),
+					resource.TestCheckResourceAttr(resourceName, "hosted_zone_id", hostedZoneID),
+					resource.TestCheckResourceAttr(resourceName, "region", region),
+					resource.TestCheckNoResourceAttr(resourceName, "website_endpoint"),
+					resource.TestMatchResourceAttr(resourceName, "arn", arnRegexp),
+					resource.TestCheckResourceAttr(resourceName, "bucket", testAccBucketName(rInt)),
+					resource.TestCheckResourceAttr(resourceName, "bucket_domain_name", testAccBucketDomainName(rInt)),
+					resource.TestCheckResourceAttr(resourceName, "bucket_regional_domain_name", testAccBucketRegionalDomainName(rInt, region)),
+					resource.TestCheckResourceAttr(resourceName, "versioning.#", "1"),
+					resource.TestCheckResourceAttr(resourceName, "versioning.0.enabled", "false"),
+					resource.TestCheckResourceAttr(resourceName, "versioning.0.mfa_delete", "false"),
+					resource.TestCheckResourceAttr(resourceName, "acl", "public-read"),
+					resource.TestCheckNoResourceAttr(resourceName, "policy"),
+					resource.TestCheckResourceAttr(resourceName, "cors_rule.#", "0"),
+					resource.TestCheckResourceAttr(resourceName, "website.#", "0"),
+					resource.TestCheckNoResourceAttr(resourceName, "website_endpoint"),
+					resource.TestCheckNoResourceAttr(resourceName, "website_domain"),
+					resource.TestCheckResourceAttr(resourceName, "logging.#", "0"),
+					resource.TestCheckResourceAttr(resourceName, "lifecycle_rule.#", "0"),
+					resource.TestCheckResourceAttr(resourceName, "force_destroy", "false"),
+					resource.TestCheckResourceAttr(resourceName, "acceleration_status", ""),
+					resource.TestCheckResourceAttr(resourceName, "request_payer", s3.PayerBucketOwner),
+					resource.TestCheckResourceAttr(resourceName, "replication_configuration.#", "0"),
+					resource.TestCheckResourceAttr(resourceName, "server_side_encryption_configuration.#", "0"),
+					resource.TestCheckResourceAttr(resourceName, "object_lock_configuration.#", "0"),
+					resource.TestCheckNoResourceAttr(resourceName, "tags.#"),
 				),
 			},
 			{
