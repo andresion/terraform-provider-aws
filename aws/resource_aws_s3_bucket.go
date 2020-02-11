@@ -1643,13 +1643,14 @@ func resourceAwsS3BucketVersioningUpdate(s3conn *s3.S3, d *schema.ResourceData) 
 	bucket := d.Get("bucket").(string)
 	vc := &s3.VersioningConfiguration{}
 
+	var targetStatus string
 	if len(v) > 0 {
 		c := v[0].(map[string]interface{})
 
 		if c["enabled"].(bool) {
-			vc.Status = aws.String(s3.BucketVersioningStatusEnabled)
+			targetStatus = s3.BucketVersioningStatusEnabled
 		} else {
-			vc.Status = aws.String(s3.BucketVersioningStatusSuspended)
+			targetStatus = s3.BucketVersioningStatusSuspended
 		}
 
 		if c["mfa_delete"].(bool) {
@@ -1659,8 +1660,9 @@ func resourceAwsS3BucketVersioningUpdate(s3conn *s3.S3, d *schema.ResourceData) 
 		}
 
 	} else {
-		vc.Status = aws.String(s3.BucketVersioningStatusSuspended)
+		targetStatus = s3.BucketVersioningStatusSuspended
 	}
+	vc.Status = aws.String(targetStatus)
 
 	i := &s3.PutBucketVersioningInput{
 		Bucket:                  aws.String(bucket),
@@ -1672,10 +1674,41 @@ func resourceAwsS3BucketVersioningUpdate(s3conn *s3.S3, d *schema.ResourceData) 
 		return s3conn.PutBucketVersioning(i)
 	})
 	if err != nil {
-		return fmt.Errorf("Error putting S3 versioning: %s", err)
+		return fmt.Errorf("error putting S3 versioning (%s): %w", bucket, err)
+	}
+	if err := waitForS3PutBucketVersioningSuccessful(s3conn, bucket, targetStatus, 2*time.Minute); err != nil {
+		return fmt.Errorf("error waiting for S3 bucket versioning (%s): %w", bucket, err)
 	}
 
 	return nil
+}
+
+func waitForS3PutBucketVersioningSuccessful(conn *s3.S3, bucket, targetState string, timeout time.Duration) error {
+	stateChangeConf := &resource.StateChangeConf{
+		Pending:                   []string{s3.ErrCodeNoSuchBucket, ""},
+		Target:                    []string{targetState},
+		Refresh:                   refreshS3PutBucketVersioning(conn, bucket),
+		Timeout:                   timeout,
+		Delay:                     10 * time.Second,
+		ContinuousTargetOccurence: 10,
+	}
+	_, err := stateChangeConf.WaitForState()
+
+	return err
+}
+
+func refreshS3PutBucketVersioning(conn *s3.S3, bucket string) resource.StateRefreshFunc {
+	return func() (interface{}, string, error) {
+		bucketVersioning, err := conn.GetBucketVersioning(&s3.GetBucketVersioningInput{
+			Bucket: aws.String(bucket),
+		})
+
+		if err != nil {
+			return nil, "", fmt.Errorf("error reading S3 bucket versioning (%s): %w", bucket, err)
+		}
+
+		return bucketVersioning, aws.StringValue(bucketVersioning.Status), nil
+	}
 }
 
 func resourceAwsS3BucketLoggingUpdate(s3conn *s3.S3, d *schema.ResourceData) error {

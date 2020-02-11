@@ -162,7 +162,7 @@ func TestAccAWSS3Bucket_basic(t *testing.T) {
 	resourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck: func() { testAccPreCheck(t) },
+		PreCheck:     func() { testAccPreCheck(t) },
 		Providers:    testAccProviders,
 		CheckDestroy: testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
@@ -956,35 +956,34 @@ func TestAccAWSS3Bucket_Versioning(t *testing.T) {
 		CheckDestroy: testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
-				Config: testAccAWSS3BucketConfig(rInt),
-				Check: resource.ComposeTestCheckFunc(
-					testAccCheckAWSS3BucketExists(resourceName),
-					testAccCheckAWSS3BucketVersioning(
-						resourceName, ""),
-				),
-			},
-			{
-				ResourceName:      resourceName,
-				ImportState:       true,
-				ImportStateVerify: true,
-				ImportStateVerifyIgnore: []string{
-					"force_destroy", "acl"},
-			},
-			{
 				Config: testAccAWSS3BucketConfigWithVersioning(rInt),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckAWSS3BucketExists(resourceName),
-					testAccCheckAWSS3BucketVersioning(
-						resourceName, s3.BucketVersioningStatusEnabled),
+					testAccCheckAWSS3BucketVersioning(resourceName, s3.BucketVersioningStatusEnabled),
+					resource.TestCheckResourceAttr(resourceName, "versioning.#", "1"),
+					resource.TestCheckResourceAttr(resourceName, "versioning.0.enabled", "true"),
 				),
+			},
+			{
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"force_destroy", "acl"},
 			},
 			{
 				Config: testAccAWSS3BucketConfigWithDisableVersioning(rInt),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckAWSS3BucketExists(resourceName),
-					testAccCheckAWSS3BucketVersioning(
-						resourceName, s3.BucketVersioningStatusSuspended),
+					testAccCheckAWSS3BucketVersioning(resourceName, s3.BucketVersioningStatusSuspended),
+					resource.TestCheckResourceAttr(resourceName, "versioning.#", "1"),
+					resource.TestCheckResourceAttr(resourceName, "versioning.0.enabled", "false"),
 				),
+			},
+			{
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"force_destroy", "acl"},
 			},
 		},
 	})
@@ -1517,6 +1516,9 @@ func TestAccAWSS3Bucket_ReplicationConfiguration_Rule_Destination_AccessControlT
 					resource.TestCheckResourceAttr(resourceName, "replication_configuration.#", "1"),
 					resource.TestMatchResourceAttr(resourceName, "replication_configuration.0.role", regexp.MustCompile(fmt.Sprintf("^arn:%s:iam::[\\d+]+:role/tf-iam-role-replication-%d", partition, rInt))),
 					resource.TestCheckResourceAttr(resourceName, "replication_configuration.0.rules.#", "1"),
+					resource.TestCheckResourceAttr(resourceName, "versioning.#", "1"),
+					resource.TestCheckResourceAttr(resourceName, "versioning.0.enabled", "true"),
+					testAccCheckAWSS3BucketVersioning(resourceName, s3.BucketVersioningStatusEnabled),
 					testAccCheckAWSS3BucketReplicationRules(
 						resourceName,
 						testAccAwsRegionProviderFunc(region, &providers),
