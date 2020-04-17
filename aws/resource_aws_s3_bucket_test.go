@@ -661,39 +661,46 @@ func TestAccAWSS3Bucket_UpdateAcl(t *testing.T) {
 	})
 }
 
-func TestAccAWSS3Bucket_UpdateGrant(t *testing.T) {
+func TestAccAWSS3Bucket_Grants_basic(t *testing.T) {
+	var providers []*schema.Provider
 	resourceName := "aws_s3_bucket.bucket"
+	canonicalUserIDName := "data.aws_canonical_user_id.alternate"
+
 	ri := acctest.RandInt()
+
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck: func() {
+			testAccPreCheck(t)
+			testAccAlternateAccountPreCheck(t)
+		},
+		ProviderFactories: testAccProviderFactories(&providers),
+		CheckDestroy:      testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigWithGrants(ri),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckAWSS3BucketExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "grant.#", "1"),
-					testAccCheckAWSS3BucketUpdateGrantSingle(resourceName),
+					testAccCheckAWSS3BucketUpdateGrantSingle(resourceName, canonicalUserIDName),
 				),
 			},
 			{
-				ResourceName:      resourceName,
-				ImportState:       true,
-				ImportStateVerify: true,
-				ImportStateVerifyIgnore: []string{
-					"force_destroy", "acl"},
+				Config:                  testAccAWSS3BucketConfigWithGrants(ri),
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"force_destroy", "acl"},
 			},
 			{
 				Config: testAccAWSS3BucketConfigWithGrantsUpdate(ri),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckAWSS3BucketExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "grant.#", "2"),
-					testAccCheckAWSS3BucketUpdateGrantMulti(resourceName),
+					testAccCheckAWSS3BucketUpdateGrantMulti(resourceName, canonicalUserIDName),
 				),
 			},
 			{
-				Config: testAccAWSS3BucketBasic(ri),
+				Config: composeConfigWithAlternateAccountProvider(testAccAWSS3BucketBasic(ri)),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckAWSS3BucketExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "grant.#", "0"),
@@ -703,13 +710,19 @@ func TestAccAWSS3Bucket_UpdateGrant(t *testing.T) {
 	})
 }
 
-func TestAccAWSS3Bucket_AclToGrant(t *testing.T) {
+func TestAccAWSS3Bucket_Grants_ConvertFromAcl(t *testing.T) {
+	var providers []*schema.Provider
 	resourceName := "aws_s3_bucket.bucket"
+
 	ri := acctest.RandInt()
+
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck: func() {
+			testAccPreCheck(t)
+			testAccAlternateAccountPreCheck(t)
+		},
+		ProviderFactories: testAccProviderFactories(&providers),
+		CheckDestroy:      testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigWithAcl(ri),
@@ -731,13 +744,19 @@ func TestAccAWSS3Bucket_AclToGrant(t *testing.T) {
 	})
 }
 
-func TestAccAWSS3Bucket_GrantToAcl(t *testing.T) {
+func TestAccAWSS3Bucket_Grants_ConvertToAcl(t *testing.T) {
+	var providers []*schema.Provider
 	resourceName := "aws_s3_bucket.bucket"
+
 	ri := acctest.RandInt()
+
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck: func() {
+			testAccPreCheck(t)
+			testAccAlternateAccountPreCheck(t)
+		},
+		ProviderFactories: testAccProviderFactories(&providers),
+		CheckDestroy:      testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigWithGrants(ri),
@@ -747,7 +766,7 @@ func TestAccAWSS3Bucket_GrantToAcl(t *testing.T) {
 				),
 			},
 			{
-				Config: testAccAWSS3BucketConfigWithAcl(ri),
+				Config: composeConfigWithAlternateAccountProvider(testAccAWSS3BucketConfigWithAcl(ri)),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckAWSS3BucketExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "acl", "public-read"),
@@ -2976,9 +2995,14 @@ func testAccCheckAWSS3BucketReplicationRules(n string, providerF func() *schema.
 	}
 }
 
-func testAccCheckAWSS3BucketUpdateGrantSingle(resourceName string) func(s *terraform.State) error {
+func testAccCheckAWSS3BucketUpdateGrantSingle(resourceName, canonicalUserIDName string) func(s *terraform.State) error {
 	return func(s *terraform.State) error {
-		id := s.RootModule().Resources["data.aws_canonical_user_id.current"].Primary.ID
+		rs, ok := s.RootModule().Resources[canonicalUserIDName]
+		if !ok {
+			return fmt.Errorf("can't find %q in state", canonicalUserIDName)
+		}
+		id := rs.Primary.ID
+
 		gh := fmt.Sprintf("grant.%v", grantHash(map[string]interface{}{
 			"id":   id,
 			"type": "CanonicalUser",
@@ -2988,6 +3012,7 @@ func testAccCheckAWSS3BucketUpdateGrantSingle(resourceName string) func(s *terra
 				[]interface{}{"FULL_CONTROL", "WRITE"},
 			),
 		}))
+
 		for _, t := range []resource.TestCheckFunc{
 			resource.TestCheckResourceAttr(resourceName, gh+".permissions.#", "2"),
 			resource.TestCheckResourceAttr(resourceName, gh+".permissions.3535167073", "FULL_CONTROL"),
@@ -3002,9 +3027,14 @@ func testAccCheckAWSS3BucketUpdateGrantSingle(resourceName string) func(s *terra
 	}
 }
 
-func testAccCheckAWSS3BucketUpdateGrantMulti(resourceName string) func(s *terraform.State) error {
+func testAccCheckAWSS3BucketUpdateGrantMulti(resourceName, canonicalUserIDName string) func(s *terraform.State) error {
 	return func(s *terraform.State) error {
-		id := s.RootModule().Resources["data.aws_canonical_user_id.current"].Primary.ID
+		rs, ok := s.RootModule().Resources[canonicalUserIDName]
+		if !ok {
+			return fmt.Errorf("can't find %q in state", canonicalUserIDName)
+		}
+		id := rs.Primary.ID
+
 		gh1 := fmt.Sprintf("grant.%v", grantHash(map[string]interface{}{
 			"id":   id,
 			"type": "CanonicalUser",
@@ -3023,6 +3053,7 @@ func testAccCheckAWSS3BucketUpdateGrantMulti(resourceName string) func(s *terraf
 				[]interface{}{"READ_ACP"},
 			),
 		}))
+
 		for _, t := range []resource.TestCheckFunc{
 			resource.TestCheckResourceAttr(resourceName, gh1+".permissions.#", "1"),
 			resource.TestCheckResourceAttr(resourceName, gh1+".permissions.2931993811", "READ"),
@@ -3506,26 +3537,36 @@ resource "aws_s3_bucket" "bucket" {
 }
 
 func testAccAWSS3BucketConfigWithGrants(randInt int) string {
-	return fmt.Sprintf(`
-data "aws_canonical_user_id" "current" {}
+	return composeConfig(
+		testAccAlternateAccountProviderConfig(),
+		fmt.Sprintf(`
+data "aws_canonical_user_id" "alternate" {
+	provider = "aws.alternate"
+}
+
 resource "aws_s3_bucket" "bucket" {
 	bucket = "tf-test-bucket-%d"
 	grant {
-        id = "${data.aws_canonical_user_id.current.id}"
+        id = "${data.aws_canonical_user_id.alternate.id}"
         type = "CanonicalUser"
         permissions = ["FULL_CONTROL", "WRITE"]
     }
 }
-`, randInt)
+`, randInt))
 }
 
 func testAccAWSS3BucketConfigWithGrantsUpdate(randInt int) string {
-	return fmt.Sprintf(`
-data "aws_canonical_user_id" "current" {}
+	return composeConfig(
+		testAccAlternateAccountProviderConfig(),
+		fmt.Sprintf(`
+data "aws_canonical_user_id" "alternate" {
+	provider = "aws.alternate"
+}
+
 resource "aws_s3_bucket" "bucket" {
 	bucket = "tf-test-bucket-%d"
 	grant {
-        id = "${data.aws_canonical_user_id.current.id}"
+        id = "${data.aws_canonical_user_id.alternate.id}"
         type = "CanonicalUser"
         permissions = ["READ"]
     }
@@ -3535,7 +3576,7 @@ resource "aws_s3_bucket" "bucket" {
         uri = "http://acs.amazonaws.com/groups/s3/LogDelivery"
     }
 }
-`, randInt)
+`, randInt))
 }
 
 func testAccAWSS3BucketConfigWithLogging(randInt int) string {

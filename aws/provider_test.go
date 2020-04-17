@@ -1449,7 +1449,7 @@ provider "aws" {
 `, os.Getenv("TF_ACC_ASSUME_ROLE_ARN"), policy)
 }
 
-// composeConfig can be called to concatenate multiple strings to build test configurations
+// composeConfig concatenates multiple strings to build test configurations
 func composeConfig(config ...string) string {
 	var str strings.Builder
 
@@ -1458,4 +1458,10 @@ func composeConfig(config ...string) string {
 	}
 
 	return str.String()
+}
+
+// composeConfigWithAlternateAccountProvider concatenates multiple strings ot build test configuration
+// and includes the default alternate account provider
+func composeConfigWithAlternateAccountProvider(config ...string) string {
+	return composeConfig(append(config, testAccAlternateAccountProviderConfig())...)
 }
