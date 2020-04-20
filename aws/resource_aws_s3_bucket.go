@@ -86,11 +86,16 @@ func resourceAwsS3Bucket() *schema.Resource {
 							Type:     schema.TypeString,
 							Optional: true,
 						},
+						"email_address": {
+							Type:     schema.TypeString,
+							Optional: true,
+						},
 						"type": {
 							Type:     schema.TypeString,
 							Required: true,
 							ValidateFunc: validation.StringInSlice([]string{
 								s3.TypeCanonicalUser,
+								s3.TypeAmazonCustomerByEmail,
 								s3.TypeGroup,
 							}, false),
 						},
@@ -1477,6 +1482,9 @@ func resourceAwsS3BucketGrantsUpdate(s3conn *s3.S3, d *schema.ResourceData) erro
 				if i, ok := grantMap["id"].(string); ok && i != "" {
 					ge.SetID(i)
 				}
+				if i, ok := grantMap["email_address"].(string); ok && i != "" {
+					ge.SetEmailAddress(i)
+				}
 				if t, ok := grantMap["type"].(string); ok && t != "" {
 					ge.SetType(t)
 				}
@@ -2489,6 +2497,9 @@ func grantHash(v interface{}) int {
 	}
 
 	if v, ok := m["id"]; ok {
+		buf.WriteString(fmt.Sprintf("%s-", v.(string)))
+	}
+	if v, ok := m["email_address"]; ok {
 		buf.WriteString(fmt.Sprintf("%s-", v.(string)))
 	}
 	if v, ok := m["type"]; ok {

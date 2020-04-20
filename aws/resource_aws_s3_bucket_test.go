@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"os"
 	"reflect"
 	"regexp"
 	"sort"
@@ -681,7 +682,7 @@ func TestAccAWSS3Bucket_Grants_basic(t *testing.T) {
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckAWSS3BucketExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "grant.#", "1"),
-					testAccCheckAWSS3BucketUpdateGrantSingle(resourceName, canonicalUserIDName),
+					testAccCheckAWSS3BucketGrantAclSingle(resourceName, canonicalUserIDName),
 				),
 			},
 			{
@@ -708,6 +709,51 @@ func TestAccAWSS3Bucket_Grants_basic(t *testing.T) {
 			},
 		},
 	})
+}
+
+func TestAccAWSS3Bucket_Grants_Email(t *testing.T) {
+	var providers []*schema.Provider
+	resourceName := "aws_s3_bucket.bucket"
+
+	ri := acctest.RandInt()
+
+	email := os.Getenv("AWS_ALTERNATE_ACCOUNT_EMAIL")
+
+	// var v []*s3.Grant
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck: func() {
+			testAccPreCheck(t)
+			testAccAlternateAccountPreCheck(t)
+			testAccAlternateAccountEmailPreCheck(t)
+		},
+		ProviderFactories: testAccProviderFactories(&providers),
+		CheckDestroy:      testAccCheckAWSS3BucketDestroy,
+		Steps: []resource.TestStep{
+			{
+				Config: testAccAWSS3BucketConfigWithEmailGrants(ri, email),
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckAWSS3BucketExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "grant.#", "1"),
+					testAccCheckAWSS3BucketGrantEmailExists(resourceName, "FULL_CONTROL", "WRITE"), // TODO: name is wrong
+					// testAccCheckAWSS3BucketGrantPermissions(v, "FULL_CONTROL", "WRITE"),
+				),
+			},
+			{
+				Config:                  testAccAWSS3BucketConfigWithEmailGrants(ri, email),
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"force_destroy", "acl"},
+			},
+		},
+	})
+}
+
+func testAccAlternateAccountEmailPreCheck(t *testing.T) {
+	if os.Getenv("AWS_ALTERNATE_ACCOUNT_EMAIL") == "" {
+		t.Skip("This test requires AWS_ALTERNATE_ACCOUNT_EMAIL")
+	}
 }
 
 func TestAccAWSS3Bucket_Grants_ConvertFromAcl(t *testing.T) {
@@ -2995,7 +3041,7 @@ func testAccCheckAWSS3BucketReplicationRules(n string, providerF func() *schema.
 	}
 }
 
-func testAccCheckAWSS3BucketUpdateGrantSingle(resourceName, canonicalUserIDName string) func(s *terraform.State) error {
+func testAccCheckAWSS3BucketGrantAclSingle(resourceName, canonicalUserIDName string) func(s *terraform.State) error {
 	return func(s *terraform.State) error {
 		rs, ok := s.RootModule().Resources[canonicalUserIDName]
 		if !ok {
@@ -3026,6 +3072,115 @@ func testAccCheckAWSS3BucketUpdateGrantSingle(resourceName, canonicalUserIDName 
 		return nil
 	}
 }
+
+// func testAccCheckAWSS3BucketGrantEmailExists(resourceName, email string, res *[]*s3.Grant) resource.TestCheckFunc {
+// 	return func(s *terraform.State) error {
+// 		is, err := primaryInstanceState(s, resourceName)
+// 		if err != nil {
+// 			return err
+// 		}
+
+// 		id := is.ID
+// 		if id == "" {
+// 			return fmt.Errorf("No ID is set")
+// 		}
+
+// 		conn := testAccProvider.Meta().(*AWSClient).s3conn
+// 		output, err := conn.GetBucketAcl(&s3.GetBucketAclInput{
+// 			Bucket: aws.String(id),
+// 		})
+// 		if err != nil {
+// 			return fmt.Errorf("error getting S3 Bucket (%s) ACL: %w", id, err)
+// 		}
+// 		if output.Grants == nil {
+// 			return fmt.Errorf("no ACL grants found for S3 Bucket (%s) ACL", id)
+// 		}
+
+// 		found := false
+// 		result := []*s3.Grant{}
+// 		for _, v := range output.Grants {
+// 			if aws.StringValue(v.Grantee.Type) == s3.TypeAmazonCustomerByEmail && aws.StringValue(v.Grantee.EmailAddress) == email {
+// 				result = append(result, v)
+// 				found = true
+// 				break
+// 			}
+// 		}
+// 		*res = result
+// 		if !found {
+// 			return fmt.Errorf("no ACL grant found matching \"%s: %s\"", s3.TypeAmazonCustomerByEmail, email)
+// 		}
+
+// 		return nil
+// 	}
+// }
+
+func testAccCheckAWSS3BucketGrantEmailExists(resourceName string, expected ...string) resource.TestCheckFunc {
+	return func(s *terraform.State) error {
+		is, err := primaryInstanceState(s, resourceName)
+		if err != nil {
+			return err
+		}
+
+		id := is.ID
+		if id == "" {
+			return fmt.Errorf("No ID is set")
+		}
+
+		conn := testAccProvider.Meta().(*AWSClient).s3conn
+		output, err := conn.GetBucketAcl(&s3.GetBucketAclInput{
+			Bucket: aws.String(id),
+		})
+		if err != nil {
+			return fmt.Errorf("error getting S3 Bucket (%s) ACL: %w", id, err)
+		}
+		if output.Grants == nil {
+			return fmt.Errorf("no ACL grants found for S3 Bucket (%s) ACL", id)
+		}
+
+		// found := false
+		// result := []*s3.Grant{}
+		// for _, v := range output.Grants {
+		// 	if aws.StringValue(v.Grantee.Type) == s3.TypeAmazonCustomerByEmail && aws.StringValue(v.Grantee.EmailAddress) == email {
+		// 		result = append(result, v)
+		// 		found = true
+		// 		break
+		// 	}
+		// }
+		// *res = result
+		// if !found {
+		// 	return fmt.Errorf("no ACL grant found matching \"%s: %s\"", s3.TypeAmazonCustomerByEmail, email)
+		// }
+		if len(output.Grants) != len(expected) {
+			return fmt.Errorf("expected %d permissions, got %d", len(output.Grants), len(expected))
+		}
+
+		return nil
+	}
+}
+
+// func testAccCheckAWSS3BucketGrantPermissions(res []*s3.Grant, expected ...string) resource.TestCheckFunc {
+// 	return func(s *terraform.State) error {
+// 		if len(res) != len(expected) {
+// 			return fmt.Errorf("expected %d permissions, got %d", len(res), len(expected))
+// 		}
+
+// 		actual := make([]string, len(res), len(res))
+// 		sort.Strings(actual)
+// 		sort.Strings(expected)
+
+// 		equal := true
+// 		for i := range expected {
+// 			if expected[i] != actual[i] {
+// 				equal = false
+// 				break
+// 			}
+// 		}
+// 		if !equal {
+// 			return fmt.Errorf("expected %v, got %v", expected, actual)
+// 		}
+// 		return nil
+// 	}
+// }
 
 func testAccCheckAWSS3BucketUpdateGrantMulti(resourceName, canonicalUserIDName string) func(s *terraform.State) error {
 	return func(s *terraform.State) error {
@@ -3577,6 +3732,25 @@ resource "aws_s3_bucket" "bucket" {
     }
 }
 `, randInt))
+}
+
+func testAccAWSS3BucketConfigWithEmailGrants(randInt int, email string) string {
+	return composeConfig(
+		testAccAlternateAccountProviderConfig(),
+		fmt.Sprintf(`
+data "aws_canonical_user_id" "alternate" {
+	provider = "aws.alternate"
+}
+
+resource "aws_s3_bucket" "bucket" {
+	bucket = "tf-test-bucket-%[1]d"
+	grant {
+        email_address = "%[2]s"
+        type          = "AmazonCustomerByEmail"
+        permissions   = ["FULL_CONTROL", "WRITE"]
+    }
+}
+`, randInt, email))
 }
 
 func testAccAWSS3BucketConfigWithLogging(randInt int) string {
