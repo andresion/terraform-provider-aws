@@ -3,6 +3,7 @@ package aws
 import (
 	"fmt"
 	"regexp"
+	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/lexmodelbuildingservice"
@@ -64,7 +65,8 @@ func dataSourceAwsLexSlotType() *schema.Resource {
 			},
 			"version": {
 				Type:     schema.TypeString,
-				Required: true,
+				Optional: true,
+				Default:  LexSlotTypeVersionLatest,
 				ValidateFunc: validation.All(
 					validation.StringLenBetween(1, 64),
 					validation.StringMatch(regexp.MustCompile(`\$LATEST|[0-9]+`), ""),
@@ -88,10 +90,10 @@ func dataSourceAwsLexSlotTypeRead(d *schema.ResourceData, meta interface{}) erro
 	}
 
 	d.Set("checksum", resp.Checksum)
-	d.Set("created_date", resp.CreatedDate.UTC().String())
+	d.Set("created_date", aws.TimeValue(resp.CreatedDate).Format(time.RFC3339))
 	d.Set("description", resp.Description)
 	d.Set("enumeration_value", flattenLexEnumerationValues(resp.EnumerationValues))
-	d.Set("last_updated_date", resp.LastUpdatedDate.UTC().String())
+	d.Set("last_updated_date", aws.TimeValue(resp.CreatedDate).Format(time.RFC3339))
 	d.Set("name", resp.Name)
 	d.Set("value_selection_strategy", resp.ValueSelectionStrategy)
 	d.Set("version", resp.Version)

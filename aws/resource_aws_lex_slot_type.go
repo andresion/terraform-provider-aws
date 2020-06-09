@@ -12,36 +12,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/helper/validation"
 )
 
-// Many of the Lex resources require complex nested objects. Terraform maps only support simple key
-// value pairs and not complex or mixed types. That is why these resources are defined using the
-// schema.TypeList and a max of 1 item instead of the schema.TypeMap.
-
-func flattenLexEnumerationValues(values []*lexmodelbuildingservice.EnumerationValue) (flattened []map[string]interface{}) {
-	for _, value := range values {
-		flattened = append(flattened, map[string]interface{}{
-			"synonyms": flattenStringList(value.Synonyms),
-			"value":    aws.StringValue(value.Value),
-		})
-	}
-
-	return
-}
-
-func expandLexEnumerationValues(rawValues []interface{}) []*lexmodelbuildingservice.EnumerationValue {
-	enums := make([]*lexmodelbuildingservice.EnumerationValue, 0, len(rawValues))
-	for _, rawValue := range rawValues {
-		value, ok := rawValue.(map[string]interface{})
-		if !ok {
-			continue
-		}
-
-		enums = append(enums, &lexmodelbuildingservice.EnumerationValue{
-			Synonyms: expandStringList(value["synonyms"].([]interface{})),
-			Value:    aws.String(value["value"].(string)),
-		})
-	}
-	return enums
-}
+const (
+	LexSlotTypeVersionLatest = "$LATEST"
+)
 
 func resourceAwsLexSlotType() *schema.Resource {
 	return &schema.Resource{
@@ -69,6 +42,10 @@ func resourceAwsLexSlotType() *schema.Resource {
 				Optional: true,
 				Default:  true,
 			},
+			"created_date": {
+				Type:     schema.TypeString,
+				Computed: true,
+			},
 			"description": {
 				Type:         schema.TypeString,
 				Optional:     true,
@@ -77,7 +54,7 @@ func resourceAwsLexSlotType() *schema.Resource {
 			},
 			"enumeration_value": {
 				Type:     schema.TypeSet,
-				Optional: true,
+				Required: true,
 				MinItems: 1,
 				MaxItems: 10000,
 				Elem: &schema.Resource{
@@ -98,6 +75,10 @@ func resourceAwsLexSlotType() *schema.Resource {
 						},
 					},
 				},
+			},
+			"last_updated_date": {
+				Type:     schema.TypeString,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -167,7 +148,7 @@ func resourceAwsLexSlotTypeRead(d *schema.ResourceData, meta interface{}) error 
 
 	resp, err := conn.GetSlotType(&lexmodelbuildingservice.GetSlotTypeInput{
 		Name:    aws.String(d.Id()),
-		Version: aws.String("$LATEST"),
+		Version: aws.String(LexSlotTypeVersionLatest),
 	})
 	if isAWSErr(err, lexmodelbuildingservice.ErrCodeNotFoundException, "") {
 		d.SetId("")
@@ -178,14 +159,13 @@ func resourceAwsLexSlotTypeRead(d *schema.ResourceData, meta interface{}) error 
 	}
 
 	d.Set("checksum", resp.Checksum)
+	d.Set("created_date", aws.TimeValue(resp.CreatedDate).Format(time.RFC3339))
 	d.Set("description", resp.Description)
+	d.Set("enumeration_value", flattenLexEnumerationValues(resp.EnumerationValues))
+	d.Set("last_updated_date", aws.TimeValue(resp.CreatedDate).Format(time.RFC3339))
 	d.Set("name", resp.Name)
 	d.Set("value_selection_strategy", resp.ValueSelectionStrategy)
-	d.Set("version", "$LATEST")
-
-	if resp.EnumerationValues != nil {
-		d.Set("enumeration_value", flattenLexEnumerationValues(resp.EnumerationValues))
-	}
+	d.Set("version", resp.Version)
 
 	return nil
 }
@@ -246,4 +226,34 @@ func resourceAwsLexSlotTypeDelete(d *schema.ResourceData, meta interface{}) erro
 	}
 
 	return nil
+}
+
+// Many of the Lex resources require complex nested objects. Terraform maps only support simple key
+// value pairs and not complex or mixed types. That is why these resources are defined using the
+// schema.TypeList and a max of 1 item instead of the schema.TypeMap.
+func flattenLexEnumerationValues(values []*lexmodelbuildingservice.EnumerationValue) (flattened []map[string]interface{}) {
+	for _, value := range values {
+		flattened = append(flattened, map[string]interface{}{
+			"synonyms": flattenStringList(value.Synonyms),
+			"value":    aws.StringValue(value.Value),
+		})
+	}
+
+	return
+}
+
+func expandLexEnumerationValues(rawValues []interface{}) []*lexmodelbuildingservice.EnumerationValue {
+	enums := make([]*lexmodelbuildingservice.EnumerationValue, 0, len(rawValues))
+	for _, rawValue := range rawValues {
+		value, ok := rawValue.(map[string]interface{})
+		if !ok {
+			continue
+		}
+
+		enums = append(enums, &lexmodelbuildingservice.EnumerationValue{
+			Synonyms: expandStringList(value["synonyms"].([]interface{})),
+			Value:    aws.String(value["value"].(string)),
+		})
+	}
+	return enums
 }
