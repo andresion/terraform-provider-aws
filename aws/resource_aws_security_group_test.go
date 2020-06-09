@@ -13,10 +13,10 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/service/ec2"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/acctest"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/hashicorp/terraform-plugin-sdk/terraform"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/naming"
 )
 
@@ -681,11 +681,10 @@ func TestAccAWSSecurityGroup_basic(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t) },
-		IDRefreshName:       resourceName,
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSSecurityGroupDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:      func() { testAccPreCheck(t) },
+		IDRefreshName: resourceName,
+		Providers:     testAccProviders,
+		CheckDestroy:  testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfig,
@@ -808,10 +807,9 @@ func TestAccAWSSecurityGroup_ruleGathering(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSSecurityGroupDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfig_ruleGathering(sgName),
@@ -1043,11 +1041,10 @@ func TestAccAWSSecurityGroup_ipv6(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t) },
-		IDRefreshName:       resourceName,
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSSecurityGroupDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:      func() { testAccPreCheck(t) },
+		IDRefreshName: resourceName,
+		Providers:     testAccProviders,
+		CheckDestroy:  testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfigIpv6,
@@ -1133,11 +1130,10 @@ func TestAccAWSSecurityGroup_self(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t) },
-		IDRefreshName:       resourceName,
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSSecurityGroupDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:      func() { testAccPreCheck(t) },
+		IDRefreshName: resourceName,
+		Providers:     testAccProviders,
+		CheckDestroy:  testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfigSelf,
@@ -1168,11 +1164,10 @@ func TestAccAWSSecurityGroup_vpc(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t) },
-		IDRefreshName:       resourceName,
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSSecurityGroupDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:      func() { testAccPreCheck(t) },
+		IDRefreshName: resourceName,
+		Providers:     testAccProviders,
+		CheckDestroy:  testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfigVpc,
@@ -1222,11 +1217,10 @@ func TestAccAWSSecurityGroup_vpcNegOneIngress(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t) },
-		IDRefreshName:       resourceName,
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSSecurityGroupDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:      func() { testAccPreCheck(t) },
+		IDRefreshName: resourceName,
+		Providers:     testAccProviders,
+		CheckDestroy:  testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfigVpcNegOneIngress,
@@ -1265,11 +1259,10 @@ func TestAccAWSSecurityGroup_vpcProtoNumIngress(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t) },
-		IDRefreshName:       resourceName,
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSSecurityGroupDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:      func() { testAccPreCheck(t) },
+		IDRefreshName: resourceName,
+		Providers:     testAccProviders,
+		CheckDestroy:  testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfigVpcProtoNumIngress,
@@ -1368,11 +1361,10 @@ func TestAccAWSSecurityGroup_ruleDescription(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t) },
-		IDRefreshName:       resourceName,
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSSecurityGroupDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:      func() { testAccPreCheck(t) },
+		IDRefreshName: resourceName,
+		Providers:     testAccProviders,
+		CheckDestroy:  testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfigRuleDescription("Egress description", "Ingress description"),
@@ -1555,10 +1547,9 @@ func TestAccAWSSecurityGroup_drift(t *testing.T) {
 	var group ec2.SecurityGroup
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSSecurityGroupDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfig_drift(),
@@ -1603,10 +1594,9 @@ func TestAccAWSSecurityGroup_driftComplex(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSSecurityGroupDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfig_drift_complex(),
@@ -1761,10 +1751,9 @@ func TestAccAWSSecurityGroup_ingressWithCidrAndSGsVPC(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSSecurityGroupDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfig_ingressWithCidrAndSGs,
@@ -1814,10 +1803,9 @@ func TestAccAWSSecurityGroup_ingressWithCidrAndSGsClassic(t *testing.T) {
 	defer os.Setenv("AWS_DEFAULT_REGION", oldvar)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSSecurityGroupDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfig_ingressWithCidrAndSGs_classic,
@@ -1911,10 +1899,9 @@ func TestAccAWSSecurityGroup_ipv4andipv6Egress(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSSecurityGroupDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfigIpv4andIpv6Egress,

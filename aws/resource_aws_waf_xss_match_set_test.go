@@ -7,9 +7,9 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/waf"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/acctest"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
-	"github.com/hashicorp/terraform-plugin-sdk/terraform"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
 )
 
 func TestAccAWSWafXssMatchSet_basic(t *testing.T) {
@@ -18,10 +18,9 @@ func TestAccAWSWafXssMatchSet_basic(t *testing.T) {
 	resourceName := "aws_waf_xss_match_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSWafXssMatchSetDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSWafXssMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafXssMatchSetConfig(rName),
@@ -113,10 +112,9 @@ func TestAccAWSWafXssMatchSet_changeTuples(t *testing.T) {
 	resourceName := "aws_waf_xss_match_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSWafXssMatchSetDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSWafXssMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafXssMatchSetConfig(setName),

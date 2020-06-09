@@ -10,9 +10,9 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/waf"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/acctest"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
-	"github.com/hashicorp/terraform-plugin-sdk/terraform"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
 )
 
 func TestAccAWSWafIPSet_basic(t *testing.T) {
@@ -21,10 +21,9 @@ func TestAccAWSWafIPSet_basic(t *testing.T) {
 	resourceName := "aws_waf_ipset.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSWafIPSetDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSWafIPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafIPSetConfig(rName),
@@ -74,10 +73,9 @@ func TestAccAWSWafIPSet_changeNameForceNew(t *testing.T) {
 	resourceName := "aws_waf_ipset.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSWafIPSetDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSWafIPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafIPSetConfig(rName),
@@ -112,10 +110,9 @@ func TestAccAWSWafIPSet_changeDescriptors(t *testing.T) {
 	resourceName := "aws_waf_ipset.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSWafIPSetDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSWafIPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafIPSetConfig(rName),

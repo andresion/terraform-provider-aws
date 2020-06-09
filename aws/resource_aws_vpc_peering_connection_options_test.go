@@ -6,9 +6,9 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/ec2"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/acctest"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
 func TestAccAWSVpcPeeringConnectionOptions_basic(t *testing.T) {
@@ -17,10 +17,9 @@ func TestAccAWSVpcPeeringConnectionOptions_basic(t *testing.T) {
 	pcxResourceName := "aws_vpc_peering_connection.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSVpcPeeringConnectionDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSVpcPeeringConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcPeeringConnectionOptionsConfig_sameRegion_sameAccount(rName),
@@ -110,9 +109,8 @@ func TestAccAWSVpcPeeringConnectionOptions_differentRegionSameAccount(t *testing
 			testAccMultipleRegionsPreCheck(t)
 			testAccAlternateRegionPreCheck(t)
 		},
-		ProviderFactories:   testAccProviderFactories(&providers),
-		CheckDestroy:        testAccCheckAWSVpcPeeringConnectionDestroy,
-		DisableBinaryDriver: true,
+		ProviderFactories: testAccProviderFactories(&providers),
+		CheckDestroy:      testAccCheckAWSVpcPeeringConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcPeeringConnectionOptionsConfig_differentRegion_sameAccount(rName),
@@ -202,9 +200,8 @@ func TestAccAWSVpcPeeringConnectionOptions_sameRegionDifferentAccount(t *testing
 			testAccPreCheck(t)
 			testAccAlternateAccountPreCheck(t)
 		},
-		ProviderFactories:   testAccProviderFactories(&providers),
-		CheckDestroy:        testAccCheckAWSVpcPeeringConnectionDestroy,
-		DisableBinaryDriver: true,
+		ProviderFactories: testAccProviderFactories(&providers),
+		CheckDestroy:      testAccCheckAWSVpcPeeringConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcPeeringConnectionOptionsConfig_sameRegion_differentAccount(rName),

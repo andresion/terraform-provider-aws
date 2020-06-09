@@ -8,7 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/service/apigateway"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
 func resourceAwsApiGatewayIntegrationResponse() *schema.Resource {
@@ -81,7 +81,6 @@ func resourceAwsApiGatewayIntegrationResponse() *schema.Resource {
 			"response_parameters_in_json": {
 				Type:     schema.TypeString,
 				Optional: true,
-				Removed:  "Use `response_parameters` argument instead",
 			},
 
 			"content_handling": {

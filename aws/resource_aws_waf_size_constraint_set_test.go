@@ -5,13 +5,13 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
-	"github.com/hashicorp/terraform-plugin-sdk/terraform"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/service/waf"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/acctest"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 )
 
 func TestAccAWSWafSizeConstraintSet_basic(t *testing.T) {
@@ -20,10 +20,9 @@ func TestAccAWSWafSizeConstraintSet_basic(t *testing.T) {
 	resourceName := "aws_waf_size_constraint_set.size_constraint_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSWafSizeConstraintSetDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSWafSizeConstraintSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafSizeConstraintSetConfig(sizeConstraintSet),
@@ -113,10 +112,9 @@ func TestAccAWSWafSizeConstraintSet_changeConstraints(t *testing.T) {
 	resourceName := "aws_waf_size_constraint_set.size_constraint_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSWafSizeConstraintSetDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSWafSizeConstraintSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafSizeConstraintSetConfig(setName),

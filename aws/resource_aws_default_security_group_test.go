@@ -7,19 +7,18 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/ec2"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
-	"github.com/hashicorp/terraform-plugin-sdk/terraform"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
 )
 
 func TestAccAWSDefaultSecurityGroup_basic(t *testing.T) {
 	var group ec2.SecurityGroup
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t) },
-		IDRefreshName:       "aws_default_security_group.web",
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSDefaultSecurityGroupDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:      func() { testAccPreCheck(t) },
+		IDRefreshName: "aws_default_security_group.web",
+		Providers:     testAccProviders,
+		CheckDestroy:  testAccCheckAWSDefaultSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDefaultSecurityGroupConfig,
@@ -50,11 +49,10 @@ func TestAccAWSDefaultSecurityGroup_classic(t *testing.T) {
 	var group ec2.SecurityGroup
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t) },
-		IDRefreshName:       "aws_default_security_group.web",
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSDefaultSecurityGroupDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:      func() { testAccPreCheck(t) },
+		IDRefreshName: "aws_default_security_group.web",
+		Providers:     testAccProviders,
+		CheckDestroy:  testAccCheckAWSDefaultSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDefaultSecurityGroupConfig_classic,

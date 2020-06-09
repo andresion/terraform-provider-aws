@@ -2,6 +2,12 @@ module github.com/terraform-providers/terraform-provider-aws
 
 go 1.13
 
+replace (
+	github.com/hashicorp/go-plugin v1.2.2 => ../go-plugin
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.0.0-rc.1.0.20200513175959-048e70e44356 => ../terraform-plugin-sdk
+	github.com/hashicorp/terraform-plugin-test v1.3.0 => ../terraform-plugin-test
+)
+
 require (
 	github.com/aws/aws-sdk-go v1.31.0
 	github.com/beevik/etree v1.1.0
@@ -13,7 +19,7 @@ require (
 	github.com/hashicorp/go-cleanhttp v0.5.1
 	github.com/hashicorp/go-multierror v1.0.0
 	github.com/hashicorp/go-version v1.2.0
-	github.com/hashicorp/terraform-plugin-sdk v1.12.0
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.0.0-rc.1.0.20200513175959-048e70e44356
 	github.com/hashicorp/vault v0.10.4
 	github.com/jen20/awspolicyequivalence v1.1.0
 	github.com/katbyte/terrafmt v0.2.1-0.20200303174203-e6a3e82cb21b

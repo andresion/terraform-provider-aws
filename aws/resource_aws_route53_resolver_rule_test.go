@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/hashicorp/go-multierror"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/acctest"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
-	"github.com/hashicorp/terraform-plugin-sdk/terraform"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/route53resolver"
@@ -207,10 +207,9 @@ func TestAccAwsRoute53ResolverRule_forward(t *testing.T) {
 	name := fmt.Sprintf("terraform-testacc-r53-resolver-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckRoute53ResolverRuleDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckRoute53ResolverRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ResolverRuleConfig_forward(name),
@@ -273,10 +272,9 @@ func TestAccAwsRoute53ResolverRule_forwardEndpointRecreate(t *testing.T) {
 	name := fmt.Sprintf("terraform-testacc-r53-resolver-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckRoute53ResolverRuleDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckRoute53ResolverRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ResolverRuleConfig_forward(name),

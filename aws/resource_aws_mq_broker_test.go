@@ -9,10 +9,10 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/mq"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/acctest"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/hashicorp/terraform-plugin-sdk/terraform"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
 )
 
 func init() {
@@ -240,10 +240,9 @@ func TestAccAWSMqBroker_basic(t *testing.T) {
 	resourceName := "aws_mq_broker.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAwsMqBrokerDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAwsMqBrokerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMqBrokerConfig(sgName, brokerName),
@@ -320,10 +319,9 @@ func TestAccAWSMqBroker_allFieldsDefaultVpc(t *testing.T) {
 </broker>`
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAwsMqBrokerDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAwsMqBrokerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMqBrokerConfig_allFieldsDefaultVpc(sgName, cfgNameBefore, cfgBodyBefore, brokerName),
@@ -437,10 +435,9 @@ func TestAccAWSMqBroker_allFieldsCustomVpc(t *testing.T) {
 </broker>`
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAwsMqBrokerDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAwsMqBrokerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMqBrokerConfig_allFieldsCustomVpc(sgName, cfgNameBefore, cfgBodyBefore, brokerName),
@@ -626,10 +623,9 @@ func TestAccAWSMqBroker_updateUsers(t *testing.T) {
 	resourceName := "aws_mq_broker.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAwsMqBrokerDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAwsMqBrokerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMqBrokerConfig_updateUsers1(sgName, brokerName),
@@ -736,10 +732,9 @@ func TestAccAWSMqBroker_updateSecurityGroup(t *testing.T) {
 	resourceName := "aws_mq_broker.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAwsMqBrokerDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAwsMqBrokerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMqBrokerConfig(sgName, brokerName),

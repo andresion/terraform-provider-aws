@@ -10,9 +10,9 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/ec2"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/acctest"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
-	"github.com/hashicorp/terraform-plugin-sdk/terraform"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
 )
 
 func init() {
@@ -143,10 +143,9 @@ func TestAccAWSSpotFleetRequest_associatePublicIpAddress(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSSpotFleetRequestDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigAssociatePublicIpAddress(rName, rInt, validUntil),
@@ -581,10 +580,9 @@ func TestAccAWSSpotFleetRequest_lowestPriceAzInGivenList(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSSpotFleetRequestDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigWithAzs(rName, rInt, validUntil),
@@ -644,10 +642,9 @@ func TestAccAWSSpotFleetRequest_multipleInstanceTypesInSameAz(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSSpotFleetRequestDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigMultipleInstanceTypesinSameAz(rName, rInt, validUntil),
@@ -732,10 +729,9 @@ func TestAccAWSSpotFleetRequest_overriddingSpotPrice(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSSpotFleetRequestDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigOverridingSpotPrice(rName, rInt, validUntil),
@@ -875,10 +871,9 @@ func TestAccAWSSpotFleetRequest_withWeightedCapacity(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSSpotFleetRequestDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigWithWeightedCapacity(rName, rInt, validUntil),
@@ -996,10 +991,9 @@ func TestAccAWSSpotFleetRequest_withTags(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckAWSSpotFleetRequestDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestTagsConfig(rName, rInt, validUntil),

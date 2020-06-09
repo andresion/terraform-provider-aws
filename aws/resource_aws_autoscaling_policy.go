@@ -9,9 +9,9 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/service/autoscaling"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/hashcode"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/validation"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/hashcode"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
 )
 
 func resourceAwsAutoscalingPolicy() *schema.Resource {
@@ -74,7 +74,6 @@ func resourceAwsAutoscalingPolicy() *schema.Resource {
 			"min_adjustment_step": {
 				Type:     schema.TypeInt,
 				Optional: true,
-				Removed:  "Use `min_adjustment_magnitude` argument instead",
 			},
 			"scaling_adjustment": {
 				Type:          schema.TypeInt,

@@ -9,7 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/service/apigateway"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
 func resourceAwsApiGatewayMethod() *schema.Resource {
@@ -93,7 +93,6 @@ func resourceAwsApiGatewayMethod() *schema.Resource {
 			"request_parameters_in_json": {
 				Type:     schema.TypeString,
 				Optional: true,
-				Removed:  "Use `request_parameters` argument instead",
 			},
 
 			"request_validator_id": {

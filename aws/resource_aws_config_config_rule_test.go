@@ -7,9 +7,9 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/configservice"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/acctest"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
-	"github.com/hashicorp/terraform-plugin-sdk/terraform"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
 )
 
 func testAccConfigConfigRule_basic(t *testing.T) {
@@ -43,10 +43,9 @@ func testAccConfigConfigRule_ownerAws(t *testing.T) {
 	resourceName := "aws_config_config_rule.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckConfigConfigRuleDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckConfigConfigRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigConfigRuleConfig_ownerAws(rName),
@@ -80,10 +79,9 @@ func testAccConfigConfigRule_customlambda(t *testing.T) {
 	path := "test-fixtures/lambdatest.zip"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:            func() { testAccPreCheck(t) },
-		Providers:           testAccProviders,
-		CheckDestroy:        testAccCheckConfigConfigRuleDestroy,
-		DisableBinaryDriver: true,
+		PreCheck:     func() { testAccPreCheck(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckConfigConfigRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigConfigRuleConfig_customLambda(rInt, path),

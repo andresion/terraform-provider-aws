@@ -7,7 +7,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/waf"
 	"github.com/aws/aws-sdk-go/service/wafregional"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
 func resourceAwsWafRegionalByteMatchSet() *schema.Resource {
@@ -29,7 +29,6 @@ func resourceAwsWafRegionalByteMatchSet() *schema.Resource {
 			"byte_match_tuple": {
 				Type:     schema.TypeSet,
 				Optional: true,
-				Removed:  "use `byte_match_tuples` configuration block(s) instead",
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"field_to_match": {
