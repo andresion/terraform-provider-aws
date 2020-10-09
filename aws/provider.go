@@ -861,6 +861,7 @@ func Provider() *schema.Provider {
 			"aws_s3control_bucket":                                    resourceAwsS3ControlBucket(),
 			"aws_s3control_bucket_lifecycle_configuration":            resourceAwsS3ControlBucketLifecycleConfiguration(),
 			"aws_s3control_bucket_policy":                             resourceAwsS3ControlBucketPolicy(),
+			"aws_s3outposts_endpoint":                                 resourceAwsS3OutpostsEndpoint(),
 			"aws_security_group":                                      resourceAwsSecurityGroup(),
 			"aws_network_interface_sg_attachment":                     resourceAwsNetworkInterfaceSGAttachment(),
 			"aws_default_security_group":                              resourceAwsDefaultSecurityGroup(),
