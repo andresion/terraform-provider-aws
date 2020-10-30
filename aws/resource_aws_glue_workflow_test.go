@@ -51,9 +51,9 @@ func TestAccAWSGlueWorkflow_basic(t *testing.T) {
 	resourceName := "aws_glue_workflow.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGlueWorkflow(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueWorkflowDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGlueWorkflow(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueWorkflowDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueWorkflowConfig_Required(rName),
@@ -80,9 +80,9 @@ func TestAccAWSGlueWorkflow_maxConcurrentRuns(t *testing.T) {
 	resourceName := "aws_glue_workflow.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGlueWorkflow(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueWorkflowDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGlueWorkflow(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueWorkflowDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueWorkflowConfigMaxConcurrentRuns(rName, 1),
@@ -121,9 +121,9 @@ func TestAccAWSGlueWorkflow_DefaultRunProperties(t *testing.T) {
 	resourceName := "aws_glue_workflow.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGlueWorkflow(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueWorkflowDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGlueWorkflow(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueWorkflowDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueWorkflowConfig_DefaultRunProperties(rName, "firstPropValue", "secondPropValue"),
@@ -150,9 +150,9 @@ func TestAccAWSGlueWorkflow_Description(t *testing.T) {
 	resourceName := "aws_glue_workflow.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGlueWorkflow(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueWorkflowDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGlueWorkflow(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueWorkflowDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueWorkflowConfig_Description(rName, "First Description"),
@@ -183,9 +183,9 @@ func TestAccAWSGlueWorkflow_Tags(t *testing.T) {
 	resourceName := "aws_glue_workflow.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGlueWorkflow(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueWorkflowDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGlueWorkflow(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueWorkflowDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueWorkflowConfigTags1(rName, "key1", "value1"),
@@ -228,9 +228,9 @@ func TestAccAWSGlueWorkflow_disappears(t *testing.T) {
 	resourceName := "aws_glue_workflow.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGlueWorkflow(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueWorkflowDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGlueWorkflow(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueWorkflowDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueWorkflowConfig_Required(rName),

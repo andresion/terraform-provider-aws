@@ -18,9 +18,9 @@ func TestAccAWSIAMOpenIDConnectProvider_basic(t *testing.T) {
 	resourceName := "aws_iam_openid_connect_provider.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckIAMOpenIDConnectProviderDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMOpenIDConnectProviderDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccIAMOpenIDConnectProviderConfig(rString),
@@ -60,9 +60,9 @@ func TestAccAWSIAMOpenIDConnectProvider_disappears(t *testing.T) {
 	resourceName := "aws_iam_openid_connect_provider.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckIAMOpenIDConnectProviderDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMOpenIDConnectProviderDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccIAMOpenIDConnectProviderConfig(rString),

@@ -15,9 +15,9 @@ func TestAccAWSVpcEndpointSubnetAssociation_basic(t *testing.T) {
 	var vpce ec2.VpcEndpoint
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcEndpointSubnetAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcEndpointSubnetAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcEndpointSubnetAssociationConfig_basic,
@@ -34,9 +34,9 @@ func TestAccAWSVpcEndpointSubnetAssociation_multiple(t *testing.T) {
 	var vpce ec2.VpcEndpoint
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcEndpointSubnetAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcEndpointSubnetAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcEndpointSubnetAssociationConfig_multiple,

@@ -83,8 +83,8 @@ func TestAccDataSourceAwsRegion_basic(t *testing.T) {
 	resourceName := "data.aws_region.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsRegionConfig_empty,
@@ -114,8 +114,8 @@ func TestAccDataSourceAwsRegion_endpoint(t *testing.T) {
 	resourceName := "data.aws_region.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsRegionConfig_endpoint(endpoint1),
@@ -158,8 +158,8 @@ func TestAccDataSourceAwsRegion_endpointAndName(t *testing.T) {
 	resourceName := "data.aws_region.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsRegionConfig_endpointAndName(endpoint1, name1),
@@ -215,8 +215,8 @@ func TestAccDataSourceAwsRegion_name(t *testing.T) {
 	resourceName := "data.aws_region.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsRegionConfig_name(name1),

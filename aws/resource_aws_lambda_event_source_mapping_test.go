@@ -31,9 +31,9 @@ func TestAccAWSLambdaEventSourceMapping_kinesis_basic(t *testing.T) {
 	uFuncName := fmt.Sprintf("tf_acc_lambda_esm_basic_updated_%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaEventSourceMappingDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaEventSourceMappingDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaEventSourceMappingConfig_kinesis(roleName, policyName, attName, streamName, funcName, uFuncName),
@@ -86,9 +86,9 @@ func TestAccAWSLambdaEventSourceMapping_kinesis_removeBatchSize(t *testing.T) {
 	uFuncName := fmt.Sprintf("tf_acc_lambda_esm_basic_updated_%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaEventSourceMappingDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaEventSourceMappingDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaEventSourceMappingConfig_kinesis(roleName, policyName, attName, streamName, funcName, uFuncName),
@@ -133,9 +133,9 @@ func TestAccAWSLambdaEventSourceMapping_sqs_basic(t *testing.T) {
 	uFuncName := fmt.Sprintf("tf_acc_lambda_sqs_basic_updated_%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaEventSourceMappingDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaEventSourceMappingDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaEventSourceMappingConfig_sqs(roleName, policyName, attName, streamName, funcName, uFuncName),
@@ -185,9 +185,9 @@ func TestAccAWSLambdaEventSourceMapping_sqs_withFunctionName(t *testing.T) {
 	funcName := fmt.Sprintf("tf_acc_lambda_sqs_basic_%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaEventSourceMappingDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaEventSourceMappingDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaEventSourceMappingConfig_sqs_testWithFunctionName(roleName, policyName, attName, streamName, funcName),
@@ -221,9 +221,9 @@ func TestAccAWSLambdaEventSourceMapping_kinesis_disappears(t *testing.T) {
 	uFuncName := fmt.Sprintf("tf_acc_lambda_esm_import_updated_%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaEventSourceMappingDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaEventSourceMappingDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaEventSourceMappingConfig_kinesis(roleName, policyName, attName, streamName, funcName, uFuncName),
@@ -249,9 +249,9 @@ func TestAccAWSLambdaEventSourceMapping_sqsDisappears(t *testing.T) {
 	uFuncName := fmt.Sprintf("tf_acc_lambda_sqs_import_updated_%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaEventSourceMappingDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaEventSourceMappingDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaEventSourceMappingConfig_sqs(roleName, policyName, attName, streamName, funcName, uFuncName),
@@ -277,9 +277,9 @@ func TestAccAWSLambdaEventSourceMapping_changesInEnabledAreDetected(t *testing.T
 	uFuncName := fmt.Sprintf("tf_acc_lambda_sqs_import_updated_%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaEventSourceMappingDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaEventSourceMappingDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaEventSourceMappingConfig_sqs(roleName, policyName, attName, streamName, funcName, uFuncName),
@@ -300,9 +300,9 @@ func TestAccAWSLambdaEventSourceMapping_StartingPositionTimestamp(t *testing.T) 
 	startingPositionTimestamp := time.Now().UTC().Format(time.RFC3339)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaEventSourceMappingDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaEventSourceMappingDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaEventSourceMappingConfigKinesisStartingPositionTimestamp(rName, startingPositionTimestamp),
@@ -333,9 +333,9 @@ func TestAccAWSLambdaEventSourceMapping_BatchWindow(t *testing.T) {
 	batchWindowUpdate := int64(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaEventSourceMappingDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaEventSourceMappingDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaEventSourceMappingConfigKinesisBatchWindow(rName, batchWindow),
@@ -372,9 +372,9 @@ func TestAccAWSLambdaEventSourceMapping_ParallelizationFactor(t *testing.T) {
 	parallelizationFactorUpdate := int64(5)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaEventSourceMappingDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaEventSourceMappingDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaEventSourceMappingConfigKinesisParallelizationFactor(rName, parallelizationFactor),
@@ -411,9 +411,9 @@ func TestAccAWSLambdaEventSourceMapping_MaximumRetryAttempts(t *testing.T) {
 	maximumRetryAttemptsUpdate := int64(100)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaEventSourceMappingDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaEventSourceMappingDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaEventSourceMappingConfigKinesisMaximumRetryAttempts(rName, maximumRetryAttempts),
@@ -450,9 +450,9 @@ func TestAccAWSLambdaEventSourceMapping_MaximumRetryAttemptsZero(t *testing.T) {
 	maximumRetryAttemptsUpdate := int64(100)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaEventSourceMappingDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaEventSourceMappingDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaEventSourceMappingConfigKinesisMaximumRetryAttempts(rName, maximumRetryAttempts),
@@ -496,9 +496,9 @@ func TestAccAWSLambdaEventSourceMapping_MaximumRecordAgeInSeconds(t *testing.T) 
 	maximumRecordAgeInSecondsUpdate := int64(3600)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaEventSourceMappingDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaEventSourceMappingDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaEventSourceMappingConfigKinesisMaximumRecordAgeInSeconds(rName, maximumRecordAgeInSeconds),
@@ -535,9 +535,9 @@ func TestAccAWSLambdaEventSourceMapping_BisectBatch(t *testing.T) {
 	bisectBatchUpdate := true
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaEventSourceMappingDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaEventSourceMappingDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaEventSourceMappingConfigKinesisBisectBatch(rName, bisectBatch),
@@ -577,9 +577,9 @@ func TestAccAWSLambdaEventSourceMapping_KinesisDestinationConfig(t *testing.T) {
 	sqsResourceName := "aws_sqs_queue.sqs_queue_test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaEventSourceMappingDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaEventSourceMappingDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaEventSourceMappingConfigKinesisDestinationConfig(rName, streamName),

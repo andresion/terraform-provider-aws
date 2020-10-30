@@ -62,9 +62,9 @@ func TestAccAWSMskCluster_basic(t *testing.T) {
 	resourceName := "aws_msk_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckMskClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckMskClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMskClusterConfig_basic(rName),
@@ -117,9 +117,9 @@ func TestAccAWSMskCluster_BrokerNodeGroupInfo_EbsVolumeSize(t *testing.T) {
 	resourceName := "aws_msk_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckMskClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckMskClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMskClusterConfigBrokerNodeGroupInfoEbsVolumeSize(rName, 11),
@@ -160,9 +160,9 @@ func TestAccAWSMskCluster_ClientAuthentication_Tls_CertificateAuthorityArns(t *t
 	resourceName := "aws_msk_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckMskClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckMskClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMskClusterConfigClientAuthenticationTlsCertificateAuthorityArns(rName),
@@ -195,9 +195,9 @@ func TestAccAWSMskCluster_ConfigurationInfo_Revision(t *testing.T) {
 	resourceName := "aws_msk_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckMskClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckMskClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMskClusterConfigConfigurationInfoRevision1(rName),
@@ -237,9 +237,9 @@ func TestAccAWSMskCluster_EncryptionInfo_EncryptionAtRestKmsKeyArn(t *testing.T)
 	resourceName := "aws_msk_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckMskClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckMskClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMskClusterConfigEncryptionInfoEncryptionAtRestKmsKeyArn(rName),
@@ -267,9 +267,9 @@ func TestAccAWSMskCluster_EncryptionInfo_EncryptionInTransit_ClientBroker(t *tes
 	resourceName := "aws_msk_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckMskClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckMskClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMskClusterConfigEncryptionInfoEncryptionInTransitClientBroker(rName, "PLAINTEXT"),
@@ -299,9 +299,9 @@ func TestAccAWSMskCluster_EncryptionInfo_EncryptionInTransit_InCluster(t *testin
 	resourceName := "aws_msk_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckMskClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckMskClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMskClusterConfigEncryptionInfoEncryptionInTransitInCluster(rName, false),
@@ -331,9 +331,9 @@ func TestAccAWSMskCluster_EnhancedMonitoring(t *testing.T) {
 	resourceName := "aws_msk_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckMskClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckMskClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMskClusterConfigEnhancedMonitoring(rName, "PER_BROKER"),
@@ -369,9 +369,9 @@ func TestAccAWSMskCluster_NumberOfBrokerNodes(t *testing.T) {
 	resourceName := "aws_msk_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckMskClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckMskClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMskClusterConfigNumberOfBrokerNodes(rName, 3),
@@ -421,9 +421,9 @@ func TestAccAWSMskCluster_OpenMonitoring(t *testing.T) {
 	resourceName := "aws_msk_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckMskClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckMskClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMskClusterConfigOpenMonitoring(rName, false, false),
@@ -469,9 +469,9 @@ func TestAccAWSMskCluster_LoggingInfo(t *testing.T) {
 	resourceName := "aws_msk_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckMskClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckMskClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMskClusterConfigLoggingInfo(rName, false, false, false),
@@ -522,9 +522,9 @@ func TestAccAWSMskCluster_Tags(t *testing.T) {
 	resourceName := "aws_msk_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckMskClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckMskClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMskClusterConfigTags1(rName),

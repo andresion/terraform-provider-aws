@@ -14,9 +14,9 @@ func TestAccAWSSsmResourceDataSync_basic(t *testing.T) {
 	resourceName := "aws_ssm_resource_data_sync.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSsmResourceDataSyncDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSsmResourceDataSyncDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSsmResourceDataSyncConfig(acctest.RandInt(), acctest.RandString(5)),
@@ -38,9 +38,9 @@ func TestAccAWSSsmResourceDataSync_update(t *testing.T) {
 	resourceName := "aws_ssm_resource_data_sync.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSsmResourceDataSyncDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSsmResourceDataSyncDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSsmResourceDataSyncConfig(acctest.RandInt(), rName),

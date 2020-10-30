@@ -65,9 +65,9 @@ func TestAccAWSDAXCluster_basic(t *testing.T) {
 	resourceName := "aws_dax_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDax(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDAXClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDax(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDAXClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDAXClusterConfig(rString),
@@ -118,9 +118,9 @@ func TestAccAWSDAXCluster_resize(t *testing.T) {
 	resourceName := "aws_dax_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDax(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDAXClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDax(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDAXClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDAXClusterConfigResize_singleNode(rString),
@@ -161,9 +161,9 @@ func TestAccAWSDAXCluster_encryption_disabled(t *testing.T) {
 	resourceName := "aws_dax_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDax(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDAXClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDax(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDAXClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDAXClusterConfigWithEncryption(rString, false),
@@ -194,9 +194,9 @@ func TestAccAWSDAXCluster_encryption_enabled(t *testing.T) {
 	resourceName := "aws_dax_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDax(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDAXClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDax(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDAXClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDAXClusterConfigWithEncryption(rString, true),

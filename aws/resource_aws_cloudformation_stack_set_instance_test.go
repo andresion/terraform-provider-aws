@@ -104,9 +104,9 @@ func TestAccAWSCloudFormationStackSetInstance_basic(t *testing.T) {
 	resourceName := "aws_cloudformation_stack_set_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudFormationStackSetInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudFormationStackSetInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudFormationStackSetInstanceConfig(rName),
@@ -138,9 +138,9 @@ func TestAccAWSCloudFormationStackSetInstance_disappears(t *testing.T) {
 	resourceName := "aws_cloudformation_stack_set_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudFormationStackSetInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudFormationStackSetInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudFormationStackSetInstanceConfig(rName),
@@ -162,9 +162,9 @@ func TestAccAWSCloudFormationStackSetInstance_disappears_StackSet(t *testing.T) 
 	resourceName := "aws_cloudformation_stack_set_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudFormationStackSetInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudFormationStackSetInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudFormationStackSetInstanceConfig(rName),
@@ -186,9 +186,9 @@ func TestAccAWSCloudFormationStackSetInstance_ParameterOverrides(t *testing.T) {
 	resourceName := "aws_cloudformation_stack_set_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudFormationStackSetInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudFormationStackSetInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudFormationStackSetInstanceConfigParameterOverrides1(rName, "overridevalue1"),
@@ -249,9 +249,9 @@ func TestAccAWSCloudFormationStackSetInstance_RetainStack(t *testing.T) {
 	resourceName := "aws_cloudformation_stack_set_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudFormationStackSetInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudFormationStackSetInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudFormationStackSetInstanceConfigRetainStack(rName, true),

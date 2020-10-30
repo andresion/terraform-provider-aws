@@ -62,9 +62,9 @@ func TestAccAWSConfigConfigurationAggregator_account(t *testing.T) {
 	resourceName := "aws_config_configuration_aggregator.example"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSConfigConfigurationAggregatorDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSConfigConfigurationAggregatorDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSConfigConfigurationAggregatorConfig_account(rName),
@@ -94,9 +94,9 @@ func TestAccAWSConfigConfigurationAggregator_organization(t *testing.T) {
 	resourceName := "aws_config_configuration_aggregator.example"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSConfigConfigurationAggregatorDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSConfigConfigurationAggregatorDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSConfigConfigurationAggregatorConfig_organization(rName),
@@ -123,9 +123,9 @@ func TestAccAWSConfigConfigurationAggregator_switch(t *testing.T) {
 	resourceName := "aws_config_configuration_aggregator.example"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSConfigConfigurationAggregatorDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSConfigConfigurationAggregatorDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSConfigConfigurationAggregatorConfig_account(rName),
@@ -151,9 +151,9 @@ func TestAccAWSConfigConfigurationAggregator_tags(t *testing.T) {
 	resourceName := "aws_config_configuration_aggregator.example"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSConfigConfigurationAggregatorDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSConfigConfigurationAggregatorDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSConfigConfigurationAggregatorConfig_tags(rName, "foo", "bar", "fizz", "buzz"),

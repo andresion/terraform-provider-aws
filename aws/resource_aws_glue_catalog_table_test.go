@@ -17,9 +17,9 @@ func TestAccAWSGlueCatalogTable_recreates(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlueTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlueTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCatalogTable_basic(rName),
@@ -52,9 +52,9 @@ func TestAccAWSGlueCatalogTable_basic(t *testing.T) {
 	resourceName := "aws_glue_catalog_table.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlueTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlueTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:  testAccGlueCatalogTable_basic(rName),
@@ -81,9 +81,9 @@ func TestAccAWSGlueCatalogTable_full(t *testing.T) {
 	resourceName := "aws_glue_catalog_table.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlueTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlueTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:  testAccGlueCatalogTable_full(rName, description),
@@ -144,9 +144,9 @@ func TestAccAWSGlueCatalogTable_update_addValues(t *testing.T) {
 	resourceName := "aws_glue_catalog_table.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlueTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlueTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:  testAccGlueCatalogTable_basic(rName),
@@ -216,9 +216,9 @@ func TestAccAWSGlueCatalogTable_update_replaceValues(t *testing.T) {
 	resourceName := "aws_glue_catalog_table.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlueTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlueTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:  testAccGlueCatalogTable_full(rName, description),
@@ -329,9 +329,9 @@ func TestAccAWSGlueCatalogTable_StorageDescriptor_EmptyConfigurationBlock(t *tes
 	resourceName := "aws_glue_catalog_table.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlueTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlueTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCatalogTableConfigStorageDescriptorEmptyConfigurationBlock(rName),
@@ -351,9 +351,9 @@ func TestAccAWSGlueCatalogTable_StorageDescriptor_SerDeInfo_EmptyConfigurationBl
 	resourceName := "aws_glue_catalog_table.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlueTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlueTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCatalogTableConfigStorageDescriptorSerDeInfoEmptyConfigurationBlock(rName),
@@ -372,9 +372,9 @@ func TestAccAWSGlueCatalogTable_StorageDescriptor_SerDeInfo_UpdateValues(t *test
 	resourceName := "aws_glue_catalog_table.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlueTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlueTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:  testAccGlueCatalogTableConfigStorageDescriptorSerDeInfo(rName),
@@ -412,9 +412,9 @@ func TestAccAWSGlueCatalogTable_StorageDescriptor_SkewedInfo_EmptyConfigurationB
 	resourceName := "aws_glue_catalog_table.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlueTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlueTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCatalogTableConfigStorageDescriptorSkewedInfoEmptyConfigurationBlock(rName),
@@ -433,9 +433,9 @@ func TestAccAWSGlueCatalogTable_disappears(t *testing.T) {
 	resourceName := "aws_glue_catalog_table.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlueTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlueTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:  testAccGlueCatalogTable_basic(rName),

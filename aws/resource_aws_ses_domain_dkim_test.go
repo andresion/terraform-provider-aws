@@ -24,8 +24,8 @@ func TestAccAWSSESDomainDkim_basic(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckAWSSES(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSESDomainDkimDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSESDomainDkimDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: fmt.Sprintf(testAccAwsSESDomainDkimConfig, domain),

@@ -17,9 +17,9 @@ func TestAccAWSInspectorTarget_basic(t *testing.T) {
 	resourceName := "aws_inspector_assessment_target.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSInspectorTargetAssessmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSInspectorTargetAssessmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSInspectorTargetAssessmentConfig(rName),
@@ -45,9 +45,9 @@ func TestAccAWSInspectorTarget_disappears(t *testing.T) {
 	resourceName := "aws_inspector_assessment_target.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSInspectorTargetAssessmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSInspectorTargetAssessmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSInspectorTargetAssessmentConfig(rName),
@@ -68,9 +68,9 @@ func TestAccAWSInspectorTarget_Name(t *testing.T) {
 	resourceName := "aws_inspector_assessment_target.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSInspectorTargetAssessmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSInspectorTargetAssessmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSInspectorTargetAssessmentConfig(rName1),
@@ -103,9 +103,9 @@ func TestAccAWSInspectorTarget_ResourceGroupArn(t *testing.T) {
 	resourceName := "aws_inspector_assessment_target.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSInspectorTargetAssessmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSInspectorTargetAssessmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSInspectorTargetAssessmentConfigResourceGroupArn(rName, inspectorResourceGroupResourceName1),

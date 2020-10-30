@@ -16,9 +16,9 @@ func testAccAwsGuardDutyMember_basic(t *testing.T) {
 	email := "required@example.com"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsGuardDutyMemberDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsGuardDutyMemberDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGuardDutyMemberConfig_basic(accountID, email),
@@ -44,9 +44,9 @@ func testAccAwsGuardDutyMember_invite_disassociate(t *testing.T) {
 	accountID, email := testAccAWSGuardDutyMemberFromEnv(t)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsGuardDutyMemberDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsGuardDutyMemberDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGuardDutyMemberConfig_invite(accountID, email, true),
@@ -82,9 +82,9 @@ func testAccAwsGuardDutyMember_invite_onUpdate(t *testing.T) {
 	accountID, email := testAccAWSGuardDutyMemberFromEnv(t)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsGuardDutyMemberDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsGuardDutyMemberDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGuardDutyMemberConfig_invite(accountID, email, false),
@@ -121,9 +121,9 @@ func testAccAwsGuardDutyMember_invitationMessage(t *testing.T) {
 	invitationMessage := "inviting"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsGuardDutyMemberDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsGuardDutyMemberDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGuardDutyMemberConfig_invitationMessage(accountID, email, invitationMessage),

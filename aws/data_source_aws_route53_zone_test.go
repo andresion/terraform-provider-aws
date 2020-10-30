@@ -14,9 +14,9 @@ func TestAccDataSourceAwsRoute53Zone_id(t *testing.T) {
 	dataSourceName := "data.aws_route53_zone.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsRoute53ZoneConfigId(rInt),
@@ -37,9 +37,9 @@ func TestAccDataSourceAwsRoute53Zone_name(t *testing.T) {
 	dataSourceName := "data.aws_route53_zone.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsRoute53ZoneConfigName(rInt),
@@ -60,9 +60,9 @@ func TestAccDataSourceAwsRoute53Zone_tags(t *testing.T) {
 	dataSourceName := "data.aws_route53_zone.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsRoute53ZoneConfigTagsPrivate(rInt),
@@ -83,9 +83,9 @@ func TestAccDataSourceAwsRoute53Zone_vpc(t *testing.T) {
 	dataSourceName := "data.aws_route53_zone.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsRoute53ZoneConfigVpc(rInt),
@@ -106,9 +106,9 @@ func TestAccDataSourceAwsRoute53Zone_serviceDiscovery(t *testing.T) {
 	dataSourceName := "data.aws_route53_zone.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsRoute53ZoneConfigServiceDiscovery(rInt),

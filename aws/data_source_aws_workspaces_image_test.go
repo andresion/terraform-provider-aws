@@ -21,7 +21,7 @@ func TestAccDataSourceAwsWorkspacesImage_basic(t *testing.T) {
 			testAccPreCheck(t)
 			testAccWorkspacesImagePreCheck(t)
 		},
-		Providers: testAccProviders,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsWorkspacesImageConfig(imageID),

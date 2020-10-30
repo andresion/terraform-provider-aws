@@ -18,9 +18,9 @@ func TestAccAWSIAMInstanceProfile_basic(t *testing.T) {
 	rName := acctest.RandString(5)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSInstanceProfileDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSInstanceProfileDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsIamInstanceProfileConfig(rName),
@@ -42,9 +42,9 @@ func TestAccAWSIAMInstanceProfile_withoutRole(t *testing.T) {
 	resourceName := "aws_iam_instance_profile.test"
 	rName := acctest.RandString(5)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSInstanceProfileDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSInstanceProfileDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsIamInstanceProfileConfigWithoutRole(rName),
@@ -68,11 +68,11 @@ func TestAccAWSIAMInstanceProfile_namePrefix(t *testing.T) {
 	resourceName := "aws_iam_instance_profile.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:        func() { testAccPreCheck(t) },
-		IDRefreshName:   resourceName,
-		IDRefreshIgnore: []string{"name_prefix"},
-		Providers:       testAccProviders,
-		CheckDestroy:    testAccCheckAWSInstanceProfileDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		IDRefreshIgnore:          []string{"name_prefix"},
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSInstanceProfileDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSInstanceProfilePrefixNameConfig(rName),

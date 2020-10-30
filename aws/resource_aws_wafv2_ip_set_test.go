@@ -85,9 +85,9 @@ func TestAccAwsWafv2IPSet_basic(t *testing.T) {
 	resourceName := "aws_wafv2_ip_set.ip_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafv2IPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafv2IPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2IPSetConfig(ipSetName),
@@ -132,9 +132,9 @@ func TestAccAwsWafv2IPSet_Disappears(t *testing.T) {
 	resourceName := "aws_wafv2_ip_set.ip_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafv2IPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafv2IPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2IPSetConfig(ipSetName),
@@ -154,9 +154,9 @@ func TestAccAwsWafv2IPSet_IPv6(t *testing.T) {
 	resourceName := "aws_wafv2_ip_set.ip_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafv2IPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafv2IPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2IPSetConfigIPv6(ipSetName),
@@ -189,9 +189,9 @@ func TestAccAwsWafv2IPSet_Minimal(t *testing.T) {
 	resourceName := "aws_wafv2_ip_set.ip_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafv2IPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafv2IPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2IPSetConfigMinimal(ipSetName),
@@ -222,9 +222,9 @@ func TestAccAwsWafv2IPSet_ChangeNameForceNew(t *testing.T) {
 	resourceName := "aws_wafv2_ip_set.ip_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafv2IPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafv2IPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2IPSetConfig(ipSetName),
@@ -260,9 +260,9 @@ func TestAccAwsWafv2IPSet_Tags(t *testing.T) {
 	resourceName := "aws_wafv2_ip_set.ip_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafv2IPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafv2IPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2IPSetConfigOneTag(ipSetName, "Tag1", "Value1"),
@@ -308,9 +308,9 @@ func TestAccAwsWafv2IPSet_Large(t *testing.T) {
 	resourceName := "aws_wafv2_ip_set.ip_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafv2IPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafv2IPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2IPSetConfigLarge(ipSetName),

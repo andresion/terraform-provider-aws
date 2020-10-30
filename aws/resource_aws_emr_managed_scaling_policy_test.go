@@ -16,9 +16,9 @@ func TestAccAwsEmrManagedScalingPolicy_basic(t *testing.T) {
 	resourceName := "aws_emr_managed_scaling_policy.testpolicy"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrManagedScalingPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrManagedScalingPolicyDestroy,
 
 		Steps: []resource.TestStep{
 			{
@@ -40,9 +40,9 @@ func TestAccAwsEmrManagedScalingPolicy_ComputeLimits_MaximumCoreCapacityUnits(t 
 	resourceName := "aws_emr_managed_scaling_policy.testpolicy"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrManagedScalingPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrManagedScalingPolicyDestroy,
 
 		Steps: []resource.TestStep{
 			{
@@ -64,9 +64,9 @@ func TestAccAwsEmrManagedScalingPolicy_ComputeLimits_MaximumOndemandCapacityUnit
 	resourceName := "aws_emr_managed_scaling_policy.testpolicy"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrManagedScalingPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrManagedScalingPolicyDestroy,
 
 		Steps: []resource.TestStep{
 			{
@@ -88,9 +88,9 @@ func TestAccAwsEmrManagedScalingPolicy_disappears(t *testing.T) {
 	resourceName := "aws_emr_managed_scaling_policy.testpolicy"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrManagedScalingPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrManagedScalingPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrManagedScalingPolicy_basic(rName),

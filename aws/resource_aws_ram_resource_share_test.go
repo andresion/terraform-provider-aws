@@ -19,9 +19,9 @@ func TestAccAwsRamResourceShare_basic(t *testing.T) {
 	shareName := fmt.Sprintf("tf-%s", acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsRamResourceShareDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsRamResourceShareDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsRamResourceShareConfigName(shareName),
@@ -48,9 +48,9 @@ func TestAccAwsRamResourceShare_AllowExternalPrincipals(t *testing.T) {
 	shareName := fmt.Sprintf("tf-%s", acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsRamResourceShareDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsRamResourceShareDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsRamResourceShareConfigAllowExternalPrincipals(shareName, false),
@@ -82,9 +82,9 @@ func TestAccAwsRamResourceShare_Name(t *testing.T) {
 	shareName2 := fmt.Sprintf("tf-%s", acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsRamResourceShareDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsRamResourceShareDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsRamResourceShareConfigName(shareName1),
@@ -115,9 +115,9 @@ func TestAccAwsRamResourceShare_Tags(t *testing.T) {
 	shareName := fmt.Sprintf("tf-%s", acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsRamResourceShareDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsRamResourceShareDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsRamResourceShareConfigTags1(shareName, "key1", "value1"),

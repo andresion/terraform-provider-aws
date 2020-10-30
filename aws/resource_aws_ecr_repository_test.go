@@ -73,9 +73,9 @@ func TestAccAWSEcrRepository_basic(t *testing.T) {
 	resourceName := "aws_ecr_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcrRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcrRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcrRepositoryConfig(rName),
@@ -105,9 +105,9 @@ func TestAccAWSEcrRepository_tags(t *testing.T) {
 	resourceName := "aws_ecr_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcrRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcrRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcrRepositoryConfig_tags(rName),
@@ -137,9 +137,9 @@ func TestAccAWSEcrRepository_immutability(t *testing.T) {
 	resourceName := "aws_ecr_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcrRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcrRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcrRepositoryConfig_immutability(rName),
@@ -164,9 +164,9 @@ func TestAccAWSEcrRepository_image_scanning_configuration(t *testing.T) {
 	resourceName := "aws_ecr_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcrRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcrRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcrRepositoryConfig_image_scanning_configuration(rName, true),
@@ -214,9 +214,9 @@ func TestAccAWSEcrRepository_encryption_kms(t *testing.T) {
 	kmsKeyDataSourceName := "aws_kms_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcrRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcrRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcrRepositoryConfig_encryption_kms_defaultkey(rName),
@@ -258,9 +258,9 @@ func TestAccAWSEcrRepository_encryption_aes256(t *testing.T) {
 	resourceName := "aws_ecr_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcrRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcrRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				// Test that the addition of the default encryption_configuration doesn't recreation in the next step

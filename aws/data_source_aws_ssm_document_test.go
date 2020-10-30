@@ -13,8 +13,8 @@ func TestAccAWSSsmDocumentDataSource_basic(t *testing.T) {
 	name := fmt.Sprintf("test_document-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsSsmDocumentDataSourceConfig(name, "JSON"),

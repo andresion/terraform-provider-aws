@@ -85,9 +85,9 @@ func TestAccAWSAppautoScalingPolicy_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAppautoscalingPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAppautoscalingPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAppautoscalingPolicyConfig(rName),
@@ -124,9 +124,9 @@ func TestAccAWSAppautoScalingPolicy_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAppautoscalingPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAppautoscalingPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAppautoscalingPolicyConfig(rName),
@@ -147,9 +147,9 @@ func TestAccAWSAppautoScalingPolicy_scaleOutAndIn(t *testing.T) {
 	randPolicyNamePrefix := fmt.Sprintf("terraform-test-foobar-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAppautoscalingPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAppautoscalingPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAppautoscalingPolicyScaleOutAndInConfig(randClusterName, randPolicyNamePrefix),
@@ -227,9 +227,9 @@ func TestAccAWSAppautoScalingPolicy_spotFleetRequest(t *testing.T) {
 	validUntil := time.Now().UTC().Add(24 * time.Hour).Format(time.RFC3339)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAppautoscalingPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAppautoscalingPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAppautoscalingPolicySpotFleetRequestConfig(randPolicyName, validUntil),
@@ -258,9 +258,9 @@ func TestAccAWSAppautoScalingPolicy_dynamodb_table(t *testing.T) {
 	randPolicyName := fmt.Sprintf("test-appautoscaling-policy-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAppautoscalingPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAppautoscalingPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAppautoscalingPolicyDynamoDB(randPolicyName),
@@ -289,9 +289,9 @@ func TestAccAWSAppautoScalingPolicy_dynamodb_index(t *testing.T) {
 	resourceName := "aws_appautoscaling_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAppautoscalingPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAppautoscalingPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAppautoscalingPolicyDynamoDBIndex(rName),
@@ -322,9 +322,9 @@ func TestAccAWSAppautoScalingPolicy_multiplePoliciesSameName(t *testing.T) {
 	namePrefix := fmt.Sprintf("tf-appautoscaling-policy-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAppautoscalingPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAppautoscalingPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAppautoscalingPolicy_multiplePoliciesSameName(tableName1, tableName2, namePrefix),
@@ -354,9 +354,9 @@ func TestAccAWSAppautoScalingPolicy_multiplePoliciesSameResource(t *testing.T) {
 	namePrefix := fmt.Sprintf("tf-appautoscaling-policy-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAppautoscalingPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAppautoscalingPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAppautoscalingPolicy_multiplePoliciesSameResource(tableName, namePrefix),
@@ -398,9 +398,9 @@ func TestAccAWSAppautoScalingPolicy_ResourceId_ForceNew(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAppautoscalingPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAppautoscalingPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAppautoscalingPolicyConfigResourceIdForceNew1(rName),

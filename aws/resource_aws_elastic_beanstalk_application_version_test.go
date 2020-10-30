@@ -17,9 +17,9 @@ func TestAccAWSBeanstalkAppVersion_basic(t *testing.T) {
 	var appVersion elasticbeanstalk.ApplicationVersionDescription
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckApplicationVersionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckApplicationVersionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBeanstalkApplicationVersionConfig(acctest.RandInt()),
@@ -36,9 +36,9 @@ func TestAccAWSBeanstalkAppVersion_duplicateLabels(t *testing.T) {
 	var secondAppVersion elasticbeanstalk.ApplicationVersionDescription
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckApplicationVersionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckApplicationVersionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBeanstalkApplicationVersionConfig_duplicateLabel(acctest.RandInt()),
@@ -56,9 +56,9 @@ func TestAccAWSBeanstalkAppVersion_tags(t *testing.T) {
 	resourceName := "aws_elastic_beanstalk_application_version.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckApplicationVersionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckApplicationVersionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBeanstalkApplicationVersionConfigWithTags(acctest.RandInt(), "test1", "test2"),

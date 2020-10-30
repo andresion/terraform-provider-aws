@@ -18,9 +18,9 @@ func TestAccAWSAPIGatewayMethodResponse_basic(t *testing.T) {
 	resourceName := "aws_api_gateway_method_response.error"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodResponseDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodResponseDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodResponseConfig(rName),
@@ -61,9 +61,9 @@ func TestAccAWSAPIGatewayMethodResponse_disappears(t *testing.T) {
 	resourceName := "aws_api_gateway_method_response.error"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodResponseDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodResponseDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodResponseConfig(rName),

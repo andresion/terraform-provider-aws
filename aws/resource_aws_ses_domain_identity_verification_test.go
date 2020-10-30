@@ -30,9 +30,9 @@ func TestAccAwsSesDomainIdentityVerification_basic(t *testing.T) {
 	domain := fmt.Sprintf("tf-acc-%d.%s", acctest.RandInt(), rootDomain)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSESDomainIdentityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSESDomainIdentityDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsSesDomainIdentityVerification_basic(rootDomain, domain),
@@ -48,9 +48,9 @@ func TestAccAwsSesDomainIdentityVerification_timeout(t *testing.T) {
 		acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSESDomainIdentityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSESDomainIdentityDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAwsSesDomainIdentityVerification_timeout(domain),
@@ -66,9 +66,9 @@ func TestAccAwsSesDomainIdentityVerification_nonexistent(t *testing.T) {
 		acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSESDomainIdentityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSESDomainIdentityDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAwsSesDomainIdentityVerification_nonexistent(domain),

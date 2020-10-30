@@ -13,9 +13,9 @@ func TestAccAWSOutpostsSitesDataSource_basic(t *testing.T) {
 	dataSourceName := "data.aws_outposts_sites.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsSites(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsSites(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSOutpostsSitesDataSourceConfig(),

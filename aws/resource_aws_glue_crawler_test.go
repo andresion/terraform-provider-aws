@@ -65,9 +65,9 @@ func TestAccAWSGlueCrawler_DynamodbTarget(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_DynamodbTarget(rName, "table1"),
@@ -132,9 +132,9 @@ func TestAccAWSGlueCrawler_DynamodbTarget_scanAll(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_DynamodbTargetScanAll(rName, "table1", false),
@@ -175,9 +175,9 @@ func TestAccAWSGlueCrawler_DynamodbTarget_scanRate(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_DynamodbTargetScanRate(rName, "table1", 0.5),
@@ -218,9 +218,9 @@ func TestAccAWSGlueCrawler_JdbcTarget(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_JdbcTarget(rName, "database-name/%"),
@@ -287,9 +287,9 @@ func TestAccAWSGlueCrawler_JdbcTarget_Exclusions(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_JdbcTarget_Exclusions2(rName, "exclusion1", "exclusion2"),
@@ -327,9 +327,9 @@ func TestAccAWSGlueCrawler_JdbcTarget_Multiple(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_JdbcTarget_Multiple(rName, "database-name/table1", "database-name/table2"),
@@ -385,9 +385,9 @@ func TestAccAWSGlueCrawler_S3Target(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_S3Target(rName, "s3://bucket1"),
@@ -453,9 +453,9 @@ func TestAccAWSGlueCrawler_S3Target_ConnectionName(t *testing.T) {
 	connectionName := "aws_glue_connection.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_S3Target_ConnectionName(rName),
@@ -481,9 +481,9 @@ func TestAccAWSGlueCrawler_S3Target_Exclusions(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_S3Target_Exclusions2(rName, "exclusion1", "exclusion2"),
@@ -521,9 +521,9 @@ func TestAccAWSGlueCrawler_S3Target_Multiple(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_S3Target_Multiple(rName, "s3://bucket1", "s3://bucket2"),
@@ -574,9 +574,9 @@ func TestAccAWSGlueCrawler_CatalogTarget(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_CatalogTarget(rName, 1),
@@ -646,9 +646,9 @@ func TestAccAWSGlueCrawler_CatalogTarget_Multiple(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_CatalogTarget(rName, 1),
@@ -701,9 +701,9 @@ func TestAccAWSGlueCrawler_disappears(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_S3Target(rName, "s3://bucket1"),
@@ -723,9 +723,9 @@ func TestAccAWSGlueCrawler_Classifiers(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_Classifiers_Single(rName),
@@ -769,9 +769,9 @@ func TestAccAWSGlueCrawler_Configuration(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_Configuration(rName, configuration1),
@@ -802,9 +802,9 @@ func TestAccAWSGlueCrawler_Description(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_Description(rName, "description1"),
@@ -836,9 +836,9 @@ func TestAccAWSGlueCrawler_Role_ARN_NoPath(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_Role_ARN_NoPath(rName),
@@ -862,9 +862,9 @@ func TestAccAWSGlueCrawler_Role_ARN_Path(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_Role_ARN_Path(rName),
@@ -888,9 +888,9 @@ func TestAccAWSGlueCrawler_Role_Name_Path(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_Role_Name_Path(rName),
@@ -914,9 +914,9 @@ func TestAccAWSGlueCrawler_Schedule(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_Schedule(rName, "cron(0 1 * * ? *)"),
@@ -954,9 +954,9 @@ func TestAccAWSGlueCrawler_SchemaChangePolicy(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_SchemaChangePolicy(rName, glue.DeleteBehaviorDeleteFromDatabase, glue.UpdateBehaviorUpdateInDatabase),
@@ -991,9 +991,9 @@ func TestAccAWSGlueCrawler_TablePrefix(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_TablePrefix(rName, "prefix1"),
@@ -1024,9 +1024,9 @@ func TestAccAWSGlueCrawler_RemoveTablePrefix(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_TablePrefix(rName, "prefix"),
@@ -1057,9 +1057,9 @@ func TestAccAWSGlueCrawler_Tags(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfigTags1(rName, "key1", "value1"),
@@ -1101,9 +1101,9 @@ func TestAccAWSGlueCrawler_SecurityConfiguration(t *testing.T) {
 	resourceName := "aws_glue_crawler.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueCrawlerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueCrawlerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCrawlerConfig_SecurityConfiguration(rName, "security_configuration1"),

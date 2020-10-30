@@ -15,9 +15,9 @@ func TestAccAWSEc2Tag_basic(t *testing.T) {
 	resourceName := "aws_ec2_tag.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEc2TagDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEc2TagDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2TagConfig(rBgpAsn, "key1", "value1"),
@@ -41,9 +41,9 @@ func TestAccAWSEc2Tag_disappears(t *testing.T) {
 	resourceName := "aws_ec2_tag.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEc2TagDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEc2TagDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2TagConfig(rBgpAsn, "key1", "value1"),
@@ -62,9 +62,9 @@ func TestAccAWSEc2Tag_Value(t *testing.T) {
 	resourceName := "aws_ec2_tag.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEc2TagDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEc2TagDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2TagConfig(rBgpAsn, "key1", "value1"),

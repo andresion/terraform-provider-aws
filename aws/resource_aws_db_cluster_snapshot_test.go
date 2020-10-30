@@ -80,9 +80,9 @@ func TestAccAWSDBClusterSnapshot_basic(t *testing.T) {
 	resourceName := "aws_db_cluster_snapshot.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDbClusterSnapshotDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDbClusterSnapshotDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsDbClusterSnapshotConfig(rName),
@@ -119,9 +119,9 @@ func TestAccAWSDBClusterSnapshot_Tags(t *testing.T) {
 	resourceName := "aws_db_cluster_snapshot.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDbClusterSnapshotDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDbClusterSnapshotDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsDbClusterSnapshotConfigTags1(rName, "key1", "value1"),

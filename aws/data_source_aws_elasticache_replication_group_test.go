@@ -15,8 +15,8 @@ func TestAccDataSourceAwsElasticacheReplicationGroup_basic(t *testing.T) {
 	dataSourceName := "data.aws_elasticache_replication_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsElasticacheReplicationGroupConfig_basic(rName),
@@ -43,8 +43,8 @@ func TestAccDataSourceAwsElasticacheReplicationGroup_ClusterMode(t *testing.T) {
 	dataSourceName := "data.aws_elasticache_replication_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsElasticacheReplicationGroupConfig_ClusterMode(rName),
@@ -65,8 +65,8 @@ func TestAccDataSourceAwsElasticacheReplicationGroup_ClusterMode(t *testing.T) {
 func TestAccDataSourceAwsElasticacheReplicationGroup_NonExistent(t *testing.T) {
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccDataSourceAwsElasticacheReplicationGroupConfig_NonExistent,

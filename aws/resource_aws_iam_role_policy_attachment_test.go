@@ -20,9 +20,9 @@ func TestAccAWSRolePolicyAttachment_basic(t *testing.T) {
 	testPolicy3 := fmt.Sprintf("tf-acctest3-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRolePolicyAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRolePolicyAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRolePolicyAttachConfig(rInt),
@@ -70,9 +70,9 @@ func TestAccAWSRolePolicyAttachment_disappears(t *testing.T) {
 	resourceName := "aws_iam_role_policy_attachment.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRolePolicyAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRolePolicyAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMRolePolicyAttachmentConfig(rName),
@@ -95,9 +95,9 @@ func TestAccAWSRolePolicyAttachment_disappears_Role(t *testing.T) {
 	resourceName := "aws_iam_role_policy_attachment.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRolePolicyAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRolePolicyAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMRolePolicyAttachmentConfig(rName),

@@ -66,9 +66,9 @@ func TestAccAWSEgressOnlyInternetGateway_basic(t *testing.T) {
 	resourceName := "aws_egress_only_internet_gateway.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEgressOnlyInternetGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEgressOnlyInternetGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEgressOnlyInternetGatewayConfig_basic,
@@ -91,10 +91,10 @@ func TestAccAWSEgressOnlyInternetGateway_Tags(t *testing.T) {
 	resourceName := "aws_egress_only_internet_gateway.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSEgressOnlyInternetGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEgressOnlyInternetGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEgressOnlyInternetGatewayConfigTags1("key1", "value1"),

@@ -21,9 +21,9 @@ func TestAccAWSEc2Fleet_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_TargetCapacitySpecification_DefaultTargetCapacityType(rName, "spot"),
@@ -67,9 +67,9 @@ func TestAccAWSEc2Fleet_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_TargetCapacitySpecification_DefaultTargetCapacityType(rName, "spot"),
@@ -89,9 +89,9 @@ func TestAccAWSEc2Fleet_ExcessCapacityTerminationPolicy(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_ExcessCapacityTerminationPolicy(rName, "no-termination"),
@@ -126,9 +126,9 @@ func TestAccAWSEc2Fleet_LaunchTemplateConfig_LaunchTemplateSpecification_LaunchT
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_LaunchTemplateConfig_LaunchTemplateSpecification_LaunchTemplateId(rName, launchTemplateResourceName1),
@@ -169,9 +169,9 @@ func TestAccAWSEc2Fleet_LaunchTemplateConfig_LaunchTemplateSpecification_LaunchT
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_LaunchTemplateConfig_LaunchTemplateSpecification_LaunchTemplateName(rName, launchTemplateResourceName1),
@@ -212,9 +212,9 @@ func TestAccAWSEc2Fleet_LaunchTemplateConfig_LaunchTemplateSpecification_Version
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_LaunchTemplateConfig_LaunchTemplateSpecification_Version(rName, "t3.micro"),
@@ -260,9 +260,9 @@ func TestAccAWSEc2Fleet_LaunchTemplateConfig_Override_AvailabilityZone(t *testin
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_LaunchTemplateConfig_Override_AvailabilityZone(rName, 0),
@@ -299,9 +299,9 @@ func TestAccAWSEc2Fleet_LaunchTemplateConfig_Override_InstanceType(t *testing.T)
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_LaunchTemplateConfig_Override_InstanceType(rName, "t3.small"),
@@ -340,9 +340,9 @@ func TestAccAWSEc2Fleet_LaunchTemplateConfig_Override_MaxPrice(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_LaunchTemplateConfig_Override_MaxPrice(rName, "1.01"),
@@ -379,9 +379,9 @@ func TestAccAWSEc2Fleet_LaunchTemplateConfig_Override_Priority(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_LaunchTemplateConfig_Override_Priority(rName, 1),
@@ -418,9 +418,9 @@ func TestAccAWSEc2Fleet_LaunchTemplateConfig_Override_Priority_Multiple(t *testi
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_LaunchTemplateConfig_Override_Priority_Multiple(rName, 1, 2),
@@ -461,9 +461,9 @@ func TestAccAWSEc2Fleet_LaunchTemplateConfig_Override_SubnetId(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_LaunchTemplateConfig_Override_SubnetId(rName, 0),
@@ -500,9 +500,9 @@ func TestAccAWSEc2Fleet_LaunchTemplateConfig_Override_WeightedCapacity(t *testin
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_LaunchTemplateConfig_Override_WeightedCapacity(rName, 1),
@@ -539,9 +539,9 @@ func TestAccAWSEc2Fleet_LaunchTemplateConfig_Override_WeightedCapacity_Multiple(
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_LaunchTemplateConfig_Override_WeightedCapacity_Multiple(rName, 1, 1),
@@ -580,9 +580,9 @@ func TestAccAWSEc2Fleet_OnDemandOptions_AllocationStrategy(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_OnDemandOptions_AllocationStrategy(rName, "prioritized"),
@@ -617,9 +617,9 @@ func TestAccAWSEc2Fleet_ReplaceUnhealthyInstances(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_ReplaceUnhealthyInstances(rName, true),
@@ -652,9 +652,9 @@ func TestAccAWSEc2Fleet_SpotOptions_AllocationStrategy(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_SpotOptions_AllocationStrategy(rName, "diversified"),
@@ -689,9 +689,9 @@ func TestAccAWSEc2Fleet_SpotOptions_InstanceInterruptionBehavior(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_SpotOptions_InstanceInterruptionBehavior(rName, "stop"),
@@ -726,9 +726,9 @@ func TestAccAWSEc2Fleet_SpotOptions_InstancePoolsToUseCount(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_SpotOptions_InstancePoolsToUseCount(rName, 2),
@@ -763,9 +763,9 @@ func TestAccAWSEc2Fleet_Tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_Tags(rName, "key1", "value1"),
@@ -799,9 +799,9 @@ func TestAccAWSEc2Fleet_TargetCapacitySpecification_DefaultTargetCapacityType(t 
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_TargetCapacitySpecification_DefaultTargetCapacityType(rName, "on-demand"),
@@ -830,9 +830,9 @@ func TestAccAWSEc2Fleet_TargetCapacitySpecification_DefaultTargetCapacityType_On
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_TargetCapacitySpecification_DefaultTargetCapacityType(rName, "on-demand"),
@@ -858,9 +858,9 @@ func TestAccAWSEc2Fleet_TargetCapacitySpecification_DefaultTargetCapacityType_Sp
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_TargetCapacitySpecification_DefaultTargetCapacityType(rName, "spot"),
@@ -886,9 +886,9 @@ func TestAccAWSEc2Fleet_TargetCapacitySpecification_TotalTargetCapacity(t *testi
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_TargetCapacitySpecification_TotalTargetCapacity(rName, 1),
@@ -923,9 +923,9 @@ func TestAccAWSEc2Fleet_TerminateInstancesWithExpiration(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_TerminateInstancesWithExpiration(rName, true),
@@ -958,9 +958,9 @@ func TestAccAWSEc2Fleet_Type(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_Type(rName, "maintain"),
@@ -995,9 +995,9 @@ func TestAccAWSEc2Fleet_TemplateMultipleNetworkInterfaces(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2FleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2Fleet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2FleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2FleetConfig_multipleNetworkInterfaces(rInt),

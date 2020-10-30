@@ -64,9 +64,9 @@ func TestAccAWSSpotFleetRequest_basic(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfig(rName, validUntil),
@@ -95,9 +95,9 @@ func TestAccAWSSpotFleetRequest_tags(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigTags1(rName, validUntil, "key1", "value1"),
@@ -141,9 +141,9 @@ func TestAccAWSSpotFleetRequest_associatePublicIpAddress(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigAssociatePublicIpAddress(rName, validUntil),
@@ -173,9 +173,9 @@ func TestAccAWSSpotFleetRequest_launchTemplate(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestLaunchTemplateConfig(rName, validUntil),
@@ -203,9 +203,9 @@ func TestAccAWSSpotFleetRequest_launchTemplate_multiple(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestLaunchTemplateMultipleConfig(rName, validUntil),
@@ -227,9 +227,9 @@ func TestAccAWSSpotFleetRequest_launchTemplateWithOverrides(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestLaunchTemplateConfigWithOverrides(rName, validUntil),
@@ -257,9 +257,9 @@ func TestAccAWSSpotFleetRequest_launchTemplateToLaunchSpec(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestLaunchTemplateConfig(rName, validUntil),
@@ -297,9 +297,9 @@ func TestAccAWSSpotFleetRequest_launchSpecToLaunchTemplate(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfig(rName, validUntil),
@@ -331,9 +331,9 @@ func TestAccAWSSpotFleetRequest_instanceInterruptionBehavior(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfig(rName, validUntil),
@@ -360,9 +360,9 @@ func TestAccAWSSpotFleetRequest_fleetType(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigFleetType(rName, validUntil),
@@ -389,9 +389,9 @@ func TestAccAWSSpotFleetRequest_iamInstanceProfileArn(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigIamInstanceProfileArn(rName, validUntil),
@@ -418,9 +418,9 @@ func TestAccAWSSpotFleetRequest_changePriceForcesNewRequest(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfig(rName, validUntil),
@@ -458,9 +458,9 @@ func TestAccAWSSpotFleetRequest_updateTargetCapacity(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfig(rName, validUntil),
@@ -502,9 +502,9 @@ func TestAccAWSSpotFleetRequest_updateExcessCapacityTerminationPolicy(t *testing
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfig(rName, validUntil),
@@ -538,9 +538,9 @@ func TestAccAWSSpotFleetRequest_lowestPriceAzOrSubnetInRegion(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfig(rName, validUntil),
@@ -568,9 +568,9 @@ func TestAccAWSSpotFleetRequest_lowestPriceAzInGivenList(t *testing.T) {
 	availabilityZonesDataSource := "data.aws_availability_zones.available"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigWithAzs(rName, validUntil),
@@ -599,9 +599,9 @@ func TestAccAWSSpotFleetRequest_lowestPriceSubnetInGivenList(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigWithSubnet(rName, validUntil),
@@ -630,9 +630,9 @@ func TestAccAWSSpotFleetRequest_multipleInstanceTypesInSameAz(t *testing.T) {
 	availabilityZonesDataSource := "data.aws_availability_zones.available"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigMultipleInstanceTypesinSameAz(rName, validUntil),
@@ -664,9 +664,9 @@ func TestAccAWSSpotFleetRequest_multipleInstanceTypesInSameSubnet(t *testing.T) 
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigMultipleInstanceTypesinSameSubnet(rName, validUntil),
@@ -694,9 +694,9 @@ func TestAccAWSSpotFleetRequest_overriddingSpotPrice(t *testing.T) {
 	instanceTypeDataSourceName := "data.aws_ec2_instance_type_offering.available"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigOverridingSpotPrice(rName, validUntil),
@@ -729,9 +729,9 @@ func TestAccAWSSpotFleetRequest_withoutSpotPrice(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigWithoutSpotPrice(rName, validUntil),
@@ -758,9 +758,9 @@ func TestAccAWSSpotFleetRequest_diversifiedAllocation(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigDiversifiedAllocation(rName, validUntil),
@@ -788,9 +788,9 @@ func TestAccAWSSpotFleetRequest_multipleInstancePools(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigMultipleInstancePools(rName, validUntil),
@@ -833,9 +833,9 @@ func TestAccAWSSpotFleetRequest_withWeightedCapacity(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigWithWeightedCapacity(rName, validUntil),
@@ -871,9 +871,9 @@ func TestAccAWSSpotFleetRequest_withEBSDisk(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestEBSConfig(rName, validUntil),
@@ -899,9 +899,9 @@ func TestAccAWSSpotFleetRequest_LaunchSpecification_EbsBlockDevice_KmsKeyId(t *t
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestLaunchSpecificationEbsBlockDeviceKmsKeyId(rName, validUntil),
@@ -926,9 +926,9 @@ func TestAccAWSSpotFleetRequest_LaunchSpecification_RootBlockDevice_KmsKeyId(t *
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestLaunchSpecificationRootBlockDeviceKmsKeyId(rName, validUntil),
@@ -953,9 +953,9 @@ func TestAccAWSSpotFleetRequest_withTags(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestTagsConfig(rName, validUntil),
@@ -985,9 +985,9 @@ func TestAccAWSSpotFleetRequest_placementTenancyAndGroup(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestTenancyGroupConfig(rName, validUntil),
@@ -1014,9 +1014,9 @@ func TestAccAWSSpotFleetRequest_WithELBs(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigWithELBs(rName, validUntil),
@@ -1043,9 +1043,9 @@ func TestAccAWSSpotFleetRequest_WithTargetGroups(t *testing.T) {
 	validUntil := time.Now().UTC().Add(24 * time.Hour).Format(time.RFC3339)
 	resourceName := "aws_spot_fleet_request.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfigWithTargetGroups(rName, validUntil),
@@ -1073,9 +1073,9 @@ func TestAccAWSSpotFleetRequest_zero_capacity(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestZeroCapacityConfig(rName, validUntil),
@@ -1114,9 +1114,9 @@ func TestAccAWSSpotFleetRequest_WithInstanceStoreAmi(t *testing.T) {
 	validUntil := time.Now().UTC().Add(24 * time.Hour).Format(time.RFC3339)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSSpotFleetRequestLaunchSpecificationWithInstanceStoreAmi(rName, validUntil),
@@ -1133,9 +1133,9 @@ func TestAccAWSSpotFleetRequest_disappears(t *testing.T) {
 	resourceName := "aws_spot_fleet_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotFleetRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2SpotFleetRequest(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotFleetRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotFleetRequestConfig(rName, validUntil),

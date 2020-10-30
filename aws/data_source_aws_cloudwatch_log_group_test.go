@@ -13,8 +13,8 @@ func TestAccAWSCloudwatchLogGroupDataSource_basic(t *testing.T) {
 	resourceName := "data.aws_cloudwatch_log_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAWSCloudwatchLogGroupDataSourceConfig(rName),
@@ -34,8 +34,8 @@ func TestAccAWSCloudwatchLogGroupDataSource_tags(t *testing.T) {
 	resourceName := "data.aws_cloudwatch_log_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAWSCloudwatchLogGroupDataSourceConfigTags(rName),
@@ -58,8 +58,8 @@ func TestAccAWSCloudwatchLogGroupDataSource_kms(t *testing.T) {
 	resourceName := "data.aws_cloudwatch_log_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAWSCloudwatchLogGroupDataSourceConfigKMS(rName),
@@ -80,8 +80,8 @@ func TestAccAWSCloudwatchLogGroupDataSource_retention(t *testing.T) {
 	resourceName := "data.aws_cloudwatch_log_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAWSCloudwatchLogGroupDataSourceConfigRetention(rName),

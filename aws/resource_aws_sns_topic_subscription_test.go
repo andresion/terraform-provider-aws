@@ -63,9 +63,9 @@ func TestAccAWSSNSTopicSubscription_basic(t *testing.T) {
 	ri := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSNSTopicSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSTopicSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSNSTopicSubscriptionConfig(ri),
@@ -101,9 +101,9 @@ func TestAccAWSSNSTopicSubscription_filterPolicy(t *testing.T) {
 	filterPolicy2 := `{"key3": ["val3"], "key4": ["val4"]}`
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSNSTopicSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSTopicSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSNSTopicSubscriptionConfig_filterPolicy(ri, strconv.Quote(filterPolicy1)),
@@ -147,9 +147,9 @@ func TestAccAWSSNSTopicSubscription_deliveryPolicy(t *testing.T) {
 	ri := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSNSTopicSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSTopicSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSNSTopicSubscriptionConfig_deliveryPolicy(ri, strconv.Quote(`{"healthyRetryPolicy":{"minDelayTarget":5,"maxDelayTarget":20,"numRetries": 5}}`)),
@@ -205,9 +205,9 @@ func TestAccAWSSNSTopicSubscription_rawMessageDelivery(t *testing.T) {
 	ri := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSNSTopicSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSTopicSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSNSTopicSubscriptionConfig_rawMessageDelivery(ri, true),
@@ -251,9 +251,9 @@ func TestAccAWSSNSTopicSubscription_autoConfirmingEndpoint(t *testing.T) {
 	ri := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSNSTopicSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSTopicSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSNSTopicSubscriptionConfig_autoConfirmingEndpoint(ri),
@@ -280,9 +280,9 @@ func TestAccAWSSNSTopicSubscription_autoConfirmingSecuredEndpoint(t *testing.T) 
 	ri := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSNSTopicSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSTopicSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSNSTopicSubscriptionConfig_autoConfirmingSecuredEndpoint(ri, "john", "doe"),

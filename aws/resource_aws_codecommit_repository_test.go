@@ -17,9 +17,9 @@ func TestAccAWSCodeCommitRepository_basic(t *testing.T) {
 	resourceName := "aws_codecommit_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCodeCommitRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCodeCommitRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCodeCommitRepository_basic(rInt),
@@ -41,9 +41,9 @@ func TestAccAWSCodeCommitRepository_withChanges(t *testing.T) {
 	resourceName := "aws_codecommit_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCodeCommitRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCodeCommitRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCodeCommitRepository_basic(rInt),
@@ -75,9 +75,9 @@ func TestAccAWSCodeCommitRepository_create_default_branch(t *testing.T) {
 	resourceName := "aws_codecommit_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCodeCommitRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCodeCommitRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCodeCommitRepository_with_default_branch(rInt),
@@ -102,9 +102,9 @@ func TestAccAWSCodeCommitRepository_create_and_update_default_branch(t *testing.
 	resourceName := "aws_codecommit_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCodeCommitRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCodeCommitRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCodeCommitRepository_basic(rInt),
@@ -136,10 +136,10 @@ func TestAccAWSCodeCommitRepository_tags(t *testing.T) {
 	resourceName := "aws_codecommit_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckCodeCommitRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCodeCommitRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeCommitRepositoryConfigTags1(rName, "key1", "value1"),

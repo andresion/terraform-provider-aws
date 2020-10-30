@@ -98,9 +98,9 @@ func TestAccAWSServiceDiscoveryHttpNamespace_basic(t *testing.T) {
 	rName := fmt.Sprintf("tf-acc-test-%s", acctest.RandStringFromCharSet(8, acctest.CharSetAlpha))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsServiceDiscoveryHttpNamespaceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsServiceDiscoveryHttpNamespaceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccServiceDiscoveryHttpNamespaceConfig(rName),
@@ -127,9 +127,9 @@ func TestAccAWSServiceDiscoveryHttpNamespace_disappears(t *testing.T) {
 	rName := fmt.Sprintf("tf-acc-test-%s", acctest.RandStringFromCharSet(8, acctest.CharSetAlpha))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsServiceDiscoveryHttpNamespaceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsServiceDiscoveryHttpNamespaceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccServiceDiscoveryHttpNamespaceConfig(rName),
@@ -148,9 +148,9 @@ func TestAccAWSServiceDiscoveryHttpNamespace_Description(t *testing.T) {
 	rName := fmt.Sprintf("tf-acc-test-%s", acctest.RandStringFromCharSet(8, acctest.CharSetAlpha))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsServiceDiscoveryHttpNamespaceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsServiceDiscoveryHttpNamespaceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccServiceDiscoveryHttpNamespaceConfigDescription(rName, "test"),
@@ -173,9 +173,9 @@ func TestAccAWSServiceDiscoveryHttpNamespace_Tags(t *testing.T) {
 	rName := fmt.Sprintf("tf-acc-test-%s", acctest.RandStringFromCharSet(8, acctest.CharSetAlpha))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsServiceDiscoveryHttpNamespaceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsServiceDiscoveryHttpNamespaceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccServiceDiscoveryHttpNamespaceConfigTags1(rName, "key1", "value1"),

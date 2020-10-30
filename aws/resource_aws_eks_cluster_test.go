@@ -74,9 +74,9 @@ func TestAccAWSEksCluster_basic(t *testing.T) {
 	resourceName := "aws_eks_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEksClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEksClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEksClusterConfig_Required(rName),
@@ -119,9 +119,9 @@ func TestAccAWSEksCluster_EncryptionConfig(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEksClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEksClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEksClusterConfig_EncryptionConfig(rName),
@@ -149,9 +149,9 @@ func TestAccAWSEksCluster_Version(t *testing.T) {
 	resourceName := "aws_eks_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEksClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEksClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEksClusterConfig_Version(rName, "1.16"),
@@ -184,9 +184,9 @@ func TestAccAWSEksCluster_Logging(t *testing.T) {
 	resourceName := "aws_eks_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEksClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEksClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEksClusterConfig_Logging(rName, []string{"api"}),
@@ -230,9 +230,9 @@ func TestAccAWSEksCluster_Tags(t *testing.T) {
 	resourceName := "aws_eks_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEksClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEksClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEksClusterConfigTags1(rName, "key1", "value1"),
@@ -275,9 +275,9 @@ func TestAccAWSEksCluster_VpcConfig_SecurityGroupIds(t *testing.T) {
 	resourceName := "aws_eks_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEksClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEksClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEksClusterConfig_VpcConfig_SecurityGroupIds(rName),
@@ -303,9 +303,9 @@ func TestAccAWSEksCluster_VpcConfig_EndpointPrivateAccess(t *testing.T) {
 	resourceName := "aws_eks_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEksClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEksClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEksClusterConfig_VpcConfig_EndpointPrivateAccess(rName, true),
@@ -349,9 +349,9 @@ func TestAccAWSEksCluster_VpcConfig_EndpointPublicAccess(t *testing.T) {
 	resourceName := "aws_eks_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEksClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEksClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEksClusterConfig_VpcConfig_EndpointPublicAccess(rName, false),
@@ -395,9 +395,9 @@ func TestAccAWSEksCluster_VpcConfig_PublicAccessCidrs(t *testing.T) {
 	resourceName := "aws_eks_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEksClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEksClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEksClusterConfig_VpcConfig_PublicAccessCidrs(rName, `["1.2.3.4/32", "5.6.7.8/32"]`),

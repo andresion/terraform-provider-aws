@@ -261,9 +261,9 @@ func TestAccAWSGameliftFleet_basic(t *testing.T) {
 	resourceName := "aws_gamelift_fleet.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGameliftFleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGameliftFleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGameliftFleetBasicConfig(fleetName, launchPath, params, buildName, bucketName, key, roleArn),
@@ -338,9 +338,9 @@ func TestAccAWSGameliftFleet_tags(t *testing.T) {
 	resourceName := "aws_gamelift_fleet.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGameliftFleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGameliftFleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGameliftFleetBasicConfigTags1(fleetName, launchPath, params, buildName, bucketName, key, roleArn, "key1", "value1"),
@@ -403,9 +403,9 @@ func TestAccAWSGameliftFleet_allFields(t *testing.T) {
 	resourceName := "aws_gamelift_fleet.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGameliftFleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGameliftFleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGameliftFleetAllFieldsConfig(fleetName, desc, launchPath, params[0], buildName, bucketName, key, roleArn),
@@ -516,9 +516,9 @@ func TestAccAWSGameliftFleet_disappears(t *testing.T) {
 	resourceName := "aws_gamelift_fleet.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGameliftFleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGameliftFleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGameliftFleetBasicConfig(fleetName, launchPath, params, buildName, bucketName, key, roleArn),

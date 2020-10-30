@@ -19,8 +19,8 @@ func TestAccAWSEc2TransitGatewayVpnAttachmentDataSource_TransitGatewayIdAndVpnCo
 			testAccPreCheck(t)
 			testAccPreCheckAWSEc2TransitGateway(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2TransitGatewayDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2TransitGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2TransitGatewayVpnAttachmentDataSourceConfigTransitGatewayIdAndVpnConnectionId(rBgpAsn),
@@ -45,8 +45,8 @@ func TestAccAWSEc2TransitGatewayVpnAttachmentDataSource_filter(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckAWSEc2TransitGateway(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2TransitGatewayDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2TransitGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2TransitGatewayVpnAttachmentDataSourceConfigFilter(rBgpAsn),

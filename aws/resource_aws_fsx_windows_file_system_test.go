@@ -76,9 +76,9 @@ func TestAccAWSFsxWindowsFileSystem_basic(t *testing.T) {
 	resourceName := "aws_fsx_windows_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFsxWindowsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFsxWindowsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsFsxWindowsFileSystemConfigSubnetIds1(),
@@ -127,9 +127,9 @@ func TestAccAWSFsxWindowsFileSystem_singleAz2(t *testing.T) {
 	resourceName := "aws_fsx_windows_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFsxWindowsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFsxWindowsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsFsxWindowsFileSystemConfigSubnetIds1WithSingleType("SINGLE_AZ_2"),
@@ -174,9 +174,9 @@ func TestAccAWSFsxWindowsFileSystem_storageTypeHdd(t *testing.T) {
 	resourceName := "aws_fsx_windows_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFsxWindowsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFsxWindowsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsFsxWindowsFileSystemConfigSubnetIds1WithStorageType("SINGLE_AZ_2", "HDD"),
@@ -204,9 +204,9 @@ func TestAccAWSFsxWindowsFileSystem_multiAz(t *testing.T) {
 	resourceName := "aws_fsx_windows_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFsxWindowsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFsxWindowsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsFsxWindowsFileSystemConfigSubnetIds2(),
@@ -250,9 +250,9 @@ func TestAccAWSFsxWindowsFileSystem_disappears(t *testing.T) {
 	resourceName := "aws_fsx_windows_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFsxWindowsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFsxWindowsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsFsxWindowsFileSystemConfigSubnetIds1(),
@@ -271,9 +271,9 @@ func TestAccAWSFsxWindowsFileSystem_AutomaticBackupRetentionDays(t *testing.T) {
 	resourceName := "aws_fsx_windows_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFsxWindowsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFsxWindowsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsFsxWindowsFileSystemConfigAutomaticBackupRetentionDays(90),
@@ -316,9 +316,9 @@ func TestAccAWSFsxWindowsFileSystem_CopyTagsToBackups(t *testing.T) {
 	resourceName := "aws_fsx_windows_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFsxWindowsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFsxWindowsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsFsxWindowsFileSystemConfigCopyTagsToBackups(true),
@@ -353,9 +353,9 @@ func TestAccAWSFsxWindowsFileSystem_DailyAutomaticBackupStartTime(t *testing.T) 
 	resourceName := "aws_fsx_windows_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFsxWindowsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFsxWindowsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsFsxWindowsFileSystemConfigDailyAutomaticBackupStartTime("01:01"),
@@ -392,9 +392,9 @@ func TestAccAWSFsxWindowsFileSystem_KmsKeyId(t *testing.T) {
 	resourceName := "aws_fsx_windows_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFsxWindowsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFsxWindowsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsFsxWindowsFileSystemConfigKmsKeyId1(),
@@ -429,9 +429,9 @@ func TestAccAWSFsxWindowsFileSystem_SecurityGroupIds(t *testing.T) {
 	resourceName := "aws_fsx_windows_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFsxWindowsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFsxWindowsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsFsxWindowsFileSystemConfigSecurityGroupIds1(),
@@ -466,9 +466,9 @@ func TestAccAWSFsxWindowsFileSystem_SelfManagedActiveDirectory(t *testing.T) {
 	resourceName := "aws_fsx_windows_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFsxWindowsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFsxWindowsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsFsxWindowsFileSystemConfigSelfManagedActiveDirectory(),
@@ -496,9 +496,9 @@ func TestAccAWSFsxWindowsFileSystem_SelfManagedActiveDirectory_Username(t *testi
 	resourceName := "aws_fsx_windows_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFsxWindowsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFsxWindowsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsFsxWindowsFileSystemConfigSelfManagedActiveDirectoryUsername("Admin"),
@@ -533,9 +533,9 @@ func TestAccAWSFsxWindowsFileSystem_StorageCapacity(t *testing.T) {
 	resourceName := "aws_fsx_windows_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFsxWindowsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFsxWindowsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsFsxWindowsFileSystemConfigStorageCapacity(33),
@@ -570,9 +570,9 @@ func TestAccAWSFsxWindowsFileSystem_Tags(t *testing.T) {
 	resourceName := "aws_fsx_windows_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFsxWindowsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFsxWindowsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsFsxWindowsFileSystemConfigTags1("key1", "value1"),
@@ -619,9 +619,9 @@ func TestAccAWSFsxWindowsFileSystem_ThroughputCapacity(t *testing.T) {
 	resourceName := "aws_fsx_windows_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFsxWindowsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFsxWindowsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsFsxWindowsFileSystemConfigThroughputCapacity(16),
@@ -656,9 +656,9 @@ func TestAccAWSFsxWindowsFileSystem_WeeklyMaintenanceStartTime(t *testing.T) {
 	resourceName := "aws_fsx_windows_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFsxWindowsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("fsx", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFsxWindowsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsFsxWindowsFileSystemConfigWeeklyMaintenanceStartTime("1:01:01"),

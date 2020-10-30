@@ -15,9 +15,9 @@ func TestAccAWSOpsworksHAProxyLayer_basic(t *testing.T) {
 	stackName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_opsworks_haproxy_layer.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOpsworksHAProxyLayerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOpsworksHAProxyLayerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOpsworksHAProxyLayerConfigVpcCreate(stackName),
@@ -35,9 +35,9 @@ func TestAccAWSOpsworksHAProxyLayer_tags(t *testing.T) {
 	stackName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_opsworks_haproxy_layer.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOpsworksHAProxyLayerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOpsworksHAProxyLayerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOpsworksHAProxyLayerConfigTags1(stackName, "key1", "value1"),

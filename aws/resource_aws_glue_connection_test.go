@@ -64,9 +64,9 @@ func TestAccAWSGlueConnection_basic(t *testing.T) {
 	resourceName := "aws_glue_connection.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueConnectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueConnectionConfig_Required(rName),
@@ -97,9 +97,9 @@ func TestAccAWSGlueConnection_MongoDB(t *testing.T) {
 	resourceName := "aws_glue_connection.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueConnectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueConnectionConfig_MongoDB(rName),
@@ -130,9 +130,9 @@ func TestAccAWSGlueConnection_Kafka(t *testing.T) {
 	resourceName := "aws_glue_connection.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueConnectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueConnectionConfig_Kafka(rName),
@@ -161,9 +161,9 @@ func TestAccAWSGlueConnection_Description(t *testing.T) {
 	resourceName := "aws_glue_connection.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueConnectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueConnectionConfig_Description(rName, "First Description"),
@@ -195,9 +195,9 @@ func TestAccAWSGlueConnection_MatchCriteria(t *testing.T) {
 	resourceName := "aws_glue_connection.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueConnectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueConnectionConfig_MatchCriteria_First(rName),
@@ -244,9 +244,9 @@ func TestAccAWSGlueConnection_PhysicalConnectionRequirements(t *testing.T) {
 	resourceName := "aws_glue_connection.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueConnectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueConnectionConfig_PhysicalConnectionRequirements(rName),
@@ -280,9 +280,9 @@ func TestAccAWSGlueConnection_disappears(t *testing.T) {
 	resourceName := "aws_glue_connection.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueConnectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueConnectionConfig_Required(rName),

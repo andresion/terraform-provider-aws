@@ -74,9 +74,9 @@ func TestAccAWSGlueClassifier_CsvClassifier(t *testing.T) {
 	resourceName := "aws_glue_classifier.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueClassifierDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueClassifierDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueClassifierConfig_CsvClassifier(rName, false, "PRESENT", "|", false),
@@ -130,9 +130,9 @@ func TestAccAWSGlueClassifier_GrokClassifier(t *testing.T) {
 	resourceName := "aws_glue_classifier.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueClassifierDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueClassifierDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueClassifierConfig_GrokClassifier(rName, "classification1", "pattern1"),
@@ -178,9 +178,9 @@ func TestAccAWSGlueClassifier_GrokClassifier_CustomPatterns(t *testing.T) {
 	resourceName := "aws_glue_classifier.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueClassifierDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueClassifierDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueClassifierConfig_GrokClassifier_CustomPatterns(rName, "custompattern1"),
@@ -226,9 +226,9 @@ func TestAccAWSGlueClassifier_JsonClassifier(t *testing.T) {
 	resourceName := "aws_glue_classifier.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueClassifierDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueClassifierDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueClassifierConfig_JsonClassifier(rName, "jsonpath1"),
@@ -270,9 +270,9 @@ func TestAccAWSGlueClassifier_TypeChange(t *testing.T) {
 	resourceName := "aws_glue_classifier.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueClassifierDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueClassifierDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueClassifierConfig_GrokClassifier(rName, "classification1", "pattern1"),
@@ -338,9 +338,9 @@ func TestAccAWSGlueClassifier_XmlClassifier(t *testing.T) {
 	resourceName := "aws_glue_classifier.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueClassifierDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueClassifierDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueClassifierConfig_XmlClassifier(rName, "classification1", "rowtag1"),

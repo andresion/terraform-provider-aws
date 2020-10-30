@@ -19,9 +19,9 @@ func TestAccAWSWafRegionalXssMatchSet_basic(t *testing.T) {
 	resourceName := "aws_wafregional_xss_match_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalXssMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalXssMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalXssMatchSetConfig(rName),
@@ -59,9 +59,9 @@ func TestAccAWSWafRegionalXssMatchSet_changeNameForceNew(t *testing.T) {
 	resourceName := "aws_wafregional_xss_match_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalXssMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalXssMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalXssMatchSetConfig(rName1),
@@ -94,9 +94,9 @@ func TestAccAWSWafRegionalXssMatchSet_disappears(t *testing.T) {
 	resourceName := "aws_wafregional_xss_match_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalXssMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalXssMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalXssMatchSetConfig(rName),
@@ -116,9 +116,9 @@ func TestAccAWSWafRegionalXssMatchSet_changeTuples(t *testing.T) {
 	resourceName := "aws_wafregional_xss_match_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalXssMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalXssMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalXssMatchSetConfig(rName),
@@ -175,9 +175,9 @@ func TestAccAWSWafRegionalXssMatchSet_noTuples(t *testing.T) {
 	resourceName := "aws_wafregional_xss_match_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalXssMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalXssMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalXssMatchSetConfig_noTuples(rName),

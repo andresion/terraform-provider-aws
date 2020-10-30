@@ -179,9 +179,9 @@ func TestAccAWSPinpointApp_Tags(t *testing.T) {
 	resourceName := "aws_pinpoint_app.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsRamResourceShareDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsRamResourceShareDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSPinpointAppConfig_Tag1(rName, "key1", "value1"),

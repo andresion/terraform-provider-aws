@@ -18,9 +18,9 @@ func TestAccAWSASGNotification_basic(t *testing.T) {
 	rName := acctest.RandString(5)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckASGNDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckASGNDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccASGNotificationConfig_basic(rName),
@@ -39,9 +39,9 @@ func TestAccAWSASGNotification_update(t *testing.T) {
 	rName := acctest.RandString(5)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckASGNDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckASGNDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccASGNotificationConfig_basic(rName),
@@ -68,9 +68,9 @@ func TestAccAWSASGNotification_Pagination(t *testing.T) {
 	resourceName := "aws_autoscaling_notification.example"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckASGNDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckASGNDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccASGNotificationConfig_pagination(),

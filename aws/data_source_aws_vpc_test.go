@@ -22,8 +22,8 @@ func TestAccDataSourceAwsVpc_basic(t *testing.T) {
 	ds4ResourceName := "data.aws_vpc.by_filter"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsVpcConfig(cidr, tag),
@@ -87,8 +87,8 @@ func TestAccDataSourceAwsVpc_ipv6Associated(t *testing.T) {
 	ds1ResourceName := "data.aws_vpc.by_id"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsVpcConfigIpv6(cidr, tag),
@@ -116,9 +116,9 @@ func TestAccDataSourceAwsVpc_multipleCidr(t *testing.T) {
 	rName := "data.aws_vpc.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsVpcConfigMultipleCidr(rInt),

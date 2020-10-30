@@ -11,8 +11,8 @@ import (
 
 func TestAccDataSourceAwsVpcs_basic(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsVpcsConfig(),
@@ -27,8 +27,8 @@ func TestAccDataSourceAwsVpcs_basic(t *testing.T) {
 func TestAccDataSourceAwsVpcs_tags(t *testing.T) {
 	rName := acctest.RandString(5)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsVpcsConfig_tags(rName),
@@ -44,8 +44,8 @@ func TestAccDataSourceAwsVpcs_tags(t *testing.T) {
 func TestAccDataSourceAwsVpcs_filters(t *testing.T) {
 	rName := acctest.RandString(5)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsVpcsConfig_filters(rName),

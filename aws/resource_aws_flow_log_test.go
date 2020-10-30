@@ -74,9 +74,9 @@ func TestAccAWSFlowLog_VPCID(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFlowLogDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFlowLogDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccFlowLogConfig_VPCID(rName),
@@ -113,9 +113,9 @@ func TestAccAWSFlowLog_LogFormat(t *testing.T) {
 	logFormat := "${version} ${vpc-id} ${subnet-id}"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFlowLogDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFlowLogDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccFlowLogConfig_LogFormat(rName),
@@ -147,9 +147,9 @@ func TestAccAWSFlowLog_SubnetID(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFlowLogDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFlowLogDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccFlowLogConfig_SubnetID(rName),
@@ -181,9 +181,9 @@ func TestAccAWSFlowLog_LogDestinationType_CloudWatchLogs(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFlowLogDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFlowLogDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccFlowLogConfig_LogDestinationType_CloudWatchLogs(rName),
@@ -212,9 +212,9 @@ func TestAccAWSFlowLog_LogDestinationType_S3(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFlowLogDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFlowLogDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccFlowLogConfig_LogDestinationType_S3(rName),
@@ -239,9 +239,9 @@ func TestAccAWSFlowLog_LogDestinationType_S3_Invalid(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test-flow-log-s3-invalid")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFlowLogDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFlowLogDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccFlowLogConfig_LogDestinationType_S3_Invalid(rName),
@@ -257,9 +257,9 @@ func TestAccAWSFlowLog_LogDestinationType_MaxAggregationInterval(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFlowLogDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFlowLogDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccFlowLogConfig_MaxAggregationInterval(rName),
@@ -284,9 +284,9 @@ func TestAccAWSFlowLog_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFlowLogDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFlowLogDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccFlowLogConfigTags1(rName, "key1", "value1"),
@@ -331,9 +331,9 @@ func TestAccAWSFlowLog_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFlowLogDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFlowLogDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccFlowLogConfig_VPCID(rName),

@@ -11,9 +11,9 @@ func TestAccAWSOutpostsSiteDataSource_Id(t *testing.T) {
 	dataSourceName := "data.aws_outposts_site.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsSites(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsSites(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSOutpostsSiteDataSourceConfigId(),
@@ -33,9 +33,9 @@ func TestAccAWSOutpostsSiteDataSource_Name(t *testing.T) {
 	dataSourceName := "data.aws_outposts_site.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsSites(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsSites(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSOutpostsSiteDataSourceConfigName(),

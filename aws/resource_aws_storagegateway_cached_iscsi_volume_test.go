@@ -74,9 +74,9 @@ func TestAccAWSStorageGatewayCachedIscsiVolume_basic(t *testing.T) {
 	resourceName := "aws_storagegateway_cached_iscsi_volume.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSStorageGatewayCachedIscsiVolumeDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSStorageGatewayCachedIscsiVolumeDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSStorageGatewayCachedIscsiVolumeConfig_Basic(rName),
@@ -113,9 +113,9 @@ func TestAccAWSStorageGatewayCachedIscsiVolume_kms(t *testing.T) {
 	keyResourceName := "aws_kms_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSStorageGatewayCachedIscsiVolumeDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSStorageGatewayCachedIscsiVolumeDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSStorageGatewayCachedIscsiVolumeConfigKMSEncrypted(rName),
@@ -140,9 +140,9 @@ func TestAccAWSStorageGatewayCachedIscsiVolume_Tags(t *testing.T) {
 	resourceName := "aws_storagegateway_cached_iscsi_volume.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSStorageGatewayCachedIscsiVolumeDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSStorageGatewayCachedIscsiVolumeDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSStorageGatewayCachedIscsiVolumeConfigTags1(rName, "key1", "value1"),
@@ -187,9 +187,9 @@ func TestAccAWSStorageGatewayCachedIscsiVolume_SnapshotId(t *testing.T) {
 	resourceName := "aws_storagegateway_cached_iscsi_volume.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSStorageGatewayCachedIscsiVolumeDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSStorageGatewayCachedIscsiVolumeDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSStorageGatewayCachedIscsiVolumeConfig_SnapshotId(rName),
@@ -225,9 +225,9 @@ func TestAccAWSStorageGatewayCachedIscsiVolume_SourceVolumeArn(t *testing.T) {
 	resourceName := "aws_storagegateway_cached_iscsi_volume.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSStorageGatewayCachedIscsiVolumeDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSStorageGatewayCachedIscsiVolumeDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSStorageGatewayCachedIscsiVolumeConfig_SourceVolumeArn(rName),
@@ -262,9 +262,9 @@ func TestAccAWSStorageGatewayCachedIscsiVolume_disappears(t *testing.T) {
 	resourceName := "aws_storagegateway_cached_iscsi_volume.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSStorageGatewayCachedIscsiVolumeDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSStorageGatewayCachedIscsiVolumeDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSStorageGatewayCachedIscsiVolumeConfig_Basic(rName),

@@ -85,9 +85,9 @@ func TestAccAWSDataSyncLocationNfs_basic(t *testing.T) {
 	resourceName := "aws_datasync_location_nfs.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncLocationNfsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncLocationNfsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncLocationNfsConfig(rName),
@@ -118,9 +118,9 @@ func TestAccAWSDataSyncLocationNfs_disappears(t *testing.T) {
 	resourceName := "aws_datasync_location_nfs.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncLocationNfsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncLocationNfsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncLocationNfsConfig(rName),
@@ -140,9 +140,9 @@ func TestAccAWSDataSyncLocationNfs_AgentARNs_Multple(t *testing.T) {
 	resourceName := "aws_datasync_location_nfs.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncLocationNfsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncLocationNfsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncLocationNfsConfigAgentArnsMultiple(rName),
@@ -168,9 +168,9 @@ func TestAccAWSDataSyncLocationNfs_Subdirectory(t *testing.T) {
 	resourceName := "aws_datasync_location_nfs.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncLocationNfsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncLocationNfsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncLocationNfsConfigSubdirectory(rName, "/subdirectory1/"),
@@ -195,9 +195,9 @@ func TestAccAWSDataSyncLocationNfs_Tags(t *testing.T) {
 	resourceName := "aws_datasync_location_nfs.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncLocationNfsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncLocationNfsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncLocationNfsConfigTags1(rName, "key1", "value1"),

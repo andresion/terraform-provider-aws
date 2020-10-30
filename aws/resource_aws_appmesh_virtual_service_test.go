@@ -87,9 +87,9 @@ func testAccAwsAppmeshVirtualService_virtualNode(t *testing.T) {
 	vsName := fmt.Sprintf("tf-acc-test-%d.mesh.local", acctest.RandInt())
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshVirtualServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshVirtualServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshVirtualServiceConfig_virtualNode(meshName, vnName1, vnName2, vsName, "aws_appmesh_virtual_node.foo"),
@@ -140,9 +140,9 @@ func testAccAwsAppmeshVirtualService_virtualRouter(t *testing.T) {
 	vsName := fmt.Sprintf("tf-acc-test-%d.mesh.local", acctest.RandInt())
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshVirtualServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshVirtualServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshVirtualServiceConfig_virtualRouter(meshName, vrName1, vrName2, vsName, "aws_appmesh_virtual_router.foo"),
@@ -186,9 +186,9 @@ func testAccAwsAppmeshVirtualService_tags(t *testing.T) {
 	vsName := fmt.Sprintf("tf-acc-test-%d.mesh.local", acctest.RandInt())
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshVirtualServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshVirtualServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshVirtualServiceConfig_tags(meshName, vnName1, vnName2, vsName, "aws_appmesh_virtual_node.foo", "foo", "bar", "good", "bad"),

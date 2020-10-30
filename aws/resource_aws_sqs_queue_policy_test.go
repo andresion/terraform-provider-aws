@@ -15,9 +15,9 @@ func TestAccAWSSQSQueuePolicy_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSQSQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSQSQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSQSPolicyConfigBasic(rName),
@@ -50,9 +50,9 @@ func TestAccAWSSQSQueuePolicy_disappears_queue(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSQSQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSQSQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSQSPolicyConfigBasic(rName),
@@ -73,9 +73,9 @@ func TestAccAWSSQSQueuePolicy_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSQSQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSQSQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSQSPolicyConfigBasic(rName),

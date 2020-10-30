@@ -580,9 +580,9 @@ func TestAccAWSSecurityGroup_allowAll(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfig_allowAll,
@@ -605,9 +605,9 @@ func TestAccAWSSecurityGroup_sourceSecurityGroup(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfig_sourceSecurityGroup,
@@ -630,9 +630,9 @@ func TestAccAWSSecurityGroup_IPRangeAndSecurityGroupWithSameRules(t *testing.T) 
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfig_IPRangeAndSecurityGroupWithSameRules,
@@ -655,9 +655,9 @@ func TestAccAWSSecurityGroup_IPRangesWithSameRules(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfig_IPRangesWithSameRules,
@@ -723,9 +723,9 @@ func TestAccAWSSecurityGroup_egressConfigMode(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNetworkAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNetworkAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfigEgressConfigModeBlocks(),
@@ -763,9 +763,9 @@ func TestAccAWSSecurityGroup_ingressConfigMode(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNetworkAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNetworkAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfigIngressConfigModeBlocks(),
@@ -804,9 +804,9 @@ func TestAccAWSSecurityGroup_ruleGathering(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfig_ruleGathering(sgName),
@@ -915,9 +915,9 @@ func TestAccAWSSecurityGroup_forceRevokeRulesTrue(t *testing.T) {
 	testRemoveCycle := testRemoveRuleCycle(&primary, &secondary)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			// create the configuration with 2 security groups, then create a
 			// dependency cycle such that they cannot be deleted
@@ -994,9 +994,9 @@ func TestAccAWSSecurityGroup_forceRevokeRulesFalse(t *testing.T) {
 	testRemoveCycle := testRemoveRuleCycle(&primary, &secondary)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			// create the configuration with 2 security groups, then create a
 			// dependency cycle such that they cannot be deleted. These Security
@@ -1099,9 +1099,9 @@ func TestAccAWSSecurityGroup_namePrefix(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupPrefixNameConfig("tf-acc-test-prefix-"),
@@ -1460,9 +1460,9 @@ func TestAccAWSSecurityGroup_generatedName(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfig_generatedName,
@@ -1543,9 +1543,9 @@ func TestAccAWSSecurityGroup_drift(t *testing.T) {
 	var group ec2.SecurityGroup
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfig_drift(),
@@ -1596,9 +1596,9 @@ func TestAccAWSSecurityGroup_driftComplex(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfig_drift_complex(),
@@ -1670,9 +1670,9 @@ func TestAccAWSSecurityGroup_driftComplex(t *testing.T) {
 
 func TestAccAWSSecurityGroup_invalidCIDRBlock(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSSecurityGroupInvalidIngressCidr,
@@ -1700,9 +1700,9 @@ func TestAccAWSSecurityGroup_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAWSSecurityGroupConfigTags1(rName, "key1", "value1"),
@@ -1744,9 +1744,9 @@ func TestAccAWSSecurityGroup_CIDRandGroups(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupCombindCIDRandGroups,
@@ -1770,9 +1770,9 @@ func TestAccAWSSecurityGroup_ingressWithCidrAndSGsVPC(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfig_ingressWithCidrAndSGs,
@@ -1825,9 +1825,9 @@ func TestAccAWSSecurityGroup_ingressWithCidrAndSGsClassic(t *testing.T) {
 	defer os.Setenv("AWS_DEFAULT_REGION", oldvar)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfig_ingressWithCidrAndSGs_classic,
@@ -1864,9 +1864,9 @@ func TestAccAWSSecurityGroup_egressWithPrefixList(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfigPrefixListEgress,
@@ -1891,9 +1891,9 @@ func TestAccAWSSecurityGroup_ingressWithPrefixList(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfigPrefixListIngress,
@@ -1918,9 +1918,9 @@ func TestAccAWSSecurityGroup_ipv4andipv6Egress(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfigIpv4andIpv6Egress,
@@ -2415,9 +2415,9 @@ func TestAccAWSSecurityGroup_failWithDiffMismatch(t *testing.T) {
 	resourceName := "aws_security_group.nat"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupConfig_failWithDiffMismatch,
@@ -2439,9 +2439,9 @@ func TestAccAWSSecurityGroup_ruleLimitExceededAppend(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			// create a valid SG just under the limit
 			{
@@ -2485,9 +2485,9 @@ func TestAccAWSSecurityGroup_ruleLimitCidrBlockExceededAppend(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			// create a valid SG just under the limit
 			{
@@ -2553,9 +2553,9 @@ func TestAccAWSSecurityGroup_ruleLimitExceededPrepend(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			// create a valid SG just under the limit
 			{
@@ -2597,9 +2597,9 @@ func TestAccAWSSecurityGroup_ruleLimitExceededAllNew(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			// create a valid SG just under the limit
 			{
@@ -2639,9 +2639,9 @@ func TestAccAWSSecurityGroup_rulesDropOnError(t *testing.T) {
 	resourceName := "aws_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			// Create a valid security group with some rules and make sure it exists
 			{

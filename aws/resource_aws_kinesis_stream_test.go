@@ -77,9 +77,9 @@ func TestAccAWSKinesisStream_basic(t *testing.T) {
 	streamName := fmt.Sprintf("terraform-kinesis-test-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisStreamDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisStreamDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisStreamConfig(rInt),
@@ -106,9 +106,9 @@ func TestAccAWSKinesisStream_createMultipleConcurrentStreams(t *testing.T) {
 	streamName := fmt.Sprintf("terraform-kinesis-test-%d-0", rInt) // We can get away with just import testing one of them
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisStreamDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisStreamDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisStreamConfigConcurrent(rInt),
@@ -150,9 +150,9 @@ func TestAccAWSKinesisStream_encryptionWithoutKmsKeyThrowsError(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisStreamDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisStreamDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccKinesisStreamConfigWithEncryptionAndNoKmsKey(rInt),
@@ -169,9 +169,9 @@ func TestAccAWSKinesisStream_encryption(t *testing.T) {
 	streamName := fmt.Sprintf("terraform-kinesis-test-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisStreamDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisStreamDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisStreamConfigWithEncryption(rInt),
@@ -226,9 +226,9 @@ func TestAccAWSKinesisStream_shardCount(t *testing.T) {
 	streamName := fmt.Sprintf("terraform-kinesis-test-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisStreamDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisStreamDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisStreamConfig(rInt),
@@ -267,9 +267,9 @@ func TestAccAWSKinesisStream_retentionPeriod(t *testing.T) {
 	streamName := fmt.Sprintf("terraform-kinesis-test-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisStreamDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisStreamDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisStreamConfig(rInt),
@@ -317,9 +317,9 @@ func TestAccAWSKinesisStream_shardLevelMetrics(t *testing.T) {
 	streamName := fmt.Sprintf("terraform-kinesis-test-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisStreamDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisStreamDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisStreamConfig(rInt),
@@ -367,9 +367,9 @@ func TestAccAWSKinesisStream_enforceConsumerDeletion(t *testing.T) {
 	streamName := fmt.Sprintf("terraform-kinesis-test-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisStreamDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisStreamDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisStreamConfigWithEnforceConsumerDeletion(rInt),
@@ -396,9 +396,9 @@ func TestAccAWSKinesisStream_Tags(t *testing.T) {
 	resourceName := "aws_kinesis_stream.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisStreamDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisStreamDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisStreamConfig_Tags(rInt, 21),
@@ -548,9 +548,9 @@ func TestAccAWSKinesisStream_UpdateKmsKeyId(t *testing.T) {
 	resourceName := "aws_kinesis_stream.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisStreamDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisStreamDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisStreamUpdateKmsKeyId(rInt, 0),

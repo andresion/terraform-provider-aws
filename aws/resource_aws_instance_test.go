@@ -158,9 +158,9 @@ func TestAccAWSInstance_inDefaultVpcBySgName(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigInDefaultVpcBySgName(rName),
@@ -183,9 +183,9 @@ func TestAccAWSInstance_inDefaultVpcBySgId(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigInDefaultVpcBySgId(rName),
@@ -213,9 +213,9 @@ func TestAccAWSInstance_inEc2Classic(t *testing.T) {
 	defer os.Setenv("AWS_DEFAULT_REGION", oldvar)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigInEc2Classic(rInt),
@@ -314,9 +314,9 @@ func TestAccAWSInstance_EbsBlockDevice_KmsKeyArn(t *testing.T) {
 	resourceName := "aws_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigEbsBlockDeviceKmsKeyArn(),
@@ -336,9 +336,9 @@ func TestAccAWSInstance_EbsBlockDevice_KmsKeyArn(t *testing.T) {
 // Reference: https://github.com/terraform-providers/terraform-provider-aws/issues/12667
 func TestAccAWSInstance_EbsBlockDevice_InvalidIopsForVolumeType(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccCheckInstanceConfigEBSBlockDeviceInvalidIops,
@@ -355,9 +355,9 @@ func TestAccAWSInstance_RootBlockDevice_KmsKeyArn(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigRootBlockDeviceKmsKeyArn(rName),
@@ -458,9 +458,9 @@ func TestAccAWSInstance_GP2IopsDevice(t *testing.T) {
 // Reference: https://github.com/terraform-providers/terraform-provider-aws/pull/14310
 func TestAccAWSInstance_GP2WithIopsValue(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccInstanceGP2WithIopsValue(),
@@ -861,9 +861,9 @@ func TestAccAWSInstance_ipv6_supportAddressCount(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigIpv6Support(rName),
@@ -885,9 +885,9 @@ func TestAccAWSInstance_ipv6AddressCountAndSingleAddressCausesError(t *testing.T
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccInstanceConfigIpv6ErrorConfig(rName),
@@ -903,9 +903,9 @@ func TestAccAWSInstance_ipv6_supportAddressCountWithIpv4(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigIpv6SupportWithIpv4(rName),
@@ -1020,9 +1020,9 @@ func TestAccAWSInstance_tags(t *testing.T) {
 	resourceName := "aws_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckInstanceConfigTags(),
@@ -1054,9 +1054,9 @@ func TestAccAWSInstance_volumeTags(t *testing.T) {
 	resourceName := "aws_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckInstanceConfigNoVolumeTags(),
@@ -1104,9 +1104,9 @@ func TestAccAWSInstance_volumeTagsComputed(t *testing.T) {
 	resourceName := "aws_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckInstanceConfigWithAttachedVolume(),
@@ -1375,9 +1375,9 @@ func TestAccAWSInstance_rootBlockDeviceMismatch(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccRegionPreCheck(t, "us-west-2") }, //lintignore:AWSAT003
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccRegionPreCheck(t, "us-west-2") }, //lintignore:AWSAT003
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigRootBlockDeviceMismatch(rName),
@@ -1446,9 +1446,9 @@ func TestAccAWSInstance_changeInstanceType(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigWithSmallInstanceType(rName),
@@ -1479,9 +1479,9 @@ func TestAccAWSInstance_EbsRootDevice_basic(t *testing.T) {
 	resourceName := "aws_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEc2InstanceEbsRootDeviceBasic(),
@@ -1513,9 +1513,9 @@ func TestAccAWSInstance_EbsRootDevice_ModifySize(t *testing.T) {
 	updatedSize := "32"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEc2InstanceRootBlockDevice(originalSize, deleteOnTermination, volumeType),
@@ -1551,9 +1551,9 @@ func TestAccAWSInstance_EbsRootDevice_ModifyType(t *testing.T) {
 	updatedType := "io1"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEc2InstanceRootBlockDevice(volumeSize, deleteOnTermination, originalType),
@@ -1591,9 +1591,9 @@ func TestAccAWSInstance_EbsRootDevice_ModifyIOPS_Io1(t *testing.T) {
 	updatedIOPS := "200"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEc2InstanceRootBlockDeviceWithIOPS(volumeSize, deleteOnTermination, volumeType, originalIOPS),
@@ -1633,9 +1633,9 @@ func TestAccAWSInstance_EbsRootDevice_ModifyIOPS_Io2(t *testing.T) {
 	updatedIOPS := "200"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEc2InstanceRootBlockDeviceWithIOPS(volumeSize, deleteOnTermination, volumeType, originalIOPS),
@@ -1674,9 +1674,9 @@ func TestAccAWSInstance_EbsRootDevice_ModifyDeleteOnTermination(t *testing.T) {
 	updatedDeleteOnTermination := "true"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEc2InstanceRootBlockDevice(volumeSize, originalDeleteOnTermination, volumeType),
@@ -1718,9 +1718,9 @@ func TestAccAWSInstance_EbsRootDevice_ModifyAll(t *testing.T) {
 	updatedDeleteOnTermination := "true"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEc2InstanceRootBlockDevice(originalSize, originalDeleteOnTermination, originalType),
@@ -1757,9 +1757,9 @@ func TestAccAWSInstance_EbsRootDevice_MultipleBlockDevices_ModifySize(t *testing
 	updatedRootVolumeSize := "14"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEc2InstanceConfigBlockDevicesWithDeleteOnTerminate(originalRootVolumeSize, deleteOnTermination),
@@ -1809,9 +1809,9 @@ func TestAccAWSInstance_EbsRootDevice_MultipleBlockDevices_ModifyDeleteOnTermina
 	updatedDeleteOnTermination := "true"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEc2InstanceConfigBlockDevicesWithDeleteOnTerminate(rootVolumeSize, originalDeleteOnTermination),
@@ -1859,9 +1859,9 @@ func TestAccAWSInstance_EbsRootDevice_MultipleDynamicEBSBlockDevices(t *testing.
 	resourceName := "aws_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEc2InstanceConfigDynamicEBSBlockDevices(),
@@ -1911,9 +1911,9 @@ func TestAccAWSInstance_primaryNetworkInterface(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigPrimaryNetworkInterface(rName),
@@ -1941,9 +1941,9 @@ func TestAccAWSInstance_primaryNetworkInterfaceSourceDestCheck(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigPrimaryNetworkInterfaceSourceDestCheck(rName),
@@ -1974,9 +1974,9 @@ func TestAccAWSInstance_addSecondaryInterface(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigAddSecondaryNetworkInterfaceBefore(rName),
@@ -2012,9 +2012,9 @@ func TestAccAWSInstance_addSecurityGroupNetworkInterface(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigAddSecurityGroupBefore(rName),
@@ -2046,9 +2046,9 @@ func TestAccAWSInstance_NewNetworkInterface_PublicIPAndSecondaryPrivateIPs(t *te
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigPublicAndPrivateSecondaryIPs(rName, true),
@@ -2085,9 +2085,9 @@ func TestAccAWSInstance_NewNetworkInterface_EmptyPrivateIPAndSecondaryPrivateIPs
 	secondaryIPs := fmt.Sprintf("%q, %q", "10.1.1.42", "10.1.1.43")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigPrivateIPAndSecondaryIPs(rName, "", secondaryIPs),
@@ -2115,9 +2115,9 @@ func TestAccAWSInstance_NewNetworkInterface_EmptyPrivateIPAndSecondaryPrivateIPs
 	secondaryIPs := fmt.Sprintf("%s, %q", secondaryIP, "10.1.1.43")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigPrivateIPAndSecondaryIPs(rName, "", secondaryIPs),
@@ -2161,9 +2161,9 @@ func TestAccAWSInstance_NewNetworkInterface_PrivateIPAndSecondaryPrivateIPs(t *t
 	secondaryIPs := fmt.Sprintf("%q, %q", "10.1.1.43", "10.1.1.44")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigPrivateIPAndSecondaryIPs(rName, privateIP, secondaryIPs),
@@ -2192,9 +2192,9 @@ func TestAccAWSInstance_NewNetworkInterface_PrivateIPAndSecondaryPrivateIPsUpdat
 	secondaryIPs := fmt.Sprintf("%s, %q", secondaryIP, "10.1.1.44")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigPrivateIPAndSecondaryIPs(rName, privateIP, secondaryIPs),
@@ -2236,9 +2236,9 @@ func TestAccAWSInstance_associatePublic_defaultPrivate(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_associatePublic_defaultPrivate(rName),
@@ -2264,9 +2264,9 @@ func TestAccAWSInstance_associatePublic_defaultPublic(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_associatePublic_defaultPublic(rName),
@@ -2292,9 +2292,9 @@ func TestAccAWSInstance_associatePublic_explicitPublic(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_associatePublic_explicitPublic(rName),
@@ -2320,9 +2320,9 @@ func TestAccAWSInstance_associatePublic_explicitPrivate(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_associatePublic_explicitPrivate(rName),
@@ -2348,9 +2348,9 @@ func TestAccAWSInstance_associatePublic_overridePublic(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_associatePublic_overridePublic(rName),
@@ -2376,9 +2376,9 @@ func TestAccAWSInstance_associatePublic_overridePrivate(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_associatePublic_overridePrivate(rName),
@@ -2403,9 +2403,9 @@ func TestAccAWSInstance_getPasswordData_falseToTrue(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_getPasswordData(rName, false),
@@ -2439,9 +2439,9 @@ func TestAccAWSInstance_getPasswordData_trueToFalse(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_getPasswordData(rName, true),
@@ -2476,9 +2476,9 @@ func TestAccAWSInstance_CreditSpecification_Empty_NonBurstable(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_CreditSpecification_Empty_NonBurstable(rName),
@@ -2503,9 +2503,9 @@ func TestAccAWSInstance_CreditSpecification_UnspecifiedToEmpty_NonBurstable(t *t
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_CreditSpecification_Unspecified_NonBurstable(rName),
@@ -2534,9 +2534,9 @@ func TestAccAWSInstance_creditSpecification_unspecifiedDefaultsToStandard(t *tes
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_creditSpecification_unspecified(rName),
@@ -2561,9 +2561,9 @@ func TestAccAWSInstance_creditSpecification_standardCpuCredits(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_creditSpecification_standardCpuCredits(rName),
@@ -2596,9 +2596,9 @@ func TestAccAWSInstance_creditSpecification_unlimitedCpuCredits(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_creditSpecification_unlimitedCpuCredits(rName),
@@ -2631,9 +2631,9 @@ func TestAccAWSInstance_creditSpecification_unknownCpuCredits_t2(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_creditSpecification_unknownCpuCredits(rName, "t2.micro"),
@@ -2658,9 +2658,9 @@ func TestAccAWSInstance_creditSpecification_unknownCpuCredits_t3(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_creditSpecification_unknownCpuCredits(rName, "t3.micro"),
@@ -2685,9 +2685,9 @@ func TestAccAWSInstance_creditSpecification_updateCpuCredits(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_creditSpecification_standardCpuCredits(rName),
@@ -2728,9 +2728,9 @@ func TestAccAWSInstance_creditSpecification_isNotAppliedToNonBurstable(t *testin
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_creditSpecification_isNotAppliedToNonBurstable(rName),
@@ -2754,9 +2754,9 @@ func TestAccAWSInstance_creditSpecificationT3_unspecifiedDefaultsToUnlimited(t *
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_creditSpecification_unspecified_t3(rName),
@@ -2781,9 +2781,9 @@ func TestAccAWSInstance_creditSpecificationT3_standardCpuCredits(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_creditSpecification_standardCpuCredits_t3(rName),
@@ -2816,9 +2816,9 @@ func TestAccAWSInstance_creditSpecificationT3_unlimitedCpuCredits(t *testing.T) 
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_creditSpecification_unlimitedCpuCredits_t3(rName),
@@ -2851,9 +2851,9 @@ func TestAccAWSInstance_creditSpecificationT3_updateCpuCredits(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_creditSpecification_standardCpuCredits_t3(rName),
@@ -2894,9 +2894,9 @@ func TestAccAWSInstance_creditSpecification_standardCpuCredits_t2Tot3Taint(t *te
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_creditSpecification_standardCpuCredits(rName),
@@ -2930,9 +2930,9 @@ func TestAccAWSInstance_creditSpecification_unlimitedCpuCredits_t2Tot3Taint(t *t
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_creditSpecification_unlimitedCpuCredits(rName),
@@ -2965,9 +2965,9 @@ func TestAccAWSInstance_disappears(t *testing.T) {
 	resourceName := "aws_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigBasic(),
@@ -2987,9 +2987,9 @@ func TestAccAWSInstance_UserData_EmptyStringToUnspecified(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_UserData_EmptyString(rName),
@@ -3019,9 +3019,9 @@ func TestAccAWSInstance_UserData_UnspecifiedToEmptyString(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfig_UserData_Unspecified(rName),
@@ -3049,9 +3049,9 @@ func TestAccAWSInstance_hibernation(t *testing.T) {
 	resourceName := "aws_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigHibernation(true),
@@ -3083,10 +3083,10 @@ func TestAccAWSInstance_metadataOptions(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceConfigMetadataOptions(rName),

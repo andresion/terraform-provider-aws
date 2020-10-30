@@ -25,8 +25,8 @@ func TestAccAWSSESEventDestination_basic(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckAWSSES(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSESEventDestinationDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSESEventDestinationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSESEventDestinationConfig(rName1, rName2, rName3),
@@ -75,8 +75,8 @@ func TestAccAWSSESEventDestination_disappears(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckAWSSES(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSESEventDestinationDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSESEventDestinationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSESEventDestinationConfig(rName1, rName2, rName3),

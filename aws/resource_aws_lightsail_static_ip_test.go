@@ -71,9 +71,9 @@ func TestAccAWSLightsailStaticIp_basic(t *testing.T) {
 	staticIpName := fmt.Sprintf("tf-test-lightsail-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSLightsail(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLightsailStaticIpDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSLightsail(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLightsailStaticIpDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLightsailStaticIpConfig_basic(staticIpName),
@@ -103,9 +103,9 @@ func TestAccAWSLightsailStaticIp_disappears(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSLightsail(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLightsailStaticIpDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSLightsail(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLightsailStaticIpDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLightsailStaticIpConfig_basic(staticIpName),

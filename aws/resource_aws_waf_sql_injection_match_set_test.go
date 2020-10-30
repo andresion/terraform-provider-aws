@@ -19,9 +19,9 @@ func TestAccAWSWafSqlInjectionMatchSet_basic(t *testing.T) {
 	resourceName := "aws_waf_sql_injection_match_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafSqlInjectionMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafSqlInjectionMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafSqlInjectionMatchSetConfig(rName),
@@ -53,9 +53,9 @@ func TestAccAWSWafSqlInjectionMatchSet_changeNameForceNew(t *testing.T) {
 	resourceName := "aws_waf_sql_injection_match_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafSqlInjectionMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafSqlInjectionMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafSqlInjectionMatchSetConfig(rName),
@@ -88,9 +88,9 @@ func TestAccAWSWafSqlInjectionMatchSet_disappears(t *testing.T) {
 	resourceName := "aws_waf_sql_injection_match_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafSqlInjectionMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafSqlInjectionMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafSqlInjectionMatchSetConfig(rName),
@@ -110,9 +110,9 @@ func TestAccAWSWafSqlInjectionMatchSet_changeTuples(t *testing.T) {
 	resourceName := "aws_waf_sql_injection_match_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafSqlInjectionMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafSqlInjectionMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafSqlInjectionMatchSetConfig(rName),
@@ -151,9 +151,9 @@ func TestAccAWSWafSqlInjectionMatchSet_noTuples(t *testing.T) {
 	resourceName := "aws_waf_sql_injection_match_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafSqlInjectionMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafSqlInjectionMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafSqlInjectionMatchSetConfig_noTuples(rName),

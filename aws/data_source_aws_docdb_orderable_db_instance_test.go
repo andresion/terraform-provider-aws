@@ -17,9 +17,9 @@ func TestAccAWSDocdbOrderableDbInstanceDataSource_basic(t *testing.T) {
 	license := "na"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDocdbOrderableDbInstance(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDocdbOrderableDbInstance(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDocdbOrderableDbInstanceDataSourceConfigBasic(class, engine, engineVersion, license),
@@ -42,9 +42,9 @@ func TestAccAWSDocdbOrderableDbInstanceDataSource_preferred(t *testing.T) {
 	preferredOption := "db.r5.large"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDocdbOrderableDbInstance(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDocdbOrderableDbInstance(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDocdbOrderableDbInstanceDataSourceConfigPreferred(engine, engineVersion, license, preferredOption),

@@ -16,9 +16,9 @@ func TestAccAWSCloudFrontOriginAccessIdentity_basic(t *testing.T) {
 	resourceName := "aws_cloudfront_origin_access_identity.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("cloudfront", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCloudFrontOriginAccessIdentityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("cloudfront", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCloudFrontOriginAccessIdentityDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudFrontOriginAccessIdentityConfig,
@@ -46,9 +46,9 @@ func TestAccAWSCloudFrontOriginAccessIdentity_noComment(t *testing.T) {
 	resourceName := "aws_cloudfront_origin_access_identity.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("cloudfront", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCloudFrontOriginAccessIdentityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("cloudfront", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCloudFrontOriginAccessIdentityDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudFrontOriginAccessIdentityNoCommentConfig,
@@ -75,9 +75,9 @@ func TestAccAWSCloudFrontOriginAccessIdentity_disappears(t *testing.T) {
 	resourceName := "aws_cloudfront_origin_access_identity.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("cloudfront", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCloudFrontOriginAccessIdentityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("cloudfront", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCloudFrontOriginAccessIdentityDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudFrontOriginAccessIdentityConfig,

@@ -16,8 +16,8 @@ func TestAccDataSourceAwsApiGatewayResource_basic(t *testing.T) {
 	dataSourceName2 := "data.aws_api_gateway_resource.example_v1_endpoint"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsApiGatewayResourceConfig(rName),

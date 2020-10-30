@@ -16,9 +16,9 @@ func TestAccAWSEc2TransitGatewayRoute_basic(t *testing.T) {
 	transitGatewayVpcAttachmentResourceName := "aws_ec2_transit_gateway_vpc_attachment.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2TransitGatewayRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2TransitGatewayRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2TransitGatewayRouteConfigDestinationCidrBlock(),
@@ -46,9 +46,9 @@ func TestAccAWSEc2TransitGatewayRoute_basic_ipv6(t *testing.T) {
 	transitGatewayVpcAttachmentResourceName := "aws_ec2_transit_gateway_vpc_attachment.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2TransitGatewayRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2TransitGatewayRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2TransitGatewayRouteConfigDestinationCidrBlock(),
@@ -75,9 +75,9 @@ func TestAccAWSEc2TransitGatewayRoute_blackhole(t *testing.T) {
 	transitGatewayResourceName := "aws_ec2_transit_gateway.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2TransitGatewayRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2TransitGatewayRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2TransitGatewayRouteConfigDestinationCidrBlock(),
@@ -105,9 +105,9 @@ func TestAccAWSEc2TransitGatewayRoute_disappears(t *testing.T) {
 	transitGatewayResourceName := "aws_ec2_transit_gateway.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2TransitGatewayRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2TransitGatewayRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2TransitGatewayRouteConfigDestinationCidrBlock(),
@@ -131,9 +131,9 @@ func TestAccAWSEc2TransitGatewayRoute_disappears_TransitGatewayAttachment(t *tes
 	transitGatewayResourceName := "aws_ec2_transit_gateway.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2TransitGatewayRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2TransitGatewayRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2TransitGatewayRouteConfigDestinationCidrBlock(),

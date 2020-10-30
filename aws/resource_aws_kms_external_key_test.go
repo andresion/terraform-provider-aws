@@ -19,9 +19,9 @@ func TestAccAWSKmsExternalKey_basic(t *testing.T) {
 	resourceName := "aws_kms_external_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsExternalKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsExternalKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsExternalKeyConfig(),
@@ -57,9 +57,9 @@ func TestAccAWSKmsExternalKey_disappears(t *testing.T) {
 	resourceName := "aws_kms_external_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsExternalKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsExternalKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsExternalKeyConfig(),
@@ -78,9 +78,9 @@ func TestAccAWSKmsExternalKey_DeletionWindowInDays(t *testing.T) {
 	resourceName := "aws_kms_external_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsExternalKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsExternalKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsExternalKeyConfigDeletionWindowInDays(8),
@@ -115,9 +115,9 @@ func TestAccAWSKmsExternalKey_Description(t *testing.T) {
 	resourceName := "aws_kms_external_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsExternalKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsExternalKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsExternalKeyConfigDescription("description1"),
@@ -152,9 +152,9 @@ func TestAccAWSKmsExternalKey_Enabled(t *testing.T) {
 	resourceName := "aws_kms_external_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsExternalKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsExternalKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsExternalKeyConfigEnabled(false),
@@ -197,9 +197,9 @@ func TestAccAWSKmsExternalKey_KeyMaterialBase64(t *testing.T) {
 	resourceName := "aws_kms_external_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsExternalKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsExternalKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				// ACCEPTANCE TESTING ONLY -- NEVER EXPOSE YOUR KEY MATERIAL
@@ -238,9 +238,9 @@ func TestAccAWSKmsExternalKey_Policy(t *testing.T) {
 	resourceName := "aws_kms_external_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsExternalKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsExternalKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsExternalKeyConfigPolicy(policy1),
@@ -275,9 +275,9 @@ func TestAccAWSKmsExternalKey_Tags(t *testing.T) {
 	resourceName := "aws_kms_external_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsExternalKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsExternalKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsExternalKeyConfigTags1("value1"),
@@ -326,9 +326,9 @@ func TestAccAWSKmsExternalKey_ValidTo(t *testing.T) {
 	validTo2 := time.Now().UTC().Add(2 * time.Hour).Format(time.RFC3339)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsExternalKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsExternalKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsExternalKeyConfigValidTo(validTo1),

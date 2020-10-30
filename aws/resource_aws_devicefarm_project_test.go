@@ -18,9 +18,9 @@ func TestAccAWSDeviceFarmProject_basic(t *testing.T) {
 	resourceName := "aws_devicefarm_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDeviceFarmProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDeviceFarmProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDeviceFarmProjectConfig(rName),
@@ -45,9 +45,9 @@ func TestAccAWSDeviceFarmProject_disappears(t *testing.T) {
 	resourceName := "aws_devicefarm_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDeviceFarmProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDeviceFarmProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDeviceFarmProjectConfig(rName),

@@ -68,9 +68,9 @@ func testAccAwsGuardDutyDetector_basic(t *testing.T) {
 	resourceName := "aws_guardduty_detector.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsGuardDutyDetectorDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsGuardDutyDetectorDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGuardDutyDetectorConfig_basic1,
@@ -117,9 +117,9 @@ func testAccAwsGuardDutyDetector_tags(t *testing.T) {
 	resourceName := "aws_guardduty_detector.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsGuardDutyDetectorDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsGuardDutyDetectorDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGuardDutyDetectorConfigTags1("key1", "value1"),

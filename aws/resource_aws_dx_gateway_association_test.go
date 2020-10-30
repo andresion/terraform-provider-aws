@@ -190,9 +190,9 @@ func TestAccAwsDxGatewayAssociation_V0StateUpgrade(t *testing.T) {
 	rBgpAsn := acctest.RandIntRange(64512, 65534)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDxGatewayAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDxGatewayAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDxGatewayAssociationConfig_basicVpnGatewaySingleAccount(rName, rBgpAsn),
@@ -213,9 +213,9 @@ func TestAccAwsDxGatewayAssociation_basicVpnGatewaySingleAccount(t *testing.T) {
 	rBgpAsn := acctest.RandIntRange(64512, 65534)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDxGatewayAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDxGatewayAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDxGatewayAssociationConfig_basicVpnGatewaySingleAccount(rName, rBgpAsn),
@@ -291,9 +291,9 @@ func TestAccAwsDxGatewayAssociation_basicTransitGatewaySingleAccount(t *testing.
 	rBgpAsn := acctest.RandIntRange(64512, 65534)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDxGatewayAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDxGatewayAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDxGatewayAssociationConfig_basicTransitGatewaySingleAccount(rName, rBgpAsn),
@@ -371,9 +371,9 @@ func TestAccAwsDxGatewayAssociation_multiVpnGatewaysSingleAccount(t *testing.T) 
 	rBgpAsn := acctest.RandIntRange(64512, 65534)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDxGatewayAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDxGatewayAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDxGatewayAssociationConfig_multiVpnGatewaysSingleAccount(rName1, rName2, rBgpAsn),
@@ -400,9 +400,9 @@ func TestAccAwsDxGatewayAssociation_allowedPrefixesVpnGatewaySingleAccount(t *te
 	rBgpAsn := acctest.RandIntRange(64512, 65534)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDxGatewayAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDxGatewayAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDxGatewayAssociationConfig_allowedPrefixesVpnGatewaySingleAccount(rName, rBgpAsn),

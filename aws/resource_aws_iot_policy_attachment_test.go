@@ -16,9 +16,9 @@ func TestAccAWSIotPolicyAttachment_basic(t *testing.T) {
 	policyName2 := acctest.RandomWithPrefix("PolicyName2-")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIotPolicyAttchmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIotPolicyAttchmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIotPolicyAttachmentConfig(policyName),

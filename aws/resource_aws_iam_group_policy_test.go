@@ -16,9 +16,9 @@ func TestAccAWSIAMGroupPolicy_basic(t *testing.T) {
 	var groupPolicy1, groupPolicy2 iam.GetGroupPolicyOutput
 	rInt := acctest.RandInt()
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckIAMGroupPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMGroupPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccIAMGroupPolicyConfig(rInt),
@@ -60,9 +60,9 @@ func TestAccAWSIAMGroupPolicy_disappears(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckIAMGroupPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMGroupPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccIAMGroupPolicyConfig(rInt),
@@ -84,10 +84,10 @@ func TestAccAWSIAMGroupPolicy_namePrefix(t *testing.T) {
 	var groupPolicy1, groupPolicy2 iam.GetGroupPolicyOutput
 	rInt := acctest.RandInt()
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: "aws_iam_group_policy.test",
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckIAMGroupPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            "aws_iam_group_policy.test",
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMGroupPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccIAMGroupPolicyConfig_namePrefix(rInt, "*"),
@@ -124,10 +124,10 @@ func TestAccAWSIAMGroupPolicy_generatedName(t *testing.T) {
 	var groupPolicy1, groupPolicy2 iam.GetGroupPolicyOutput
 	rInt := acctest.RandInt()
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: "aws_iam_group_policy.test",
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckIAMGroupPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            "aws_iam_group_policy.test",
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMGroupPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccIAMGroupPolicyConfig_generatedName(rInt, "*"),

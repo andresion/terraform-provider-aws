@@ -16,7 +16,7 @@ func testAccAwsGuardDutyOrganizationConfiguration_basic(t *testing.T) {
 			testAccPreCheck(t)
 			testAccOrganizationsAccountPreCheck(t)
 		},
-		Providers: testAccProviders,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		// GuardDuty Organization Configuration cannot be deleted separately.
 		// Ensure parent resource is destroyed instead.
 		CheckDestroy: testAccCheckAwsGuardDutyDetectorDestroy,

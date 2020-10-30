@@ -20,9 +20,9 @@ func testAccAwsEc2ClientVpnAuthorizationRule_basic(t *testing.T) {
 	subnetResourceName := "aws_subnet.test.0"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2ClientVpnAuthorizationRuleDestroy,
+		PreCheck:                 func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2ClientVpnAuthorizationRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2ClientVpnAuthorizationRuleConfigBasic(rStr),
@@ -64,9 +64,9 @@ func testAccAwsEc2ClientVpnAuthorizationRule_groups(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2ClientVpnAuthorizationRuleDestroy,
+		PreCheck:                 func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2ClientVpnAuthorizationRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2ClientVpnAuthorizationRuleConfigGroups(rStr, groups1),
@@ -134,9 +134,9 @@ func testAccAwsEc2ClientVpnAuthorizationRule_Subnets(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2ClientVpnAuthorizationRuleDestroy,
+		PreCheck:                 func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2ClientVpnAuthorizationRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2ClientVpnAuthorizationRuleConfigSubnets(rStr, subnetCount, case1),
@@ -176,9 +176,9 @@ func testAccAwsEc2ClientVpnAuthorizationRule_disappears(t *testing.T) {
 	resourceName := "aws_ec2_client_vpn_authorization_rule.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2ClientVpnAuthorizationRuleDestroy,
+		PreCheck:                 func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2ClientVpnAuthorizationRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2ClientVpnAuthorizationRuleConfigBasic(rStr),

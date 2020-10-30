@@ -14,9 +14,9 @@ func TestAccAWSDefaultVpcDhcpOptions_basic(t *testing.T) {
 	resourceName := "aws_default_vpc_dhcp_options.foo"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDefaultVpcDhcpOptionsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDefaultVpcDhcpOptionsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDefaultVpcDhcpOptionsConfigBasic,

@@ -81,8 +81,8 @@ func TestAccAWSDirectoryServiceDirectory_basic(t *testing.T) {
 			testAccPreCheckAWSDirectoryService(t)
 			testAccPreCheckAWSDirectoryServiceSimpleDirectory(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDirectoryServiceDirectoryDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDirectoryServiceDirectoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDirectoryServiceDirectoryConfig,
@@ -113,8 +113,8 @@ func TestAccAWSDirectoryServiceDirectory_tags(t *testing.T) {
 			testAccPreCheckAWSDirectoryService(t)
 			testAccPreCheckAWSDirectoryServiceSimpleDirectory(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDirectoryServiceDirectoryDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDirectoryServiceDirectoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDirectoryServiceDirectoryTagsConfig,
@@ -160,9 +160,9 @@ func TestAccAWSDirectoryServiceDirectory_microsoft(t *testing.T) {
 	resourceName := "aws_directory_service_directory.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDirectoryService(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDirectoryServiceDirectoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDirectoryService(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDirectoryServiceDirectoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDirectoryServiceDirectoryConfig_microsoft,
@@ -188,9 +188,9 @@ func TestAccAWSDirectoryServiceDirectory_microsoftStandard(t *testing.T) {
 	resourceName := "aws_directory_service_directory.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDirectoryService(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDirectoryServiceDirectoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDirectoryService(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDirectoryServiceDirectoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDirectoryServiceDirectoryConfig_microsoftStandard,
@@ -221,8 +221,8 @@ func TestAccAWSDirectoryServiceDirectory_connector(t *testing.T) {
 			testAccPreCheckAWSDirectoryService(t)
 			testAccPreCheckAWSDirectoryServiceSimpleDirectory(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDirectoryServiceDirectoryDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDirectoryServiceDirectoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDirectoryServiceDirectoryConfig_connector,
@@ -255,8 +255,8 @@ func TestAccAWSDirectoryServiceDirectory_withAliasAndSso(t *testing.T) {
 			testAccPreCheckAWSDirectoryService(t)
 			testAccPreCheckAWSDirectoryServiceSimpleDirectory(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDirectoryServiceDirectoryDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDirectoryServiceDirectoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDirectoryServiceDirectoryConfig_withAlias(alias),
@@ -333,8 +333,8 @@ func TestAccAWSDirectoryServiceDirectory_disappears(t *testing.T) {
 			testAccPreCheckAWSDirectoryService(t)
 			testAccPreCheckAWSDirectoryServiceSimpleDirectory(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDirectoryServiceDirectoryDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDirectoryServiceDirectoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDirectoryServiceDirectoryConfig,

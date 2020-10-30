@@ -19,9 +19,9 @@ func TestAccAWSSfnStateMachine_createUpdate(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSfnStateMachineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSfnStateMachineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSfnStateMachineConfig(rName, 5),
@@ -63,9 +63,9 @@ func TestAccAWSSfnStateMachine_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSfnStateMachineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSfnStateMachineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSfnStateMachineConfigTags1(rName, "key1", "value1"),
@@ -107,9 +107,9 @@ func TestAccAWSSfnStateMachine_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSfnStateMachineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSfnStateMachineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSfnStateMachineConfig(rName, 5),

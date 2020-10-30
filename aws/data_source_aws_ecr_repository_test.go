@@ -15,8 +15,8 @@ func TestAccAWSEcrRepositoryDataSource_basic(t *testing.T) {
 	dataSourceName := "data.aws_ecr_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsEcrRepositoryDataSourceConfig(rName),
@@ -40,8 +40,8 @@ func TestAccAWSEcrRepositoryDataSource_encryption(t *testing.T) {
 	dataSourceName := "data.aws_ecr_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsEcrRepositoryDataSourceConfig_encryption(rName),
@@ -64,8 +64,8 @@ func TestAccAWSEcrRepositoryDataSource_encryption(t *testing.T) {
 func TestAccAWSEcrRepositoryDataSource_nonExistent(t *testing.T) {
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccCheckAwsEcrRepositoryDataSourceConfig_NonExistent,

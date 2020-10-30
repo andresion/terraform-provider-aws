@@ -8,8 +8,8 @@ import (
 
 func TestAccDataSourceAwsKmsCiphertext_basic(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsKmsCiphertextConfig_basic,
@@ -24,8 +24,8 @@ func TestAccDataSourceAwsKmsCiphertext_basic(t *testing.T) {
 
 func TestAccDataSourceAwsKmsCiphertext_validate(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsKmsCiphertextConfig_validate,
@@ -40,8 +40,8 @@ func TestAccDataSourceAwsKmsCiphertext_validate(t *testing.T) {
 
 func TestAccDataSourceAwsKmsCiphertext_validate_withContext(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsKmsCiphertextConfig_validate_withContext,

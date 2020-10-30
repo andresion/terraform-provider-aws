@@ -12,8 +12,8 @@ func TestAccAWSSsmPatchBaselineDataSource_existingBaseline(t *testing.T) {
 	resourceName := "data.aws_ssm_patch_baseline.test_existing"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsSsmPatchBaselineDataSourceConfig_existingBaseline(),
@@ -31,9 +31,9 @@ func TestAccAWSSsmPatchBaselineDataSource_newBaseline(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-bl-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMPatchBaselineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMPatchBaselineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsSsmPatchBaselineDataSourceConfig_newBaseline(rName),

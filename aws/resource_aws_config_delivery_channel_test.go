@@ -78,9 +78,9 @@ func testAccConfigDeliveryChannel_basic(t *testing.T) {
 	expectedBucketName := fmt.Sprintf("tf-acc-test-awsconfig-%d", rInt)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigDeliveryChannelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigDeliveryChannelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigDeliveryChannelConfig_basic(rInt),
@@ -103,9 +103,9 @@ func testAccConfigDeliveryChannel_allParams(t *testing.T) {
 	expectedBucketName := fmt.Sprintf("tf-acc-test-awsconfig-%d", rInt)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigDeliveryChannelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigDeliveryChannelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigDeliveryChannelConfig_allParams(rInt),
@@ -128,9 +128,9 @@ func testAccConfigDeliveryChannel_importBasic(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigDeliveryChannelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigDeliveryChannelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigDeliveryChannelConfig_basic(rInt),

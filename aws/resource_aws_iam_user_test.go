@@ -205,9 +205,9 @@ func TestAccAWSUser_basic(t *testing.T) {
 	resourceName := "aws_iam_user.user"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSUserConfig(name1, path1),
@@ -241,9 +241,9 @@ func TestAccAWSUser_disappears(t *testing.T) {
 	resourceName := "aws_iam_user.user"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSUserConfig(rName, "/"),
@@ -264,9 +264,9 @@ func TestAccAWSUser_ForceDestroy_AccessKey(t *testing.T) {
 	resourceName := "aws_iam_user.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSUserConfigForceDestroy(rName),
@@ -293,9 +293,9 @@ func TestAccAWSUser_ForceDestroy_LoginProfile(t *testing.T) {
 	resourceName := "aws_iam_user.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSUserConfigForceDestroy(rName),
@@ -322,9 +322,9 @@ func TestAccAWSUser_ForceDestroy_MFADevice(t *testing.T) {
 	resourceName := "aws_iam_user.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSUserConfigForceDestroy(rName),
@@ -351,9 +351,9 @@ func TestAccAWSUser_ForceDestroy_SSHKey(t *testing.T) {
 	resourceName := "aws_iam_user.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSUserConfigForceDestroy(rName),
@@ -380,9 +380,9 @@ func TestAccAWSUser_ForceDestroy_SigningCertificate(t *testing.T) {
 	resourceName := "aws_iam_user.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSUserConfigForceDestroy(rName),
@@ -411,9 +411,9 @@ func TestAccAWSUser_nameChange(t *testing.T) {
 	resourceName := "aws_iam_user.user"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSUserConfig(name1, path),
@@ -447,9 +447,9 @@ func TestAccAWSUser_pathChange(t *testing.T) {
 	resourceName := "aws_iam_user.user"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSUserConfig(name, path1),
@@ -484,9 +484,9 @@ func TestAccAWSUser_permissionsBoundary(t *testing.T) {
 	permissionsBoundary2 := fmt.Sprintf("arn:%s:iam::aws:policy/ReadOnlyAccess", testAccGetPartition())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserDestroy,
 		Steps: []resource.TestStep{
 			// Test creation
 			{
@@ -558,9 +558,9 @@ func TestAccAWSUser_tags(t *testing.T) {
 	resourceName := "aws_iam_user.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSUserConfig_tags(rName),

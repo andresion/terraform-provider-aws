@@ -44,9 +44,9 @@ func testAccAwsDxTransitVirtualInterface_basic(t *testing.T) {
 	vlan := acctest.RandIntRange(2049, 4094)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDxTransitVirtualInterfaceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDxTransitVirtualInterfaceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDxTransitVirtualInterfaceConfig_basic(connectionId, rName, amzAsn, bgpAsn, vlan),
@@ -116,9 +116,9 @@ func testAccAwsDxTransitVirtualInterface_Tags(t *testing.T) {
 	vlan := acctest.RandIntRange(2049, 4094)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDxTransitVirtualInterfaceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDxTransitVirtualInterfaceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDxTransitVirtualInterfaceConfig_tags(connectionId, rName, amzAsn, bgpAsn, vlan),

@@ -72,9 +72,9 @@ func TestAccAWSDBSubnetGroup_basic(t *testing.T) {
 	rName := fmt.Sprintf("tf-test-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDBSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDBSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDBSubnetGroupConfig(rName),
@@ -100,9 +100,9 @@ func TestAccAWSDBSubnetGroup_namePrefix(t *testing.T) {
 	resourceName := "aws_db_subnet_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDBSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDBSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDBSubnetGroupConfig_namePrefix,
@@ -120,9 +120,9 @@ func TestAccAWSDBSubnetGroup_generatedName(t *testing.T) {
 	resourceName := "aws_db_subnet_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDBSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDBSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDBSubnetGroupConfig_generatedName,
@@ -145,9 +145,9 @@ func TestAccAWSDBSubnetGroup_withUndocumentedCharacters(t *testing.T) {
 	resourceName := "aws_db_subnet_group.underscores"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDBSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDBSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDBSubnetGroupConfig_withUnderscoresAndPeriodsAndSpaces,
@@ -174,9 +174,9 @@ func TestAccAWSDBSubnetGroup_updateDescription(t *testing.T) {
 	rName := fmt.Sprintf("tf-test-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDBSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDBSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDBSubnetGroupConfig(rName),

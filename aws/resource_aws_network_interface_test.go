@@ -246,9 +246,9 @@ func TestAccAWSENI_disappears(t *testing.T) {
 	resourceName := "aws_network_interface.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSENIDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSENIDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSENIConfig(),
@@ -422,9 +422,9 @@ func TestAccAWSENI_PrivateIpsCount(t *testing.T) {
 	resourceName := "aws_network_interface.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSENIDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSENIDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSENIConfigPrivateIpsCount(1),

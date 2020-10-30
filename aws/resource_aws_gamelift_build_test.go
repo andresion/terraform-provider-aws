@@ -85,9 +85,9 @@ func TestAccAWSGameliftBuild_basic(t *testing.T) {
 	key := *loc.Key
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGameliftBuildDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGameliftBuildDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGameliftBuildBasicConfig(buildName, bucketName, key, roleArn),
@@ -145,9 +145,9 @@ func TestAccAWSGameliftBuild_tags(t *testing.T) {
 	key := *loc.Key
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGameliftBuildDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGameliftBuildDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGameliftBuildBasicConfigTags1(buildName, bucketName, key, roleArn, "key1", "value1"),
@@ -203,9 +203,9 @@ func TestAccAWSGameliftBuild_disappears(t *testing.T) {
 	key := *loc.Key
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGameliftBuildDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGameliftBuildDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGameliftBuildBasicConfig(buildName, bucketName, key, roleArn),

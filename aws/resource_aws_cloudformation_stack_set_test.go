@@ -76,9 +76,9 @@ func TestAccAWSCloudFormationStackSet_basic(t *testing.T) {
 	resourceName := "aws_cloudformation_stack_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudFormationStackSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudFormationStackSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudFormationStackSetConfigName(rName),
@@ -115,9 +115,9 @@ func TestAccAWSCloudFormationStackSet_disappears(t *testing.T) {
 	resourceName := "aws_cloudformation_stack_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudFormationStackSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudFormationStackSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudFormationStackSetConfigName(rName),
@@ -139,9 +139,9 @@ func TestAccAWSCloudFormationStackSet_AdministrationRoleArn(t *testing.T) {
 	resourceName := "aws_cloudformation_stack_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudFormationStackSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudFormationStackSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudFormationStackSetConfigAdministrationRoleArn1(rName),
@@ -176,9 +176,9 @@ func TestAccAWSCloudFormationStackSet_Description(t *testing.T) {
 	resourceName := "aws_cloudformation_stack_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudFormationStackSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudFormationStackSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudFormationStackSetConfigDescription(rName, "description1"),
@@ -213,9 +213,9 @@ func TestAccAWSCloudFormationStackSet_ExecutionRoleName(t *testing.T) {
 	resourceName := "aws_cloudformation_stack_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudFormationStackSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudFormationStackSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudFormationStackSetConfigExecutionRoleName(rName, "name1"),
@@ -251,9 +251,9 @@ func TestAccAWSCloudFormationStackSet_Name(t *testing.T) {
 	resourceName := "aws_cloudformation_stack_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudFormationStackSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudFormationStackSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSCloudFormationStackSetConfigName(""),
@@ -304,9 +304,9 @@ func TestAccAWSCloudFormationStackSet_Parameters(t *testing.T) {
 	resourceName := "aws_cloudformation_stack_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudFormationStackSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudFormationStackSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudFormationStackSetConfigParameters1(rName, "value1"),
@@ -363,9 +363,9 @@ func TestAccAWSCloudFormationStackSet_Parameters_Default(t *testing.T) {
 	resourceName := "aws_cloudformation_stack_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudFormationStackSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudFormationStackSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudFormationStackSetConfigParametersDefault0(rName),
@@ -414,9 +414,9 @@ func TestAccAWSCloudFormationStackSet_Parameters_NoEcho(t *testing.T) {
 	resourceName := "aws_cloudformation_stack_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudFormationStackSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudFormationStackSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudFormationStackSetConfigParametersNoEcho1(rName, "value1"),
@@ -453,9 +453,9 @@ func TestAccAWSCloudFormationStackSet_Tags(t *testing.T) {
 	resourceName := "aws_cloudformation_stack_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudFormationStackSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudFormationStackSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudFormationStackSetConfigTags1(rName, "value1"),
@@ -508,9 +508,9 @@ func TestAccAWSCloudFormationStackSet_TemplateBody(t *testing.T) {
 	resourceName := "aws_cloudformation_stack_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudFormationStackSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudFormationStackSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudFormationStackSetConfigTemplateBody(rName, testAccAWSCloudFormationStackSetTemplateBodyVpc(rName+"1")),
@@ -545,9 +545,9 @@ func TestAccAWSCloudFormationStackSet_TemplateUrl(t *testing.T) {
 	resourceName := "aws_cloudformation_stack_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudFormationStackSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCloudFormationStackSet(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudFormationStackSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudFormationStackSetConfigTemplateUrl1(rName),

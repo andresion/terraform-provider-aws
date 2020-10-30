@@ -21,9 +21,9 @@ func testAccAwsGuardDutyFilter_basic(t *testing.T) {
 	endDate := "2020-02-01T00:00:00Z"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsGuardDutyFilterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsGuardDutyFilterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGuardDutyFilterConfig_full(startDate, endDate),
@@ -86,9 +86,9 @@ func testAccAwsGuardDutyFilter_update(t *testing.T) {
 	endDate := "2020-02-01T00:00:00Z"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsGuardDutyFilterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsGuardDutyFilterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGuardDutyFilterConfig_full(startDate, endDate),
@@ -129,9 +129,9 @@ func testAccAwsGuardDutyFilter_tags(t *testing.T) {
 	endDate := "2020-02-01T00:00:00Z"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsGuardDutyFilterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsGuardDutyFilterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGuardDutyFilterConfig_multipleTags(),
@@ -169,9 +169,9 @@ func testAccAwsGuardDutyFilter_disappears(t *testing.T) {
 	endDate := "2020-02-01T00:00:00Z"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAcmpcaCertificateAuthorityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAcmpcaCertificateAuthorityDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGuardDutyFilterConfig_full(startDate, endDate),

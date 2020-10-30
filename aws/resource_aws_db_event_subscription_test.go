@@ -85,9 +85,9 @@ func TestAccAWSDBEventSubscription_basicUpdate(t *testing.T) {
 	subscriptionName := fmt.Sprintf("tf-acc-test-rds-event-subs-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBEventSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBEventSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBEventSubscriptionConfig(rInt),
@@ -127,9 +127,9 @@ func TestAccAWSDBEventSubscription_disappears(t *testing.T) {
 	resourceName := "aws_db_event_subscription.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBEventSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBEventSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBEventSubscriptionConfig(rInt),
@@ -150,9 +150,9 @@ func TestAccAWSDBEventSubscription_withPrefix(t *testing.T) {
 	resourceName := "aws_db_event_subscription.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBEventSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBEventSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBEventSubscriptionConfigWithPrefix(rInt),
@@ -175,9 +175,9 @@ func TestAccAWSDBEventSubscription_withSourceIds(t *testing.T) {
 	subscriptionName := fmt.Sprintf("tf-acc-test-rds-event-subs-with-ids-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBEventSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBEventSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBEventSubscriptionConfigWithSourceIds(rInt),
@@ -216,9 +216,9 @@ func TestAccAWSDBEventSubscription_categoryUpdate(t *testing.T) {
 	subscriptionName := fmt.Sprintf("tf-acc-test-rds-event-subs-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBEventSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBEventSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBEventSubscriptionConfig(rInt),

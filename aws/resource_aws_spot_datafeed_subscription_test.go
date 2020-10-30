@@ -31,9 +31,9 @@ func testAccAWSSpotDatafeedSubscription_importBasic(t *testing.T) {
 	ri := acctest.RandInt()
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotDatafeedSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotDatafeedSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotDatafeedSubscription(ri),
@@ -53,9 +53,9 @@ func testAccAWSSpotDatafeedSubscription_basic(t *testing.T) {
 	ri := acctest.RandInt()
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotDatafeedSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotDatafeedSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotDatafeedSubscription(ri),
@@ -96,9 +96,9 @@ func testAccAWSSpotDatafeedSubscription_disappears(t *testing.T) {
 	ri := acctest.RandInt()
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotDatafeedSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotDatafeedSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotDatafeedSubscription(ri),

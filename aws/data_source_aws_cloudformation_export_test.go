@@ -13,8 +13,8 @@ func TestAccAWSCloudformationExportDataSource_basic(t *testing.T) {
 	dataSourceName := "data.aws_cloudformation_export.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config:                    testAccCheckAwsCloudformationExportConfigStaticValue(rName),
@@ -33,8 +33,8 @@ func TestAccAWSCloudformationExportDataSource_ResourceReference(t *testing.T) {
 	resourceName := "aws_cloudformation_stack.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config:                    testAccCheckAwsCloudformationExportConfigResourceReference(rName),

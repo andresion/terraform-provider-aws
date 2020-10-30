@@ -61,9 +61,9 @@ func TestAccAWSGlueTrigger_basic(t *testing.T) {
 	resourceName := "aws_glue_trigger.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueTriggerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueTriggerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueTriggerConfig_OnDemand(rName),
@@ -98,9 +98,9 @@ func TestAccAWSGlueTrigger_Crawler(t *testing.T) {
 	resourceName := "aws_glue_trigger.test_trigger"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueTriggerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueTriggerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueTriggerConfig_Crawler(rName, "SUCCEEDED"),
@@ -144,9 +144,9 @@ func TestAccAWSGlueTrigger_Description(t *testing.T) {
 	resourceName := "aws_glue_trigger.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueTriggerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueTriggerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueTriggerConfig_Description(rName, "description1"),
@@ -178,9 +178,9 @@ func TestAccAWSGlueTrigger_Enabled(t *testing.T) {
 	resourceName := "aws_glue_trigger.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueTriggerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueTriggerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueTriggerConfig_Enabled(rName, true),
@@ -219,9 +219,9 @@ func TestAccAWSGlueTrigger_Predicate(t *testing.T) {
 	resourceName := "aws_glue_trigger.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueTriggerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueTriggerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueTriggerConfig_Predicate(rName, "SUCCEEDED"),
@@ -261,9 +261,9 @@ func TestAccAWSGlueTrigger_Schedule(t *testing.T) {
 	resourceName := "aws_glue_trigger.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueTriggerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueTriggerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueTriggerConfig_Schedule(rName, "cron(1 2 * * ? *)"),
@@ -295,9 +295,9 @@ func TestAccAWSGlueTrigger_Tags(t *testing.T) {
 	resourceName := "aws_glue_trigger.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueTriggerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueTriggerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueTriggerConfigTags1(rName, "key1", "value1"),
@@ -340,9 +340,9 @@ func TestAccAWSGlueTrigger_WorkflowName(t *testing.T) {
 	resourceName := "aws_glue_trigger.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueTriggerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueTriggerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueTriggerConfig_WorkflowName(rName),

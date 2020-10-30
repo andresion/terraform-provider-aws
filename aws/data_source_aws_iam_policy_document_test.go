@@ -14,8 +14,8 @@ func TestAccAWSDataSourceIAMPolicyDocument_basic(t *testing.T) {
 	// acceptance test, but just instantiating the AWS provider requires
 	// some AWS API calls, and so this needs valid AWS credentials to work.
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMPolicyDocumentConfig,
@@ -34,8 +34,8 @@ func TestAccAWSDataSourceIAMPolicyDocument_source(t *testing.T) {
 	// acceptance test, but just instantiating the AWS provider requires
 	// some AWS API calls, and so this needs valid AWS credentials to work.
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMPolicyDocumentSourceConfig,
@@ -59,8 +59,8 @@ func TestAccAWSDataSourceIAMPolicyDocument_source(t *testing.T) {
 
 func TestAccAWSDataSourceIAMPolicyDocument_sourceConflicting(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMPolicyDocumentSourceConflictingConfig,
@@ -76,8 +76,8 @@ func TestAccAWSDataSourceIAMPolicyDocument_sourceConflicting(t *testing.T) {
 
 func TestAccAWSDataSourceIAMPolicyDocument_override(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMPolicyDocumentOverrideConfig,
@@ -93,8 +93,8 @@ func TestAccAWSDataSourceIAMPolicyDocument_override(t *testing.T) {
 
 func TestAccAWSDataSourceIAMPolicyDocument_noStatementMerge(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMPolicyDocumentNoStatementMergeConfig,
@@ -110,8 +110,8 @@ func TestAccAWSDataSourceIAMPolicyDocument_noStatementMerge(t *testing.T) {
 
 func TestAccAWSDataSourceIAMPolicyDocument_noStatementOverride(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMPolicyDocumentNoStatementOverrideConfig,
@@ -127,8 +127,8 @@ func TestAccAWSDataSourceIAMPolicyDocument_noStatementOverride(t *testing.T) {
 
 func TestAccAWSDataSourceIAMPolicyDocument_duplicateSid(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSIAMPolicyDocumentDuplicateSidConfig,
@@ -151,8 +151,8 @@ func TestAccAWSDataSourceIAMPolicyDocument_Statement_Principal_Identifiers_Strin
 	dataSourceName := "data.aws_iam_policy_document.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMPolicyDocumentConfigStatementPrincipalIdentifiersStringAndSlice,
@@ -169,8 +169,8 @@ func TestAccAWSDataSourceIAMPolicyDocument_Statement_Principal_Identifiers_Multi
 	dataSourceName := "data.aws_iam_policy_document.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPartitionPreCheck(endpoints.AwsPartitionID, t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionPreCheck(endpoints.AwsPartitionID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMPolicyDocumentConfigStatementPrincipalIdentifiersMultiplePrincipals,
@@ -186,8 +186,8 @@ func TestAccAWSDataSourceIAMPolicyDocument_Statement_Principal_Identifiers_Multi
 	dataSourceName := "data.aws_iam_policy_document.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPartitionPreCheck(endpoints.AwsUsGovPartitionID, t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionPreCheck(endpoints.AwsUsGovPartitionID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMPolicyDocumentConfigStatementPrincipalIdentifiersMultiplePrincipals,
@@ -201,8 +201,8 @@ func TestAccAWSDataSourceIAMPolicyDocument_Statement_Principal_Identifiers_Multi
 
 func TestAccAWSDataSourceIAMPolicyDocument_Version_20081017(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSIAMPolicyDocumentDataSourceConfigVersion20081017ConversionCondition,

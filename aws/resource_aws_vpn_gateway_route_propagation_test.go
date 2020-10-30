@@ -14,9 +14,9 @@ func TestAccAWSVPNGatewayRoutePropagation_basic(t *testing.T) {
 	var rtID, gwID string
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: "aws_vpn_gateway_route_propagation.foo",
-		Providers:     testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            "aws_vpn_gateway_route_propagation.foo",
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSVPNGatewayRoutePropagation_basic,

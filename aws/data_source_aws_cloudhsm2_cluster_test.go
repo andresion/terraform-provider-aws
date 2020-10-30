@@ -13,8 +13,8 @@ func TestAccDataSourceCloudHsmV2Cluster_basic(t *testing.T) {
 	dataSourceName := "data.aws_cloudhsm_v2_cluster.default"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckCloudHsmV2ClusterDataSourceConfig,

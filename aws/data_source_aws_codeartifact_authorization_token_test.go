@@ -13,8 +13,8 @@ func TestAccAWSCodeArtifactAuthorizationTokenDataSource_basic(t *testing.T) {
 	dataSourceName := "data.aws_codeartifact_authorization_token.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAWSCodeArtifactAuthorizationTokenBasicConfig(rName),
@@ -33,8 +33,8 @@ func TestAccAWSCodeArtifactAuthorizationTokenDataSource_owner(t *testing.T) {
 	dataSourceName := "data.aws_codeartifact_authorization_token.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAWSCodeArtifactAuthorizationTokenOwnerConfig(rName),
@@ -53,8 +53,8 @@ func TestAccAWSCodeArtifactAuthorizationTokenDataSource_duration(t *testing.T) {
 	dataSourceName := "data.aws_codeartifact_authorization_token.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAWSCodeArtifactAuthorizationTokenDurationConfig(rName),

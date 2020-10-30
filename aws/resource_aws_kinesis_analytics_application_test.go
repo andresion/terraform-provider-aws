@@ -104,9 +104,9 @@ func TestAccAWSKinesisAnalyticsApplication_basic(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsApplication_basic(rInt),
@@ -131,9 +131,9 @@ func TestAccAWSKinesisAnalyticsApplication_update(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsApplication_basic(rInt),
@@ -165,9 +165,9 @@ func TestAccAWSKinesisAnalyticsApplication_addCloudwatchLoggingOptions(t *testin
 	thirdStep := testAccKinesisAnalyticsApplication_prereq(rInt) + testAccKinesisAnalyticsApplication_cloudwatchLoggingOptions(rInt, "testStream")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: firstStep,
@@ -202,9 +202,9 @@ func TestAccAWSKinesisAnalyticsApplication_updateCloudwatchLoggingOptions(t *tes
 	secondStep := testAccKinesisAnalyticsApplication_prereq(rInt) + testAccKinesisAnalyticsApplication_cloudwatchLoggingOptions(rInt, "testStream2")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: firstStep,
@@ -239,9 +239,9 @@ func TestAccAWSKinesisAnalyticsApplication_inputsKinesisFirehose(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsApplication_prereq(rInt) + testAccKinesisAnalyticsApplication_inputsKinesisFirehose(rInt),
@@ -266,9 +266,9 @@ func TestAccAWSKinesisAnalyticsApplication_inputsKinesisStream(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsApplication_prereq(rInt) + testAccKinesisAnalyticsApplication_inputsKinesisStream(rInt),
@@ -302,9 +302,9 @@ func TestAccAWSKinesisAnalyticsApplication_inputsAdd(t *testing.T) {
 	secondStep := testAccKinesisAnalyticsApplication_prereq(rInt) + testAccKinesisAnalyticsApplication_inputsKinesisStream(rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: firstStep,
@@ -346,9 +346,9 @@ func TestAccAWSKinesisAnalyticsApplication_inputsUpdateKinesisStream(t *testing.
 	secondStep := testAccKinesisAnalyticsApplication_prereq(rInt) + testAccKinesisAnalyticsApplication_inputsUpdateKinesisStream(rInt, "testStream")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: firstStep,
@@ -390,9 +390,9 @@ func TestAccAWSKinesisAnalyticsApplication_outputsKinesisStream(t *testing.T) {
 	firstStep := testAccKinesisAnalyticsApplication_prereq(rInt) + testAccKinesisAnalyticsApplication_outputsKinesisStream(rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: firstStep,
@@ -423,9 +423,9 @@ func TestAccAWSKinesisAnalyticsApplication_outputsMultiple(t *testing.T) {
 	step := testAccKinesisAnalyticsApplication_prereq(rInt1) + testAccKinesisAnalyticsApplication_outputsMultiple(rInt1, rInt2)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: step,
@@ -451,9 +451,9 @@ func TestAccAWSKinesisAnalyticsApplication_outputsAdd(t *testing.T) {
 	secondStep := testAccKinesisAnalyticsApplication_prereq(rInt) + testAccKinesisAnalyticsApplication_outputsKinesisStream(rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: firstStep,
@@ -491,9 +491,9 @@ func TestAccAWSKinesisAnalyticsApplication_outputsUpdateKinesisStream(t *testing
 	secondStep := testAccKinesisAnalyticsApplication_prereq(rInt) + testAccKinesisAnalyticsApplication_outputsUpdateKinesisStream(rInt, "testStream")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: firstStep,
@@ -537,9 +537,9 @@ func TestAccAWSKinesisAnalyticsApplication_Outputs_Lambda_Add(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsApplication_prereq(rInt) + testAccKinesisAnalyticsApplication_basic(rInt),
@@ -577,9 +577,9 @@ func TestAccAWSKinesisAnalyticsApplication_Outputs_Lambda_Create(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsApplicationConfigOutputsLambda(rInt),
@@ -608,9 +608,9 @@ func TestAccAWSKinesisAnalyticsApplication_referenceDataSource(t *testing.T) {
 	firstStep := testAccKinesisAnalyticsApplication_prereq(rInt) + testAccKinesisAnalyticsApplication_referenceDataSource(rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: firstStep,
@@ -641,9 +641,9 @@ func TestAccAWSKinesisAnalyticsApplication_referenceDataSourceUpdate(t *testing.
 	secondStep := testAccKinesisAnalyticsApplication_prereq(rInt) + testAccKinesisAnalyticsApplication_referenceDataSourceUpdate(rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: firstStep,
@@ -676,9 +676,9 @@ func TestAccAWSKinesisAnalyticsApplication_tags(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalytics(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsApplicationWithTags(rInt, "test1", "test2"),

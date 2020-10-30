@@ -19,9 +19,9 @@ func TestAccAWSDefaultRouteTable_basic(t *testing.T) {
 	vpcResourceName := "aws_vpc.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRouteTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRouteTableDestroy,
 		Steps: []resource.TestStep{
 			// Verify non-existent Route Table ID behavior
 			{
@@ -61,9 +61,9 @@ func TestAccAWSDefaultRouteTable_disappears_Vpc(t *testing.T) {
 	vpcResourceName := "aws_vpc.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRouteTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRouteTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDefaultRouteTableConfigRequired(),
@@ -167,9 +167,9 @@ func TestAccAWSDefaultRouteTable_Route_TransitGatewayID(t *testing.T) {
 	resourceName := "aws_default_route_table.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRouteTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRouteTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDefaultRouteTableConfigRouteTransitGatewayID(),
@@ -220,9 +220,9 @@ func TestAccAWSDefaultRouteTable_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRouteTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRouteTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDefaultRouteTableConfigTags1(rName, "key1", "value1"),
@@ -259,9 +259,9 @@ func TestAccAWSDefaultRouteTable_ConditionalCidrBlock(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDefaultRouteTableConfigConditionalIpv4Ipv6(rName, false),

@@ -69,9 +69,9 @@ func TestAccAWSCloudWatchLogResourcePolicy_basic(t *testing.T) {
 	var resourcePolicy cloudwatchlogs.ResourcePolicy
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCloudWatchLogResourcePolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCloudWatchLogResourcePolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAWSCloudWatchLogResourcePolicyResourceConfigBasic1(name),

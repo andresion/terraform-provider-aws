@@ -80,9 +80,9 @@ func TestAccAWSCloudWatchEventBus_basic(t *testing.T) {
 	resourceName := "aws_cloudwatch_event_bus.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventBusDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventBusDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventBusConfig(busName),
@@ -128,9 +128,9 @@ func TestAccAWSCloudWatchEventBus_tags(t *testing.T) {
 	resourceName := "aws_cloudwatch_event_bus.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventBusDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventBusDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventBusConfig_Tags1(busName, "key1", "value"),
@@ -178,9 +178,9 @@ func TestAccAWSCloudWatchEventBus_tags(t *testing.T) {
 
 func TestAccAWSCloudWatchEventBus_default(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventBusDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventBusDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSCloudWatchEventBusConfig("default"),
@@ -197,9 +197,9 @@ func TestAccAWSCloudWatchEventBus_disappears(t *testing.T) {
 	resourceName := "aws_cloudwatch_event_bus.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventBusDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventBusDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventBusConfig(busName),

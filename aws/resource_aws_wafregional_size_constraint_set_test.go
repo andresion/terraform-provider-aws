@@ -19,9 +19,9 @@ func TestAccAWSWafRegionalSizeConstraintSet_basic(t *testing.T) {
 	resourceName := "aws_wafregional_size_constraint_set.size_constraint_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalSizeConstraintSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalSizeConstraintSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalSizeConstraintSetConfig(sizeConstraintSet),
@@ -59,9 +59,9 @@ func TestAccAWSWafRegionalSizeConstraintSet_changeNameForceNew(t *testing.T) {
 	resourceName := "aws_wafregional_size_constraint_set.size_constraint_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalSizeConstraintSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalSizeConstraintSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalSizeConstraintSetConfig(sizeConstraintSet),
@@ -98,9 +98,9 @@ func TestAccAWSWafRegionalSizeConstraintSet_disappears(t *testing.T) {
 	resourceName := "aws_wafregional_size_constraint_set.size_constraint_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalSizeConstraintSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalSizeConstraintSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalSizeConstraintSetConfig(sizeConstraintSet),
@@ -120,9 +120,9 @@ func TestAccAWSWafRegionalSizeConstraintSet_changeConstraints(t *testing.T) {
 	resourceName := "aws_wafregional_size_constraint_set.size_constraint_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalSizeConstraintSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalSizeConstraintSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalSizeConstraintSetConfig(setName),
@@ -179,9 +179,9 @@ func TestAccAWSWafRegionalSizeConstraintSet_noConstraints(t *testing.T) {
 	resourceName := "aws_wafregional_size_constraint_set.size_constraint_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalSizeConstraintSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalSizeConstraintSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalSizeConstraintSetConfig_noConstraints(setName),

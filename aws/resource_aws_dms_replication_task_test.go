@@ -16,9 +16,9 @@ func TestAccAWSDmsReplicationTask_basic(t *testing.T) {
 	randId := acctest.RandString(8)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: dmsReplicationTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             dmsReplicationTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: dmsReplicationTaskConfig(randId),

@@ -20,9 +20,9 @@ func TestAccAwsLexBotAlias_basic(t *testing.T) {
 	testBotAliasID := "test_bot_alias" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexBotAliasDestroy(testBotAliasID, testBotAliasID),
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexBotAliasDestroy(testBotAliasID, testBotAliasID),
 		Steps: []resource.TestStep{
 			{
 				Config: composeConfig(
@@ -60,9 +60,9 @@ func testAccAwsLexBotAlias_botVersion(t *testing.T) {
 
 	// If this test runs in parallel with other Lex Bot tests, it loses its description
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexBotAliasDestroy(testBotAliasID, testBotAliasID),
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexBotAliasDestroy(testBotAliasID, testBotAliasID),
 		Steps: []resource.TestStep{
 			{
 				Config: composeConfig(
@@ -110,9 +110,9 @@ func TestAccAwsLexBotAlias_conversationLogsText(t *testing.T) {
 	cloudwatchLogGroupResourceName := "aws_cloudwatch_log_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexBotAliasDestroy(testBotID, testBotAliasID),
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexBotAliasDestroy(testBotID, testBotAliasID),
 		Steps: []resource.TestStep{
 			{
 				Config: composeConfig(
@@ -156,9 +156,9 @@ func TestAccAwsLexBotAlias_conversationLogsAudio(t *testing.T) {
 	kmsKeyResourceName := "aws_kms_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexBotAliasDestroy(testBotID, testBotAliasID),
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexBotAliasDestroy(testBotID, testBotAliasID),
 		Steps: []resource.TestStep{
 			{
 				Config: composeConfig(
@@ -203,9 +203,9 @@ func TestAccAwsLexBotAlias_conversationLogsBoth(t *testing.T) {
 	kmsKeyResourceName := "aws_kms_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexBotAliasDestroy(testBotID, testBotAliasID),
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexBotAliasDestroy(testBotID, testBotAliasID),
 		Steps: []resource.TestStep{
 			{
 				Config: composeConfig(
@@ -249,9 +249,9 @@ func TestAccAwsLexBotAlias_description(t *testing.T) {
 	testBotAliasID := "test_bot_alias" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexBotAliasDestroy(testBotAliasID, testBotAliasID),
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexBotAliasDestroy(testBotAliasID, testBotAliasID),
 		Steps: []resource.TestStep{
 			{
 				Config: composeConfig(
@@ -294,9 +294,9 @@ func TestAccAwsLexBotAlias_disappears(t *testing.T) {
 	testBotAliasID := "test_bot_alias" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexBotDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexBotDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: composeConfig(

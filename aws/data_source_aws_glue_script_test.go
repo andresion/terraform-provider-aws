@@ -11,8 +11,8 @@ func TestAccDataSourceAWSGlueScript_Language_Python(t *testing.T) {
 	dataSourceName := "data.aws_glue_script.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAWSGlueScriptConfigPython(),
@@ -28,8 +28,8 @@ func TestAccDataSourceAWSGlueScript_Language_Scala(t *testing.T) {
 	dataSourceName := "data.aws_glue_script.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAWSGlueScriptConfigScala(),

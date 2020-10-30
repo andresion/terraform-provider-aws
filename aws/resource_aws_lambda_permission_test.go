@@ -175,9 +175,9 @@ func TestAccAWSLambdaPermission_basic(t *testing.T) {
 	functionResourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLambdaPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLambdaPermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaPermissionConfig(funcName, roleName),
@@ -205,9 +205,9 @@ func TestAccAWSLambdaPermission_StatementId_Duplicate(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLambdaPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLambdaPermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSLambdaPermissionConfigStatementIdDuplicate(rName),
@@ -228,9 +228,9 @@ func TestAccAWSLambdaPermission_withRawFunctionName(t *testing.T) {
 	functionResourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLambdaPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLambdaPermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaPermissionConfig_withRawFunctionName(funcName, roleName),
@@ -262,9 +262,9 @@ func TestAccAWSLambdaPermission_withStatementIdPrefix(t *testing.T) {
 	functionResourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLambdaPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLambdaPermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaPermissionConfig_withStatementIdPrefix(rName),
@@ -299,9 +299,9 @@ func TestAccAWSLambdaPermission_withQualifier(t *testing.T) {
 	functionResourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLambdaPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLambdaPermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaPermissionConfig_withQualifier(aliasName, funcName, roleName),
@@ -332,9 +332,9 @@ func TestAccAWSLambdaPermission_disappears(t *testing.T) {
 	resourceName := "aws_lambda_permission.first"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLambdaPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLambdaPermissionDestroy,
 		Steps: []resource.TestStep{
 			// Here we delete the Lambda permission to verify the follow-on refresh after this step
 			// should not error.
@@ -367,9 +367,9 @@ func TestAccAWSLambdaPermission_multiplePerms(t *testing.T) {
 	functionResourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLambdaPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLambdaPermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaPermissionConfig_multiplePerms(funcName, roleName),
@@ -440,9 +440,9 @@ func TestAccAWSLambdaPermission_withS3(t *testing.T) {
 	bucketResourceName := "aws_s3_bucket.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLambdaPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLambdaPermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaPermissionConfig_withS3(bucketName, funcName, roleName),
@@ -478,9 +478,9 @@ func TestAccAWSLambdaPermission_withSNS(t *testing.T) {
 	snsTopicResourceName := "aws_sns_topic.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLambdaPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLambdaPermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaPermissionConfig_withSNS(topicName, funcName, roleName),
@@ -515,9 +515,9 @@ func TestAccAWSLambdaPermission_withIAMRole(t *testing.T) {
 	functionResourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLambdaPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLambdaPermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaPermissionConfig_withIAMRole(funcName, roleName),

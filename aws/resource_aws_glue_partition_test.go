@@ -20,9 +20,9 @@ func TestAccAWSGluePartition_basic(t *testing.T) {
 	resourceName := "aws_glue_partition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGluePartitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGluePartitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGluePartitionBasicConfig(rName, parValue),
@@ -52,9 +52,9 @@ func TestAccAWSGluePartition_multipleValues(t *testing.T) {
 	resourceName := "aws_glue_partition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGluePartitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGluePartitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGluePartitionMultiplePartValueConfig(rName, parValue, parValue2),
@@ -80,9 +80,9 @@ func TestAccAWSGluePartition_parameters(t *testing.T) {
 	resourceName := "aws_glue_partition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGluePartitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGluePartitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGluePartitionParametersConfig1(rName, parValue, "key1", "value1"),
@@ -124,9 +124,9 @@ func TestAccAWSGluePartition_disappears(t *testing.T) {
 	resourceName := "aws_glue_partition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGluePartitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGluePartitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGluePartitionBasicConfig(rName, parValue),

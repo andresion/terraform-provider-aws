@@ -12,9 +12,9 @@ func TestAccAWSDefaultVpc_basic(t *testing.T) {
 	var vpc ec2.Vpc
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDefaultVpcDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDefaultVpcDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDefaultVpcConfigBasic,

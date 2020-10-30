@@ -18,9 +18,9 @@ func TestAccAWSLightsailKeyPair_basic(t *testing.T) {
 	lightsailName := fmt.Sprintf("tf-test-lightsail-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSLightsail(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLightsailKeyPairDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSLightsail(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLightsailKeyPairDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLightsailKeyPairConfig_basic(lightsailName),
@@ -41,9 +41,9 @@ func TestAccAWSLightsailKeyPair_publicKey(t *testing.T) {
 	lightsailName := fmt.Sprintf("tf-test-lightsail-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSLightsail(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLightsailKeyPairDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSLightsail(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLightsailKeyPairDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLightsailKeyPairConfig_imported(lightsailName, lightsailPubKey),
@@ -66,9 +66,9 @@ func TestAccAWSLightsailKeyPair_encrypted(t *testing.T) {
 	lightsailName := fmt.Sprintf("tf-test-lightsail-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSLightsail(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLightsailKeyPairDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSLightsail(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLightsailKeyPairDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLightsailKeyPairConfig_encrypted(lightsailName, testLightsailKeyPairPubKey1),
@@ -90,9 +90,9 @@ func TestAccAWSLightsailKeyPair_nameprefix(t *testing.T) {
 	var conf1, conf2 lightsail.KeyPair
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSLightsail(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLightsailKeyPairDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSLightsail(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLightsailKeyPairDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLightsailKeyPairConfig_prefixed(),

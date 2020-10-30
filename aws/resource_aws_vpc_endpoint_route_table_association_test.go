@@ -18,9 +18,9 @@ func TestAccAWSVpcEndpointRouteTableAssociation_basic(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-vpce-%s", acctest.RandStringFromCharSet(16, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcEndpointRouteTableAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcEndpointRouteTableAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcEndpointRouteTableAssociationConfig(rName),

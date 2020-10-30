@@ -19,8 +19,8 @@ func TestAccAWSCustomerGatewayDataSource_Filter(t *testing.T) {
 		PreCheck: func() {
 			testAccPreCheck(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCustomerGatewayDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCustomerGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCustomerGatewayDataSourceConfigFilter(asn, hostOctet),
@@ -47,8 +47,8 @@ func TestAccAWSCustomerGatewayDataSource_ID(t *testing.T) {
 		PreCheck: func() {
 			testAccPreCheck(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCustomerGatewayDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCustomerGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCustomerGatewayDataSourceConfigID(asn, hostOctet),

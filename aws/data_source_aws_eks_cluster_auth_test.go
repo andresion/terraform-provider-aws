@@ -13,8 +13,8 @@ func TestAccAWSEksClusterAuthDataSource_basic(t *testing.T) {
 	dataSourceResourceName := "data.aws_eks_cluster_auth.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsEksClusterAuthConfig_basic,

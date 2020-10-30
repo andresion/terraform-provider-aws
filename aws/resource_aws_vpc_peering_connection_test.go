@@ -97,8 +97,8 @@ func TestAccAWSVPCPeeringConnection_basic(t *testing.T) {
 		IDRefreshName:   resourceName,
 		IDRefreshIgnore: []string{"auto_accept"},
 
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSVpcPeeringConnectionDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSVpcPeeringConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcPeeringConfig_basic(rName),
@@ -140,8 +140,8 @@ func TestAccAWSVPCPeeringConnection_plan(t *testing.T) {
 		PreCheck:        func() { testAccPreCheck(t) },
 		IDRefreshIgnore: []string{"auto_accept"},
 
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSVpcPeeringConnectionDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSVpcPeeringConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcPeeringConfig_basic(rName),
@@ -168,8 +168,8 @@ func TestAccAWSVPCPeeringConnection_tags(t *testing.T) {
 		IDRefreshName:   resourceName,
 		IDRefreshIgnore: []string{"auto_accept"},
 
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcPeeringTagsConfig1(rName, "key1", "value1"),
@@ -233,8 +233,8 @@ func TestAccAWSVPCPeeringConnection_options(t *testing.T) {
 		IDRefreshName:   resourceName,
 		IDRefreshIgnore: []string{"auto_accept"},
 
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSVpcPeeringConnectionDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSVpcPeeringConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcPeeringConfig_options(rName),
@@ -391,8 +391,8 @@ func TestAccAWSVPCPeeringConnection_failedState(t *testing.T) {
 		PreCheck:        func() { testAccPreCheck(t) },
 		IDRefreshIgnore: []string{"auto_accept"},
 
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSVpcPeeringConnectionDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSVpcPeeringConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccVpcPeeringConfig_failedState(rName),
@@ -588,8 +588,8 @@ func TestAccAWSVPCPeeringConnection_accept(t *testing.T) {
 		IDRefreshName:   resourceName,
 		IDRefreshIgnore: []string{"auto_accept"},
 
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSVpcPeeringConnectionDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSVpcPeeringConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcPeeringConfig_autoAccept(rName, false),
@@ -651,9 +651,9 @@ func TestAccAWSVPCPeeringConnection_optionsNoAutoAccept(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-pcx-%s", acctest.RandStringFromCharSet(17, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSVpcPeeringConnectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSVpcPeeringConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccVpcPeeringConfig_options_noAutoAccept(rName),

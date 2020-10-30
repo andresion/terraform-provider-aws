@@ -15,8 +15,8 @@ func TestAccDataSourceAWSALBTargetGroup_basic(t *testing.T) {
 	resourceName := "data.aws_lb_target_group.alb_tg_test_with_name"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAWSLBTargetGroupConfigBasic(lbName, targetGroupName),
@@ -75,8 +75,8 @@ func TestAccDataSourceAWSLBTargetGroup_BackwardsCompatibility(t *testing.T) {
 	resourceName := "data.aws_alb_target_group.alb_tg_test_with_name"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAWSLBTargetGroupConfigBackwardsCompatibility(lbName, targetGroupName),

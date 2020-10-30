@@ -94,9 +94,9 @@ func testAccAwsAppmeshVirtualGateway_basic(t *testing.T) {
 	vgName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshVirtualGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshVirtualGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshVirtualGatewayConfig(meshName, vgName),
@@ -137,9 +137,9 @@ func testAccAwsAppmeshVirtualGateway_disappears(t *testing.T) {
 	vgName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshVirtualGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshVirtualGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshVirtualGatewayConfig(meshName, vgName),
@@ -160,9 +160,9 @@ func testAccAwsAppmeshVirtualGateway_BackendDefaults(t *testing.T) {
 	vgName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshVirtualGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshVirtualGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshVirtualGatewayConfigBackendDefaults(meshName, vgName),
@@ -246,9 +246,9 @@ func testAccAwsAppmeshVirtualGateway_ListenerHealthChecks(t *testing.T) {
 	vgName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshVirtualGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshVirtualGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshVirtualGatewayConfigListenerHealthChecks(meshName, vgName),
@@ -325,9 +325,9 @@ func testAccAwsAppmeshVirtualGateway_Logging(t *testing.T) {
 	vgName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshVirtualGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshVirtualGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshVirtualGatewayConfigLogging(meshName, vgName, "/dev/stdout"),
@@ -395,9 +395,9 @@ func testAccAwsAppmeshVirtualGateway_Tags(t *testing.T) {
 	vgName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshVirtualGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshVirtualGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshVirtualGatewayConfigTags1(meshName, vgName, "key1", "value1"),
@@ -444,9 +444,9 @@ func testAccAwsAppmeshVirtualGateway_TLS(t *testing.T) {
 	vgName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshVirtualGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshVirtualGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshVirtualGatewayConfigTlsFile(meshName, vgName),

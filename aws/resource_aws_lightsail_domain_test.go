@@ -18,9 +18,9 @@ func TestAccAWSLightsailDomain_basic(t *testing.T) {
 	lightsailDomainName := fmt.Sprintf("tf-test-lightsail-%s.com", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSLightsail(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLightsailDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSLightsail(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLightsailDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLightsailDomainConfig_basic(lightsailDomainName),
@@ -50,9 +50,9 @@ func TestAccAWSLightsailDomain_disappears(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSLightsail(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLightsailDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSLightsail(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLightsailDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLightsailDomainConfig_basic(lightsailDomainName),

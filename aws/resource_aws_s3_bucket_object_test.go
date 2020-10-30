@@ -106,9 +106,9 @@ func TestAccAWSS3BucketObject_noNameNoKey(t *testing.T) {
 	keyError := regexp.MustCompile(`key must not be empty`)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				PreConfig:   func() {},
@@ -129,9 +129,9 @@ func TestAccAWSS3BucketObject_empty(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				PreConfig: func() {},
@@ -154,9 +154,9 @@ func TestAccAWSS3BucketObject_source(t *testing.T) {
 	defer os.Remove(source)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketObjectConfigSource(rInt, source),
@@ -175,9 +175,9 @@ func TestAccAWSS3BucketObject_content(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				PreConfig: func() {},
@@ -198,9 +198,9 @@ func TestAccAWSS3BucketObject_etagEncryption(t *testing.T) {
 	source := testAccAWSS3BucketObjectCreateTempFile(t, "{anything will do }")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				PreConfig: func() {},
@@ -221,9 +221,9 @@ func TestAccAWSS3BucketObject_contentBase64(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				PreConfig: func() {},
@@ -246,9 +246,9 @@ func TestAccAWSS3BucketObject_withContentCharacteristics(t *testing.T) {
 	defer os.Remove(source)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketObjectConfig_withContentCharacteristics(rInt, source),
@@ -271,9 +271,9 @@ func TestAccAWSS3BucketObject_NonVersioned(t *testing.T) {
 	resourceName := "aws_s3_bucket_object.object"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAssumeRoleARNPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAssumeRoleARNPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketObjectConfig_NonVersioned(acctest.RandInt(), sourceInitial),
@@ -298,9 +298,9 @@ func TestAccAWSS3BucketObject_updates(t *testing.T) {
 	defer os.Remove(sourceInitial)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketObjectConfig_updateable(rInt, false, sourceInitial),
@@ -348,9 +348,9 @@ func TestAccAWSS3BucketObject_updateSameFile(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketObjectConfig_updateable(rInt, false, filename),
@@ -385,9 +385,9 @@ func TestAccAWSS3BucketObject_updatesWithVersioning(t *testing.T) {
 	defer os.Remove(sourceInitial)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketObjectConfig_updateable(rInt, true, sourceInitial),
@@ -422,9 +422,9 @@ func TestAccAWSS3BucketObject_updatesWithVersioningViaAccessPoint(t *testing.T) 
 	defer os.Remove(sourceInitial)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketObjectConfig_updateableViaAccessPoint(rName, true, sourceInitial),
@@ -457,9 +457,9 @@ func TestAccAWSS3BucketObject_kms(t *testing.T) {
 	defer os.Remove(source)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				PreConfig: func() {},
@@ -483,9 +483,9 @@ func TestAccAWSS3BucketObject_sse(t *testing.T) {
 	defer os.Remove(source)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				PreConfig: func() {},
@@ -506,9 +506,9 @@ func TestAccAWSS3BucketObject_acl(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketObjectConfig_acl(rInt, "some_bucket_content", "private"),
@@ -549,9 +549,9 @@ func TestAccAWSS3BucketObject_metadata(t *testing.T) {
 	resourceName := "aws_s3_bucket_object.object"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketObjectConfig_withMetadata(rInt, "key1", "value1", "key2", "value2"),
@@ -588,9 +588,9 @@ func TestAccAWSS3BucketObject_storageClass(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				PreConfig: func() {},
@@ -644,9 +644,9 @@ func TestAccAWSS3BucketObject_tags(t *testing.T) {
 	key := "test-key"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				PreConfig: func() {},
@@ -708,9 +708,9 @@ func TestAccAWSS3BucketObject_tagsLeadingSlash(t *testing.T) {
 	key := "/test-key"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				PreConfig: func() {},
@@ -771,9 +771,9 @@ func TestAccAWSS3BucketObject_ObjectLockLegalHoldStartWithNone(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketObjectConfig_noObjectLockLegalHold(rInt, "stuff"),
@@ -818,9 +818,9 @@ func TestAccAWSS3BucketObject_ObjectLockLegalHoldStartWithOn(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketObjectConfig_withObjectLockLegalHold(rInt, "stuff", "ON"),
@@ -854,9 +854,9 @@ func TestAccAWSS3BucketObject_ObjectLockRetentionStartWithNone(t *testing.T) {
 	retainUntilDate := time.Now().UTC().AddDate(0, 0, 10).Format(time.RFC3339)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketObjectConfig_noObjectLockRetention(rInt, "stuff"),
@@ -904,9 +904,9 @@ func TestAccAWSS3BucketObject_ObjectLockRetentionStartWithSet(t *testing.T) {
 	retainUntilDate3 := time.Now().UTC().AddDate(0, 0, 10).Format(time.RFC3339)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketObjectConfig_withObjectLockRetention(rInt, "stuff", retainUntilDate1),
@@ -961,9 +961,9 @@ func TestAccAWSS3BucketObject_defaultBucketSSE(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketObjectConfig_defaultBucketSSE(rInt, "stuff"),
@@ -983,9 +983,9 @@ func TestAccAWSS3BucketObject_ignoreTags(t *testing.T) {
 	key := "test-key"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketObjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketObjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				PreConfig: func() {},

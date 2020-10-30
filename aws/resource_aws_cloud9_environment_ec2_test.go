@@ -21,9 +21,9 @@ func TestAccAWSCloud9EnvironmentEc2_basic(t *testing.T) {
 	resourceName := "aws_cloud9_environment_ec2.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("cloud9", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloud9EnvironmentEc2Destroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("cloud9", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloud9EnvironmentEc2Destroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloud9EnvironmentEc2Config(rName),
@@ -68,9 +68,9 @@ func TestAccAWSCloud9EnvironmentEc2_allFields(t *testing.T) {
 	resourceName := "aws_cloud9_environment_ec2.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("cloud9", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloud9EnvironmentEc2Destroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("cloud9", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloud9EnvironmentEc2Destroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloud9EnvironmentEc2AllFieldsConfig(rName, description, userName),
@@ -111,9 +111,9 @@ func TestAccAWSCloud9EnvironmentEc2_tags(t *testing.T) {
 	resourceName := "aws_cloud9_environment_ec2.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("cloud9", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloud9EnvironmentEc2Destroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("cloud9", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloud9EnvironmentEc2Destroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloud9EnvironmentEc2ConfigTags1(rName, "key1", "value1"),
@@ -157,9 +157,9 @@ func TestAccAWSCloud9EnvironmentEc2_disappears(t *testing.T) {
 	resourceName := "aws_cloud9_environment_ec2.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("cloud9", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloud9EnvironmentEc2Destroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("cloud9", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloud9EnvironmentEc2Destroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloud9EnvironmentEc2Config(rName),

@@ -73,9 +73,9 @@ func TestAccAWSKmsKey_basic(t *testing.T) {
 	resourceName := "aws_kms_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsKey(rName),
@@ -101,9 +101,9 @@ func TestAccAWSKmsKey_asymmetricKey(t *testing.T) {
 	resourceName := "aws_kms_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsKey_asymmetric(rName),
@@ -123,9 +123,9 @@ func TestAccAWSKmsKey_disappears(t *testing.T) {
 	resourceName := "aws_kms_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsKey(rName),
@@ -146,9 +146,9 @@ func TestAccAWSKmsKey_policy(t *testing.T) {
 	expectedPolicyText := `{"Version":"2012-10-17","Id":"kms-tf-1","Statement":[{"Sid":"Enable IAM User Permissions","Effect":"Allow","Principal":{"AWS":"*"},"Action":"kms:*","Resource":"*"}]}`
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsKey_policy(rName),
@@ -179,9 +179,9 @@ func TestAccAWSKmsKey_Policy_IamRole(t *testing.T) {
 	resourceName := "aws_kms_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsKeyConfigPolicyIamRole(rName),
@@ -206,9 +206,9 @@ func TestAccAWSKmsKey_Policy_IamServiceLinkedRole(t *testing.T) {
 	resourceName := "aws_kms_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsKeyConfigPolicyIamServiceLinkedRole(rName),
@@ -232,9 +232,9 @@ func TestAccAWSKmsKey_isEnabled(t *testing.T) {
 	resourceName := "aws_kms_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsKey_enabledRotation(rName),
@@ -279,9 +279,9 @@ func TestAccAWSKmsKey_tags(t *testing.T) {
 	resourceName := "aws_kms_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsKey_tags(rName),

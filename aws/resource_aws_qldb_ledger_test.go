@@ -69,9 +69,9 @@ func TestAccAWSQLDBLedger_basic(t *testing.T) {
 	resourceName := "aws_qldb_ledger.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSQLDBLedgerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSQLDBLedgerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSQLDBLedgerConfig(rInt),
@@ -174,9 +174,9 @@ func TestAccAWSQLDBLedger_Tags(t *testing.T) {
 	resourceName := "aws_qldb_ledger.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSQLDBLedgerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSQLDBLedgerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSQLDBLedgerConfigTags1(rName, "key1", "value1"),

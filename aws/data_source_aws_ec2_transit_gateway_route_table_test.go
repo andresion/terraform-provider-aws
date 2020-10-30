@@ -11,9 +11,9 @@ func TestAccAWSEc2TransitGatewayRouteTableDataSource_Filter(t *testing.T) {
 	resourceName := "aws_ec2_transit_gateway_route_table.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2TransitGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2TransitGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2TransitGatewayRouteTableDataSourceConfigFilter(),
@@ -33,9 +33,9 @@ func TestAccAWSEc2TransitGatewayRouteTableDataSource_ID(t *testing.T) {
 	resourceName := "aws_ec2_transit_gateway_route_table.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2TransitGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2TransitGateway(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2TransitGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2TransitGatewayRouteTableDataSourceConfigID(),

@@ -37,9 +37,9 @@ func testAccAWSWafRegionalRegexPatternSet_basic(t *testing.T) {
 	resourceName := "aws_wafregional_regex_pattern_set.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalRegexPatternSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalRegexPatternSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalRegexPatternSetConfig(patternSetName),
@@ -66,9 +66,9 @@ func testAccAWSWafRegionalRegexPatternSet_changePatterns(t *testing.T) {
 	resourceName := "aws_wafregional_regex_pattern_set.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalRegexPatternSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalRegexPatternSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalRegexPatternSetConfig(patternSetName),
@@ -106,9 +106,9 @@ func testAccAWSWafRegionalRegexPatternSet_noPatterns(t *testing.T) {
 	resourceName := "aws_wafregional_regex_pattern_set.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalRegexPatternSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalRegexPatternSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalRegexPatternSetConfig_noPatterns(patternSetName),
@@ -133,9 +133,9 @@ func testAccAWSWafRegionalRegexPatternSet_disappears(t *testing.T) {
 	resourceName := "aws_wafregional_regex_pattern_set.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalRegexPatternSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalRegexPatternSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalRegexPatternSetConfig(patternSetName),

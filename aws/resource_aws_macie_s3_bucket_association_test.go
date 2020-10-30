@@ -15,9 +15,9 @@ func TestAccAWSMacieS3BucketAssociation_basic(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMacie(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSMacieS3BucketAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMacie(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSMacieS3BucketAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSMacieS3BucketAssociationConfig_basic(rInt),
@@ -43,9 +43,9 @@ func TestAccAWSMacieS3BucketAssociation_accountIdAndPrefix(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMacie(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSMacieS3BucketAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMacie(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSMacieS3BucketAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSMacieS3BucketAssociationConfig_accountIdAndPrefix(rInt),

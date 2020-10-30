@@ -124,9 +124,9 @@ func TestAccAWSWafRegionalRule_basic(t *testing.T) {
 	resourceName := "aws_wafregional_rule.wafrule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalRuleConfig(wafRuleName),
@@ -153,9 +153,9 @@ func TestAccAWSWafRegionalRule_tags(t *testing.T) {
 	resourceName := "aws_wafregional_rule.wafrule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalRuleConfigTags1(wafRuleName, "key1", "value1"),
@@ -198,9 +198,9 @@ func TestAccAWSWafRegionalRule_changeNameForceNew(t *testing.T) {
 	resourceName := "aws_wafregional_rule.wafrule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalIPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalIPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalRuleConfig(wafRuleName),
@@ -235,9 +235,9 @@ func TestAccAWSWafRegionalRule_disappears(t *testing.T) {
 	resourceName := "aws_wafregional_rule.wafrule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalRuleConfig(wafRuleName),
@@ -257,9 +257,9 @@ func TestAccAWSWafRegionalRule_noPredicates(t *testing.T) {
 	resourceName := "aws_wafregional_rule.wafrule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalRule_noPredicates(wafRuleName),
@@ -288,9 +288,9 @@ func TestAccAWSWafRegionalRule_changePredicates(t *testing.T) {
 	resourceName := "aws_wafregional_rule.wafrule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalRuleConfig(ruleName),

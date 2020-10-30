@@ -67,9 +67,9 @@ func TestAccAWSRedshiftCluster_basic(t *testing.T) {
 	config := testAccAWSRedshiftClusterConfig_basic(ri)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: config,
@@ -102,9 +102,9 @@ func TestAccAWSRedshiftCluster_withFinalSnapshot(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftClusterSnapshot(rInt),
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftClusterSnapshot(rInt),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftClusterConfigWithFinalSnapshot(rInt),
@@ -135,9 +135,9 @@ func TestAccAWSRedshiftCluster_kmsKey(t *testing.T) {
 	ri := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftClusterConfig_kmsKey(ri),
@@ -170,9 +170,9 @@ func TestAccAWSRedshiftCluster_enhancedVpcRoutingEnabled(t *testing.T) {
 	postConfig := testAccAWSRedshiftClusterConfig_enhancedVpcRoutingDisabled(ri)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: preConfig,
@@ -209,9 +209,9 @@ func TestAccAWSRedshiftCluster_loggingEnabled(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftClusterConfig_loggingEnabled(rInt),
@@ -288,9 +288,9 @@ func TestAccAWSRedshiftCluster_iamRoles(t *testing.T) {
 	postConfig := testAccAWSRedshiftClusterConfig_updateIamRoles(ri)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: preConfig,
@@ -318,9 +318,9 @@ func TestAccAWSRedshiftCluster_publiclyAccessible(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftClusterConfig_notPubliclyAccessible(rInt),
@@ -351,9 +351,9 @@ func TestAccAWSRedshiftCluster_updateNodeCount(t *testing.T) {
 	postConfig := testAccAWSRedshiftClusterConfig_updateNodeCount(ri)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: preConfig,
@@ -388,9 +388,9 @@ func TestAccAWSRedshiftCluster_updateNodeType(t *testing.T) {
 	postConfig := testAccAWSRedshiftClusterConfig_updateNodeType(ri)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: preConfig,
@@ -425,9 +425,9 @@ func TestAccAWSRedshiftCluster_tags(t *testing.T) {
 	postConfig := testAccAWSRedshiftClusterConfig_updatedTags(ri)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: preConfig,
@@ -460,9 +460,9 @@ func TestAccAWSRedshiftCluster_forceNewUsername(t *testing.T) {
 	postConfig := testAccAWSRedshiftClusterConfig_updatedUsername(ri)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: preConfig,
@@ -493,9 +493,9 @@ func TestAccAWSRedshiftCluster_changeAvailabilityZone(t *testing.T) {
 	postConfig := testAccAWSRedshiftClusterConfig_updatedAvailabilityZone(ri)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: preConfig,
@@ -524,9 +524,9 @@ func TestAccAWSRedshiftCluster_changeEncryption1(t *testing.T) {
 	postConfig := testAccAWSRedshiftClusterConfig_encrypted(ri)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: preConfig,
@@ -556,9 +556,9 @@ func TestAccAWSRedshiftCluster_changeEncryption2(t *testing.T) {
 	postConfig := testAccAWSRedshiftClusterConfig_unencrypted(ri)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: preConfig,

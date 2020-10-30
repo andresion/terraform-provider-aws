@@ -17,9 +17,9 @@ func TestAccAWSPlacementGroup_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSPlacementGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSPlacementGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSPlacementGroupConfig(rName),
@@ -45,9 +45,9 @@ func TestAccAWSPlacementGroup_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSPlacementGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSPlacementGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSPlacementGroupConfigTags1(rName, "key1", "value1"),
@@ -88,9 +88,9 @@ func TestAccAWSPlacementGroup_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSPlacementGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSPlacementGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSPlacementGroupConfig(rName),

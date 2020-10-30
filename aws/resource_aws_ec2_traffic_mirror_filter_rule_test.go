@@ -32,8 +32,8 @@ func TestAccAWSEc2TrafficMirrorFilterRule_basic(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckAWSEc2TrafficMirrorFilterRule(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2TrafficMirrorFilterRuleDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2TrafficMirrorFilterRuleDestroy,
 		Steps: []resource.TestStep{
 			//create
 			{

@@ -69,9 +69,9 @@ func TestAccAWSLaunchConfiguration_basic(t *testing.T) {
 	resourceName := "aws_launch_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLaunchConfigurationNoNameConfig(),
@@ -103,9 +103,9 @@ func TestAccAWSLaunchConfiguration_withBlockDevices(t *testing.T) {
 	resourceName := "aws_launch_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLaunchConfigurationConfig(),
@@ -134,9 +134,9 @@ func TestAccAWSLaunchConfiguration_withInstanceStoreAMI(t *testing.T) {
 	resourceName := "aws_launch_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLaunchConfigurationConfigWithInstanceStoreAMI(rName),
@@ -162,9 +162,9 @@ func TestAccAWSLaunchConfiguration_RootBlockDevice_AmiDisappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLaunchConfigurationConfigWithRootBlockDeviceCopiedAmi(rName),
@@ -191,9 +191,9 @@ func TestAccAWSLaunchConfiguration_RootBlockDevice_VolumeSize(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLaunchConfigurationConfigWithRootBlockDeviceVolumeSize(rName, 11),
@@ -225,9 +225,9 @@ func TestAccAWSLaunchConfiguration_encryptedRootBlockDevice(t *testing.T) {
 	resourceName := "aws_launch_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLaunchConfigurationConfigWithEncryptedRootBlockDevice(rInt),
@@ -251,9 +251,9 @@ func TestAccAWSLaunchConfiguration_withSpotPrice(t *testing.T) {
 	resourceName := "aws_launch_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLaunchConfigurationWithSpotPriceConfig(),
@@ -280,9 +280,9 @@ func TestAccAWSLaunchConfiguration_withVpcClassicLink(t *testing.T) {
 	resourceName := "aws_launch_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLaunchConfigurationConfig_withVpcClassicLink(rInt),
@@ -307,9 +307,9 @@ func TestAccAWSLaunchConfiguration_withIAMProfile(t *testing.T) {
 	resourceName := "aws_launch_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLaunchConfigurationConfig_withIAMProfile(rInt),
@@ -332,9 +332,9 @@ func TestAccAWSLaunchConfiguration_withEncryption(t *testing.T) {
 	resourceName := "aws_launch_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLaunchConfigurationWithEncryption(),
@@ -358,9 +358,9 @@ func TestAccAWSLaunchConfiguration_updateEbsBlockDevices(t *testing.T) {
 	resourceName := "aws_launch_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLaunchConfigurationWithEncryption(),
@@ -396,9 +396,9 @@ func TestAccAWSLaunchConfiguration_ebs_noDevice(t *testing.T) {
 	resourceName := "aws_launch_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLaunchConfigurationConfigEbsNoDevice(rInt),
@@ -425,9 +425,9 @@ func TestAccAWSLaunchConfiguration_userData(t *testing.T) {
 	resourceName := "aws_launch_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLaunchConfigurationConfig_userData(),

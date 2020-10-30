@@ -20,9 +20,9 @@ func TestAccAWSOpsworksApplication_basic(t *testing.T) {
 	resourceName := "aws_opsworks_application.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOpsworksApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOpsworksApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOpsworksApplicationCreate(rName),

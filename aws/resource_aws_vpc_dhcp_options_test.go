@@ -94,9 +94,9 @@ func TestAccAWSDHCPOptions_basic(t *testing.T) {
 	rName := acctest.RandString(5)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDHCPOptionsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDHCPOptionsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDHCPOptionsConfig(rName),
@@ -128,9 +128,9 @@ func TestAccAWSDHCPOptions_deleteOptions(t *testing.T) {
 	rName := acctest.RandString(5)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDHCPOptionsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDHCPOptionsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDHCPOptionsConfig(rName),
@@ -150,9 +150,9 @@ func TestAccAWSDHCPOptions_tags(t *testing.T) {
 	rName := acctest.RandString(5)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDHCPOptionsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDHCPOptionsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDHCPOptionsConfigTags1(rName, "key1", "value1"),
@@ -194,9 +194,9 @@ func TestAccAWSDHCPOptions_disappears(t *testing.T) {
 	rName := acctest.RandString(5)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDHCPOptionsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDHCPOptionsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDHCPOptionsConfig(rName),

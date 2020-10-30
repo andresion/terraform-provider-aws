@@ -12,8 +12,8 @@ func TestAccDataSourceAwsApiGatewayRestApi_basic(t *testing.T) {
 	dataSourceName := "data.aws_api_gateway_rest_api.test"
 	resourceName := "aws_api_gateway_rest_api.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: composeConfig(
@@ -43,8 +43,8 @@ func TestAccDataSourceAwsApiGatewayRestApi_EndpointConfiguration_VpcEndpointIds(
 	dataSourceName := "data.aws_api_gateway_rest_api.test"
 	resourceName := "aws_api_gateway_rest_api.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: composeConfig(

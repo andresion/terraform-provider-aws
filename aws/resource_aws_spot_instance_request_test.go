@@ -18,9 +18,9 @@ func TestAccAWSSpotInstanceRequest_basic(t *testing.T) {
 	resourceName := "aws_spot_instance_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotInstanceRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotInstanceRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotInstanceRequestConfig(rInt),
@@ -44,9 +44,9 @@ func TestAccAWSSpotInstanceRequest_tags(t *testing.T) {
 	resourceName := "aws_spot_instance_request.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotInstanceRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotInstanceRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotInstanceRequestTagsConfig1(rName, "key1", "value1"),
@@ -82,9 +82,9 @@ func TestAccAWSSpotInstanceRequest_withLaunchGroup(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotInstanceRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotInstanceRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotInstanceRequestConfig_withLaunchGroup(rInt),
@@ -110,9 +110,9 @@ func TestAccAWSSpotInstanceRequest_withBlockDuration(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotInstanceRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotInstanceRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotInstanceRequestConfig_withBlockDuration(rInt),
@@ -138,9 +138,9 @@ func TestAccAWSSpotInstanceRequest_vpc(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotInstanceRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotInstanceRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotInstanceRequestConfigVPC(rInt),
@@ -166,9 +166,9 @@ func TestAccAWSSpotInstanceRequest_validUntil(t *testing.T) {
 	validUntil := testAccAWSSpotInstanceRequestValidUntil(t)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotInstanceRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotInstanceRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotInstanceRequestConfigValidUntil(rInt, validUntil),
@@ -193,9 +193,9 @@ func TestAccAWSSpotInstanceRequest_withoutSpotPrice(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotInstanceRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotInstanceRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotInstanceRequestConfig_withoutSpotPrice(rInt),
@@ -218,9 +218,9 @@ func TestAccAWSSpotInstanceRequest_SubnetAndSGAndPublicIpAddress(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotInstanceRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotInstanceRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotInstanceRequestConfig_SubnetAndSGAndPublicIpAddress(rInt),
@@ -241,9 +241,9 @@ func TestAccAWSSpotInstanceRequest_NetworkInterfaceAttributes(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotInstanceRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotInstanceRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotInstanceRequestConfig_SubnetAndSGAndPublicIpAddress(rInt),
@@ -265,9 +265,9 @@ func TestAccAWSSpotInstanceRequest_getPasswordData(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotInstanceRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotInstanceRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotInstanceRequestConfig_getPasswordData(rInt),
@@ -500,9 +500,9 @@ func TestAccAWSSpotInstanceRequest_InterruptStop(t *testing.T) {
 	var sir ec2.SpotInstanceRequest
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotInstanceRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotInstanceRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotInstanceRequestInterruptConfig("stop"),
@@ -525,9 +525,9 @@ func TestAccAWSSpotInstanceRequest_InterruptHibernate(t *testing.T) {
 	var sir ec2.SpotInstanceRequest
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSpotInstanceRequestDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSpotInstanceRequestDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSpotInstanceRequestInterruptConfig("hibernate"),

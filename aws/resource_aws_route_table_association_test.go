@@ -19,9 +19,9 @@ func TestAccAWSRouteTableAssociation_Subnet_basic(t *testing.T) {
 	resourceNameSubnet := "aws_subnet.foo"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRouteTableAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRouteTableAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRouteTableAssociationSubnetConfig,
@@ -50,9 +50,9 @@ func TestAccAWSRouteTableAssociation_Subnet_ChangeRouteTable(t *testing.T) {
 	resourceNameSubnet := "aws_subnet.foo"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRouteTableAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRouteTableAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRouteTableAssociationSubnetConfig,
@@ -83,9 +83,9 @@ func TestAccAWSRouteTableAssociation_Subnet_ChangeSubnet(t *testing.T) {
 	resourceNameSubnet2 := "aws_subnet.bar"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRouteTableAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRouteTableAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRouteTableAssociationSubnetConfig,
@@ -115,9 +115,9 @@ func TestAccAWSRouteTableAssociation_Gateway_basic(t *testing.T) {
 	resourceNameGateway := "aws_internet_gateway.foo"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRouteTableAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRouteTableAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRouteTableAssociationGatewayConfig,
@@ -146,9 +146,9 @@ func TestAccAWSRouteTableAssociation_Gateway_ChangeRouteTable(t *testing.T) {
 	resourceNameGateway := "aws_internet_gateway.foo"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRouteTableAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRouteTableAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRouteTableAssociationGatewayConfig,
@@ -178,9 +178,9 @@ func TestAccAWSRouteTableAssociation_Gateway_ChangeGateway(t *testing.T) {
 	resourceNameGateway2 := "aws_vpn_gateway.bar"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRouteTableAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRouteTableAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRouteTableAssociationGatewayConfig,
@@ -208,9 +208,9 @@ func TestAccAWSRouteTableAssociation_disappears(t *testing.T) {
 	resourceNameAssoc := "aws_route_table_association.foo"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRouteTableAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRouteTableAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRouteTableAssociationSubnetConfig,

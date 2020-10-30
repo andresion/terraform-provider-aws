@@ -84,9 +84,9 @@ func TestAccAWSAPIGatewayV2VpcLink_basic(t *testing.T) {
 	rName2 := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayV2VpcLinkDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayV2VpcLinkDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayV2VpcLinkConfig_basic(rName1),
@@ -125,9 +125,9 @@ func TestAccAWSAPIGatewayV2VpcLink_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayV2VpcLinkDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayV2VpcLinkDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayV2VpcLinkConfig_basic(rName),
@@ -147,9 +147,9 @@ func TestAccAWSAPIGatewayV2VpcLink_Tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayV2VpcLinkDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayV2VpcLinkDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayV2VpcLinkConfig_tags(rName),

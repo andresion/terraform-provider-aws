@@ -19,9 +19,9 @@ func TestAccAWSDocDBSubnetGroup_basic(t *testing.T) {
 	rName := fmt.Sprintf("tf-test-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDocDBSubnetGroupConfig(rName),
@@ -49,9 +49,9 @@ func TestAccAWSDocDBSubnetGroup_disappears(t *testing.T) {
 	rName := fmt.Sprintf("tf-test-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDocDBSubnetGroupConfig(rName),
@@ -70,9 +70,9 @@ func TestAccAWSDocDBSubnetGroup_namePrefix(t *testing.T) {
 	var v docdb.DBSubnetGroup
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDocDBSubnetGroupConfig_namePrefix(),
@@ -97,9 +97,9 @@ func TestAccAWSDocDBSubnetGroup_generatedName(t *testing.T) {
 	var v docdb.DBSubnetGroup
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDocDBSubnetGroupConfig_generatedName(),
@@ -123,9 +123,9 @@ func TestAccAWSDocDBSubnetGroup_updateDescription(t *testing.T) {
 	rName := fmt.Sprintf("tf-test-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDocDBSubnetGroupConfig(rName),

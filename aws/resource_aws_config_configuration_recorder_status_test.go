@@ -18,9 +18,9 @@ func testAccConfigConfigurationRecorderStatus_basic(t *testing.T) {
 	expectedName := fmt.Sprintf("tf-acc-test-%d", rInt)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigConfigurationRecorderStatusDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigConfigurationRecorderStatusDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigConfigurationRecorderStatusConfig(rInt, false),
@@ -43,9 +43,9 @@ func testAccConfigConfigurationRecorderStatus_startEnabled(t *testing.T) {
 	expectedName := fmt.Sprintf("tf-acc-test-%d", rInt)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigConfigurationRecorderStatusDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigConfigurationRecorderStatusDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigConfigurationRecorderStatusConfig(rInt, true),
@@ -86,9 +86,9 @@ func testAccConfigConfigurationRecorderStatus_importBasic(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigConfigurationRecorderStatusDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigConfigurationRecorderStatusDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigConfigurationRecorderStatusConfig(rInt, true),

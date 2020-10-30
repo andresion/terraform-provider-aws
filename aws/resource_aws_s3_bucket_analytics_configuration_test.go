@@ -21,9 +21,9 @@ func TestAccAWSS3BucketAnalyticsConfiguration_basic(t *testing.T) {
 	resourceName := "aws_s3_bucket_analytics_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketAnalyticsConfiguration(rName, rName),
@@ -50,9 +50,9 @@ func TestAccAWSS3BucketAnalyticsConfiguration_removed(t *testing.T) {
 	resourceName := "aws_s3_bucket_analytics_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketAnalyticsConfiguration(rName, rName),
@@ -79,9 +79,9 @@ func TestAccAWSS3BucketAnalyticsConfiguration_updateBasic(t *testing.T) {
 	resourceName := "aws_s3_bucket_analytics_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketAnalyticsConfiguration(originalACName, originalBucketName),
@@ -128,9 +128,9 @@ func TestAccAWSS3BucketAnalyticsConfiguration_WithFilter_Empty(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSS3BucketAnalyticsConfigurationWithEmptyFilter(rName, rName),
@@ -150,9 +150,9 @@ func TestAccAWSS3BucketAnalyticsConfiguration_WithFilter_Prefix(t *testing.T) {
 	prefixUpdate := fmt.Sprintf("prefix-update-%d/", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketAnalyticsConfigurationWithFilterPrefix(rName, rName, prefix),
@@ -191,9 +191,9 @@ func TestAccAWSS3BucketAnalyticsConfiguration_WithFilter_SingleTag(t *testing.T)
 	tag1Update := fmt.Sprintf("tag-update-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketAnalyticsConfigurationWithFilterSingleTag(rName, rName, tag1),
@@ -236,9 +236,9 @@ func TestAccAWSS3BucketAnalyticsConfiguration_WithFilter_MultipleTags(t *testing
 	tag2Update := fmt.Sprintf("tag2-update-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketAnalyticsConfigurationWithFilterMultipleTags(rName, rName, tag1, tag2),
@@ -285,9 +285,9 @@ func TestAccAWSS3BucketAnalyticsConfiguration_WithFilter_PrefixAndTags(t *testin
 	tag2Update := fmt.Sprintf("tag2-update-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketAnalyticsConfigurationWithFilterPrefixAndTags(rName, rName, prefix, tag1, tag2),
@@ -329,9 +329,9 @@ func TestAccAWSS3BucketAnalyticsConfiguration_WithFilter_Remove(t *testing.T) {
 	prefix := fmt.Sprintf("prefix-%d/", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketAnalyticsConfigurationWithFilterPrefix(rName, rName, prefix),
@@ -359,9 +359,9 @@ func TestAccAWSS3BucketAnalyticsConfiguration_WithStorageClassAnalysis_Empty(t *
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSS3BucketAnalyticsConfigurationWithEmptyStorageClassAnalysis(rName, rName),
@@ -378,9 +378,9 @@ func TestAccAWSS3BucketAnalyticsConfiguration_WithStorageClassAnalysis_Default(t
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketAnalyticsConfigurationWithDefaultStorageClassAnalysis(rName, rName),
@@ -413,9 +413,9 @@ func TestAccAWSS3BucketAnalyticsConfiguration_WithStorageClassAnalysis_Full(t *t
 	prefix := fmt.Sprintf("prefix-%d/", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketAnalyticsConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketAnalyticsConfigurationWithFullStorageClassAnalysis(rName, rName, prefix),

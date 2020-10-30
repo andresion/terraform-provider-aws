@@ -70,9 +70,9 @@ func TestAccAWSAPIGatewayRestApi_basic(t *testing.T) {
 	resourceName := "aws_api_gateway_rest_api.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayRestAPIDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayRestAPIDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayRestAPIConfig(rName),
@@ -132,9 +132,9 @@ func TestAccAWSAPIGatewayRestApi_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayRestAPIDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayRestAPIDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayRestAPIConfigTags1(rName, "key1", "value1"),
@@ -181,9 +181,9 @@ func TestAccAWSAPIGatewayRestApi_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayRestAPIDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayRestAPIDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayRestAPIConfig(rName),
@@ -203,9 +203,9 @@ func TestAccAWSAPIGatewayRestApi_EndpointConfiguration(t *testing.T) {
 	resourceName := "aws_api_gateway_rest_api.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayRestAPIDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayRestAPIDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayRestAPIConfig_EndpointConfiguration(rName, "REGIONAL"),
@@ -278,9 +278,9 @@ func TestAccAWSAPIGatewayRestApi_EndpointConfiguration_Private(t *testing.T) {
 	resourceName := "aws_api_gateway_rest_api.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayRestAPIDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayRestAPIDestroy,
 		Steps: []resource.TestStep{
 			{
 				PreConfig: func() {
@@ -331,9 +331,9 @@ func TestAccAWSAPIGatewayRestApi_EndpointConfiguration_VPCEndpoint(t *testing.T)
 	resourceName := "aws_api_gateway_rest_api.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayRestAPIDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayRestAPIDestroy,
 		Steps: []resource.TestStep{
 			{
 				PreConfig: func() {
@@ -406,9 +406,9 @@ func TestAccAWSAPIGatewayRestApi_api_key_source(t *testing.T) {
 	resourceName := "aws_api_gateway_rest_api.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayRestAPIDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayRestAPIDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayRestAPIConfigWithAPIKeySource(rName),
@@ -444,9 +444,9 @@ func TestAccAWSAPIGatewayRestApi_policy(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayRestAPIDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayRestAPIDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayRestAPIConfigWithPolicy(rName),
@@ -481,9 +481,9 @@ func TestAccAWSAPIGatewayRestApi_openapi(t *testing.T) {
 	resourceName := "aws_api_gateway_rest_api.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayRestAPIDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayRestAPIDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayRestAPIConfigOpenAPI(rName),

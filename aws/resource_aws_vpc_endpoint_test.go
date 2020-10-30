@@ -87,9 +87,9 @@ func TestAccAWSVpcEndpoint_gatewayBasic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcEndpointConfig_gatewayBasic(rName),
@@ -125,9 +125,9 @@ func TestAccAWSVpcEndpoint_gatewayWithRouteTableAndPolicy(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcEndpointConfig_gatewayWithRouteTableAndPolicy(rName),
@@ -218,9 +218,9 @@ func TestAccAWSVpcEndpoint_gatewayPolicy(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcEndpointConfigGatewayPolicy(rName, policy1),
@@ -249,9 +249,9 @@ func TestAccAWSVpcEndpoint_interfaceBasic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcEndpointConfig_interfaceBasic(rName),
@@ -286,9 +286,9 @@ func TestAccAWSVpcEndpoint_interfaceWithSubnetAndSecurityGroup(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcEndpointConfig_interfaceWithSubnet(rName),
@@ -343,9 +343,9 @@ func TestAccAWSVpcEndpoint_interfaceNonAWSServiceAcceptOnCreate(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcEndpointConfig_interfaceNonAWSService(rName, true),
@@ -383,9 +383,9 @@ func TestAccAWSVpcEndpoint_interfaceNonAWSServiceAcceptOnUpdate(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcEndpointConfig_interfaceNonAWSService(rName, false),
@@ -443,9 +443,9 @@ func TestAccAWSVpcEndpoint_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcEndpointConfig_gatewayBasic(rName),
@@ -465,10 +465,10 @@ func TestAccAWSVpcEndpoint_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckVpcEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcEndpointConfigTags1(rName, "key1", "value1"),

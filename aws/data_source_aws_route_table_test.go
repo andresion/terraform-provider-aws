@@ -19,8 +19,8 @@ func TestAccDataSourceAwsRouteTable_basic(t *testing.T) {
 	tagValue := "terraform-testacc-routetable-data-source"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsRouteTableGroupConfig,
@@ -140,8 +140,8 @@ func TestAccDataSourceAwsRouteTable_main(t *testing.T) {
 	dsResourceName := "data.aws_route_table.by_filter"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsRouteTableMainRoute,

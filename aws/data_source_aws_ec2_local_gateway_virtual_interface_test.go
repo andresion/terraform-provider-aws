@@ -13,8 +13,8 @@ func TestAccDataSourceAwsEc2LocalGatewayVirtualInterface_Filter(t *testing.T) {
 	dataSourceName := "data.aws_ec2_local_gateway_virtual_interface.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsEc2LocalGatewayVirtualInterfaceConfigFilter(),
@@ -36,8 +36,8 @@ func TestAccDataSourceAwsEc2LocalGatewayVirtualInterface_Id(t *testing.T) {
 	dataSourceName := "data.aws_ec2_local_gateway_virtual_interface.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsEc2LocalGatewayVirtualInterfaceConfigId(),
@@ -61,8 +61,8 @@ func TestAccDataSourceAwsEc2LocalGatewayVirtualInterface_Tags(t *testing.T) {
 	dataSourceName := "data.aws_ec2_local_gateway_virtual_interface.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsEc2LocalGatewayVirtualInterfaceConfigTags(rName),

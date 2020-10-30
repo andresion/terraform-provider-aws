@@ -17,9 +17,9 @@ func TestAccAWSAthenaDatabase_basic(t *testing.T) {
 	rInt := acctest.RandInt()
 	dbName := acctest.RandString(8)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAthenaDatabaseDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAthenaDatabaseDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAthenaDatabaseConfig(rInt, dbName, false),
@@ -35,9 +35,9 @@ func TestAccAWSAthenaDatabase_encryption(t *testing.T) {
 	rInt := acctest.RandInt()
 	dbName := acctest.RandString(8)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAthenaDatabaseDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAthenaDatabaseDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAthenaDatabaseWithKMSConfig(rInt, dbName, false),
@@ -54,9 +54,9 @@ func TestAccAWSAthenaDatabase_nameStartsWithUnderscore(t *testing.T) {
 	rInt := acctest.RandInt()
 	dbName := "_" + acctest.RandString(8)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAthenaDatabaseDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAthenaDatabaseDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAthenaDatabaseConfig(rInt, dbName, false),
@@ -73,9 +73,9 @@ func TestAccAWSAthenaDatabase_nameCantHaveUppercase(t *testing.T) {
 	rInt := acctest.RandInt()
 	dbName := "A" + acctest.RandString(8)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAthenaDatabaseDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAthenaDatabaseDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAthenaDatabaseConfig(rInt, dbName, false),
@@ -89,9 +89,9 @@ func TestAccAWSAthenaDatabase_destroyFailsIfTablesExist(t *testing.T) {
 	rInt := acctest.RandInt()
 	dbName := acctest.RandString(8)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAthenaDatabaseDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAthenaDatabaseDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAthenaDatabaseConfig(rInt, dbName, false),
@@ -110,9 +110,9 @@ func TestAccAWSAthenaDatabase_forceDestroyAlwaysSucceeds(t *testing.T) {
 	rInt := acctest.RandInt()
 	dbName := acctest.RandString(8)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAthenaDatabaseDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAthenaDatabaseDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAthenaDatabaseConfig(rInt, dbName, true),

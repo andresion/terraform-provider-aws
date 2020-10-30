@@ -18,9 +18,9 @@ func TestAccAWSStorageGatewayTapePool_basic(t *testing.T) {
 	resourceName := "aws_storagegateway_tape_pool.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSStorageGatewayTapePoolDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSStorageGatewayTapePoolDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSStorageGatewayTapePoolBasicConfig(rName),
@@ -48,9 +48,9 @@ func TestAccAWSStorageGatewayTapePool_retention(t *testing.T) {
 	resourceName := "aws_storagegateway_tape_pool.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSStorageGatewayTapePoolDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSStorageGatewayTapePoolDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSStorageGatewayTapePoolRetentionConfig(rName),
@@ -78,9 +78,9 @@ func TestAccAWSStorageGatewayTapePool_tags(t *testing.T) {
 	resourceName := "aws_storagegateway_tape_pool.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSStorageGatewayTapePoolDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSStorageGatewayTapePoolDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSStorageGatewayTapePoolConfigTags1(rName, "key1", "value1"),
@@ -122,9 +122,9 @@ func TestAccAWSStorageGatewayTapePool_disappears(t *testing.T) {
 	resourceName := "aws_storagegateway_tape_pool.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSStorageGatewayTapePoolDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSStorageGatewayTapePoolDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSStorageGatewayTapePoolBasicConfig(rName),

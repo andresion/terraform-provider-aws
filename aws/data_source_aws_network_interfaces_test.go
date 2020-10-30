@@ -11,9 +11,9 @@ import (
 func TestAccDataSourceAwsNetworkInterfaces_Filter(t *testing.T) {
 	rName := acctest.RandString(5)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsNetworkInterfacesConfig_Filter(rName),
@@ -28,9 +28,9 @@ func TestAccDataSourceAwsNetworkInterfaces_Filter(t *testing.T) {
 func TestAccDataSourceAwsNetworkInterfaces_Tags(t *testing.T) {
 	rName := acctest.RandString(5)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsNetworkInterfacesConfig_Tags(rName),

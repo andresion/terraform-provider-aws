@@ -23,9 +23,9 @@ func TestAccDataSourceAwsSubnet_basic(t *testing.T) {
 	ds6ResourceName := "data.aws_subnet.by_az_id"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsSubnetConfig(rInt),
@@ -98,8 +98,8 @@ func TestAccDataSourceAwsSubnet_basic(t *testing.T) {
 func TestAccDataSourceAwsSubnet_ipv6ByIpv6Filter(t *testing.T) {
 	rInt := acctest.RandIntRange(0, 256)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsSubnetConfigIpv6(rInt),
@@ -118,8 +118,8 @@ func TestAccDataSourceAwsSubnet_ipv6ByIpv6Filter(t *testing.T) {
 func TestAccDataSourceAwsSubnet_ipv6ByIpv6CidrBlock(t *testing.T) {
 	rInt := acctest.RandIntRange(0, 256)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsSubnetConfigIpv6(rInt),

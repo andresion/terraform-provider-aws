@@ -16,9 +16,9 @@ func TestAccAWSMediaStoreContainerPolicy_basic(t *testing.T) {
 	resourceName := "aws_media_store_container_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMediaStore(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMediaStoreContainerPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMediaStore(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMediaStoreContainerPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMediaStoreContainerPolicyConfig(rname, acctest.RandString(5)),

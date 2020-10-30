@@ -17,9 +17,9 @@ func TestAccAWSLBTargetGroupAttachment_basic(t *testing.T) {
 	targetGroupName := fmt.Sprintf("test-target-group-%s", acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBTargetGroupAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBTargetGroupAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBTargetGroupAttachmentConfigTargetIdInstance(targetGroupName),
@@ -34,9 +34,9 @@ func TestAccAWSLBTargetGroupAttachment_basic(t *testing.T) {
 func TestAccAWSLBTargetGroupAttachment_disappears(t *testing.T) {
 	targetGroupName := fmt.Sprintf("test-target-group-%s", acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBTargetGroupAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBTargetGroupAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBTargetGroupAttachmentConfigTargetIdInstance(targetGroupName),
@@ -54,9 +54,9 @@ func TestAccAWSLBTargetGroupAttachment_BackwardsCompatibility(t *testing.T) {
 	targetGroupName := fmt.Sprintf("test-target-group-%s", acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBTargetGroupAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBTargetGroupAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBTargetGroupAttachmentConfigBackwardsCompatibility(targetGroupName),
@@ -72,9 +72,9 @@ func TestAccAWSLBTargetGroupAttachment_Port(t *testing.T) {
 	targetGroupName := fmt.Sprintf("test-target-group-%s", acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBTargetGroupAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBTargetGroupAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBTargetGroupAttachmentConfigPort(targetGroupName),
@@ -90,9 +90,9 @@ func TestAccAWSLBTargetGroupAttachment_ipAddress(t *testing.T) {
 	targetGroupName := fmt.Sprintf("test-target-group-%s", acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBTargetGroupAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBTargetGroupAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBTargetGroupAttachmentConfigTargetIdIpAddress(targetGroupName),
@@ -108,9 +108,9 @@ func TestAccAWSLBTargetGroupAttachment_lambda(t *testing.T) {
 	targetGroupName := fmt.Sprintf("test-target-group-%s", acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBTargetGroupAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBTargetGroupAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBTargetGroupAttachmentConfigTargetIdLambda(targetGroupName),

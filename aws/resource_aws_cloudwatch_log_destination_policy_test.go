@@ -16,9 +16,9 @@ func TestAccAWSCloudwatchLogDestinationPolicy_basic(t *testing.T) {
 	rstring := acctest.RandString(5)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudwatchLogDestinationPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudwatchLogDestinationPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudwatchLogDestinationPolicyConfig(rstring),

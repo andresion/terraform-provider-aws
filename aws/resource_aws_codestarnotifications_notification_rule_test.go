@@ -17,9 +17,9 @@ func TestAccAWSCodeStarNotificationsNotificationRule_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codestar", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeStarNotificationsNotificationRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codestar", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeStarNotificationsNotificationRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeStarNotificationsNotificationRuleConfigBasic(rName),
@@ -47,9 +47,9 @@ func TestAccAWSCodeStarNotificationsNotificationRule_Status(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codestar", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeStarNotificationsNotificationRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codestar", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeStarNotificationsNotificationRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeStarNotificationsNotificationRuleConfigStatus(rName, codestarnotifications.NotificationRuleStatusDisabled),
@@ -83,9 +83,9 @@ func TestAccAWSCodeStarNotificationsNotificationRule_Targets(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codestar", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeStarNotificationsNotificationRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codestar", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeStarNotificationsNotificationRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeStarNotificationsNotificationRuleConfigTargets1(rName),
@@ -119,9 +119,9 @@ func TestAccAWSCodeStarNotificationsNotificationRule_Tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codestar", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeStarNotificationsNotificationRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codestar", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeStarNotificationsNotificationRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeStarNotificationsNotificationRuleConfigTags1(rName),
@@ -161,9 +161,9 @@ func TestAccAWSCodeStarNotificationsNotificationRule_EventTypeIds(t *testing.T) 
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codestar", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeStarNotificationsNotificationRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codestar", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeStarNotificationsNotificationRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeStarNotificationsNotificationRuleConfigEventTypeIds1(rName),

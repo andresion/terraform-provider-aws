@@ -76,9 +76,9 @@ func TestAccAwsBackupVaultNotification_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_backup_vault_notifications.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupVaultNotificationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupVaultNotificationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBackupVaultNotificationConfig(rName),
@@ -102,9 +102,9 @@ func TestAccAwsBackupVaultNotification_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_backup_vault_notifications.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupVaultNotificationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupVaultNotificationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBackupVaultNotificationConfig(rName),

@@ -13,8 +13,8 @@ func TestAccDataSourceAwsDynamoDbTable_basic(t *testing.T) {
 	tableName := fmt.Sprintf("testaccawsdynamodbtable-basic-%s", acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsDynamoDbTableConfigBasic(tableName),

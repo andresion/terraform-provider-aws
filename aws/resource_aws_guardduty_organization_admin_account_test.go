@@ -17,8 +17,8 @@ func testAccAwsGuardDutyOrganizationAdminAccount_basic(t *testing.T) {
 			testAccPreCheck(t)
 			testAccOrganizationsAccountPreCheck(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsGuardDutyOrganizationAdminAccountDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsGuardDutyOrganizationAdminAccountDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGuardDutyOrganizationAdminAccountConfigSelf(),

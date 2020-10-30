@@ -14,9 +14,9 @@ func TestAccDataSourceAWSEFSAccessPoint_basic(t *testing.T) {
 	resourceName := "aws_efs_access_point.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsAccessPointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsAccessPointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAWSEFSAccessPointConfig(rName),

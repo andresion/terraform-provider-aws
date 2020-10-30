@@ -18,9 +18,9 @@ func TestAccAWSOpsworksMysqlLayer_basic(t *testing.T) {
 	stackName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_opsworks_mysql_layer.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOpsworksMysqlLayerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOpsworksMysqlLayerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOpsworksMysqlLayerConfigVpcCreate(stackName),
@@ -37,9 +37,9 @@ func TestAccAWSOpsworksMysqlLayer_tags(t *testing.T) {
 	stackName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_opsworks_mysql_layer.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOpsworksMysqlLayerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOpsworksMysqlLayerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOpsworksMysqlLayerConfigTags1(stackName, "key1", "value1"),

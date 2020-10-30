@@ -18,9 +18,9 @@ func TestAccAWSAPIGatewayV2Integration_basicWebSocket(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayV2IntegrationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayV2IntegrationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayV2IntegrationConfig_basic(rName),
@@ -62,9 +62,9 @@ func TestAccAWSAPIGatewayV2Integration_basicHttp(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayV2IntegrationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayV2IntegrationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayV2IntegrationConfig_httpProxy(rName),
@@ -104,9 +104,9 @@ func TestAccAWSAPIGatewayV2Integration_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayV2IntegrationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayV2IntegrationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayV2IntegrationConfig_basic(rName),
@@ -127,9 +127,9 @@ func TestAccAWSAPIGatewayV2Integration_IntegrationTypeHttp(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayV2IntegrationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayV2IntegrationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayV2IntegrationConfig_integrationTypeHttp(rName),
@@ -201,9 +201,9 @@ func TestAccAWSAPIGatewayV2Integration_LambdaWebSocket(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayV2IntegrationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayV2IntegrationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayV2IntegrationConfig_lambdaWebSocket(rName),
@@ -245,9 +245,9 @@ func TestAccAWSAPIGatewayV2Integration_LambdaHttp(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayV2IntegrationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayV2IntegrationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayV2IntegrationConfig_lambdaHttp(rName),
@@ -289,9 +289,9 @@ func TestAccAWSAPIGatewayV2Integration_VpcLinkWebSocket(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayV2IntegrationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayV2IntegrationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayV2IntegrationConfig_vpcLinkWebSocket(rName),
@@ -335,9 +335,9 @@ func TestAccAWSAPIGatewayV2Integration_VpcLinkHttp(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayV2IntegrationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayV2IntegrationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayV2IntegrationConfig_vpcLinkHttp(rName),
@@ -411,9 +411,9 @@ func TestAccAWSAPIGatewayV2Integration_AwsServiceIntegration(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayV2IntegrationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayV2IntegrationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayV2IntegrationConfig_sqsIntegration(rName, 0),

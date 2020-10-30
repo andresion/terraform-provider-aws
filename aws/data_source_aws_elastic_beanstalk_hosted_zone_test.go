@@ -13,8 +13,8 @@ func TestAccAWSDataSourceElasticBeanstalkHostedZone_basic(t *testing.T) {
 	dataSourceName := "data.aws_elastic_beanstalk_hosted_zone.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsElasticBeanstalkHostedZoneDataSource_currentRegion,
@@ -30,8 +30,8 @@ func TestAccAWSDataSourceElasticBeanstalkHostedZone_Region(t *testing.T) {
 	dataSourceName := "data.aws_elastic_beanstalk_hosted_zone.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsElasticBeanstalkHostedZoneDataSource_byRegion("ap-southeast-2"),

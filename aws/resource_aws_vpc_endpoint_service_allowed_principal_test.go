@@ -17,9 +17,9 @@ func TestAccAWSVpcEndpointServiceAllowedPrincipal_basic(t *testing.T) {
 	lbName := fmt.Sprintf("testaccawsnlb-basic-%s", acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcEndpointServiceAllowedPrincipalDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcEndpointServiceAllowedPrincipalDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcEndpointServiceAllowedPrincipalBasicConfig(lbName),

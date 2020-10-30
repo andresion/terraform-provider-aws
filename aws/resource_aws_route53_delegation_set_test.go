@@ -19,11 +19,11 @@ func TestAccAWSRoute53DelegationSet_basic(t *testing.T) {
 	resourceName := "aws_route53_delegation_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:        func() { testAccPreCheck(t) },
-		IDRefreshName:   resourceName,
-		IDRefreshIgnore: []string{"reference_name"},
-		Providers:       testAccProviders,
-		CheckDestroy:    testAccCheckRoute53DelegationSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		IDRefreshIgnore:          []string{"reference_name"},
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53DelegationSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53DelegationSetConfig(refName),
@@ -51,11 +51,11 @@ func TestAccAWSRoute53DelegationSet_withZones(t *testing.T) {
 	zoneName2 := fmt.Sprintf("%s-secondary.terraformtest.com", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:        func() { testAccPreCheck(t) },
-		IDRefreshName:   resourceName,
-		IDRefreshIgnore: []string{"reference_name"},
-		Providers:       testAccProviders,
-		CheckDestroy:    testAccCheckRoute53DelegationSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		IDRefreshIgnore:          []string{"reference_name"},
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53DelegationSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53DelegationSetWithZonesConfig(refName, zoneName1, zoneName2),

@@ -21,9 +21,9 @@ func testAccAwsEc2ClientVpnRoute_basic(t *testing.T) {
 	subnetResourceName := "aws_subnet.test.0"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2ClientVpnRouteDestroy,
+		PreCheck:                 func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2ClientVpnRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2ClientVpnRouteConfigBasic(rStr),
@@ -55,9 +55,9 @@ func testAccAwsEc2ClientVpnRoute_description(t *testing.T) {
 	subnetResourceName := "aws_subnet.test.0"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2ClientVpnRouteDestroy,
+		PreCheck:                 func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2ClientVpnRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2ClientVpnRouteConfigDescription(rStr),
@@ -84,9 +84,9 @@ func testAccAwsEc2ClientVpnRoute_disappears(t *testing.T) {
 	resourceName := "aws_ec2_client_vpn_route.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2ClientVpnRouteDestroy,
+		PreCheck:                 func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2ClientVpnRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2ClientVpnRouteConfigBasic(rStr),

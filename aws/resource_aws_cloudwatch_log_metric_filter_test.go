@@ -17,9 +17,9 @@ func TestAccAWSCloudWatchLogMetricFilter_basic(t *testing.T) {
 	resourceName := "aws_cloudwatch_log_metric_filter.foobar"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchLogMetricFilterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchLogMetricFilterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchLogMetricFilterConfig(rInt),

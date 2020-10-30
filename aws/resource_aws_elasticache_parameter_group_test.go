@@ -19,9 +19,9 @@ func TestAccAWSElasticacheParameterGroup_basic(t *testing.T) {
 	rName := fmt.Sprintf("parameter-group-test-terraform-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheParameterGroupConfig(rName),
@@ -47,9 +47,9 @@ func TestAccAWSElasticacheParameterGroup_addParameter(t *testing.T) {
 	rName := fmt.Sprintf("parameter-group-test-terraform-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheParameterGroupConfigParameter1(rName, "redis2.8", "appendonly", "yes"),
@@ -92,9 +92,9 @@ func TestAccAWSElasticacheParameterGroup_removeAllParameters(t *testing.T) {
 	rName := fmt.Sprintf("parameter-group-test-terraform-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheParameterGroupConfigParameter2(rName, "redis2.8", "appendonly", "yes", "appendfsync", "always"),
@@ -122,9 +122,9 @@ func TestAccAWSElasticacheParameterGroup_removeReservedMemoryParameter(t *testin
 	rName := fmt.Sprintf("parameter-group-test-terraform-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheParameterGroupConfigParameter1(rName, "redis3.2", "reserved-memory", "0"),
@@ -157,9 +157,9 @@ func TestAccAWSElasticacheParameterGroup_switchReservedMemoryParameter(t *testin
 	rName := fmt.Sprintf("parameter-group-test-terraform-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheParameterGroupConfigParameter1(rName, "redis3.2", "reserved-memory", "0"),
@@ -192,9 +192,9 @@ func TestAccAWSElasticacheParameterGroup_updateReservedMemoryParameter(t *testin
 	rName := fmt.Sprintf("parameter-group-test-terraform-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheParameterGroupConfigParameter1(rName, "redis2.8", "reserved-memory", "0"),
@@ -225,9 +225,9 @@ func TestAccAWSElasticacheParameterGroup_UppercaseName(t *testing.T) {
 	rName := fmt.Sprintf("TF-ELASTIPG-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheParameterGroupConfigParameter1(rName, "redis2.8", "appendonly", "yes"),
@@ -252,9 +252,9 @@ func TestAccAWSElasticacheParameterGroup_Description(t *testing.T) {
 	rName := fmt.Sprintf("parameter-group-test-terraform-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheParameterGroupConfigDescription(rName, "description1"),

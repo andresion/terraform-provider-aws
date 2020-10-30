@@ -19,9 +19,9 @@ func TestAccAWSVolumeAttachment_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVolumeAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVolumeAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVolumeAttachmentConfig(rName),
@@ -49,9 +49,9 @@ func TestAccAWSVolumeAttachment_skipDestroy(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVolumeAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVolumeAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVolumeAttachmentConfigSkipDestroy(rName),
@@ -107,9 +107,9 @@ func TestAccAWSVolumeAttachment_attachStopped(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVolumeAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVolumeAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVolumeAttachmentConfigBase(rName),
@@ -142,9 +142,9 @@ func TestAccAWSVolumeAttachment_update(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVolumeAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVolumeAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVolumeAttachmentUpdateConfig(rName, false),
@@ -191,9 +191,9 @@ func TestAccAWSVolumeAttachment_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVolumeAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVolumeAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVolumeAttachmentConfig(rName),

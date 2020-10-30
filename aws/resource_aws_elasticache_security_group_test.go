@@ -75,9 +75,9 @@ func TestAccAWSElasticacheSecurityGroup_basic(t *testing.T) {
 	resourceName := "aws_elasticache_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheSecurityGroupConfig,

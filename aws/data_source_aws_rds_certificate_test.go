@@ -12,9 +12,9 @@ func TestAccAWSRDSCertificateDataSource_Id(t *testing.T) {
 	dataSourceName := "data.aws_rds_certificate.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRDSCertificatePreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRDSCertificatePreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRDSCertificateDataSourceConfigId(),
@@ -30,9 +30,9 @@ func TestAccAWSRDSCertificateDataSource_LatestValidTill(t *testing.T) {
 	dataSourceName := "data.aws_rds_certificate.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRDSCertificatePreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRDSCertificatePreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRDSCertificateDataSourceConfigLatestValidTill(),

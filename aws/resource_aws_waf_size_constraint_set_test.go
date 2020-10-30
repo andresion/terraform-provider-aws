@@ -21,9 +21,9 @@ func TestAccAWSWafSizeConstraintSet_basic(t *testing.T) {
 	resourceName := "aws_waf_size_constraint_set.size_constraint_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafSizeConstraintSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafSizeConstraintSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafSizeConstraintSetConfig(sizeConstraintSet),
@@ -60,9 +60,9 @@ func TestAccAWSWafSizeConstraintSet_changeNameForceNew(t *testing.T) {
 	resourceName := "aws_waf_size_constraint_set.size_constraint_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafSizeConstraintSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafSizeConstraintSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafSizeConstraintSetConfig(sizeConstraintSet),
@@ -95,9 +95,9 @@ func TestAccAWSWafSizeConstraintSet_disappears(t *testing.T) {
 	resourceName := "aws_waf_size_constraint_set.size_constraint_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafSizeConstraintSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafSizeConstraintSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafSizeConstraintSetConfig(sizeConstraintSet),
@@ -117,9 +117,9 @@ func TestAccAWSWafSizeConstraintSet_changeConstraints(t *testing.T) {
 	resourceName := "aws_waf_size_constraint_set.size_constraint_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafSizeConstraintSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafSizeConstraintSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafSizeConstraintSetConfig(setName),
@@ -172,9 +172,9 @@ func TestAccAWSWafSizeConstraintSet_noConstraints(t *testing.T) {
 	resourceName := "aws_waf_size_constraint_set.size_constraint_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafSizeConstraintSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafSizeConstraintSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafSizeConstraintSetConfig_noConstraints(setName),

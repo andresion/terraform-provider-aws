@@ -22,9 +22,9 @@ func TestAccAWSWafIPSet_basic(t *testing.T) {
 	resourceName := "aws_waf_ipset.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafIPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafIPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafIPSetConfig(rName),
@@ -53,9 +53,9 @@ func TestAccAWSWafIPSet_disappears(t *testing.T) {
 	resourceName := "aws_waf_ipset.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafIPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafIPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafIPSetConfig(rName),
@@ -76,9 +76,9 @@ func TestAccAWSWafIPSet_changeNameForceNew(t *testing.T) {
 	resourceName := "aws_waf_ipset.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafIPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafIPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafIPSetConfig(rName),
@@ -117,9 +117,9 @@ func TestAccAWSWafIPSet_changeDescriptors(t *testing.T) {
 	resourceName := "aws_waf_ipset.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafIPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafIPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafIPSetConfig(rName),
@@ -160,9 +160,9 @@ func TestAccAWSWafIPSet_noDescriptors(t *testing.T) {
 	resourceName := "aws_waf_ipset.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafIPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafIPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafIPSetConfig_noDescriptors(rName),
@@ -206,9 +206,9 @@ func TestAccAWSWafIPSet_IpSetDescriptors_1000UpdateLimit(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafIPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafIPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafIPSetConfig_IpSetDescriptors(rName, strings.Join(ipSetDescriptors, "\n")),
@@ -337,9 +337,9 @@ func TestAccAWSWafIPSet_ipv6(t *testing.T) {
 	resourceName := "aws_waf_ipset.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafIPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafIPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafIPSetIPV6Config(rName),

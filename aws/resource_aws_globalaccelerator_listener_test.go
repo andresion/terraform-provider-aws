@@ -15,9 +15,9 @@ func TestAccAwsGlobalAcceleratorListener_basic(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlobalAcceleratorListenerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlobalAcceleratorListenerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlobalAcceleratorListener_basic(rInt),
@@ -46,9 +46,9 @@ func TestAccAwsGlobalAcceleratorListener_update(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlobalAcceleratorListenerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlobalAcceleratorListenerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlobalAcceleratorListener_basic(rInt),

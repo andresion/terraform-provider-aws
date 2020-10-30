@@ -67,9 +67,9 @@ func TestAccAWSElasticBeanstalkApplication_basic(t *testing.T) {
 	config := fmt.Sprintf("tf-test-name-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBeanstalkAppDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBeanstalkAppDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBeanstalkAppImportConfig(config),
@@ -98,9 +98,9 @@ func TestAccAWSBeanstalkApp_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBeanstalkAppDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBeanstalkAppDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBeanstalkAppConfig(rName),
@@ -117,9 +117,9 @@ func TestAccAWSBeanstalkApp_appversionlifecycle(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBeanstalkAppDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBeanstalkAppDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBeanstalkAppConfig(rName),
@@ -177,9 +177,9 @@ func TestAccAWSBeanstalkApp_tags(t *testing.T) {
 	resourceName := "aws_elastic_beanstalk_application.tftest"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBeanstalkAppDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBeanstalkAppDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBeanstalkAppConfigWithTags(rName, "test1", "test2"),

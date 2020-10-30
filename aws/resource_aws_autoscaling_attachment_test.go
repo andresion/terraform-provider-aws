@@ -16,9 +16,9 @@ func TestAccAWSAutoscalingAttachment_elb(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAutocalingAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAutocalingAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAutoscalingAttachment_elb(rInt),
@@ -59,9 +59,9 @@ func TestAccAWSAutoscalingAttachment_albTargetGroup(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAutocalingAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAutocalingAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAutoscalingAttachment_alb(rInt),

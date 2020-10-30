@@ -29,9 +29,9 @@ func TestAccAwsDxPrivateVirtualInterface_basic(t *testing.T) {
 	vlan := acctest.RandIntRange(2049, 4094)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDxPrivateVirtualInterfaceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDxPrivateVirtualInterfaceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDxPrivateVirtualInterfaceConfig_basic(connectionId, rName, bgpAsn, vlan),
@@ -100,9 +100,9 @@ func TestAccAwsDxPrivateVirtualInterface_Tags(t *testing.T) {
 	vlan := acctest.RandIntRange(2049, 4094)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDxPrivateVirtualInterfaceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDxPrivateVirtualInterfaceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDxPrivateVirtualInterfaceConfig_tags(connectionId, rName, bgpAsn, vlan),
@@ -178,9 +178,9 @@ func TestAccAwsDxPrivateVirtualInterface_DxGateway(t *testing.T) {
 	vlan := acctest.RandIntRange(2049, 4094)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDxPrivateVirtualInterfaceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDxPrivateVirtualInterfaceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDxPrivateVirtualInterfaceConfig_dxGateway(connectionId, rName, amzAsn, bgpAsn, vlan),

@@ -17,9 +17,9 @@ func testAccConfigOrganizationManagedRule_basic(t *testing.T) {
 	resourceName := "aws_config_organization_managed_rule.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigOrganizationManagedRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigOrganizationManagedRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigOrganizationManagedRuleConfigRuleIdentifier(rName, "IAM_PASSWORD_POLICY"),
@@ -53,9 +53,9 @@ func testAccConfigOrganizationManagedRule_disappears(t *testing.T) {
 	resourceName := "aws_config_organization_managed_rule.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigOrganizationManagedRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigOrganizationManagedRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigOrganizationManagedRuleConfigRuleIdentifier(rName, "IAM_PASSWORD_POLICY"),
@@ -73,9 +73,9 @@ func testAccConfigOrganizationManagedRule_errorHandling(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigOrganizationManagedRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigOrganizationManagedRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccConfigOrganizationManagedRuleConfigErrorHandling(rName),
@@ -91,9 +91,9 @@ func testAccConfigOrganizationManagedRule_Description(t *testing.T) {
 	resourceName := "aws_config_organization_managed_rule.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigOrganizationManagedRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigOrganizationManagedRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigOrganizationManagedRuleConfigDescription(rName, "description1"),
@@ -124,9 +124,9 @@ func testAccConfigOrganizationManagedRule_ExcludedAccounts(t *testing.T) {
 	resourceName := "aws_config_organization_managed_rule.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigOrganizationManagedRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigOrganizationManagedRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigOrganizationManagedRuleConfigExcludedAccounts1(rName),
@@ -160,9 +160,9 @@ func testAccConfigOrganizationManagedRule_InputParameters(t *testing.T) {
 	inputParameters2 := `{"tag1Key":"Department", "tag2Key":"Owner"}`
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigOrganizationManagedRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigOrganizationManagedRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigOrganizationManagedRuleConfigInputParameters(rName, inputParameters1),
@@ -193,9 +193,9 @@ func testAccConfigOrganizationManagedRule_MaximumExecutionFrequency(t *testing.T
 	resourceName := "aws_config_organization_managed_rule.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigOrganizationManagedRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigOrganizationManagedRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigOrganizationManagedRuleConfigMaximumExecutionFrequency(rName, "One_Hour"),
@@ -226,9 +226,9 @@ func testAccConfigOrganizationManagedRule_ResourceIdScope(t *testing.T) {
 	resourceName := "aws_config_organization_managed_rule.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigOrganizationManagedRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigOrganizationManagedRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigOrganizationManagedRuleConfigResourceIdScope(rName, "i-12345678"),
@@ -259,9 +259,9 @@ func testAccConfigOrganizationManagedRule_ResourceTypesScope(t *testing.T) {
 	resourceName := "aws_config_organization_managed_rule.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigOrganizationManagedRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigOrganizationManagedRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigOrganizationManagedRuleConfigResourceTypesScope1(rName),
@@ -292,9 +292,9 @@ func testAccConfigOrganizationManagedRule_RuleIdentifier(t *testing.T) {
 	resourceName := "aws_config_organization_managed_rule.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigOrganizationManagedRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigOrganizationManagedRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigOrganizationManagedRuleConfigRuleIdentifier(rName, "EC2_INSTANCE_DETAILED_MONITORING_ENABLED"),
@@ -325,9 +325,9 @@ func testAccConfigOrganizationManagedRule_TagKeyScope(t *testing.T) {
 	resourceName := "aws_config_organization_managed_rule.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigOrganizationManagedRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigOrganizationManagedRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigOrganizationManagedRuleConfigTagKeyScope(rName, "key1"),
@@ -358,9 +358,9 @@ func testAccConfigOrganizationManagedRule_TagValueScope(t *testing.T) {
 	resourceName := "aws_config_organization_managed_rule.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigOrganizationManagedRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigOrganizationManagedRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigOrganizationManagedRuleConfigTagValueScope(rName, "value1"),

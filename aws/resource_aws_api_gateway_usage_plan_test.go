@@ -20,9 +20,9 @@ func TestAccAWSAPIGatewayUsagePlan_basic(t *testing.T) {
 	resourceName := "aws_api_gateway_usage_plan.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayUsagePlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayUsagePlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSApiGatewayUsagePlanBasicConfig(rName),
@@ -59,9 +59,9 @@ func TestAccAWSAPIGatewayUsagePlan_tags(t *testing.T) {
 	resourceName := "aws_api_gateway_usage_plan.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayUsagePlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayUsagePlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSApiGatewayUsagePlanBasicTags1(rName, "key1", "value1"),
@@ -105,9 +105,9 @@ func TestAccAWSAPIGatewayUsagePlan_description(t *testing.T) {
 	resourceName := "aws_api_gateway_usage_plan.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayUsagePlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayUsagePlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSApiGatewayUsagePlanBasicConfig(rName),
@@ -158,9 +158,9 @@ func TestAccAWSAPIGatewayUsagePlan_productCode(t *testing.T) {
 	resourceName := "aws_api_gateway_usage_plan.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayUsagePlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayUsagePlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSApiGatewayUsagePlanProductCodeConfig(rName, "MYCODE"),
@@ -205,9 +205,9 @@ func TestAccAWSAPIGatewayUsagePlan_throttling(t *testing.T) {
 	resourceName := "aws_api_gateway_usage_plan.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayUsagePlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayUsagePlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSApiGatewayUsagePlanBasicConfig(rName),
@@ -259,9 +259,9 @@ func TestAccAWSAPIGatewayUsagePlan_throttlingInitialRateLimit(t *testing.T) {
 	resourceName := "aws_api_gateway_usage_plan.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayUsagePlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayUsagePlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSApiGatewayUsagePlanThrottlingConfig(rName),
@@ -285,9 +285,9 @@ func TestAccAWSAPIGatewayUsagePlan_quota(t *testing.T) {
 	resourceName := "aws_api_gateway_usage_plan.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayUsagePlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayUsagePlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSApiGatewayUsagePlanBasicConfig(rName),
@@ -340,9 +340,9 @@ func TestAccAWSAPIGatewayUsagePlan_apiStages(t *testing.T) {
 	resourceName := "aws_api_gateway_usage_plan.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayUsagePlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayUsagePlanDestroy,
 		Steps: []resource.TestStep{
 			// Create UsagePlan WITH Stages as the API calls are different
 			// when creating or updating.
@@ -423,9 +423,9 @@ func TestAccAWSAPIGatewayUsagePlan_apiStages_multiple(t *testing.T) {
 	resourceName := "aws_api_gateway_usage_plan.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayUsagePlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayUsagePlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSApiGatewayUsagePlanApiStagesMultipleConfig(rName),
@@ -455,9 +455,9 @@ func TestAccAWSAPIGatewayUsagePlan_disappears(t *testing.T) {
 	resourceName := "aws_api_gateway_usage_plan.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayUsagePlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayUsagePlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSApiGatewayUsagePlanBasicConfig(rName),

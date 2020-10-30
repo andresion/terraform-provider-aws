@@ -16,9 +16,9 @@ func TestAccAWSAcmCertificateValidation_basic(t *testing.T) {
 	resourceName := "aws_acm_certificate_validation.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			// Test that validation succeeds
 			{
@@ -36,9 +36,9 @@ func TestAccAWSAcmCertificateValidation_timeout(t *testing.T) {
 	domain := testAccAwsAcmCertificateRandomSubDomain(rootDomain)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAcmCertificateValidation_timeout(domain),
@@ -55,9 +55,9 @@ func TestAccAWSAcmCertificateValidation_validationRecordFqdns(t *testing.T) {
 	resourceName := "aws_acm_certificate_validation.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			// Test that validation fails if given validation_fqdns don't match
 			{
@@ -80,9 +80,9 @@ func TestAccAWSAcmCertificateValidation_validationRecordFqdnsEmail(t *testing.T)
 	domain := testAccAwsAcmCertificateRandomSubDomain(rootDomain)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAcmCertificateValidation_validationRecordFqdnsEmailValidation(domain),
@@ -98,9 +98,9 @@ func TestAccAWSAcmCertificateValidation_validationRecordFqdnsRoot(t *testing.T) 
 	resourceName := "aws_acm_certificate_validation.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateValidation_validationRecordFqdnsOneRoute53Record(rootDomain, rootDomain),
@@ -119,9 +119,9 @@ func TestAccAWSAcmCertificateValidation_validationRecordFqdnsRootAndWildcard(t *
 	resourceName := "aws_acm_certificate_validation.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateValidation_validationRecordFqdnsTwoRoute53Records(rootDomain, rootDomain, strconv.Quote(wildcardDomain)),
@@ -141,9 +141,9 @@ func TestAccAWSAcmCertificateValidation_validationRecordFqdnsSan(t *testing.T) {
 	resourceName := "aws_acm_certificate_validation.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateValidation_validationRecordFqdnsTwoRoute53Records(rootDomain, domain, strconv.Quote(sanDomain)),
@@ -162,9 +162,9 @@ func TestAccAWSAcmCertificateValidation_validationRecordFqdnsWildcard(t *testing
 	resourceName := "aws_acm_certificate_validation.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateValidation_validationRecordFqdnsOneRoute53Record(rootDomain, wildcardDomain),
@@ -183,9 +183,9 @@ func TestAccAWSAcmCertificateValidation_validationRecordFqdnsWildcardAndRoot(t *
 	resourceName := "aws_acm_certificate_validation.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateValidation_validationRecordFqdnsTwoRoute53Records(rootDomain, wildcardDomain, strconv.Quote(rootDomain)),

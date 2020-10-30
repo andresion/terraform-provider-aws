@@ -18,9 +18,9 @@ func TestAccAWSGlacierVaultLock_basic(t *testing.T) {
 	resourceName := "aws_glacier_vault_lock.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlacierVaultLockDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlacierVaultLockDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlacierVaultLockConfigCompleteLock(rName, false),
@@ -49,9 +49,9 @@ func TestAccAWSGlacierVaultLock_CompleteLock(t *testing.T) {
 	resourceName := "aws_glacier_vault_lock.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlacierVaultLockDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlacierVaultLockDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlacierVaultLockConfigCompleteLock(rName, true),

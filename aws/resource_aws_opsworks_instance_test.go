@@ -18,9 +18,9 @@ func TestAccAWSOpsworksInstance_basic(t *testing.T) {
 	resourceName := "aws_opsworks_instance.tf-acc"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOpsworksInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOpsworksInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOpsworksInstanceConfigCreate(stackName),
@@ -67,9 +67,9 @@ func TestAccAWSOpsworksInstance_UpdateHostNameForceNew(t *testing.T) {
 	var before, after opsworks.Instance
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOpsworksInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOpsworksInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOpsworksInstanceConfigCreate(stackName),

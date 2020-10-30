@@ -112,9 +112,9 @@ func TestAccAWSIAMPolicy_basic(t *testing.T) {
 }
 `
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIAMPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIAMPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMPolicyConfigName(rName),
@@ -142,9 +142,9 @@ func TestAccAWSIAMPolicy_description(t *testing.T) {
 	resourceName := "aws_iam_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIAMPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIAMPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMPolicyConfigDescription(rName, "description1"),
@@ -168,9 +168,9 @@ func TestAccAWSIAMPolicy_disappears(t *testing.T) {
 	resourceName := "aws_iam_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIAMPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIAMPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMPolicyConfigName(rName),
@@ -190,9 +190,9 @@ func TestAccAWSIAMPolicy_namePrefix(t *testing.T) {
 	resourceName := "aws_iam_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIAMPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIAMPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMPolicyConfigNamePrefix(namePrefix),
@@ -217,9 +217,9 @@ func TestAccAWSIAMPolicy_path(t *testing.T) {
 	resourceName := "aws_iam_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIAMPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIAMPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMPolicyConfigPath(rName, "/path1/"),
@@ -245,9 +245,9 @@ func TestAccAWSIAMPolicy_policy(t *testing.T) {
 	policy2 := "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"ec2:*\"],\"Effect\":\"Allow\",\"Resource\":\"*\"}]}"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIAMPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIAMPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSIAMPolicyConfigPolicy(rName, "not-json"),

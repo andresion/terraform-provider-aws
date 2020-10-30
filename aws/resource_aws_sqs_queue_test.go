@@ -78,9 +78,9 @@ func TestAccAWSSQSQueue_basic(t *testing.T) {
 	resourceName := "aws_sqs_queue.queue"
 	queueName := fmt.Sprintf("sqs-queue-%s", acctest.RandString(10))
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSQSQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSQSQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSQSConfigWithDefaults(queueName),
@@ -121,9 +121,9 @@ func TestAccAWSSQSQueue_tags(t *testing.T) {
 	resourceName := "aws_sqs_queue.queue"
 	queueName := fmt.Sprintf("sqs-queue-%s", acctest.RandString(10))
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSQSQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSQSQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSQSConfigWithTags(queueName),
@@ -169,9 +169,9 @@ func TestAccAWSSQSQueue_namePrefix(t *testing.T) {
 	resourceName := "aws_sqs_queue.queue"
 	prefix := "acctest-sqs-queue"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSQSQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSQSQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSQSConfigWithNamePrefix(prefix),
@@ -199,9 +199,9 @@ func TestAccAWSSQSQueue_namePrefix_fifo(t *testing.T) {
 	resourceName := "aws_sqs_queue.queue"
 	prefix := "acctest-sqs-queue"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSQSQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSQSQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSQSFifoConfigWithNamePrefix(prefix),
@@ -230,9 +230,9 @@ func TestAccAWSSQSQueue_policy(t *testing.T) {
 	topicName := fmt.Sprintf("sns-topic-%s", acctest.RandString(10))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSQSQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSQSQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSQSConfig_PolicyFormat(topicName, queueName),
@@ -259,9 +259,9 @@ func TestAccAWSSQSQueue_queueDeletedRecently(t *testing.T) {
 	resourceName := "aws_sqs_queue.queue"
 	queueName := fmt.Sprintf("sqs-queue-%s", acctest.RandString(10))
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSQSQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSQSQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSQSConfigWithDefaults(queueName),
@@ -286,9 +286,9 @@ func TestAccAWSSQSQueue_redrivePolicy(t *testing.T) {
 	var queueAttributes map[string]*string
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSQSQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSQSQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSQSConfigWithRedrive(acctest.RandString(10)),
@@ -316,9 +316,9 @@ func TestAccAWSSQSQueue_Policybasic(t *testing.T) {
 	queueName := fmt.Sprintf("sqs-queue-%s", acctest.RandString(10))
 	topicName := fmt.Sprintf("sns-topic-%s", acctest.RandString(10))
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSQSQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSQSQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSQSConfig_PolicyFormat(topicName, queueName),
@@ -344,9 +344,9 @@ func TestAccAWSSQSQueue_FIFO(t *testing.T) {
 
 	resourceName := "aws_sqs_queue.queue"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSQSQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSQSQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSQSConfigWithFIFO(acctest.RandString(10)),
@@ -369,9 +369,9 @@ func TestAccAWSSQSQueue_FIFO(t *testing.T) {
 
 func TestAccAWSSQSQueue_FIFOExpectNameError(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSQSQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSQSQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSSQSConfigWithFIFOExpectError(acctest.RandString(10)),
@@ -386,9 +386,9 @@ func TestAccAWSSQSQueue_FIFOWithContentBasedDeduplication(t *testing.T) {
 
 	resourceName := "aws_sqs_queue.queue"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSQSQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSQSQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSQSConfigWithFIFOContentBasedDeduplication(acctest.RandString(10)),
@@ -412,9 +412,9 @@ func TestAccAWSSQSQueue_FIFOWithContentBasedDeduplication(t *testing.T) {
 
 func TestAccAWSSQSQueue_ExpectContentBasedDeduplicationError(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSQSQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSQSQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccExpectContentBasedDeduplicationError(acctest.RandString(10)),
@@ -429,9 +429,9 @@ func TestAccAWSSQSQueue_Encryption(t *testing.T) {
 
 	resourceName := "aws_sqs_queue.queue"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSQSQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSQSQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSQSConfigWithEncryption(acctest.RandString(10)),

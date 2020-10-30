@@ -19,9 +19,9 @@ func TestAccAWSDbInstanceRoleAssociation_basic(t *testing.T) {
 	resourceName := "aws_db_instance_role_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDbInstanceRoleAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDbInstanceRoleAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDbInstanceRoleAssociationConfig(rName),
@@ -49,9 +49,9 @@ func TestAccAWSDbInstanceRoleAssociation_disappears(t *testing.T) {
 	resourceName := "aws_db_instance_role_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDbInstanceRoleAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDbInstanceRoleAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDbInstanceRoleAssociationConfig(rName),

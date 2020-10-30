@@ -18,9 +18,9 @@ func TestAccAwsServiceQuotasServiceQuota_basic(t *testing.T) {
 	resourceName := "aws_servicequotas_service_quota.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSServiceQuotas(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSServiceQuotas(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsServiceQuotasServiceQuotaConfigSameValue("L-F678F1CE", "vpc"),
@@ -69,9 +69,9 @@ func TestAccAwsServiceQuotasServiceQuota_Value_IncreaseOnCreate(t *testing.T) {
 	resourceName := "aws_servicequotas_service_quota.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSServiceQuotas(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSServiceQuotas(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsServiceQuotasServiceQuotaConfigValue(quotaCode, serviceCode, value),
@@ -111,9 +111,9 @@ func TestAccAwsServiceQuotasServiceQuota_Value_IncreaseOnUpdate(t *testing.T) {
 	resourceName := "aws_servicequotas_service_quota.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSServiceQuotas(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSServiceQuotas(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsServiceQuotasServiceQuotaConfigSameValue(quotaCode, serviceCode),

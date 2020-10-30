@@ -18,9 +18,9 @@ func TestAccAWSSSMMaintenanceWindowTask_basic(t *testing.T) {
 
 	name := acctest.RandString(10)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowTaskBasicConfig(name),
@@ -58,9 +58,9 @@ func TestAccAWSSSMMaintenanceWindowTask_updateForcesNewResource(t *testing.T) {
 	resourceName := "aws_ssm_maintenance_window_task.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowTaskBasicConfig(name),
@@ -93,9 +93,9 @@ func TestAccAWSSSMMaintenanceWindowTask_TaskInvocationAutomationParameters(t *te
 
 	name := acctest.RandString(10)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowTaskAutomationConfig(name, "$DEFAULT"),
@@ -133,9 +133,9 @@ func TestAccAWSSSMMaintenanceWindowTask_TaskInvocationLambdaParameters(t *testin
 	sgName := fmt.Sprintf("tf_acc_sg_lambda_func_tags_%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowTaskLambdaConfig(funcName, policyName, roleName, sgName, rString, rInt),
@@ -161,9 +161,9 @@ func TestAccAWSSSMMaintenanceWindowTask_TaskInvocationRunCommandParameters(t *te
 
 	name := acctest.RandString(10)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowTaskRunCommandConfig(name, "test comment", 30),
@@ -200,9 +200,9 @@ func TestAccAWSSSMMaintenanceWindowTask_TaskInvocationStepFunctionParameters(t *
 	rString := acctest.RandString(8)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowTaskStepFunctionConfig(rString),
@@ -226,9 +226,9 @@ func TestAccAWSSSMMaintenanceWindowTask_emptyNotificationConfig(t *testing.T) {
 	resourceName := "aws_ssm_maintenance_window_task.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowTaskConfigEmptyNotifcationConfig(rName),

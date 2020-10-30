@@ -12,8 +12,8 @@ func TestAccAWSElbServiceAccount_basic(t *testing.T) {
 	dataSourceName := "data.aws_elb_service_account.main"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsElbServiceAccountConfig,
@@ -32,8 +32,8 @@ func TestAccAWSElbServiceAccount_Region(t *testing.T) {
 	dataSourceName := "data.aws_elb_service_account.regional"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsElbServiceAccountExplicitRegionConfig,

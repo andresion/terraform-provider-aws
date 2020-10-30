@@ -82,9 +82,9 @@ func TestAccAWSSSMMaintenanceWindow_basic(t *testing.T) {
 	resourceName := "aws_ssm_maintenance_window.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowConfig(rName),
@@ -116,9 +116,9 @@ func TestAccAWSSSMMaintenanceWindow_description(t *testing.T) {
 	resourceName := "aws_ssm_maintenance_window.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowConfigDescription(rName, "foo"),
@@ -151,9 +151,9 @@ func TestAccAWSSSMMaintenanceWindow_tags(t *testing.T) {
 	resourceName := "aws_ssm_maintenance_window.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowConfigTags1(rName, "key1", "value1"),
@@ -195,9 +195,9 @@ func TestAccAWSSSMMaintenanceWindow_disappears(t *testing.T) {
 	resourceName := "aws_ssm_maintenance_window.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowConfig(rName),
@@ -218,9 +218,9 @@ func TestAccAWSSSMMaintenanceWindow_multipleUpdates(t *testing.T) {
 	resourceName := "aws_ssm_maintenance_window.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowConfig(rName1),
@@ -254,9 +254,9 @@ func TestAccAWSSSMMaintenanceWindow_Cutoff(t *testing.T) {
 	resourceName := "aws_ssm_maintenance_window.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowConfigCutoff(rName, 1),
@@ -287,9 +287,9 @@ func TestAccAWSSSMMaintenanceWindow_Duration(t *testing.T) {
 	resourceName := "aws_ssm_maintenance_window.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowConfigDuration(rName, 3),
@@ -320,9 +320,9 @@ func TestAccAWSSSMMaintenanceWindow_Enabled(t *testing.T) {
 	resourceName := "aws_ssm_maintenance_window.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowConfigEnabled(rName, false),
@@ -355,9 +355,9 @@ func TestAccAWSSSMMaintenanceWindow_EndDate(t *testing.T) {
 	resourceName := "aws_ssm_maintenance_window.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowConfigEndDate(rName, endDate1),
@@ -395,9 +395,9 @@ func TestAccAWSSSMMaintenanceWindow_Schedule(t *testing.T) {
 	resourceName := "aws_ssm_maintenance_window.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowConfigSchedule(rName, "cron(0 16 ? * TUE *)"),
@@ -428,9 +428,9 @@ func TestAccAWSSSMMaintenanceWindow_ScheduleTimezone(t *testing.T) {
 	resourceName := "aws_ssm_maintenance_window.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowConfigScheduleTimezone(rName, "America/Los_Angeles"),
@@ -470,9 +470,9 @@ func TestAccAWSSSMMaintenanceWindow_StartDate(t *testing.T) {
 	resourceName := "aws_ssm_maintenance_window.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowConfigStartDate(rName, startDate1),

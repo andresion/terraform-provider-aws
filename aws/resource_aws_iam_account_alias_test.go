@@ -40,9 +40,9 @@ func testAccAWSIAMAccountAlias_importBasic(t *testing.T) {
 	rstring := acctest.RandString(5)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIAMAccountAliasDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIAMAccountAliasDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMAccountAliasConfig(rstring),
@@ -63,9 +63,9 @@ func testAccAWSIAMAccountAlias_basic_with_datasource(t *testing.T) {
 	rstring := acctest.RandString(5)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIAMAccountAliasDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIAMAccountAliasDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMAccountAliasConfig(rstring),

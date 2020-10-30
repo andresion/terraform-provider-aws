@@ -16,9 +16,9 @@ func TestAccAWSDxConnection_basic(t *testing.T) {
 	resourceName := "aws_dx_connection.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDxConnectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDxConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDxConnectionConfig(connectionName),
@@ -44,9 +44,9 @@ func TestAccAWSDxConnection_tags(t *testing.T) {
 	resourceName := "aws_dx_connection.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDxConnectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDxConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDxConnectionConfig_tags(connectionName),

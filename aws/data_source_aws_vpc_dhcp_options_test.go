@@ -14,8 +14,8 @@ func TestAccDataSourceAwsVpcDhcpOptions_basic(t *testing.T) {
 	datasourceName := "data.aws_vpc_dhcp_options.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccDataSourceAwsVpcDhcpOptionsConfig_Missing,
@@ -50,8 +50,8 @@ func TestAccDataSourceAwsVpcDhcpOptions_Filter(t *testing.T) {
 	datasourceName := "data.aws_vpc_dhcp_options.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsVpcDhcpOptionsConfig_Filter(rInt, 1),

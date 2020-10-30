@@ -17,9 +17,9 @@ func testAccAwsOrganizationsOrganization_basic(t *testing.T) {
 	resourceName := "aws_organizations_organization.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOrganizationsOrganizationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOrganizationsOrganizationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOrganizationsOrganizationConfig,
@@ -57,9 +57,9 @@ func testAccAwsOrganizationsOrganization_AwsServiceAccessPrincipals(t *testing.T
 	resourceName := "aws_organizations_organization.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOrganizationsOrganizationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOrganizationsOrganizationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOrganizationsOrganizationConfigAwsServiceAccessPrincipals1("config.amazonaws.com"),
@@ -100,9 +100,9 @@ func testAccAwsOrganizationsOrganization_EnabledPolicyTypes(t *testing.T) {
 	resourceName := "aws_organizations_organization.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOrganizationsOrganizationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOrganizationsOrganizationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOrganizationsOrganizationConfigEnabledPolicyTypes1(organizations.PolicyTypeServiceControlPolicy),
@@ -184,9 +184,9 @@ func testAccAwsOrganizationsOrganization_FeatureSet(t *testing.T) {
 	resourceName := "aws_organizations_organization.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOrganizationsOrganizationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOrganizationsOrganizationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOrganizationsOrganizationConfigFeatureSet(organizations.OrganizationFeatureSetConsolidatedBilling),

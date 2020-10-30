@@ -22,9 +22,9 @@ func TestAccAWSNeptuneCluster_basic(t *testing.T) {
 	resourceName := "aws_neptune_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterConfig(rName),
@@ -63,9 +63,9 @@ func TestAccAWSNeptuneCluster_namePrefix(t *testing.T) {
 	resourceName := "aws_neptune_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterConfig_namePrefix(rName),
@@ -95,9 +95,9 @@ func TestAccAWSNeptuneCluster_takeFinalSnapshot(t *testing.T) {
 	resourceName := "aws_neptune_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterSnapshot(rName),
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterSnapshot(rName),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterConfigWithFinalSnapshot(rName),
@@ -126,9 +126,9 @@ func TestAccAWSNeptuneCluster_tags(t *testing.T) {
 	resourceName := "aws_neptune_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterConfigTags1(rName, "key1", "value1"),
@@ -176,9 +176,9 @@ func TestAccAWSNeptuneCluster_updateIamRoles(t *testing.T) {
 	resourceName := "aws_neptune_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterConfigIncludingIamRoles(rName),
@@ -222,9 +222,9 @@ func TestAccAWSNeptuneCluster_kmsKey(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterConfig_kmsKey(rName),
@@ -254,9 +254,9 @@ func TestAccAWSNeptuneCluster_encrypted(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterConfig_encrypted(rName),
@@ -286,9 +286,9 @@ func TestAccAWSNeptuneCluster_backupsUpdate(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterConfig_backups(rName),
@@ -329,9 +329,9 @@ func TestAccAWSNeptuneCluster_iamAuth(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterConfig_iamAuth(rName),
@@ -361,9 +361,9 @@ func TestAccAWSNeptuneCluster_updateCloudwatchLogsExports(t *testing.T) {
 	resourceName := "aws_neptune_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterConfig(rName),
@@ -408,9 +408,9 @@ func TestAccAWSNeptuneCluster_deleteProtection(t *testing.T) {
 	resourceName := "aws_neptune_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterConfig(rName),

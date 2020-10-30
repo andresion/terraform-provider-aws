@@ -19,9 +19,9 @@ func TestAccAwsWafv2WebACLLoggingConfiguration_basic(t *testing.T) {
 	webACLResourceName := "aws_wafv2_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2WebACLLoggingConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2WebACLLoggingConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2WebACLLoggingConfiguration_basic(rName),
@@ -48,9 +48,9 @@ func TestAccAwsWafv2WebACLLoggingConfiguration_update(t *testing.T) {
 	webACLResourceName := "aws_wafv2_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2WebACLLoggingConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2WebACLLoggingConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2WebACLLoggingConfiguration_basic(rName),
@@ -105,9 +105,9 @@ func TestAccAwsWafv2WebACLLoggingConfiguration_changeResourceARNForceNew(t *test
 	webACLResourceName := "aws_wafv2_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2WebACLLoggingConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2WebACLLoggingConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2WebACLLoggingConfiguration_basic(rName),
@@ -147,9 +147,9 @@ func TestAccAwsWafv2WebACLLoggingConfiguration_changeLogDestinationConfigsForceN
 	kinesisResourceName := "aws_kinesis_firehose_delivery_stream.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2WebACLLoggingConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2WebACLLoggingConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2WebACLLoggingConfiguration_basic(rName),
@@ -186,9 +186,9 @@ func TestAccAwsWafv2WebACLLoggingConfiguration_disappears(t *testing.T) {
 	resourceName := "aws_wafv2_web_acl_logging_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2WebACLLoggingConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2WebACLLoggingConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2WebACLLoggingConfiguration_basic(rName),
@@ -209,9 +209,9 @@ func TestAccAwsWafv2WebACLLoggingConfiguration_webACLDisappears(t *testing.T) {
 	webACLResourceName := "aws_wafv2_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2WebACLLoggingConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2WebACLLoggingConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2WebACLLoggingConfiguration_basic(rName),

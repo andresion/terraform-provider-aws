@@ -349,9 +349,9 @@ func TestAccAWSDynamoDbTable_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("TerraformTestTable-")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbConfig_basic(rName),
@@ -383,9 +383,9 @@ func TestAccAWSDynamoDbTable_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("TerraformTestTable-")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbConfig_basic(rName),
@@ -405,9 +405,9 @@ func TestAccAWSDynamoDbTable_disappears_PayPerRequestWithGSI(t *testing.T) {
 	rName := acctest.RandomWithPrefix("TerraformTestTable-")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbBilling_PayPerRequestWithGSI(rName),
@@ -438,9 +438,9 @@ func TestAccAWSDynamoDbTable_extended(t *testing.T) {
 	rName := acctest.RandomWithPrefix("TerraformTestTable-")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbConfigInitialState(rName),
@@ -511,9 +511,9 @@ func TestAccAWSDynamoDbTable_enablePitr(t *testing.T) {
 	rName := acctest.RandomWithPrefix("TerraformTestTable-")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbConfigInitialState(rName),
@@ -545,9 +545,9 @@ func TestAccAWSDynamoDbTable_BillingMode_PayPerRequestToProvisioned(t *testing.T
 	rName := acctest.RandomWithPrefix("TerraformTestTable-")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbBilling_PayPerRequest(rName),
@@ -578,9 +578,9 @@ func TestAccAWSDynamoDbTable_BillingMode_ProvisionedToPayPerRequest(t *testing.T
 	rName := acctest.RandomWithPrefix("TerraformTestTable-")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbBilling_Provisioned(rName),
@@ -611,9 +611,9 @@ func TestAccAWSDynamoDbTable_BillingMode_GSI_PayPerRequestToProvisioned(t *testi
 	rName := acctest.RandomWithPrefix("TerraformTestTable-")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbBilling_PayPerRequestWithGSI(rName),
@@ -644,9 +644,9 @@ func TestAccAWSDynamoDbTable_BillingMode_GSI_ProvisionedToPayPerRequest(t *testi
 	rName := acctest.RandomWithPrefix("TerraformTestTable-")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbBilling_ProvisionedWithGSI(rName),
@@ -677,9 +677,9 @@ func TestAccAWSDynamoDbTable_streamSpecification(t *testing.T) {
 	tableName := fmt.Sprintf("TerraformTestStreamTable-%s", acctest.RandString(8))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbConfigStreamSpecification(tableName, true, "KEYS_ONLY"),
@@ -712,9 +712,9 @@ func TestAccAWSDynamoDbTable_streamSpecification(t *testing.T) {
 
 func TestAccAWSDynamoDbTable_streamSpecificationValidation(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSDynamoDbConfigStreamSpecification("anything", true, ""),
@@ -729,9 +729,9 @@ func TestAccAWSDynamoDbTable_tags(t *testing.T) {
 	resourceName := "aws_dynamodb_table.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbConfigTags(),
@@ -757,9 +757,9 @@ func TestAccAWSDynamoDbTable_gsiUpdateCapacity(t *testing.T) {
 	name := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbConfigGsiUpdate(name),
@@ -820,9 +820,9 @@ func TestAccAWSDynamoDbTable_gsiUpdateOtherAttributes(t *testing.T) {
 	name := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbConfigGsiUpdate(name),
@@ -909,9 +909,9 @@ func TestAccAWSDynamoDbTable_lsiNonKeyAttributes(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbConfigLsiNonKeyAttributes(rName),
@@ -943,9 +943,9 @@ func TestAccAWSDynamoDbTable_gsiUpdateNonKeyAttributes(t *testing.T) {
 	name := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbConfigGsiUpdatedOtherAttributes(name),
@@ -1035,9 +1035,9 @@ func TestAccAWSDynamoDbTable_gsiUpdateNonKeyAttributes_emptyPlan(t *testing.T) {
 	reorderedAttributes := fmt.Sprintf("%q, %q", "RandomAttribute", "AnotherAttribute")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbConfigGsiMultipleNonKeyAttributes(name, attributes),
@@ -1078,9 +1078,9 @@ func TestAccAWSDynamoDbTable_Ttl_Enabled(t *testing.T) {
 	rName := acctest.RandomWithPrefix("TerraformTestTable-")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbConfigTimeToLive(rName, true),
@@ -1107,9 +1107,9 @@ func TestAccAWSDynamoDbTable_Ttl_Disabled(t *testing.T) {
 	rName := acctest.RandomWithPrefix("TerraformTestTable-")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbConfigTimeToLive(rName, false),
@@ -1142,9 +1142,9 @@ func TestAccAWSDynamoDbTable_attributeUpdate(t *testing.T) {
 	rName := acctest.RandomWithPrefix("TerraformTestTable-")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbConfigOneAttribute(rName, "firstKey", "firstKey", "S"),
@@ -1185,9 +1185,9 @@ func TestAccAWSDynamoDbTable_lsiUpdate(t *testing.T) {
 	rName := acctest.RandomWithPrefix("TerraformTestTable-")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbConfigLSI(rName, "lsi-original"),
@@ -1214,9 +1214,9 @@ func TestAccAWSDynamoDbTable_attributeUpdateValidation(t *testing.T) {
 	rName := acctest.RandomWithPrefix("TerraformTestTable-")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSDynamoDbConfigOneAttribute(rName, "firstKey", "unusedKey", "S"),
@@ -1238,9 +1238,9 @@ func TestAccAWSDynamoDbTable_encryption(t *testing.T) {
 	kmsAliasDatasourceName := "data.aws_kms_alias.dynamodb"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbConfigInitialStateWithEncryptionBYOK(rName),

@@ -78,9 +78,9 @@ func TestAccAwsAutoScalingPlansScalingPlan_basicDynamicScaling(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAutoScalingPlansScalingPlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAutoScalingPlansScalingPlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAutoScalingPlansScalingPlanConfigBasicDynamicScaling(rName, rName),
@@ -130,8 +130,8 @@ func TestAccAwsAutoScalingPlansScalingPlan_basicPredictiveScaling(t *testing.T) 
 			testAccPreCheck(t)
 			testAccPreCheckIamServiceLinkedRole(t, "/aws-service-role/autoscaling-plans")
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAutoScalingPlansScalingPlanDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAutoScalingPlansScalingPlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAutoScalingPlansScalingPlanConfigBasicPredictiveScaling(rName, rName),
@@ -185,8 +185,8 @@ func TestAccAwsAutoScalingPlansScalingPlan_basicUpdate(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckIamServiceLinkedRole(t, "/aws-service-role/autoscaling-plans")
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAutoScalingPlansScalingPlanDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAutoScalingPlansScalingPlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAutoScalingPlansScalingPlanConfigBasicDynamicScaling(rName, rName),
@@ -261,9 +261,9 @@ func TestAccAwsAutoScalingPlansScalingPlan_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAutoScalingPlansScalingPlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAutoScalingPlansScalingPlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAutoScalingPlansScalingPlanConfigBasicDynamicScaling(rName, rName),

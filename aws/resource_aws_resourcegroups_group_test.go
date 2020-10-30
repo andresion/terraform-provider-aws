@@ -34,9 +34,9 @@ func TestAccAWSResourceGroup_basic(t *testing.T) {
 }`
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSResourceGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSResourceGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSResourceGroupConfig_basic(n, desc1, testAccAWSResourceGroupConfigQuery),
@@ -71,9 +71,9 @@ func TestAccAWSResourceGroup_tags(t *testing.T) {
 	desc1 := "Hello World"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSResourceGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSResourceGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSResourceGroupConfigTags1(n, desc1, testAccAWSResourceGroupConfigQuery, "key1", "value1"),

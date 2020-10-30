@@ -21,9 +21,9 @@ func TestAccAwsAppsyncFunction_basic(t *testing.T) {
 	var config appsync.FunctionConfiguration
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppsyncFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppsyncFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAppsyncFunctionConfig(rName1, rName2, testAccGetRegion()),
@@ -59,9 +59,9 @@ func TestAccAwsAppsyncFunction_description(t *testing.T) {
 	var config appsync.FunctionConfiguration
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppsyncFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppsyncFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAppsyncFunctionConfigDescription(rName1, rName2, testAccGetRegion(), "test description 1"),
@@ -93,9 +93,9 @@ func TestAccAwsAppsyncFunction_responseMappingTemplate(t *testing.T) {
 	var config appsync.FunctionConfiguration
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppsyncFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppsyncFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAppsyncFunctionConfigResponseMappingTemplate(rName1, rName2, testAccGetRegion()),
@@ -119,9 +119,9 @@ func TestAccAwsAppsyncFunction_disappears(t *testing.T) {
 	var config appsync.FunctionConfiguration
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppsyncFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppsyncFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAppsyncFunctionConfig(rName1, rName2, testAccGetRegion()),

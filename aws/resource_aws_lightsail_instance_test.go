@@ -201,9 +201,9 @@ func TestAccAWSLightsailInstance_disapear(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSLightsail(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLightsailInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSLightsail(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLightsailInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLightsailInstanceConfig_basic(lightsailName),

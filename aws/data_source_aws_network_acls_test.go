@@ -14,9 +14,9 @@ func TestAccDataSourceAwsNetworkAcls_basic(t *testing.T) {
 	dataSourceName := "data.aws_network_acls.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcDestroy,
 		Steps: []resource.TestStep{
 			{
 				// Ensure at least 1 network ACL exists. We cannot use depends_on.
@@ -38,9 +38,9 @@ func TestAccDataSourceAwsNetworkAcls_Filter(t *testing.T) {
 	dataSourceName := "data.aws_network_acls.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsNetworkAclsConfig_Filter(rName),
@@ -57,9 +57,9 @@ func TestAccDataSourceAwsNetworkAcls_Tags(t *testing.T) {
 	dataSourceName := "data.aws_network_acls.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsNetworkAclsConfig_Tags(rName),
@@ -76,9 +76,9 @@ func TestAccDataSourceAwsNetworkAcls_VpcID(t *testing.T) {
 	dataSourceName := "data.aws_network_acls.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpcDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpcDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsNetworkAclsConfig_VpcID(rName),

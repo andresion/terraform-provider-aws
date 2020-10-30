@@ -64,9 +64,9 @@ func TestAccAWSKeyPair_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKeyPairDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKeyPairDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKeyPairConfig(rName),
@@ -94,9 +94,9 @@ func TestAccAWSKeyPair_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKeyPairDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKeyPairDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKeyPairConfigTags1(rName, "key1", "value1"),
@@ -138,9 +138,9 @@ func TestAccAWSKeyPair_generatedName(t *testing.T) {
 	resourceName := "aws_key_pair.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKeyPairDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKeyPairDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKeyPairConfig_generatedName,
@@ -165,11 +165,11 @@ func TestAccAWSKeyPair_namePrefix(t *testing.T) {
 	resourceName := "aws_key_pair.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:        func() { testAccPreCheck(t) },
-		IDRefreshName:   resourceName,
-		IDRefreshIgnore: []string{"key_name_prefix"},
-		Providers:       testAccProviders,
-		CheckDestroy:    testAccCheckAWSKeyPairDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		IDRefreshIgnore:          []string{"key_name_prefix"},
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKeyPairDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAWSKeyPairPrefixNameConfig,
@@ -195,9 +195,9 @@ func TestAccAWSKeyPair_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKeyPairDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKeyPairDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKeyPairConfig(rName),

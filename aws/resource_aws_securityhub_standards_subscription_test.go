@@ -14,9 +14,9 @@ func testAccAWSSecurityHubStandardsSubscription_basic(t *testing.T) {
 	var standardsSubscription *securityhub.StandardsSubscription
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityHubAccountDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityHubAccountDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityHubStandardsSubscriptionConfig_basic,

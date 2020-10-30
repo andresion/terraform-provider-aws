@@ -12,8 +12,8 @@ import (
 func TestAccAWSAmiDataSource_natInstance(t *testing.T) {
 	resourceName := "data.aws_ami.nat_ami"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsAmiDataSourceConfig,
@@ -58,8 +58,8 @@ func TestAccAWSAmiDataSource_natInstance(t *testing.T) {
 func TestAccAWSAmiDataSource_windowsInstance(t *testing.T) {
 	resourceName := "data.aws_ami.windows_ami"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsAmiDataSourceWindowsConfig,
@@ -98,8 +98,8 @@ func TestAccAWSAmiDataSource_windowsInstance(t *testing.T) {
 func TestAccAWSAmiDataSource_instanceStore(t *testing.T) {
 	resourceName := "data.aws_ami.instance_store_ami"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsAmiDataSourceInstanceStoreConfig,
@@ -133,8 +133,8 @@ func TestAccAWSAmiDataSource_instanceStore(t *testing.T) {
 
 func TestAccAWSAmiDataSource_localNameFilter(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsAmiDataSourceNameRegexConfig,

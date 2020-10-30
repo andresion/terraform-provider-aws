@@ -14,9 +14,9 @@ import (
 
 func testAccAWSSecurityHubProductSubscription_basic(t *testing.T) {
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityHubAccountDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityHubAccountDestroy,
 		Steps: []resource.TestStep{
 			{
 				// We would like to use an AWS product subscription, but they are

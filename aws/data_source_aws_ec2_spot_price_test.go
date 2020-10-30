@@ -14,9 +14,9 @@ func TestAccAwsEc2SpotPriceDataSource_basic(t *testing.T) {
 	dataSourceName := "data.aws_ec2_spot_price.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAwsEc2SpotPrice(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAwsEc2SpotPrice(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEc2SpotPriceDataSourceConfig(),
@@ -33,9 +33,9 @@ func TestAccAwsEc2SpotPriceDataSource_Filter(t *testing.T) {
 	dataSourceName := "data.aws_ec2_spot_price.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAwsEc2SpotPrice(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAwsEc2SpotPrice(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEc2SpotPriceDataSourceFilterConfig(),

@@ -113,9 +113,9 @@ func TestAccAWSEcsService_withARN(t *testing.T) {
 	svcName := fmt.Sprintf("tf-acc-svc-w-arn-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsService(clusterName, tdName, svcName),
@@ -150,9 +150,9 @@ func TestAccAWSEcsService_basicImport(t *testing.T) {
 	importInput := fmt.Sprintf("%s/%s", clusterName, svcName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceWithFamilyAndRevision(clusterName, tdName, svcName),
@@ -190,9 +190,9 @@ func TestAccAWSEcsService_disappears(t *testing.T) {
 	svcName := fmt.Sprintf("tf-acc-svc-w-arn-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsService(clusterName, tdName, svcName),
@@ -215,9 +215,9 @@ func TestAccAWSEcsService_withUnnormalizedPlacementStrategy(t *testing.T) {
 	svcName := fmt.Sprintf("tf-acc-svc-w-ups-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceWithInterchangeablePlacementStrategy(clusterName, tdName, svcName),
@@ -239,9 +239,9 @@ func TestAccAWSEcsService_withCapacityProviderStrategy(t *testing.T) {
 	providerName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceWithCapacityProviderStrategy(providerName, clusterName, tdName, svcName, 1, 0),
@@ -269,9 +269,9 @@ func TestAccAWSEcsService_withMultipleCapacityProviderStrategies(t *testing.T) {
 	sgName := fmt.Sprintf("tf-acc-sg-svc-w-mcps-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceWithMultipleCapacityProviderStrategies(clusterName, tdName, svcName, sgName),
@@ -293,9 +293,9 @@ func TestAccAWSEcsService_withFamilyAndRevision(t *testing.T) {
 	svcName := fmt.Sprintf("tf-acc-svc-w-far-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceWithFamilyAndRevision(clusterName, tdName, svcName),
@@ -325,9 +325,9 @@ func TestAccAWSEcsService_withRenamedCluster(t *testing.T) {
 	svcName := fmt.Sprintf("tf-acc-svc-w-rc-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceWithRenamedCluster(clusterName, tdName, svcName),
@@ -363,9 +363,9 @@ func TestAccAWSEcsService_healthCheckGracePeriodSeconds(t *testing.T) {
 	resourceName := "aws_ecs_service.with_alb"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsService_healthCheckGracePeriodSeconds(vpcNameTag, clusterName, tdName,
@@ -416,9 +416,9 @@ func TestAccAWSEcsService_withIamRole(t *testing.T) {
 	svcName := fmt.Sprintf("tf-acc-svc-w-iam-role-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsService_withIamRole(clusterName, tdName, roleName, policyName, svcName),
@@ -436,9 +436,9 @@ func TestAccAWSEcsService_withDeploymentController_Type_CodeDeploy(t *testing.T)
 	resourceName := "aws_ecs_service.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceConfigDeploymentControllerTypeCodeDeploy(rName),
@@ -467,9 +467,9 @@ func TestAccAWSEcsService_withDeploymentController_Type_External(t *testing.T) {
 	resourceName := "aws_ecs_service.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceConfigDeploymentControllerTypeExternal(rName),
@@ -500,9 +500,9 @@ func TestAccAWSEcsService_withDeploymentValues(t *testing.T) {
 	svcName := fmt.Sprintf("tf-acc-svc-w-dv-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceWithDeploymentValues(clusterName, tdName, svcName),
@@ -525,9 +525,9 @@ func TestAccAWSEcsService_withDeploymentMinimumZeroMaximumOneHundred(t *testing.
 	resourceName := "aws_ecs_service.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceConfigDeploymentPercents(rName, 0, 100),
@@ -553,9 +553,9 @@ func TestAccAWSEcsService_withLbChanges(t *testing.T) {
 	svcName := fmt.Sprintf("tf-acc-svc-w-lbc-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsService_withLbChanges(clusterName, tdName, roleName, policyName, svcName),
@@ -583,9 +583,9 @@ func TestAccAWSEcsService_withEcsClusterName(t *testing.T) {
 	svcName := fmt.Sprintf("tf-acc-svc-w-cluster-name-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceWithEcsClusterName(clusterName, tdName, svcName),
@@ -611,9 +611,9 @@ func TestAccAWSEcsService_withAlb(t *testing.T) {
 	svcName := fmt.Sprintf("tf-acc-svc-w-alb-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceWithAlb(clusterName, tdName, roleName, policyName, lbName, svcName),
@@ -636,9 +636,9 @@ func TestAccAWSEcsService_withMultipleTargetGroups(t *testing.T) {
 	svcName := fmt.Sprintf("tf-acc-svc-w-alb-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceWithMultipleTargetGroups(clusterName, tdName, lbName, svcName),
@@ -661,9 +661,9 @@ func TestAccAWSEcsService_withForceNewDeployment(t *testing.T) {
 	svcName := fmt.Sprintf("tf-acc-svc-w-ps-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsService(clusterName, tdName, svcName),
@@ -695,9 +695,9 @@ func TestAccAWSEcsService_withPlacementStrategy(t *testing.T) {
 	svcName := fmt.Sprintf("tf-acc-svc-w-ps-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsService(clusterName, tdName, svcName),
@@ -747,9 +747,9 @@ func TestAccAWSEcsService_withPlacementStrategy_Type_Missing(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSEcsServiceWithPlacementStrategyType(rName, ""),
@@ -768,9 +768,9 @@ func TestAccAWSEcsService_withPlacementConstraints(t *testing.T) {
 	svcName := fmt.Sprintf("tf-acc-svc-w-pc-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceWithPlacementConstraint(clusterName, tdName, svcName),
@@ -800,9 +800,9 @@ func TestAccAWSEcsService_withPlacementConstraints_emptyExpression(t *testing.T)
 	svcName := fmt.Sprintf("tf-acc-svc-w-pc-ee-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceWithPlacementConstraintEmptyExpression(clusterName, tdName, svcName),
@@ -826,9 +826,9 @@ func TestAccAWSEcsService_withLaunchTypeFargate(t *testing.T) {
 	svcName := fmt.Sprintf("tf-acc-svc-w-ltf-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceWithLaunchTypeFargate(sg1Name, sg2Name, clusterName, tdName, svcName, "false"),
@@ -870,9 +870,9 @@ func TestAccAWSEcsService_withLaunchTypeFargateAndPlatformVersion(t *testing.T) 
 	svcName := fmt.Sprintf("tf-acc-svc-ltf-w-pv-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceWithLaunchTypeFargateAndPlatformVersion(sg1Name, sg2Name, clusterName, tdName, svcName, "1.2.0"),
@@ -906,9 +906,9 @@ func TestAccAWSEcsService_withLaunchTypeFargateAndWaitForSteadyState(t *testing.
 	rName := fmt.Sprintf("tf-acc-svc-w-ltf-ss-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				// Wait for the ECS Cluster to reach a steady state w/specified count
@@ -940,9 +940,9 @@ func TestAccAWSEcsService_withLaunchTypeFargateAndUpdateWaitForSteadyState(t *te
 	rName := fmt.Sprintf("tf-acc-svc-w-ltf-ss-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceWithLaunchTypeFargateWithoutWait(rName),
@@ -985,9 +985,9 @@ func TestAccAWSEcsService_withLaunchTypeEC2AndNetworkConfiguration(t *testing.T)
 	svcName := fmt.Sprintf("tf-acc-svc-w-nc-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceWithNetworkConfiguration(sg1Name, sg2Name, clusterName, tdName, svcName),
@@ -1020,9 +1020,9 @@ func TestAccAWSEcsService_withDaemonSchedulingStrategy(t *testing.T) {
 	svcName := fmt.Sprintf("tf-acc-svc-w-ss-daemon-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceWithDaemonSchedulingStrategy(clusterName, tdName, svcName),
@@ -1044,9 +1044,9 @@ func TestAccAWSEcsService_withDaemonSchedulingStrategySetDeploymentMinimum(t *te
 	svcName := fmt.Sprintf("tf-acc-svc-w-ss-daemon-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceWithDaemonSchedulingStrategySetDeploymentMinimum(clusterName, tdName, svcName),
@@ -1068,9 +1068,9 @@ func TestAccAWSEcsService_withReplicaSchedulingStrategy(t *testing.T) {
 	svcName := fmt.Sprintf("tf-acc-svc-w-ss-replica-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceWithReplicaSchedulingStrategy(clusterName, tdName, svcName),
@@ -1092,9 +1092,9 @@ func TestAccAWSEcsService_withServiceRegistries(t *testing.T) {
 	svcName := fmt.Sprintf("tf-acc-svc-w-ups-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsService_withServiceRegistries(rString, clusterName, tdName, svcName),
@@ -1116,9 +1116,9 @@ func TestAccAWSEcsService_withServiceRegistries_container(t *testing.T) {
 	svcName := fmt.Sprintf("tf-acc-svc-w-ups-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsService_withServiceRegistries_container(rString, clusterName, tdName, svcName),
@@ -1137,9 +1137,9 @@ func TestAccAWSEcsService_Tags(t *testing.T) {
 	resourceName := "aws_ecs_service.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceConfigTags1(rName, "key1", "value1"),
@@ -1185,9 +1185,9 @@ func TestAccAWSEcsService_ManagedTags(t *testing.T) {
 	resourceName := "aws_ecs_service.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceConfigManagedTags(rName),
@@ -1207,9 +1207,9 @@ func TestAccAWSEcsService_PropagateTags(t *testing.T) {
 	resourceName := "aws_ecs_service.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsServiceConfigPropagateTags(rName, "SERVICE"),

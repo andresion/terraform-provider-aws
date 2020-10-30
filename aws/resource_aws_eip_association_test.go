@@ -17,9 +17,9 @@ func TestAccAWSEIPAssociation_instance(t *testing.T) {
 	var a ec2.Address
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEIPAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEIPAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEIPAssociationConfig_instance(),
@@ -42,9 +42,9 @@ func TestAccAWSEIPAssociation_networkInterface(t *testing.T) {
 	var a ec2.Address
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEIPAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEIPAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEIPAssociationConfig_networkInterface,
@@ -67,9 +67,9 @@ func TestAccAWSEIPAssociation_basic(t *testing.T) {
 	resourceName := "aws_eip_association.by_allocation_id"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccEC2VPCOnlyPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEIPAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccEC2VPCOnlyPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEIPAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEIPAssociationConfig(),
@@ -101,9 +101,9 @@ func TestAccAWSEIPAssociation_ec2Classic(t *testing.T) {
 
 	// This test cannot run in parallel with the other EIP Association tests
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEIPAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEIPAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEIPAssociationConfig_ec2Classic,
@@ -130,9 +130,9 @@ func TestAccAWSEIPAssociation_spotInstance(t *testing.T) {
 	resourceName := "aws_eip_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEIPAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEIPAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEIPAssociationConfig_spotInstance(rInt),
@@ -158,9 +158,9 @@ func TestAccAWSEIPAssociation_disappears(t *testing.T) {
 	resourceName := "aws_eip_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEIPAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEIPAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEIPAssociationConfigDisappears(),

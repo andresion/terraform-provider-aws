@@ -20,9 +20,9 @@ func TestAccAWSS3BucketPublicAccessBlock_basic(t *testing.T) {
 	resourceName := "aws_s3_bucket_public_access_block.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketPublicAccessBlockConfig(name, "false", "false", "false", "false"),
@@ -51,9 +51,9 @@ func TestAccAWSS3BucketPublicAccessBlock_disappears(t *testing.T) {
 	resourceName := "aws_s3_bucket_public_access_block.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketPublicAccessBlockConfig(name, "false", "false", "false", "false"),
@@ -74,9 +74,9 @@ func TestAccAWSS3BucketPublicAccessBlock_bucketDisappears(t *testing.T) {
 	bucketResourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketPublicAccessBlockConfig(name, "false", "false", "false", "false"),
@@ -96,9 +96,9 @@ func TestAccAWSS3BucketPublicAccessBlock_BlockPublicAcls(t *testing.T) {
 	resourceName := "aws_s3_bucket_public_access_block.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketPublicAccessBlockConfig(name, "true", "false", "false", "false"),
@@ -136,9 +136,9 @@ func TestAccAWSS3BucketPublicAccessBlock_BlockPublicPolicy(t *testing.T) {
 	resourceName := "aws_s3_bucket_public_access_block.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketPublicAccessBlockConfig(name, "false", "true", "false", "false"),
@@ -176,9 +176,9 @@ func TestAccAWSS3BucketPublicAccessBlock_IgnorePublicAcls(t *testing.T) {
 	resourceName := "aws_s3_bucket_public_access_block.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketPublicAccessBlockConfig(name, "false", "false", "true", "false"),
@@ -216,9 +216,9 @@ func TestAccAWSS3BucketPublicAccessBlock_RestrictPublicBuckets(t *testing.T) {
 	resourceName := "aws_s3_bucket_public_access_block.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketPublicAccessBlockConfig(name, "false", "false", "false", "true"),

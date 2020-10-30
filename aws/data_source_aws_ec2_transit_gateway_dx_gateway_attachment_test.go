@@ -20,8 +20,8 @@ func TestAccAWSEc2TransitGatewayDxGatewayAttachmentDataSource_TransitGatewayIdAn
 			testAccPreCheck(t)
 			testAccPreCheckAWSEc2TransitGateway(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2TransitGatewayDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2TransitGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2TransitGatewayDxAttachmentDataSourceConfig(rName, rBgpAsn),
@@ -47,8 +47,8 @@ func TestAccAWSEc2TransitGatewayDxGatewayAttachmentDataSource_filter(t *testing.
 			testAccPreCheck(t)
 			testAccPreCheckAWSEc2TransitGateway(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2TransitGatewayDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2TransitGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2TransitGatewayDxAttachmentDataSourceConfigFilter(rName, rBgpAsn),

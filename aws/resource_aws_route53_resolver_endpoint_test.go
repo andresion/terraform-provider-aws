@@ -81,9 +81,9 @@ func TestAccAwsRoute53ResolverEndpoint_basicInbound(t *testing.T) {
 	name := fmt.Sprintf("terraform-testacc-r53-resolver-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ResolverEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ResolverEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ResolverEndpointConfig_initial(rInt, "INBOUND", name),
@@ -113,9 +113,9 @@ func TestAccAwsRoute53ResolverEndpoint_updateOutbound(t *testing.T) {
 	updatedName := fmt.Sprintf("terraform-testacc-r53-rupdated-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ResolverEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ResolverEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ResolverEndpointConfig_initial(rInt, "OUTBOUND", initialName),

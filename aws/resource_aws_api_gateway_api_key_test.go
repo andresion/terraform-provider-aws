@@ -19,9 +19,9 @@ func TestAccAWSAPIGatewayApiKey_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayApiKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayApiKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayApiKeyConfig(rName),
@@ -51,9 +51,9 @@ func TestAccAWSAPIGatewayApiKey_Tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayApiKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayApiKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayApiKeyConfigTags1(rName, "key1", "value1"),
@@ -95,9 +95,9 @@ func TestAccAWSAPIGatewayApiKey_Description(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayApiKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayApiKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayApiKeyConfigDescription(rName, "description1"),
@@ -129,9 +129,9 @@ func TestAccAWSAPIGatewayApiKey_Enabled(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayApiKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayApiKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayApiKeyConfigEnabled(rName, false),
@@ -163,9 +163,9 @@ func TestAccAWSAPIGatewayApiKey_Value(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayApiKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayApiKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayApiKeyConfigValue(rName, `MyCustomToken#@&\"'(§!ç)-_*$€¨^£%ù+=/:.;?,|`),
@@ -189,9 +189,9 @@ func TestAccAWSAPIGatewayApiKey_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayApiKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayApiKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayApiKeyConfig(rName),

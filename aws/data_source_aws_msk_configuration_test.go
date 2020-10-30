@@ -14,9 +14,9 @@ func TestAccAWSMskConfigurationDataSource_Name(t *testing.T) {
 	resourceName := "aws_msk_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckMskConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckMskConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMskConfigurationDataSourceConfigName(rName),

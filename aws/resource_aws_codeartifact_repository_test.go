@@ -73,9 +73,9 @@ func TestAccAWSCodeArtifactRepository_basic(t *testing.T) {
 	resourceName := "aws_codeartifact_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeArtifactRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeArtifactRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeArtifactRepositoryBasicConfig(rName),
@@ -105,9 +105,9 @@ func TestAccAWSCodeArtifactRepository_owner(t *testing.T) {
 	resourceName := "aws_codeartifact_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeArtifactRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeArtifactRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeArtifactRepositoryOwnerConfig(rName),
@@ -137,9 +137,9 @@ func TestAccAWSCodeArtifactRepository_description(t *testing.T) {
 	resourceName := "aws_codeartifact_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeArtifactRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeArtifactRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeArtifactRepositoryDescConfig(rName, "desc"),
@@ -169,9 +169,9 @@ func TestAccAWSCodeArtifactRepository_upstreams(t *testing.T) {
 	resourceName := "aws_codeartifact_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeArtifactRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeArtifactRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeArtifactRepositoryUpstreamsConfig1(rName),
@@ -212,9 +212,9 @@ func TestAccAWSCodeArtifactRepository_externalConnection(t *testing.T) {
 	resourceName := "aws_codeartifact_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeArtifactRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeArtifactRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeArtifactRepositoryExternalConnectionConfig(rName),
@@ -256,9 +256,9 @@ func TestAccAWSCodeArtifactRepository_disappears(t *testing.T) {
 	resourceName := "aws_codeartifact_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeArtifactRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeArtifactRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeArtifactRepositoryBasicConfig(rName),

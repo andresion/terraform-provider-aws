@@ -19,9 +19,9 @@ func TestAccAWSIotRoleAlias_basic(t *testing.T) {
 	resourceName2 := "aws_iot_role_alias.ra2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIotRoleAliasDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIotRoleAliasDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIotRoleAliasConfig(alias),

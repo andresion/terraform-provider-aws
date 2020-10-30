@@ -18,9 +18,9 @@ func TestAccAWSAMIFromInstance_basic(t *testing.T) {
 	resourceName := "aws_ami_from_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAMIFromInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAMIFromInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAMIFromInstanceConfig(rName),
@@ -40,9 +40,9 @@ func TestAccAWSAMIFromInstance_tags(t *testing.T) {
 	resourceName := "aws_ami_from_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAMIFromInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAMIFromInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAMIFromInstanceConfigTags1(rName, "key1", "value1"),

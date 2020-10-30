@@ -21,9 +21,9 @@ func TestAccAwsLbListenerCertificate_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLbListenerCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLbListenerCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccLbListenerCertificateConfig(rName, key, certificate),
@@ -48,9 +48,9 @@ func TestAccAwsLbListenerCertificate_multiple(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLbListenerCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLbListenerCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccLbListenerCertificateConfigMultiple(rName, keys, certificates),

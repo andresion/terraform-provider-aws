@@ -22,9 +22,9 @@ func TestAccAWSLBSSLNegotiationPolicy_basic(t *testing.T) {
 	certificate := tlsRsaX509SelfSignedCertificatePem(key, "example.com")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLBSSLNegotiationPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLBSSLNegotiationPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSslNegotiationPolicyConfig(rName, key, certificate),
@@ -47,9 +47,9 @@ func TestAccAWSLBSSLNegotiationPolicy_disappears(t *testing.T) {
 	certificate := tlsRsaX509SelfSignedCertificatePem(key, "example.com")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLBSSLNegotiationPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLBSSLNegotiationPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSslNegotiationPolicyConfig(rName, key, certificate),

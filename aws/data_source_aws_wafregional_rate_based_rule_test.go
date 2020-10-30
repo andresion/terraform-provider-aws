@@ -15,8 +15,8 @@ func TestAccDataSourceAwsWafRegionalRateBasedRule_basic(t *testing.T) {
 	datasourceName := "data.aws_wafregional_rate_based_rule.wafrule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccDataSourceAwsWafRegionalRateBasedRuleConfig_NonExistent,

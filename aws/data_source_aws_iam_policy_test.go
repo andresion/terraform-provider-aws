@@ -13,8 +13,8 @@ func TestAccAWSDataSourceIAMPolicy_basic(t *testing.T) {
 	policyName := fmt.Sprintf("test-policy-%s", acctest.RandString(10))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsDataSourceIamPolicyConfig(policyName),

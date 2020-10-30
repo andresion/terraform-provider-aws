@@ -100,9 +100,9 @@ func TestAccAWSCloudWatchLogGroup_basic(t *testing.T) {
 	resourceName := "aws_cloudwatch_log_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchLogGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchLogGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchLogGroupConfig(rInt),
@@ -129,9 +129,9 @@ func TestAccAWSCloudWatchLogGroup_namePrefix(t *testing.T) {
 	resourceName := "aws_cloudwatch_log_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchLogGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchLogGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchLogGroup_namePrefix,
@@ -156,9 +156,9 @@ func TestAccAWSCloudWatchLogGroup_namePrefix_retention(t *testing.T) {
 	resourceName := "aws_cloudwatch_log_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchLogGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchLogGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchLogGroup_namePrefix_retention(rName, 365),
@@ -191,9 +191,9 @@ func TestAccAWSCloudWatchLogGroup_generatedName(t *testing.T) {
 	resourceName := "aws_cloudwatch_log_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchLogGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchLogGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchLogGroup_generatedName,
@@ -217,9 +217,9 @@ func TestAccAWSCloudWatchLogGroup_retentionPolicy(t *testing.T) {
 	resourceName := "aws_cloudwatch_log_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchLogGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchLogGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchLogGroupConfig_withRetention(rInt),
@@ -251,9 +251,9 @@ func TestAccAWSCloudWatchLogGroup_multiple(t *testing.T) {
 	resourceName := "aws_cloudwatch_log_group.alpha"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchLogGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchLogGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchLogGroupConfig_multiple(rInt),
@@ -282,9 +282,9 @@ func TestAccAWSCloudWatchLogGroup_disappears(t *testing.T) {
 	resourceName := "aws_cloudwatch_log_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchLogGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchLogGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchLogGroupConfig(rInt),
@@ -304,9 +304,9 @@ func TestAccAWSCloudWatchLogGroup_tagging(t *testing.T) {
 	resourceName := "aws_cloudwatch_log_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchLogGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchLogGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchLogGroupConfigWithTags(rInt),
@@ -366,9 +366,9 @@ func TestAccAWSCloudWatchLogGroup_kmsKey(t *testing.T) {
 	resourceName := "aws_cloudwatch_log_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchLogGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchLogGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchLogGroupConfig(rInt),

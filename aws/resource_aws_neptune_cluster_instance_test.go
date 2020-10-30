@@ -25,9 +25,9 @@ func TestAccAWSNeptuneClusterInstance_basic(t *testing.T) {
 	clusterInstanceName := fmt.Sprintf("tf-cluster-instance-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterInstanceConfig(clusterInstanceName, rInt),
@@ -76,9 +76,9 @@ func TestAccAWSNeptuneClusterInstance_withaz(t *testing.T) {
 	availabiltyZonesDataSourceName := "data.aws_availability_zones.available"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterInstanceConfig_az(rInt),
@@ -102,9 +102,9 @@ func TestAccAWSNeptuneClusterInstance_namePrefix(t *testing.T) {
 	namePrefix := "tf-cluster-instance-"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterInstanceConfig_namePrefix(namePrefix, rInt),
@@ -126,9 +126,9 @@ func TestAccAWSNeptuneClusterInstance_withSubnetGroup(t *testing.T) {
 	subnetGroupResourceName := "aws_neptune_subnet_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterInstanceConfig_withSubnetGroup(rInt),
@@ -149,9 +149,9 @@ func TestAccAWSNeptuneClusterInstance_generatedName(t *testing.T) {
 	resourceName := "aws_neptune_cluster_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterInstanceConfig_generatedName(rInt),
@@ -173,9 +173,9 @@ func TestAccAWSNeptuneClusterInstance_kmsKey(t *testing.T) {
 	kmsKeyResourceName := "aws_kms_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterInstanceConfigKmsKey(rInt),

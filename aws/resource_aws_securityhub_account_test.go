@@ -11,9 +11,9 @@ import (
 
 func testAccAWSSecurityHubAccount_basic(t *testing.T) {
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityHubAccountDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityHubAccountDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityHubAccountConfig(),

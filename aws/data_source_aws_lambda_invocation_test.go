@@ -39,8 +39,8 @@ func TestAccDataSourceAwsLambdaInvocation_basic(t *testing.T) {
 	testData := "value3"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsLambdaInvocation_basic_config(rName, testData),
@@ -57,8 +57,8 @@ func TestAccDataSourceAwsLambdaInvocation_qualifier(t *testing.T) {
 	testData := "value3"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsLambdaInvocation_qualifier_config(rName, testData),
@@ -75,8 +75,8 @@ func TestAccDataSourceAwsLambdaInvocation_complex(t *testing.T) {
 	testData := "value3"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsLambdaInvocation_complex_config(rName, testData),

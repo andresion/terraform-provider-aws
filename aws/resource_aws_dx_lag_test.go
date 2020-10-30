@@ -17,9 +17,9 @@ func TestAccAWSDxLag_basic(t *testing.T) {
 	resourceName := "aws_dx_lag.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDxLagDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDxLagDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDxLagConfig(lagName1),
@@ -56,9 +56,9 @@ func TestAccAWSDxLag_tags(t *testing.T) {
 	resourceName := "aws_dx_lag.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDxLagDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDxLagDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDxLagConfig_tags(lagName),

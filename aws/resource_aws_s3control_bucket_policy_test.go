@@ -19,9 +19,9 @@ func TestAccAWSS3ControlBucketPolicy_basic(t *testing.T) {
 	resourceName := "aws_s3control_bucket_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3ControlBucketPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3ControlBucketPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3ControlBucketPolicyConfig_Policy(rName, "s3-outposts:*"),
@@ -45,9 +45,9 @@ func TestAccAWSS3ControlBucketPolicy_disappears(t *testing.T) {
 	resourceName := "aws_s3control_bucket_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3ControlBucketPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3ControlBucketPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3ControlBucketPolicyConfig_Policy(rName, "s3-outposts:*"),
@@ -66,9 +66,9 @@ func TestAccAWSS3ControlBucketPolicy_Policy(t *testing.T) {
 	resourceName := "aws_s3control_bucket_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3ControlBucketPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3ControlBucketPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3ControlBucketPolicyConfig_Policy(rName, "s3-outposts:GetObject"),

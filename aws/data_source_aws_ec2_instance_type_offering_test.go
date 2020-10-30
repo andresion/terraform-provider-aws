@@ -12,9 +12,9 @@ func TestAccAWSEc2InstanceTypeOfferingDataSource_Filter(t *testing.T) {
 	dataSourceName := "data.aws_ec2_instance_type_offering.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2InstanceTypeOffering(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2InstanceTypeOffering(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2InstanceTypeOfferingDataSourceConfigFilter(),
@@ -30,9 +30,9 @@ func TestAccAWSEc2InstanceTypeOfferingDataSource_LocationType(t *testing.T) {
 	dataSourceName := "data.aws_ec2_instance_type_offering.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2InstanceTypeOffering(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2InstanceTypeOffering(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2InstanceTypeOfferingDataSourceConfigLocationType(),
@@ -48,9 +48,9 @@ func TestAccAWSEc2InstanceTypeOfferingDataSource_PreferredInstanceTypes(t *testi
 	dataSourceName := "data.aws_ec2_instance_type_offering.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2InstanceTypeOffering(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2InstanceTypeOffering(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2InstanceTypeOfferingDataSourceConfigPreferredInstanceTypes(),

@@ -13,9 +13,9 @@ import (
 
 func TestAccAWSDxConnectionAssociation_basic(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDxConnectionAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDxConnectionAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDxConnectionAssociationConfig(acctest.RandString(5)),
@@ -29,9 +29,9 @@ func TestAccAWSDxConnectionAssociation_basic(t *testing.T) {
 
 func TestAccAWSDxConnectionAssociation_multiConns(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDxConnectionAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDxConnectionAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDxConnectionAssociationConfig_multiConns(acctest.RandString(5)),

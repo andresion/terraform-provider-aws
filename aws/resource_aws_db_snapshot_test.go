@@ -90,9 +90,9 @@ func TestAccAWSDBSnapshot_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDbSnapshotDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDbSnapshotDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsDbSnapshotConfig(rName),
@@ -117,9 +117,9 @@ func TestAccAWSDBSnapshot_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDbSnapshotDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDbSnapshotDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsDbSnapshotConfigTags1(rName, "key1", "value1"),
@@ -161,9 +161,9 @@ func TestAccAWSDBSnapshot_disappears(t *testing.T) {
 	resourceName := "aws_db_snapshot.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDbSnapshotDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDbSnapshotDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsDbSnapshotConfig(rName),

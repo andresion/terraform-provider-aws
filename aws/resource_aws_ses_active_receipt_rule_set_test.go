@@ -38,8 +38,8 @@ func testAccAWSSESActiveReceiptRuleSet_basic(t *testing.T) {
 			testAccPreCheckAWSSES(t)
 			testAccPreCheckSESReceiptRule(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSESActiveReceiptRuleSetDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSESActiveReceiptRuleSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSESActiveReceiptRuleSetConfig(rName),
@@ -61,8 +61,8 @@ func testAccAWSSESActiveReceiptRuleSet_disappears(t *testing.T) {
 			testAccPreCheckAWSSES(t)
 			testAccPreCheckSESReceiptRule(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSESActiveReceiptRuleSetDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSESActiveReceiptRuleSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSESActiveReceiptRuleSetConfig(rName),

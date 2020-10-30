@@ -15,9 +15,9 @@ import (
 func TestAccAWSProxyProtocolPolicy_basic(t *testing.T) {
 	lbName := fmt.Sprintf("tf-test-lb-%s", acctest.RandString(5))
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckProxyProtocolPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckProxyProtocolPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccProxyProtocolPolicyConfig(lbName),

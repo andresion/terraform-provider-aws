@@ -22,9 +22,9 @@ func TestAccAwsDxBgpPeer_basic(t *testing.T) {
 	bgpAsn := acctest.RandIntRange(64512, 65534)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDxBgpPeerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDxBgpPeerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDxBgpPeerConfig(vifId, bgpAsn),

@@ -19,9 +19,9 @@ func TestAccAWSNeptuneParameterGroup_basic(t *testing.T) {
 	resourceName := "aws_neptune_parameter_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneParameterGroupConfig_Required(rName),
@@ -51,9 +51,9 @@ func TestAccAWSNeptuneParameterGroup_Description(t *testing.T) {
 	resourceName := "aws_neptune_parameter_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneParameterGroupConfig_Description(rName, "description1"),
@@ -78,9 +78,9 @@ func TestAccAWSNeptuneParameterGroup_Parameter(t *testing.T) {
 	resourceName := "aws_neptune_parameter_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneParameterGroupConfig_Parameter(rName, "neptune_query_timeout", "25", "pending-reboot"),
@@ -125,9 +125,9 @@ func TestAccAWSNeptuneParameterGroup_Tags(t *testing.T) {
 	resourceName := "aws_neptune_parameter_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneParameterGroupConfig_Tags_SingleTag(rName, "key1", "value1"),

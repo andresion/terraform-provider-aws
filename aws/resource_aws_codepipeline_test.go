@@ -22,9 +22,9 @@ func TestAccAWSCodePipeline_basic(t *testing.T) {
 	resourceName := "aws_codepipeline.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodePipelineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodePipelineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodePipelineConfig_basic(name, githubToken),
@@ -130,9 +130,9 @@ func TestAccAWSCodePipeline_disappears(t *testing.T) {
 	resourceName := "aws_codepipeline.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodePipelineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodePipelineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodePipelineConfig_basic(name, githubToken),
@@ -154,9 +154,9 @@ func TestAccAWSCodePipeline_emptyStageArtifacts(t *testing.T) {
 	resourceName := "aws_codepipeline.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodePipelineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodePipelineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodePipelineConfig_emptyStageArtifacts(name, githubToken),
@@ -197,9 +197,9 @@ func TestAccAWSCodePipeline_deployWithServiceRole(t *testing.T) {
 	resourceName := "aws_codepipeline.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodePipelineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodePipelineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodePipelineConfig_deployWithServiceRole(name, githubToken),
@@ -231,9 +231,9 @@ func TestAccAWSCodePipeline_tags(t *testing.T) {
 	resourceName := "aws_codepipeline.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodePipelineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodePipelineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodePipelineConfigWithTags(name, githubToken, "tag1value", "tag2value"),
@@ -471,9 +471,9 @@ func TestAccAWSCodePipeline_WithNamespace(t *testing.T) {
 	resourceName := "aws_codepipeline.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodePipelineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodePipelineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodePipelineConfigWithNamespace(name, githubToken),

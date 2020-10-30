@@ -83,9 +83,9 @@ func TestAccAWSDataSyncTask_basic(t *testing.T) {
 	resourceName := "aws_datasync_task.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncTaskConfig(rName),
@@ -124,9 +124,9 @@ func TestAccAWSDataSyncTask_disappears(t *testing.T) {
 	resourceName := "aws_datasync_task.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncTaskConfig(rName),
@@ -146,9 +146,9 @@ func TestAccAWSDataSyncTask_CloudWatchLogGroupARN(t *testing.T) {
 	resourceName := "aws_datasync_task.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncTaskConfigCloudWatchLogGroupArn(rName),
@@ -172,9 +172,9 @@ func TestAccAWSDataSyncTask_DefaultSyncOptions_AtimeMtime(t *testing.T) {
 	resourceName := "aws_datasync_task.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncTaskConfigDefaultSyncOptionsAtimeMtime(rName, "NONE", "NONE"),
@@ -210,9 +210,9 @@ func TestAccAWSDataSyncTask_DefaultSyncOptions_BytesPerSecond(t *testing.T) {
 	resourceName := "aws_datasync_task.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncTaskConfigDefaultSyncOptionsBytesPerSecond(rName, 1),
@@ -246,9 +246,9 @@ func TestAccAWSDataSyncTask_DefaultSyncOptions_Gid(t *testing.T) {
 	resourceName := "aws_datasync_task.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncTaskConfigDefaultSyncOptionsGid(rName, "NONE"),
@@ -282,9 +282,9 @@ func TestAccAWSDataSyncTask_DefaultSyncOptions_PosixPermissions(t *testing.T) {
 	resourceName := "aws_datasync_task.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncTaskConfigDefaultSyncOptionsPosixPermissions(rName, "NONE"),
@@ -318,9 +318,9 @@ func TestAccAWSDataSyncTask_DefaultSyncOptions_PreserveDeletedFiles(t *testing.T
 	resourceName := "aws_datasync_task.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncTaskConfigDefaultSyncOptionsPreserveDeletedFiles(rName, "REMOVE"),
@@ -354,9 +354,9 @@ func TestAccAWSDataSyncTask_DefaultSyncOptions_PreserveDevices(t *testing.T) {
 	resourceName := "aws_datasync_task.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncTaskConfigDefaultSyncOptionsPreserveDevices(rName, "PRESERVE"),
@@ -390,9 +390,9 @@ func TestAccAWSDataSyncTask_DefaultSyncOptions_Uid(t *testing.T) {
 	resourceName := "aws_datasync_task.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncTaskConfigDefaultSyncOptionsUid(rName, "NONE"),
@@ -426,9 +426,9 @@ func TestAccAWSDataSyncTask_DefaultSyncOptions_VerifyMode(t *testing.T) {
 	resourceName := "aws_datasync_task.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncTaskConfigDefaultSyncOptionsVerifyMode(rName, "NONE"),
@@ -472,9 +472,9 @@ func TestAccAWSDataSyncTask_Tags(t *testing.T) {
 	resourceName := "aws_datasync_task.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncTaskDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncTaskDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncTaskConfigTags1(rName, "key1", "value1"),

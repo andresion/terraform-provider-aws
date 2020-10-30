@@ -17,9 +17,9 @@ func TestAccAWSNeptuneOrderableDbInstanceDataSource_basic(t *testing.T) {
 	class := "db.t3.medium"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSNeptuneOrderableDbInstance(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSNeptuneOrderableDbInstance(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneOrderableDbInstanceDataSourceConfigBasic(class, engine, engineVersion, licenseModel),
@@ -42,9 +42,9 @@ func TestAccAWSNeptuneOrderableDbInstanceDataSource_preferred(t *testing.T) {
 	preferredOption := "db.r4.2xlarge"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSNeptuneOrderableDbInstance(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSNeptuneOrderableDbInstance(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneOrderableDbInstanceDataSourceConfigPreferred(engine, engineVersion, licenseModel, preferredOption),

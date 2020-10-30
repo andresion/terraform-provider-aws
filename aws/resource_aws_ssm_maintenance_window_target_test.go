@@ -17,9 +17,9 @@ func TestAccAWSSSMMaintenanceWindowTarget_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_ssm_maintenance_window_target.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowTargetBasicConfig(rName),
@@ -52,9 +52,9 @@ func TestAccAWSSSMMaintenanceWindowTarget_noNameOrDescription(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_ssm_maintenance_window_target.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowTargetNoNameOrDescriptionConfig(rName),
@@ -82,9 +82,9 @@ func TestAccAWSSSMMaintenanceWindowTarget_noNameOrDescription(t *testing.T) {
 func TestAccAWSSSMMaintenanceWindowTarget_validation(t *testing.T) {
 	name := acctest.RandString(10)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSSSMMaintenanceWindowTargetBasicConfigWithTarget(name, "Bäd Name!@#$%^", "good description"),
@@ -107,9 +107,9 @@ func TestAccAWSSSMMaintenanceWindowTarget_update(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_ssm_maintenance_window_target.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowTargetBasicConfig(rName),
@@ -162,9 +162,9 @@ func TestAccAWSSSMMaintenanceWindowTarget_resourceGroup(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_ssm_maintenance_window_target.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowTargetBasicResourceGroupConfig(rName),
@@ -196,9 +196,9 @@ func TestAccAWSSSMMaintenanceWindowTarget_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_ssm_maintenance_window_target.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMMaintenanceWindowTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMMaintenanceWindowTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMMaintenanceWindowTargetBasicConfig(rName),

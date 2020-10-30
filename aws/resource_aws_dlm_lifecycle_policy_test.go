@@ -17,9 +17,9 @@ func TestAccAWSDlmLifecyclePolicy_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDlm(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: dlmLifecyclePolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDlm(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             dlmLifecyclePolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: dlmLifecyclePolicyBasicConfig(rName),
@@ -53,9 +53,9 @@ func TestAccAWSDlmLifecyclePolicy_Full(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDlm(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: dlmLifecyclePolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDlm(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             dlmLifecyclePolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: dlmLifecyclePolicyFullConfig(rName),
@@ -102,9 +102,9 @@ func TestAccAWSDlmLifecyclePolicy_Tags(t *testing.T) {
 	resourceName := "aws_dlm_lifecycle_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDlm(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: dlmLifecyclePolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDlm(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             dlmLifecyclePolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: dlmLifecyclePolicyConfigTags1(rName, "key1", "value1"),

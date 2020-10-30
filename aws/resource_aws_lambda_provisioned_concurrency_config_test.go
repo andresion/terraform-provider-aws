@@ -17,9 +17,9 @@ func TestAccAWSLambdaProvisionedConcurrencyConfig_basic(t *testing.T) {
 	resourceName := "aws_lambda_provisioned_concurrency_config.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaProvisionedConcurrencyConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaProvisionedConcurrencyConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaProvisionedConcurrencyConfigQualifierFunctionVersion(rName),
@@ -46,9 +46,9 @@ func TestAccAWSLambdaProvisionedConcurrencyConfig_disappears_LambdaFunction(t *t
 	resourceName := "aws_lambda_provisioned_concurrency_config.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaProvisionedConcurrencyConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaProvisionedConcurrencyConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaProvisionedConcurrencyConfigProvisionedConcurrentExecutions(rName, 1),
@@ -68,9 +68,9 @@ func TestAccAWSLambdaProvisionedConcurrencyConfig_disappears_LambdaProvisionedCo
 	resourceName := "aws_lambda_provisioned_concurrency_config.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaProvisionedConcurrencyConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaProvisionedConcurrencyConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaProvisionedConcurrencyConfigProvisionedConcurrentExecutions(rName, 1),
@@ -89,9 +89,9 @@ func TestAccAWSLambdaProvisionedConcurrencyConfig_ProvisionedConcurrentExecution
 	resourceName := "aws_lambda_provisioned_concurrency_config.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaProvisionedConcurrencyConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaProvisionedConcurrencyConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaProvisionedConcurrencyConfigProvisionedConcurrentExecutions(rName, 1),
@@ -126,9 +126,9 @@ func TestAccAWSLambdaProvisionedConcurrencyConfig_Qualifier_AliasName(t *testing
 	resourceName := "aws_lambda_provisioned_concurrency_config.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaProvisionedConcurrencyConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaProvisionedConcurrencyConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaProvisionedConcurrencyConfigQualifierAliasName(rName),

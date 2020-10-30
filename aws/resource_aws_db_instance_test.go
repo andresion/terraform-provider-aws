@@ -69,9 +69,9 @@ func TestAccAWSDBInstance_basic(t *testing.T) {
 	resourceName := "aws_db_instance.bar"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_basic(),
@@ -131,9 +131,9 @@ func TestAccAWSDBInstance_namePrefix(t *testing.T) {
 	var v rds.DBInstance
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_namePrefix(),
@@ -152,9 +152,9 @@ func TestAccAWSDBInstance_generatedName(t *testing.T) {
 	var v rds.DBInstance
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_generatedName(),
@@ -173,9 +173,9 @@ func TestAccAWSDBInstance_kmsKey(t *testing.T) {
 	resourceName := "aws_db_instance.bar"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_KmsKeyId(acctest.RandInt()),
@@ -206,9 +206,9 @@ func TestAccAWSDBInstance_subnetGroup(t *testing.T) {
 	rName := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_WithSubnetGroup(rName),
@@ -236,9 +236,9 @@ func TestAccAWSDBInstance_optionGroup(t *testing.T) {
 	rName := fmt.Sprintf("tf-option-test-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_WithOptionGroup(rName),
@@ -257,9 +257,9 @@ func TestAccAWSDBInstance_iamAuth(t *testing.T) {
 	var v rds.DBInstance
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_IAMAuth(acctest.RandInt()),
@@ -281,9 +281,9 @@ func TestAccAWSDBInstance_AllowMajorVersionUpgrade(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_AllowMajorVersionUpgrade(rName, true),
@@ -324,9 +324,9 @@ func TestAccAWSDBInstance_DbSubnetGroupName(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_DbSubnetGroupName(rName),
@@ -379,9 +379,9 @@ func TestAccAWSDBInstance_DbSubnetGroupName_VpcSecurityGroupIds(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_DbSubnetGroupName_VpcSecurityGroupIds(rName),
@@ -402,9 +402,9 @@ func TestAccAWSDBInstance_DeletionProtection(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_DeletionProtection(rName, true),
@@ -441,8 +441,8 @@ func TestAccAWSDBInstance_FinalSnapshotIdentifier(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		// testAccCheckAWSDBInstanceSnapshot verifies a database snapshot is
 		// created, and subequently deletes it
 		CheckDestroy: testAccCheckAWSDBInstanceSnapshot,
@@ -461,9 +461,9 @@ func TestAccAWSDBInstance_FinalSnapshotIdentifier_SkipFinalSnapshot(t *testing.T
 	var snap rds.DBInstance
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceNoSnapshot,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceNoSnapshot,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_FinalSnapshotIdentifier_SkipFinalSnapshot(),
@@ -482,9 +482,9 @@ func TestAccAWSDBInstance_IsAlreadyBeingDeleted(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_MariaDB(rName),
@@ -519,9 +519,9 @@ func TestAccAWSDBInstance_MaxAllocatedStorage(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_MaxAllocatedStorage(rName, 10),
@@ -562,9 +562,9 @@ func TestAccAWSDBInstance_Password(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			// Password should not be shown in error message
 			{
@@ -601,9 +601,9 @@ func TestAccAWSDBInstance_ReplicateSourceDb(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_ReplicateSourceDb(rName),
@@ -625,9 +625,9 @@ func TestAccAWSDBInstance_ReplicateSourceDb_AllocatedStorage(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_ReplicateSourceDb_AllocatedStorage(rName, 10),
@@ -650,9 +650,9 @@ func TestAccAWSDBInstance_ReplicateSourceDb_AllowMajorVersionUpgrade(t *testing.
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_ReplicateSourceDb_AllowMajorVersionUpgrade(rName, true),
@@ -675,9 +675,9 @@ func TestAccAWSDBInstance_ReplicateSourceDb_AutoMinorVersionUpgrade(t *testing.T
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_ReplicateSourceDb_AutoMinorVersionUpgrade(rName, false),
@@ -700,9 +700,9 @@ func TestAccAWSDBInstance_ReplicateSourceDb_AvailabilityZone(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_ReplicateSourceDb_AvailabilityZone(rName),
@@ -724,9 +724,9 @@ func TestAccAWSDBInstance_ReplicateSourceDb_BackupRetentionPeriod(t *testing.T) 
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_ReplicateSourceDb_BackupRetentionPeriod(rName, 1),
@@ -749,9 +749,9 @@ func TestAccAWSDBInstance_ReplicateSourceDb_BackupWindow(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_ReplicateSourceDb_BackupWindow(rName, "00:00-08:00", "sun:23:00-sun:23:30"),
@@ -875,9 +875,9 @@ func TestAccAWSDBInstance_ReplicateSourceDb_DeletionProtection(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_ReplicateSourceDb_DeletionProtection(rName, true),
@@ -910,9 +910,9 @@ func TestAccAWSDBInstance_ReplicateSourceDb_IamDatabaseAuthenticationEnabled(t *
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_ReplicateSourceDb_IamDatabaseAuthenticationEnabled(rName, true),
@@ -935,9 +935,9 @@ func TestAccAWSDBInstance_ReplicateSourceDb_MaintenanceWindow(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_ReplicateSourceDb_MaintenanceWindow(rName, "00:00-08:00", "sun:23:00-sun:23:30"),
@@ -960,9 +960,9 @@ func TestAccAWSDBInstance_ReplicateSourceDb_MaxAllocatedStorage(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_ReplicateSourceDb_MaxAllocatedStorage(rName, 10),
@@ -985,9 +985,9 @@ func TestAccAWSDBInstance_ReplicateSourceDb_Monitoring(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_ReplicateSourceDb_Monitoring(rName, 5),
@@ -1010,9 +1010,9 @@ func TestAccAWSDBInstance_ReplicateSourceDb_MultiAZ(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_ReplicateSourceDb_MultiAZ(rName, true),
@@ -1035,9 +1035,9 @@ func TestAccAWSDBInstance_ReplicateSourceDb_ParameterGroupName(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_ReplicateSourceDb_ParameterGroupName(rName),
@@ -1061,9 +1061,9 @@ func TestAccAWSDBInstance_ReplicateSourceDb_Port(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_ReplicateSourceDb_Port(rName, 9999),
@@ -1086,9 +1086,9 @@ func TestAccAWSDBInstance_ReplicateSourceDb_VpcSecurityGroupIds(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_ReplicateSourceDb_VpcSecurityGroupIds(rName),
@@ -1112,9 +1112,9 @@ func TestAccAWSDBInstance_ReplicateSourceDb_CACertificateIdentifier(t *testing.T
 	dataSourceName := "data.aws_rds_certificate.latest"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_ReplicateSourceDb_CACertificateIdentifier(rName),
@@ -1137,9 +1137,9 @@ func TestAccAWSDBInstance_S3Import(t *testing.T) {
 	bucketPrefix := acctest.RandString(5)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_S3Import(bucket, bucketPrefix, uniqueId),
@@ -1161,9 +1161,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier(rName),
@@ -1187,9 +1187,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_AllocatedStorage(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_AllocatedStorage(rName, 10),
@@ -1214,9 +1214,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_Io1Storage(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_Io1Storage(rName, 1000),
@@ -1241,9 +1241,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_AllowMajorVersionUpgrade(t *testing
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_AllowMajorVersionUpgrade(rName, true),
@@ -1268,9 +1268,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_AutoMinorVersionUpgrade(t *testing.
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_AutoMinorVersionUpgrade(rName, false),
@@ -1295,9 +1295,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_AvailabilityZone(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_AvailabilityZone(rName),
@@ -1321,9 +1321,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_BackupRetentionPeriod(t *testing.T)
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_BackupRetentionPeriod(rName, 1),
@@ -1348,9 +1348,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_BackupRetentionPeriod_Unset(t *test
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_BackupRetentionPeriod_Unset(rName),
@@ -1375,9 +1375,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_BackupWindow(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_BackupWindow(rName, "00:00-08:00", "sun:23:00-sun:23:30"),
@@ -1404,9 +1404,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_DbSubnetGroupName(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_DbSubnetGroupName(rName),
@@ -1469,9 +1469,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_DbSubnetGroupName_VpcSecurityGroupI
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_DbSubnetGroupName_VpcSecurityGroupIds(rName),
@@ -1497,9 +1497,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_DeletionProtection(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_DeletionProtection(rName, true),
@@ -1534,9 +1534,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_IamDatabaseAuthenticationEnabled(t 
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_IamDatabaseAuthenticationEnabled(rName, true),
@@ -1561,9 +1561,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_MaintenanceWindow(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_MaintenanceWindow(rName, "00:00-08:00", "sun:23:00-sun:23:30"),
@@ -1588,9 +1588,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_MaxAllocatedStorage(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_MaxAllocatedStorage(rName, 10),
@@ -1615,9 +1615,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_Monitoring(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_Monitoring(rName, 5),
@@ -1642,9 +1642,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_MultiAZ(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_MultiAZ(rName, true),
@@ -1669,9 +1669,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_MultiAZ_SQLServer(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_MultiAZ_SQLServer(rName, true),
@@ -1696,9 +1696,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_ParameterGroupName(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_ParameterGroupName(rName),
@@ -1724,9 +1724,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_Port(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_Port(rName, 9999),
@@ -1751,9 +1751,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_Tags(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_Tags(rName),
@@ -1783,9 +1783,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_Tags_Unset(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_Tags_Unset(rName),
@@ -1810,9 +1810,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_VpcSecurityGroupIds(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_VpcSecurityGroupIds(rName),
@@ -1840,9 +1840,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_VpcSecurityGroupIds_Tags(t *testing
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_VpcSecurityGroupIds_Tags(rName),
@@ -1864,9 +1864,9 @@ func TestAccAWSDBInstance_MonitoringInterval(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDbInstanceConfig_MonitoringInterval(rName, 30),
@@ -1918,9 +1918,9 @@ func TestAccAWSDBInstance_MonitoringRoleArn_EnabledToDisabled(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDbInstanceConfig_MonitoringRoleArn(rName),
@@ -1958,9 +1958,9 @@ func TestAccAWSDBInstance_MonitoringRoleArn_EnabledToRemoved(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDbInstanceConfig_MonitoringRoleArn(rName),
@@ -1997,9 +1997,9 @@ func TestAccAWSDBInstance_MonitoringRoleArn_RemovedToEnabled(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDbInstanceConfig_MonitoringRoleArnRemoved(rName),
@@ -2038,9 +2038,9 @@ func TestAccAWSDBInstance_separateIopsUpdate(t *testing.T) {
 	rName := acctest.RandString(5)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotInstanceConfig_iopsUpdate(rName, 1000),
@@ -2067,9 +2067,9 @@ func TestAccAWSDBInstance_portUpdate(t *testing.T) {
 	rName := acctest.RandString(5)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotInstanceConfig_mysqlPort(rName),
@@ -2097,9 +2097,9 @@ func TestAccAWSDBInstance_MSSQL_TZ(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_MSSQL_timezone(rInt),
@@ -2133,9 +2133,9 @@ func TestAccAWSDBInstance_MSSQL_Domain(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_MSSQLDomain(rInt),
@@ -2168,9 +2168,9 @@ func TestAccAWSDBInstance_MSSQL_DomainSnapshotRestore(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_MSSQLDomainSnapshotRestore(rInt),
@@ -2193,9 +2193,9 @@ func TestAccAWSDBInstance_MySQL_SnapshotRestoreWithEngineVersion(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_MySQLSnapshotRestoreWithEngineVersion(rInt),
@@ -2216,9 +2216,9 @@ func TestAccAWSDBInstance_MinorVersion(t *testing.T) {
 	var v rds.DBInstance
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_AutoMinorVersion(),
@@ -2240,9 +2240,9 @@ func TestAccAWSDBInstance_ec2Classic(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_Ec2Classic(rInt),
@@ -2260,9 +2260,9 @@ func TestAccAWSDBInstance_cloudwatchLogsExportConfiguration(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_CloudwatchLogsExportConfiguration(rInt),
@@ -2292,9 +2292,9 @@ func TestAccAWSDBInstance_EnabledCloudwatchLogsExports_MySQL(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_CloudwatchLogsExportConfiguration(rInt),
@@ -2343,9 +2343,9 @@ func TestAccAWSDBInstance_EnabledCloudwatchLogsExports_MSSQL(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_EnabledCloudwatchLogsExports_MSSQL(rName),
@@ -2376,9 +2376,9 @@ func TestAccAWSDBInstance_EnabledCloudwatchLogsExports_Oracle(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_EnabledCloudwatchLogsExports_Oracle(rName),
@@ -2410,9 +2410,9 @@ func TestAccAWSDBInstance_EnabledCloudwatchLogsExports_Postgresql(t *testing.T) 
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_EnabledCloudwatchLogsExports_Postgresql(rName),
@@ -2444,9 +2444,9 @@ func TestAccAWSDBInstance_NoDeleteAutomatedBackups(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceAutomatedBackups,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceAutomatedBackups,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_NoDeleteAutomatedBackups(rName),
@@ -2751,9 +2751,9 @@ func TestAccAWSDBInstance_PerformanceInsightsEnabled_DisabledToEnabled(t *testin
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccRDSPerformanceInsightsDefaultVersionPreCheck(t, "mysql") },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccRDSPerformanceInsightsDefaultVersionPreCheck(t, "mysql") },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_PerformanceInsightsDisabled(rName),
@@ -2789,9 +2789,9 @@ func TestAccAWSDBInstance_PerformanceInsightsEnabled_EnabledToDisabled(t *testin
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccRDSPerformanceInsightsDefaultVersionPreCheck(t, "mysql") },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccRDSPerformanceInsightsDefaultVersionPreCheck(t, "mysql") },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_PerformanceInsightsEnabled(rName),
@@ -2828,9 +2828,9 @@ func TestAccAWSDBInstance_PerformanceInsightsKmsKeyId(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccRDSPerformanceInsightsDefaultVersionPreCheck(t, "mysql") },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccRDSPerformanceInsightsDefaultVersionPreCheck(t, "mysql") },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_PerformanceInsightsKmsKeyId(rName),
@@ -2876,9 +2876,9 @@ func TestAccAWSDBInstance_PerformanceInsightsRetentionPeriod(t *testing.T) {
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccRDSPerformanceInsightsDefaultVersionPreCheck(t, "mysql") },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccRDSPerformanceInsightsDefaultVersionPreCheck(t, "mysql") },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_PerformanceInsightsRetentionPeriod(rName, 731),
@@ -2919,9 +2919,9 @@ func TestAccAWSDBInstance_ReplicateSourceDb_PerformanceInsightsEnabled(t *testin
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccRDSPerformanceInsightsDefaultVersionPreCheck(t, "mysql") },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccRDSPerformanceInsightsDefaultVersionPreCheck(t, "mysql") },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_ReplicateSourceDb_PerformanceInsightsEnabled(rName),
@@ -2949,9 +2949,9 @@ func TestAccAWSDBInstance_SnapshotIdentifier_PerformanceInsightsEnabled(t *testi
 	resourceName := "aws_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccRDSPerformanceInsightsDefaultVersionPreCheck(t, "mysql") },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccRDSPerformanceInsightsDefaultVersionPreCheck(t, "mysql") },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_SnapshotIdentifier_PerformanceInsightsEnabled(rName),
@@ -2975,9 +2975,9 @@ func TestAccAWSDBInstance_CACertificateIdentifier(t *testing.T) {
 	dataSourceName := "data.aws_rds_certificate.latest"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBInstanceConfig_WithCACertificateIdentifier(),

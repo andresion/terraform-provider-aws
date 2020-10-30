@@ -14,9 +14,9 @@ func TestAccAWSLicenseManagerAssociation_basic(t *testing.T) {
 	resourceName := "aws_licensemanager_association.example"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLicenseManagerAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLicenseManagerAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccLicenseManagerAssociationConfig_basic,

@@ -18,9 +18,9 @@ func TestAccAwsRamPrincipalAssociation_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsRamPrincipalAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsRamPrincipalAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsRamPrincipalAssociationConfig(rName),
@@ -43,9 +43,9 @@ func TestAccAwsRamPrincipalAssociation_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsRamResourceAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsRamResourceAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsRamPrincipalAssociationConfig(rName),

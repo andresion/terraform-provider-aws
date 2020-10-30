@@ -15,9 +15,9 @@ func testAccAWSSecurityHubMember_basic(t *testing.T) {
 	resourceName := "aws_securityhub_member.example"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityHubMemberDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityHubMemberDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityHubMemberConfig_basic("111111111111", "example@example.com"),
@@ -39,9 +39,9 @@ func testAccAWSSecurityHubMember_invite(t *testing.T) {
 	resourceName := "aws_securityhub_member.example"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityHubMemberDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityHubMemberDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityHubMemberConfig_invite("111111111111", "example@example.com", true),

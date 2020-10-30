@@ -20,9 +20,9 @@ func TestAccAwsBackupPlan_basic(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-backup-%s", acctest.RandStringFromCharSet(14, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupPlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupPlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsBackupPlanConfig_basic(rName),
@@ -56,9 +56,9 @@ func TestAccAwsBackupPlan_withTags(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-backup-%s", acctest.RandStringFromCharSet(14, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupPlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupPlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsBackupPlanConfig_tags(rName),
@@ -111,9 +111,9 @@ func TestAccAwsBackupPlan_withRules(t *testing.T) {
 	rule3Name := fmt.Sprintf("%s_3", rName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupPlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupPlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsBackupPlanConfig_twoRules(rName),
@@ -193,9 +193,9 @@ func TestAccAwsBackupPlan_withLifecycle(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-backup-%s", acctest.RandStringFromCharSet(14, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupPlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupPlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsBackupPlanConfig_lifecycleColdStorageAfterOnly(rName),
@@ -264,9 +264,9 @@ func TestAccAwsBackupPlan_withRecoveryPointTags(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-backup-%s", acctest.RandStringFromCharSet(14, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupPlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupPlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsBackupPlanConfig_recoveryPointTags(rName),
@@ -336,9 +336,9 @@ func TestAccAwsBackupPlan_Rule_CopyAction_SameRegion(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupPlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupPlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsBackupPlanConfigRuleCopyAction(rName, 30, 180),
@@ -398,9 +398,9 @@ func TestAccAwsBackupPlan_Rule_CopyAction_Multiple(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupPlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupPlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsBackupPlanConfigRuleCopyActionMultiple(rName),
@@ -472,9 +472,9 @@ func TestAccAwsBackupPlan_AdvancedBackupSetting(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupPlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupPlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsBackupPlanConfigAdvancedBackupSetting(rName),
@@ -504,9 +504,9 @@ func TestAccAwsBackupPlan_disappears(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-backup-%s", acctest.RandStringFromCharSet(14, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupPlanDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupPlanDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsBackupPlanConfig_basic(rName),

@@ -67,9 +67,9 @@ func TestAccAWSGlueSecurityConfiguration_basic(t *testing.T) {
 	resourceName := "aws_glue_security_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueSecurityConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueSecurityConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueSecurityConfigurationConfig_Basic(rName),
@@ -105,9 +105,9 @@ func TestAccAWSGlueSecurityConfiguration_CloudWatchEncryption_CloudWatchEncrypti
 	resourceName := "aws_glue_security_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueSecurityConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueSecurityConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueSecurityConfigurationConfig_CloudWatchEncryption_CloudWatchEncryptionMode_SSEKMS(rName),
@@ -136,9 +136,9 @@ func TestAccAWSGlueSecurityConfiguration_JobBookmarksEncryption_JobBookmarksEncr
 	resourceName := "aws_glue_security_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueSecurityConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueSecurityConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueSecurityConfigurationConfig_JobBookmarksEncryption_JobBookmarksEncryptionMode_CSEKMS(rName),
@@ -167,9 +167,9 @@ func TestAccAWSGlueSecurityConfiguration_S3Encryption_S3EncryptionMode_SSEKMS(t 
 	resourceName := "aws_glue_security_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueSecurityConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueSecurityConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueSecurityConfigurationConfig_S3Encryption_S3EncryptionMode_SSEKMS(rName),
@@ -197,9 +197,9 @@ func TestAccAWSGlueSecurityConfiguration_S3Encryption_S3EncryptionMode_SSES3(t *
 	resourceName := "aws_glue_security_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueSecurityConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueSecurityConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueSecurityConfigurationConfig_S3Encryption_S3EncryptionMode_SSES3(rName),

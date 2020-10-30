@@ -15,9 +15,9 @@ func TestAccAWSIotThingType_basic(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIotThingTypeDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIotThingTypeDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIotThingTypeConfig_basic(rInt),
@@ -39,9 +39,9 @@ func TestAccAWSIotThingType_full(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIotThingTypeDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIotThingTypeDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIotThingTypeConfig_full(rInt),

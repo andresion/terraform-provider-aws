@@ -25,8 +25,8 @@ func TestAccAWSEc2TrafficMirrorTarget_nlb(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckAWSEc2TrafficMirrorTarget(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2TrafficMirrorTargetDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2TrafficMirrorTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccTrafficMirrorTargetConfigNlb(rName, description),
@@ -58,8 +58,8 @@ func TestAccAWSEc2TrafficMirrorTarget_eni(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckAWSEc2TrafficMirrorTarget(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2TrafficMirrorTargetDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2TrafficMirrorTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccTrafficMirrorTargetConfigEni(rName, description),
@@ -90,8 +90,8 @@ func TestAccAWSEc2TrafficMirrorTarget_tags(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckAWSEc2TrafficMirrorTarget(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2TrafficMirrorTargetDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2TrafficMirrorTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccTrafficMirrorTargetConfigTags1(rName, description, "key1", "value1"),
@@ -138,8 +138,8 @@ func TestAccAWSEc2TrafficMirrorTarget_disappears(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckAWSEc2TrafficMirrorTarget(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2TrafficMirrorTargetDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2TrafficMirrorTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccTrafficMirrorTargetConfigNlb(rName, description),

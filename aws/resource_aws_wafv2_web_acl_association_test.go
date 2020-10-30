@@ -22,8 +22,8 @@ func TestAccAwsWafv2WebACLAssociation_basic(t *testing.T) {
 			testAccAPIGatewayTypeEDGEPreCheck(t)
 			testAccPreCheckAWSWafv2ScopeRegional(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafv2WebACLAssociationDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafv2WebACLAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2WebACLAssociationConfig(testName),
@@ -53,8 +53,8 @@ func TestAccAwsWafv2WebACLAssociation_Disappears(t *testing.T) {
 			testAccAPIGatewayTypeEDGEPreCheck(t)
 			testAccPreCheckAWSWafv2ScopeRegional(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafv2WebACLAssociationDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafv2WebACLAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2WebACLAssociationConfig(testName),

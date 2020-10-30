@@ -17,9 +17,9 @@ func TestAccAWSCodeCommitTrigger_basic(t *testing.T) {
 	resourceName := "aws_codecommit_trigger.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCodeCommitTriggerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCodeCommitTriggerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCodeCommitTrigger_basic(rName),

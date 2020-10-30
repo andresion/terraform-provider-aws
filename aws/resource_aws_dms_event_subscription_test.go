@@ -19,9 +19,9 @@ func TestAccAWSDmsEventSubscription_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDmsEventSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDmsEventSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDmsEventSubscriptionConfigEnabled(rName, true),
@@ -52,9 +52,9 @@ func TestAccAWSDmsEventSubscription_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDmsEventSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDmsEventSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDmsEventSubscriptionConfigEnabled(rName, true),
@@ -74,9 +74,9 @@ func TestAccAWSDmsEventSubscription_Enabled(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDmsEventSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDmsEventSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDmsEventSubscriptionConfigEnabled(rName, false),
@@ -114,9 +114,9 @@ func TestAccAWSDmsEventSubscription_EventCategories(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDmsEventSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDmsEventSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDmsEventSubscriptionConfigEventCategories2(rName, "creation", "failure"),
@@ -151,9 +151,9 @@ func TestAccAWSDmsEventSubscription_Tags(t *testing.T) {
 	resourceName := "aws_dms_event_subscription.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDmsEventSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEks(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDmsEventSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDmsEventSubscriptionConfigTags1(rName, "key1", "value1"),

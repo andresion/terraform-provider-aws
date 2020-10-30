@@ -65,9 +65,9 @@ func TestAccAWSLBListenerRule_basic(t *testing.T) {
 	targetGroupResourceName := "aws_lb_target_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_basic(lbName, targetGroupName),
@@ -112,9 +112,9 @@ func TestAccAWSLBListenerRule_forwardWeighted(t *testing.T) {
 	targetGroup1ResourceName := "aws_lb_target_group.test1"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_forwardWeighted(lbName, targetGroupName1, targetGroupName2),
@@ -190,9 +190,9 @@ func TestAccAWSLBListenerRule_BackwardsCompatibility(t *testing.T) {
 	targetGroupResourceName := "aws_alb_target_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfigBackwardsCompatibility(lbName, targetGroupName),
@@ -234,9 +234,9 @@ func TestAccAWSLBListenerRule_redirect(t *testing.T) {
 	frontEndListenerResourceName := "aws_lb_listener.front_end"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_redirect(lbName),
@@ -274,9 +274,9 @@ func TestAccAWSLBListenerRule_fixedResponse(t *testing.T) {
 	frontEndListenerResourceName := "aws_lb_listener.front_end"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_fixedResponse(lbName, "Fixed response content"),
@@ -311,9 +311,9 @@ func TestAccAWSLBListenerRule_updateFixedResponse(t *testing.T) {
 	resourceName := "aws_lb_listener_rule.static"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_fixedResponse(lbName, "Fixed Response 1"),
@@ -341,9 +341,9 @@ func TestAccAWSLBListenerRule_updateRulePriority(t *testing.T) {
 	resourceName := "aws_lb_listener_rule.static"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_basic(lbName, targetGroupName),
@@ -371,9 +371,9 @@ func TestAccAWSLBListenerRule_changeListenerRuleArnForcesNew(t *testing.T) {
 	resourceName := "aws_lb_listener_rule.static"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_basic(lbName, targetGroupName),
@@ -398,9 +398,9 @@ func TestAccAWSLBListenerRule_priority(t *testing.T) {
 	targetGroupName := fmt.Sprintf("testtargetgroup-%s", acctest.RandString(10))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_priorityFirst(lbName, targetGroupName),
@@ -479,9 +479,9 @@ func TestAccAWSLBListenerRule_cognito(t *testing.T) {
 	cognitoPoolDomainResourceName := "aws_cognito_user_pool_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_cognito(lbName, key, certificate),
@@ -519,9 +519,9 @@ func TestAccAWSLBListenerRule_oidc(t *testing.T) {
 	targetGroupResourceName := "aws_lb_target_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_oidc(lbName, key, certificate),
@@ -559,9 +559,9 @@ func TestAccAWSLBListenerRule_Action_Order(t *testing.T) {
 	resourceName := "aws_lb_listener_rule.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_Action_Order(rName, key, certificate),
@@ -585,9 +585,9 @@ func TestAccAWSLBListenerRule_Action_Order_Recreates(t *testing.T) {
 	resourceName := "aws_lb_listener_rule.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_Action_Order(rName, key, certificate),
@@ -608,9 +608,9 @@ func TestAccAWSLBListenerRule_conditionAttributesCount(t *testing.T) {
 	err_many := regexp.MustCompile("Only one of host_header, http_header, http_request_method, path_pattern, query_string or source_ip can be set in a condition block")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSLBListenerRuleConfig_conditionAttributesCount_http_header(),
@@ -644,9 +644,9 @@ func TestAccAWSLBListenerRule_conditionHostHeader(t *testing.T) {
 	frontEndListenerResourceName := "aws_lb_listener.front_end"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_conditionHostHeader(lbName),
@@ -682,9 +682,9 @@ func TestAccAWSLBListenerRule_conditionHttpHeader(t *testing.T) {
 	frontEndListenerResourceName := "aws_lb_listener.front_end"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_conditionHttpHeader(lbName),
@@ -726,9 +726,9 @@ func TestAccAWSLBListenerRule_conditionHttpHeader(t *testing.T) {
 
 func TestAccAWSLBListenerRule_conditionHttpHeader_invalid(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSLBListenerRuleConfig_conditionHttpHeader_invalid(),
@@ -746,9 +746,9 @@ func TestAccAWSLBListenerRule_conditionHttpRequestMethod(t *testing.T) {
 	frontEndListenerResourceName := "aws_lb_listener.front_end"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_conditionHttpRequestMethod(lbName),
@@ -784,9 +784,9 @@ func TestAccAWSLBListenerRule_conditionPathPattern(t *testing.T) {
 	frontEndListenerResourceName := "aws_lb_listener.front_end"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_conditionPathPattern(lbName),
@@ -822,9 +822,9 @@ func TestAccAWSLBListenerRule_conditionQueryString(t *testing.T) {
 	frontEndListenerResourceName := "aws_lb_listener.front_end"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_conditionQueryString(lbName),
@@ -884,9 +884,9 @@ func TestAccAWSLBListenerRule_conditionSourceIp(t *testing.T) {
 	frontEndListenerResourceName := "aws_lb_listener.front_end"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_conditionSourceIp(lbName),
@@ -922,9 +922,9 @@ func TestAccAWSLBListenerRule_conditionUpdateMixed(t *testing.T) {
 	frontEndListenerResourceName := "aws_lb_listener.front_end"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_conditionMixed(lbName),
@@ -995,9 +995,9 @@ func TestAccAWSLBListenerRule_conditionMultiple(t *testing.T) {
 	frontEndListenerResourceName := "aws_lb_listener.front_end"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_conditionMultiple(lbName),
@@ -1077,9 +1077,9 @@ func TestAccAWSLBListenerRule_conditionUpdateMultiple(t *testing.T) {
 	frontEndListenerResourceName := "aws_lb_listener.front_end"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerRuleConfig_conditionMultiple(lbName),

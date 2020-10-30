@@ -66,9 +66,9 @@ func TestAccAWSUserLoginProfile_basic(t *testing.T) {
 	username := fmt.Sprintf("test-user-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserLoginProfileDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserLoginProfileDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSUserLoginProfileConfig_Required(username, "/", testPubKey1),
@@ -104,9 +104,9 @@ func TestAccAWSUserLoginProfile_keybase(t *testing.T) {
 	username := fmt.Sprintf("test-user-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserLoginProfileDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserLoginProfileDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSUserLoginProfileConfig_Required(username, "/", "keybase:terraformacctest"),
@@ -139,9 +139,9 @@ func TestAccAWSUserLoginProfile_keybaseDoesntExist(t *testing.T) {
 	username := fmt.Sprintf("test-user-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserLoginProfileDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserLoginProfileDestroy,
 		Steps: []resource.TestStep{
 			{
 				// We own this account but it doesn't have any key associated with it
@@ -156,9 +156,9 @@ func TestAccAWSUserLoginProfile_notAKey(t *testing.T) {
 	username := fmt.Sprintf("test-user-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserLoginProfileDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserLoginProfileDestroy,
 		Steps: []resource.TestStep{
 			{
 				// We own this account but it doesn't have any key associated with it
@@ -175,9 +175,9 @@ func TestAccAWSUserLoginProfile_PasswordLength(t *testing.T) {
 	username := fmt.Sprintf("test-user-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserLoginProfileDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserLoginProfileDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSUserLoginProfileConfig_PasswordLength(username, "/", testPubKey1, 128),

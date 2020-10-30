@@ -18,9 +18,9 @@ func TestAccAWSSESIdentityPolicy_basic(t *testing.T) {
 	resourceName := "aws_ses_identity_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSESIdentityPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSESIdentityPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSESIdentityPolicyConfigIdentityDomain(domain),
@@ -44,9 +44,9 @@ func TestAccAWSSESIdentityPolicy_Identity_Email(t *testing.T) {
 	resourceName := "aws_ses_identity_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSESIdentityPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSESIdentityPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSESIdentityPolicyConfigIdentityEmail(email),
@@ -70,9 +70,9 @@ func TestAccAWSSESIdentityPolicy_Policy(t *testing.T) {
 	resourceName := "aws_ses_identity_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSESIdentityPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSESIdentityPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSESIdentityPolicyConfigPolicy1(domain),

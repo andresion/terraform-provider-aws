@@ -19,9 +19,9 @@ func TestAccAWSCodeBuildSourceCredential_basic(t *testing.T) {
 	resourceName := "aws_codebuild_source_credential.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildSourceCredentialDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildSourceCredentialDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildSourceCredential_Basic("PERSONAL_ACCESS_TOKEN", "GITHUB", token),
@@ -57,9 +57,9 @@ func TestAccAWSCodeBuildSourceCredential_BasicAuth(t *testing.T) {
 	resourceName := "aws_codebuild_source_credential.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildSourceCredentialDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildSourceCredentialDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildSourceCredential_BasicAuth(token, "user1"),

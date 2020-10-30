@@ -17,6 +17,8 @@ import (
 	"github.com/aws/aws-sdk-go/service/ec2"
 	"github.com/aws/aws-sdk-go/service/iam"
 	"github.com/aws/aws-sdk-go/service/organizations"
+	"github.com/hashicorp/terraform-plugin-go/tfprotov5"
+	tfmux "github.com/hashicorp/terraform-plugin-mux"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
@@ -85,6 +87,9 @@ var testAccProvider *schema.Provider
 // In the future this will be changed to be compatible with ProviderFactories.
 var testAccProviderFunc func() *schema.Provider
 
+// KEM: mux testing
+var testAccProtoV5ProviderFactories = map[string]func() (tfprotov5.ProviderServer, error){}
+
 func init() {
 	testAccProvider = Provider()
 	testAccProviders = map[string]*schema.Provider{
@@ -97,6 +102,14 @@ func init() {
 		})
 	}
 	testAccProviderFunc = func() *schema.Provider { return testAccProvider }
+	testAccProtoV5ProviderFactories["aws"] = func() (tfprotov5.ProviderServer, error) {
+		ctx := context.Background()
+		muxed, err := tfmux.NewSchemaServerFactory(ctx, Provider().GRPCProvider)
+		if err != nil {
+			return nil, err
+		}
+		return muxed.Server(), nil
+	}
 }
 
 // testAccProviderFactoriesInit creates ProviderFactories for the provider under testing.

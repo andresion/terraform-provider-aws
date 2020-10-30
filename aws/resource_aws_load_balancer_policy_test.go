@@ -22,9 +22,9 @@ func TestAccAWSLoadBalancerPolicy_basic(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLoadBalancerPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLoadBalancerPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLoadBalancerPolicyConfig_basic(rInt),
@@ -45,9 +45,9 @@ func TestAccAWSLoadBalancerPolicy_disappears(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLoadBalancerPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLoadBalancerPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLoadBalancerPolicyConfig_basic(rInt),
@@ -78,9 +78,9 @@ func TestAccAWSLoadBalancerPolicy_updateWhileAssigned(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLoadBalancerPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLoadBalancerPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLoadBalancerPolicyConfig_updateWhileAssigned0(rInt),

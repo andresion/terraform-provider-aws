@@ -82,9 +82,9 @@ func TestAccAWSRoute53QueryLog_basic(t *testing.T) {
 
 	var queryLoggingConfig route53.QueryLoggingConfig
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53QueryLogDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53QueryLogDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAWSRoute53QueryLogResourceConfigBasic1(rName),

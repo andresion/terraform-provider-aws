@@ -19,9 +19,9 @@ func TestAccAWSAPIGatewayV2IntegrationResponse_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayV2IntegrationResponseDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayV2IntegrationResponseDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayV2IntegrationResponseConfig_basic(rName),
@@ -51,9 +51,9 @@ func TestAccAWSAPIGatewayV2IntegrationResponse_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayV2IntegrationResponseDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayV2IntegrationResponseDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayV2IntegrationResponseConfig_basic(rName),
@@ -75,9 +75,9 @@ func TestAccAWSAPIGatewayV2IntegrationResponse_AllAttributes(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayV2IntegrationResponseDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayV2IntegrationResponseDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayV2IntegrationResponseConfig_allAttributes(rName),

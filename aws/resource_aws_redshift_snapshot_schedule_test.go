@@ -83,9 +83,9 @@ func TestAccAWSRedshiftSnapshotSchedule_basic(t *testing.T) {
 	resourceName := "aws_redshift_snapshot_schedule.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftSnapshotScheduleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftSnapshotScheduleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftSnapshotScheduleConfig(rName, "rate(12 hours)"),
@@ -120,9 +120,9 @@ func TestAccAWSRedshiftSnapshotSchedule_withMultipleDefinition(t *testing.T) {
 	resourceName := "aws_redshift_snapshot_schedule.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftSnapshotScheduleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftSnapshotScheduleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftSnapshotScheduleConfigWithMultipleDefinition(rName, "cron(30 12 *)", "cron(15 6 *)"),
@@ -157,9 +157,9 @@ func TestAccAWSRedshiftSnapshotSchedule_withIdentifierPrefix(t *testing.T) {
 	resourceName := "aws_redshift_snapshot_schedule.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftSnapshotScheduleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftSnapshotScheduleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftSnapshotScheduleConfigWithIdentifierPrefix,
@@ -187,9 +187,9 @@ func TestAccAWSRedshiftSnapshotSchedule_withDescription(t *testing.T) {
 	resourceName := "aws_redshift_snapshot_schedule.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftSnapshotScheduleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftSnapshotScheduleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftSnapshotScheduleConfigWithDescription(rName),
@@ -218,9 +218,9 @@ func TestAccAWSRedshiftSnapshotSchedule_withTags(t *testing.T) {
 	resourceName := "aws_redshift_snapshot_schedule.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftSnapshotScheduleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftSnapshotScheduleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftSnapshotScheduleConfigWithTags(rName),
@@ -261,9 +261,9 @@ func TestAccAWSRedshiftSnapshotSchedule_withForceDestroy(t *testing.T) {
 	clusterResourceName := "aws_redshift_cluster.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftSnapshotScheduleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftSnapshotScheduleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftSnapshotScheduleConfigWithForceDestroy(rInt, rName),

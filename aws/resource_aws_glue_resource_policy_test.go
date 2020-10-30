@@ -30,9 +30,9 @@ func CreateTablePolicy(action string) string {
 func testAccAWSGlueResourcePolicy_basic(t *testing.T) {
 	resourceName := "aws_glue_resource_policy.test"
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueResourcePolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueResourcePolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueResourcePolicy_Required("glue:CreateTable"),
@@ -52,9 +52,9 @@ func testAccAWSGlueResourcePolicy_basic(t *testing.T) {
 func testAccAWSGlueResourcePolicy_disappears(t *testing.T) {
 	resourceName := "aws_glue_resource_policy.test"
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueResourcePolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueResourcePolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueResourcePolicy_Required("glue:CreateTable"),
@@ -96,9 +96,9 @@ resource "aws_glue_resource_policy" "test" {
 func testAccAWSGlueResourcePolicy_update(t *testing.T) {
 	resourceName := "aws_glue_resource_policy.test"
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueResourcePolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueResourcePolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueResourcePolicy_Required("glue:CreateTable"),

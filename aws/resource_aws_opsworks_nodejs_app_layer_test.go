@@ -18,9 +18,9 @@ func TestAccAWSOpsworksNodejsAppLayer_basic(t *testing.T) {
 	stackName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_opsworks_nodejs_app_layer.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOpsworksNodejsAppLayerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOpsworksNodejsAppLayerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOpsworksNodejsAppLayerConfigVpcCreate(stackName),
@@ -37,9 +37,9 @@ func TestAccAWSOpsworksNodejsAppLayer_tags(t *testing.T) {
 	stackName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_opsworks_nodejs_app_layer.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOpsworksNodejsAppLayerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOpsworksNodejsAppLayerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOpsworksNodejsAppLayerConfigTags1(stackName, "key1", "value1"),

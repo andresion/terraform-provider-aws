@@ -22,9 +22,9 @@ func TestAccAWSDocDBClusterInstance_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDocDBClusterInstanceConfig(rName),
@@ -70,9 +70,9 @@ func TestAccAWSDocDBClusterInstance_az(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDocDBClusterInstanceConfig_az(rName),
@@ -103,9 +103,9 @@ func TestAccAWSDocDBClusterInstance_namePrefix(t *testing.T) {
 	rName := acctest.RandomWithPrefix(rNamePrefix)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDocDBClusterInstanceConfig_namePrefix(rName, rNamePrefix),
@@ -136,9 +136,9 @@ func TestAccAWSDocDBClusterInstance_generatedName(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDocDBClusterInstanceConfig_generatedName(rName),
@@ -168,9 +168,9 @@ func TestAccAWSDocDBClusterInstance_kmsKey(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDocDBClusterInstanceConfigKmsKey(rName),
@@ -200,9 +200,9 @@ func TestAccAWSDocDBClusterInstance_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDocDBClusterInstanceConfig(rName),

@@ -204,9 +204,9 @@ func TestAccAWSElasticTranscoderPipeline_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSElasticTranscoder(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckElasticTranscoderPipelineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSElasticTranscoder(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckElasticTranscoderPipelineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: awsElasticTranscoderPipelineConfigBasic(rName),

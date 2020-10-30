@@ -20,9 +20,9 @@ func TestAccAwsWorkspacesIpGroup_basic(t *testing.T) {
 	resourceName := "aws_workspaces_ip_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWorkspacesIpGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWorkspacesIpGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWorkspacesIpGroupConfigA(ipGroupName, ipGroupDescription),
@@ -63,9 +63,9 @@ func TestAccAwsWorkspacesIpGroup_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWorkspacesIpGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWorkspacesIpGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWorkspacesIpGroupConfigTags1(rName, "key1", "value1"),
@@ -108,9 +108,9 @@ func TestAccAwsWorkspacesIpGroup_disappears(t *testing.T) {
 	resourceName := "aws_workspaces_ip_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWorkspacesIpGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWorkspacesIpGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWorkspacesIpGroupConfigA(ipGroupName, ipGroupDescription),

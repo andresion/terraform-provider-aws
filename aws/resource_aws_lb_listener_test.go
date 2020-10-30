@@ -221,9 +221,9 @@ func TestAccAWSLBListener_Protocol_Tls(t *testing.T) {
 	resourceName := "aws_lb_listener.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerConfig_Protocol_Tls(rName, key, certificate),
@@ -390,9 +390,9 @@ func TestAccAWSLBListener_DefaultAction_Order(t *testing.T) {
 	resourceName := "aws_lb_listener.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerConfig_DefaultAction_Order(rName, key, certificate),
@@ -416,9 +416,9 @@ func TestAccAWSLBListener_DefaultAction_Order_Recreates(t *testing.T) {
 	resourceName := "aws_lb_listener.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBListenerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBListenerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBListenerConfig_DefaultAction_Order(rName, key, certificate),

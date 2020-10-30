@@ -11,8 +11,8 @@ import (
 func TestAccDataSourceAwsNetworkInterface_basic(t *testing.T) {
 	rName := acctest.RandString(5)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsNetworkInterface_basic(rName),
@@ -82,8 +82,8 @@ data "aws_network_interface" "test" {
 func TestAccDataSourceAwsNetworkInterface_filters(t *testing.T) {
 	rName := acctest.RandString(5)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsNetworkInterface_filters(rName),

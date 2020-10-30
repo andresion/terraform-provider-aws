@@ -17,9 +17,9 @@ func TestAccAWSS3BucketOwnershipControls_basic(t *testing.T) {
 	resourceName := "aws_s3_bucket_ownership_controls.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketOwnershipControlsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketOwnershipControlsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketOwnershipControlsConfig_Rule_ObjectOwnership(rName, s3.ObjectOwnershipBucketOwnerPreferred),
@@ -44,9 +44,9 @@ func TestAccAWSS3BucketOwnershipControls_disappears(t *testing.T) {
 	resourceName := "aws_s3_bucket_ownership_controls.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketOwnershipControlsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketOwnershipControlsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketOwnershipControlsConfig_Rule_ObjectOwnership(rName, s3.ObjectOwnershipBucketOwnerPreferred),
@@ -66,9 +66,9 @@ func TestAccAWSS3BucketOwnershipControls_disappears_Bucket(t *testing.T) {
 	s3BucketResourceName := "aws_s3_bucket.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketOwnershipControlsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketOwnershipControlsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketOwnershipControlsConfig_Rule_ObjectOwnership(rName, s3.ObjectOwnershipBucketOwnerPreferred),
@@ -87,9 +87,9 @@ func TestAccAWSS3BucketOwnershipControls_Rule_ObjectOwnership(t *testing.T) {
 	resourceName := "aws_s3_bucket_ownership_controls.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketOwnershipControlsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketOwnershipControlsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketOwnershipControlsConfig_Rule_ObjectOwnership(rName, s3.ObjectOwnershipObjectWriter),

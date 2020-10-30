@@ -16,9 +16,9 @@ func TestAccAWSIotThingPrincipalAttachment_basic(t *testing.T) {
 	thingName2 := acctest.RandomWithPrefix("tf-acc2")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIotThingPrincipalAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIotThingPrincipalAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIotThingPrincipalAttachmentConfig(thingName),

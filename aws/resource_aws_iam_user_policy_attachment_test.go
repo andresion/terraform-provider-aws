@@ -20,9 +20,9 @@ func TestAccAWSUserPolicyAttachment_basic(t *testing.T) {
 	policyName3 := fmt.Sprintf("test-policy-%s", acctest.RandString(10))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserPolicyAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserPolicyAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSUserPolicyAttachConfig(rName, policyName1),

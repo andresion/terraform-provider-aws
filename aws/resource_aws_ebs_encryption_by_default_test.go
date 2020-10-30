@@ -14,9 +14,9 @@ func TestAccAWSEBSEncryptionByDefault_basic(t *testing.T) {
 	resourceName := "aws_ebs_encryption_by_default.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEncryptionByDefaultDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEncryptionByDefaultDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEbsEncryptionByDefaultConfig(false),

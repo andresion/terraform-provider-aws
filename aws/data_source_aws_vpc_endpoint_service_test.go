@@ -13,8 +13,8 @@ func TestAccDataSourceAwsVpcEndpointService_gateway(t *testing.T) {
 	datasourceName := "data.aws_vpc_endpoint_service.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsVpcEndpointServiceGatewayConfig,
@@ -40,8 +40,8 @@ func TestAccDataSourceAwsVpcEndpointService_interface(t *testing.T) {
 	datasourceName := "data.aws_vpc_endpoint_service.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsVpcEndpointServiceInterfaceConfig,
@@ -67,8 +67,8 @@ func TestAccDataSourceAwsVpcEndpointService_custom(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsVpcEndpointServiceCustomConfig(rName),
@@ -93,8 +93,8 @@ func TestAccDataSourceAwsVpcEndpointService_custom_filter(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsVpcEndpointServiceCustomConfigFilter(rName),
@@ -119,8 +119,8 @@ func TestAccDataSourceAwsVpcEndpointService_custom_filter_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsVpcEndpointServiceCustomConfigFilterTags(rName),
@@ -144,8 +144,8 @@ func TestAccDataSourceAwsVpcEndpointService_ServiceType_Gateway(t *testing.T) {
 	datasourceName := "data.aws_vpc_endpoint_service.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsVpcEndpointServiceConfig_ServiceType("s3", "Gateway"),
@@ -162,8 +162,8 @@ func TestAccDataSourceAwsVpcEndpointService_ServiceType_Interface(t *testing.T) 
 	datasourceName := "data.aws_vpc_endpoint_service.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsVpcEndpointServiceConfig_ServiceType("ec2", "Interface"),

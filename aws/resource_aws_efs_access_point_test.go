@@ -94,9 +94,9 @@ func TestAccAWSEFSAccessPoint_basic(t *testing.T) {
 	fsResourceName := "aws_efs_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsAccessPointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsAccessPointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSAccessPointConfig(rName),
@@ -127,9 +127,9 @@ func TestAccAWSEFSAccessPoint_root_directory(t *testing.T) {
 	resourceName := "aws_efs_access_point.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsAccessPointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsAccessPointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSAccessPointConfigRootDirectory(rName, "/home/test"),
@@ -155,9 +155,9 @@ func TestAccAWSEFSAccessPoint_root_directory_creation_info(t *testing.T) {
 	resourceName := "aws_efs_access_point.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsAccessPointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsAccessPointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSAccessPointConfigRootDirectoryCreationInfo(rName, "/home/test"),
@@ -186,9 +186,9 @@ func TestAccAWSEFSAccessPoint_posix_user(t *testing.T) {
 	resourceName := "aws_efs_access_point.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsAccessPointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsAccessPointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSAccessPointConfigPosixUser(rName),
@@ -215,9 +215,9 @@ func TestAccAWSEFSAccessPoint_posix_user_secondary_gids(t *testing.T) {
 	resourceName := "aws_efs_access_point.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsAccessPointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsAccessPointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSAccessPointConfigPosixUserSecondaryGids(rName),
@@ -243,9 +243,9 @@ func TestAccAWSEFSAccessPoint_tags(t *testing.T) {
 	resourceName := "aws_efs_access_point.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsAccessPointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsAccessPointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSAccessPointConfigTags1(rName, "key1", "value1"),
@@ -287,9 +287,9 @@ func TestAccAWSEFSAccessPoint_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsAccessPointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsAccessPointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSAccessPointConfig(rName),

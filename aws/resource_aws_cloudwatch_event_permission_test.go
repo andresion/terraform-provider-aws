@@ -74,9 +74,9 @@ func TestAccAWSCloudWatchEventPermission_basic(t *testing.T) {
 	resourceName := "aws_cloudwatch_event_permission.test1"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCloudWatchEventPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCloudWatchEventPermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccCheckAwsCloudWatchEventPermissionResourceConfigBasic("", statementID),
@@ -138,9 +138,9 @@ func TestAccAWSCloudWatchEventPermission_Action(t *testing.T) {
 	resourceName := "aws_cloudwatch_event_permission.test1"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCloudWatchEventPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCloudWatchEventPermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccCheckAwsCloudWatchEventPermissionResourceConfigAction("", principal, statementID),
@@ -179,9 +179,9 @@ func TestAccAWSCloudWatchEventPermission_Condition(t *testing.T) {
 	resourceName := "aws_cloudwatch_event_permission.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCloudWatchEventPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCloudWatchEventPermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsCloudWatchEventPermissionResourceConfigConditionOrganization(statementID, "o-1234567890"),
@@ -221,9 +221,9 @@ func TestAccAWSCloudWatchEventPermission_Multiple(t *testing.T) {
 	resourceName2 := "aws_cloudwatch_event_permission.test2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCloudWatchEventPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCloudWatchEventPermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsCloudWatchEventPermissionResourceConfigBasic(principal1, statementID1),
@@ -254,9 +254,9 @@ func TestAccAWSCloudWatchEventPermission_Disappears(t *testing.T) {
 	statementID := fmt.Sprintf("tf-acc-test-%s", acctest.RandStringFromCharSet(52, acctest.CharSetAlphaNum)) // len = 64
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCloudWatchEventPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCloudWatchEventPermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsCloudWatchEventPermissionResourceConfigBasic(principal, statementID),

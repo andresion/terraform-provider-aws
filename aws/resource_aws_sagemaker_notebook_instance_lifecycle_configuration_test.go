@@ -74,9 +74,9 @@ func TestAccAWSSagemakerNotebookInstanceLifecycleConfiguration_basic(t *testing.
 	resourceName := "aws_sagemaker_notebook_instance_lifecycle_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSagemakerNotebookInstanceLifecycleConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSagemakerNotebookInstanceLifecycleConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSagemakerNotebookInstanceLifecycleConfigurationConfig_Basic(rName),
@@ -104,9 +104,9 @@ func TestAccAWSSagemakerNotebookInstanceLifecycleConfiguration_Update(t *testing
 	resourceName := "aws_sagemaker_notebook_instance_lifecycle_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSagemakerNotebookInstanceLifecycleConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSagemakerNotebookInstanceLifecycleConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSagemakerNotebookInstanceLifecycleConfigurationConfig_Basic(rName),

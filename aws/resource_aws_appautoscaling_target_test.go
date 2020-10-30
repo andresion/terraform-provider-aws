@@ -59,9 +59,9 @@ func TestAccAWSAppautoScalingTarget_disappears(t *testing.T) {
 	resourceName := "aws_appautoscaling_target.bar"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAppautoscalingTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAppautoscalingTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAppautoscalingTargetConfig(rName),
@@ -108,9 +108,9 @@ func TestAccAWSAppautoScalingTarget_emrCluster(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAppautoscalingTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAppautoscalingTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAppautoscalingTargetEmrClusterConfig(rInt),
@@ -138,9 +138,9 @@ func TestAccAWSAppautoScalingTarget_multipleTargets(t *testing.T) {
 	tableName := fmt.Sprintf("tf_acc_test_table_%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAppautoscalingTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAppautoscalingTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAppautoscalingTarget_multipleTargets(tableName),
@@ -171,9 +171,9 @@ func TestAccAWSAppautoScalingTarget_optionalRoleArn(t *testing.T) {
 	tableName := fmt.Sprintf("tf_acc_test_table_%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAppautoscalingTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAppautoscalingTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAppautoscalingTarget_optionalRoleArn(tableName),

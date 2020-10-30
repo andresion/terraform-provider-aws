@@ -13,9 +13,9 @@ func TestAccAWSEc2AvailabilityZoneGroup_OptInStatus(t *testing.T) {
 	resourceName := "aws_ec2_availability_zone_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEc2AvailabilityZoneGroup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEc2AvailabilityZoneGroup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2AvailabilityZoneGroupConfigOptInStatus(ec2.AvailabilityZoneOptInStatusOptedIn),

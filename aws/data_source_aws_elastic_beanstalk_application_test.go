@@ -14,9 +14,9 @@ func TestAccAwsElasticBeanstalkApplicationDataSource_basic(t *testing.T) {
 	resourceName := "aws_elastic_beanstalk_application.tftest"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEksClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEksClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsElasticBeanstalkApplicationDataSourceConfig_Basic(rName),

@@ -18,9 +18,9 @@ func TestAccAWSCloudWatchMetricAlarm_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchMetricAlarmDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchMetricAlarmDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchMetricAlarmConfig(rName),
@@ -48,9 +48,9 @@ func TestAccAWSCloudWatchMetricAlarm_AlarmActions_EC2Automate(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchMetricAlarmDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchMetricAlarmDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchMetricAlarmConfigAlarmActionsEC2Automate(rName, "reboot"),
@@ -95,9 +95,9 @@ func TestAccAWSCloudWatchMetricAlarm_AlarmActions_SNSTopic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchMetricAlarmDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchMetricAlarmDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchMetricAlarmConfigAlarmActionsSNSTopic(rName),
@@ -121,9 +121,9 @@ func TestAccAWSCloudWatchMetricAlarm_AlarmActions_SWFAction(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchMetricAlarmDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchMetricAlarmDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchMetricAlarmConfigAlarmActionsSWFAction(rName),
@@ -147,9 +147,9 @@ func TestAccAWSCloudWatchMetricAlarm_datapointsToAlarm(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchMetricAlarmDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchMetricAlarmDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchMetricAlarmConfigDatapointsToAlarm(rName),
@@ -168,9 +168,9 @@ func TestAccAWSCloudWatchMetricAlarm_treatMissingData(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchMetricAlarmDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchMetricAlarmDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchMetricAlarmConfigTreatMissingData(rName),
@@ -196,9 +196,9 @@ func TestAccAWSCloudWatchMetricAlarm_evaluateLowSampleCountPercentiles(t *testin
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchMetricAlarmDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchMetricAlarmDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchMetricAlarmConfigTreatEvaluateLowSampleCountPercentiles(rName),
@@ -224,9 +224,9 @@ func TestAccAWSCloudWatchMetricAlarm_extendedStatistic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchMetricAlarmDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchMetricAlarmDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchMetricAlarmConfigExtendedStatistic(rName),
@@ -245,9 +245,9 @@ func TestAccAWSCloudWatchMetricAlarm_expression(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchMetricAlarmDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchMetricAlarmDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSCloudWatchMetricAlarmConfigWithBadExpression(rName),
@@ -300,9 +300,9 @@ func TestAccAWSCloudWatchMetricAlarm_expression(t *testing.T) {
 func TestAccAWSCloudWatchMetricAlarm_missingStatistic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchMetricAlarmDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchMetricAlarmDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSCloudWatchMetricAlarmConfigMissingStatistic(rName),
@@ -318,9 +318,9 @@ func TestAccAWSCloudWatchMetricAlarm_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchMetricAlarmDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchMetricAlarmDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchMetricAlarmConfigTags1(rName, "key1", "value1"),

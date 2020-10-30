@@ -137,9 +137,9 @@ func TestAccAWSRoute53Record_underscored(t *testing.T) {
 	resourceName := "aws_route53_record.underscore"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53RecordDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53RecordDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53RecordConfigUnderscoreInName,
@@ -163,9 +163,9 @@ func TestAccAWSRoute53Record_disappears(t *testing.T) {
 	resourceName := "aws_route53_record.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53RecordDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53RecordDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53RecordConfig,
@@ -185,9 +185,9 @@ func TestAccAWSRoute53Record_disappears_MultipleRecords(t *testing.T) {
 	var zone1 route53.GetHostedZoneOutput
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53RecordDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53RecordDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53RecordConfigMultiple,
@@ -474,9 +474,9 @@ func TestAccAWSRoute53Record_weighted_to_simple_basic(t *testing.T) {
 	resourceName := "aws_route53_record.www-server1"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53RecordDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53RecordDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testaccRoute53RecordConfigWithWeightedRoutingPolicy,
@@ -534,9 +534,9 @@ func TestAccAWSRoute53Record_Alias_S3(t *testing.T) {
 	resourceName := "aws_route53_record.alias"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53RecordDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53RecordDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53RecordConfigAliasS3(rName),
@@ -560,9 +560,9 @@ func TestAccAWSRoute53Record_Alias_VpcEndpoint(t *testing.T) {
 	resourceName := "aws_route53_record.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53RecordDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53RecordDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccRoute53RecordConfigAliasCustomVpcEndpointSwappedAliasAttributes(rName),
@@ -654,9 +654,9 @@ func TestAccAWSRoute53Record_geolocation_basic(t *testing.T) {
 	resourceName := "aws_route53_record.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53RecordDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53RecordDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53GeolocationCNAMERecord,
@@ -746,9 +746,9 @@ func TestAccAWSRoute53Record_latency_basic(t *testing.T) {
 	resourceName := "aws_route53_record.us-east-1"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53RecordDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53RecordDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53LatencyCNAMERecord,
@@ -957,9 +957,9 @@ func TestAccAWSRoute53Record_multivalue_answer_basic(t *testing.T) {
 	resourceName := "aws_route53_record.www-server1"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53RecordDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53RecordDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53MultiValueAnswerARecord,
@@ -983,9 +983,9 @@ func TestAccAWSRoute53Record_allowOverwrite(t *testing.T) {
 	resourceName := "aws_route53_record.overwriting"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53RecordDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53RecordDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccRoute53RecordConfig_allowOverwrite(false),

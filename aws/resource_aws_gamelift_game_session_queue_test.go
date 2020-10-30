@@ -93,9 +93,9 @@ func TestAccAWSGameliftGameSessionQueue_basic(t *testing.T) {
 	uTimeoutInSeconds := int64(600)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGameliftGameSessionQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGameliftGameSessionQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGameliftGameSessionQueueBasicConfig(queueName,
@@ -152,9 +152,9 @@ func TestAccAWSGameliftGameSessionQueue_tags(t *testing.T) {
 	queueName := testAccGameliftGameSessionQueuePrefix + acctest.RandString(8)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGameliftGameSessionQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGameliftGameSessionQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGameliftGameSessionQueueBasicConfigTags1(queueName, "key1", "value1"),
@@ -208,9 +208,9 @@ func TestAccAWSGameliftGameSessionQueue_disappears(t *testing.T) {
 	timeoutInSeconds := int64(124)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGameliftGameSessionQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGameliftGameSessionQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGameliftGameSessionQueueBasicConfig(queueName,

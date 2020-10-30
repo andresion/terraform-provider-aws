@@ -13,8 +13,8 @@ func TestAccDataSourceAwsTransferServer_basic(t *testing.T) {
 	datasourceName := "data.aws_transfer_server.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsTransferServerConfig_basic,
@@ -35,8 +35,8 @@ func TestAccDataSourceAwsTransferServer_service_managed(t *testing.T) {
 	datasourceName := "data.aws_transfer_server.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsTransferServerConfig_service_managed(rName),
@@ -57,8 +57,8 @@ func TestAccDataSourceAwsTransferServer_apigateway(t *testing.T) {
 	datasourceName := "data.aws_transfer_server.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsTransferServerConfig_apigateway(rName),

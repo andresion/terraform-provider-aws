@@ -126,9 +126,9 @@ func TestAccAWSCustomerGateway_disappears(t *testing.T) {
 	resourceName := "aws_customer_gateway.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCustomerGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCustomerGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCustomerGatewayConfig(rBgpAsn),
@@ -148,10 +148,10 @@ func TestAccAWSCustomerGateway_4ByteAsn(t *testing.T) {
 	resourceName := "aws_customer_gateway.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckCustomerGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCustomerGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCustomerGatewayConfig4ByteAsn(rBgpAsn),

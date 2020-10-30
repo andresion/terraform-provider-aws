@@ -85,9 +85,9 @@ func TestAccAWSDataSyncLocationEfs_basic(t *testing.T) {
 	subnetResourceName := "aws_subnet.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncLocationEfsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncLocationEfsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncLocationEfsConfig(),
@@ -118,9 +118,9 @@ func TestAccAWSDataSyncLocationEfs_disappears(t *testing.T) {
 	resourceName := "aws_datasync_location_efs.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncLocationEfsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncLocationEfsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncLocationEfsConfig(),
@@ -139,9 +139,9 @@ func TestAccAWSDataSyncLocationEfs_Subdirectory(t *testing.T) {
 	resourceName := "aws_datasync_location_efs.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncLocationEfsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncLocationEfsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncLocationEfsConfigSubdirectory("/subdirectory1/"),
@@ -165,9 +165,9 @@ func TestAccAWSDataSyncLocationEfs_Tags(t *testing.T) {
 	resourceName := "aws_datasync_location_efs.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncLocationEfsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncLocationEfsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncLocationEfsConfigTags1("key1", "value1"),

@@ -16,9 +16,9 @@ func TestAccAWSKmsAlias_basic(t *testing.T) {
 	resourceName := "aws_kms_alias.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsAliasDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsAliasDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsSingleAlias(rInt, kmsAliasTimestamp),
@@ -48,9 +48,9 @@ func TestAccAWSKmsAlias_name_prefix(t *testing.T) {
 	resourceName := "aws_kms_alias.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsAliasDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsAliasDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsSingleAlias(rInt, kmsAliasTimestamp),
@@ -74,9 +74,9 @@ func TestAccAWSKmsAlias_no_name(t *testing.T) {
 	resourceName := "aws_kms_alias.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsAliasDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsAliasDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsSingleAlias(rInt, kmsAliasTimestamp),
@@ -100,9 +100,9 @@ func TestAccAWSKmsAlias_multiple(t *testing.T) {
 	resourceName := "aws_kms_alias.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsAliasDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsAliasDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsMultipleAliases(rInt, kmsAliasTimestamp),
@@ -128,9 +128,9 @@ func TestAccAWSKmsAlias_ArnDiffSuppress(t *testing.T) {
 	resourceName := "aws_kms_alias.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsAliasDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsAliasDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsArnDiffSuppress(rInt, kmsAliasTimestamp),

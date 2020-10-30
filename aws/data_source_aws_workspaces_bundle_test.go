@@ -12,8 +12,8 @@ func TestAccDataSourceAwsWorkspaceBundle_basic(t *testing.T) {
 	dataSourceName := "data.aws_workspaces_bundle.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsWorkspaceBundleConfig("wsb-b0s22j3d7"),
@@ -38,8 +38,8 @@ func TestAccDataSourceAwsWorkspaceBundle_byOwnerName(t *testing.T) {
 	dataSourceName := "data.aws_workspaces_bundle.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsWorkspaceBundleConfig_byOwnerName("AMAZON", "Value with Windows 10 and Office 2016"),
@@ -62,8 +62,8 @@ func TestAccDataSourceAwsWorkspaceBundle_byOwnerName(t *testing.T) {
 
 func TestAccDataSourceAwsWorkspaceBundle_bundleIDAndNameConflict(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccDataSourceAwsWorkspaceBundleConfig_bundleIDAndOwnerNameConflict("wsb-df76rqys9", "AMAZON", "Value with Windows 10 and Office 2016"),

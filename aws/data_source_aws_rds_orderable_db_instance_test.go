@@ -18,9 +18,9 @@ func TestAccAWSRdsOrderableDbInstanceDataSource_basic(t *testing.T) {
 	storageType := "standard"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRdsOrderableDbInstanceDataSourceConfig_basic(class, engine, engineVersion, licenseModel, storageType),
@@ -41,9 +41,9 @@ func TestAccAWSRdsOrderableDbInstanceDataSource_preferredClass(t *testing.T) {
 	preferredClass := "db.t2.micro"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRdsOrderableDbInstanceDataSourceConfig_preferredClass(preferredClass),
@@ -60,9 +60,9 @@ func TestAccAWSRdsOrderableDbInstanceDataSource_preferredVersion(t *testing.T) {
 	preferredVersion := "5.7.22"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRdsOrderableDbInstanceDataSourceConfig_preferredVersion(preferredVersion),
@@ -80,9 +80,9 @@ func TestAccAWSRdsOrderableDbInstanceDataSource_preferredClassAndVersion(t *test
 	preferredVersion := "5.7.22"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRdsOrderableDbInstanceDataSourceConfig_preferredClassAndVersion(preferredClass, preferredVersion),
@@ -99,9 +99,9 @@ func TestAccAWSRdsOrderableDbInstanceDataSource_supportsEnhancedMonitoring(t *te
 	dataSourceName := "data.aws_rds_orderable_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRdsOrderableDbInstanceDataSourceConfig_supportsEnhancedMonitoring(),
@@ -117,9 +117,9 @@ func TestAccAWSRdsOrderableDbInstanceDataSource_supportsIAMDatabaseAuthenticatio
 	dataSourceName := "data.aws_rds_orderable_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRdsOrderableDbInstanceDataSourceConfig_supportsIAMDatabaseAuthentication(),
@@ -135,9 +135,9 @@ func TestAccAWSRdsOrderableDbInstanceDataSource_supportsIops(t *testing.T) {
 	dataSourceName := "data.aws_rds_orderable_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRdsOrderableDbInstanceDataSourceConfig_supportsIops(),
@@ -153,9 +153,9 @@ func TestAccAWSRdsOrderableDbInstanceDataSource_supportsKerberosAuthentication(t
 	dataSourceName := "data.aws_rds_orderable_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRdsOrderableDbInstanceDataSourceConfig_supportsKerberosAuthentication(),
@@ -176,8 +176,8 @@ func TestAccAWSRdsOrderableDbInstanceDataSource_supportsPerformanceInsights(t *t
 			testAccAWSRdsOrderableDbInstancePreCheck(t)
 			testAccRDSPerformanceInsightsDefaultVersionPreCheck(t, "mysql")
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRdsOrderableDbInstanceDataSourceConfig_supportsPerformanceInsights(),
@@ -193,9 +193,9 @@ func TestAccAWSRdsOrderableDbInstanceDataSource_supportsStorageAutoscaling(t *te
 	dataSourceName := "data.aws_rds_orderable_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRdsOrderableDbInstanceDataSourceConfig_supportsStorageAutoscaling(),
@@ -211,9 +211,9 @@ func TestAccAWSRdsOrderableDbInstanceDataSource_supportsStorageEncryption(t *tes
 	dataSourceName := "data.aws_rds_orderable_db_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRdsOrderableDbInstancePreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRdsOrderableDbInstanceDataSourceConfig_supportsStorageEncryption(),

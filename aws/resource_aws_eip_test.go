@@ -94,9 +94,9 @@ func TestAccAWSEIP_Ec2Classic(t *testing.T) {
 	var conf ec2.Address
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEIPDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEIPDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEIPInstanceEc2Classic(),
@@ -282,9 +282,9 @@ func TestAccAWSEIP_Instance_Reassociate(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEIPDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEIPDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEIP_Instance(rName),
@@ -308,9 +308,9 @@ func TestAccAWSEIP_disappears(t *testing.T) {
 	resourceName := "aws_eip.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEIPDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEIPDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEIPConfig,
@@ -365,9 +365,9 @@ func TestAccAWSEIP_tags_Vpc(t *testing.T) {
 	rName2 := fmt.Sprintf("%s-%d", t.Name(), acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEIPDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEIPDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEIPConfig_tags(rName1, t.Name()),
@@ -407,9 +407,9 @@ func TestAccAWSEIP_tags_Ec2Classic(t *testing.T) {
 	rName1 := fmt.Sprintf("%s-%d", t.Name(), acctest.RandInt())
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEIPDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEIPDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSEIPConfig_tags_Ec2Classic(rName1, t.Name()),
@@ -424,10 +424,10 @@ func TestAccAWSEIP_PublicIpv4Pool_default(t *testing.T) {
 	resourceName := "aws_eip.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSEIPDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEIPDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEIPConfig_PublicIpv4Pool_default,
@@ -458,10 +458,10 @@ func TestAccAWSEIP_PublicIpv4Pool_custom(t *testing.T) {
 	poolName := os.Getenv("AWS_EC2_EIP_PUBLIC_IPV4_POOL")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSEIPDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEIPDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEIPConfig_PublicIpv4Pool_custom(poolName),
@@ -532,10 +532,10 @@ func TestAccAWSEIP_CustomerOwnedIpv4Pool(t *testing.T) {
 	resourceName := "aws_eip.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSEIPDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEIPDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEIPConfigCustomerOwnedIpv4Pool(),

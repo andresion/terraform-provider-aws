@@ -24,9 +24,9 @@ func TestAccAWSIAMUserPolicy_basic(t *testing.T) {
 	userName := fmt.Sprintf("test_user_%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckIAMUserPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMUserPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccIAMUserPolicyConfig_name(rInt, strconv.Quote("NonJSONString")),
@@ -66,9 +66,9 @@ func TestAccAWSIAMUserPolicy_disappears(t *testing.T) {
 	resourceName := fmt.Sprintf("aws_iam_user_policy.foo_%s", suffix)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckIAMUserPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMUserPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsIamUserPolicyConfig(suffix),
@@ -92,10 +92,10 @@ func TestAccAWSIAMUserPolicy_namePrefix(t *testing.T) {
 	userName := fmt.Sprintf("test_user_%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: policyResourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckIAMUserPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            policyResourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMUserPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccIAMUserPolicyConfig_namePrefix(rInt, strconv.Quote(policy1)),
@@ -134,10 +134,10 @@ func TestAccAWSIAMUserPolicy_generatedName(t *testing.T) {
 	userName := fmt.Sprintf("test_user_%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: policyResourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckIAMUserPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            policyResourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMUserPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccIAMUserPolicyConfig_generatedName(rInt, strconv.Quote(policy1)),
@@ -176,9 +176,9 @@ func TestAccAWSIAMUserPolicy_multiplePolicies(t *testing.T) {
 	userResourceName := "aws_iam_user.user"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckIAMUserPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMUserPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccIAMUserPolicyConfig_name(rInt, strconv.Quote(policy1)),

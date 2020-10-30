@@ -127,9 +127,9 @@ func TestAccAWSRoute53HealthCheck_withChildHealthChecks(t *testing.T) {
 	var check route53.HealthCheck
 	resourceName := "aws_route53_health_check.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53HealthCheckDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53HealthCheckDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53HealthCheckConfig_withChildHealthChecks,
@@ -150,9 +150,9 @@ func TestAccAWSRoute53HealthCheck_withHealthCheckRegions(t *testing.T) {
 	var check route53.HealthCheck
 	resourceName := "aws_route53_health_check.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53HealthCheckDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53HealthCheckDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53HealthCheckConfig_withHealthCheckRegions,
@@ -174,9 +174,9 @@ func TestAccAWSRoute53HealthCheck_IpConfig(t *testing.T) {
 	var check route53.HealthCheck
 	resourceName := "aws_route53_health_check.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53HealthCheckDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53HealthCheckDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53HealthCheckIpConfig,
@@ -198,9 +198,9 @@ func TestAccAWSRoute53HealthCheck_Ipv6Config(t *testing.T) {
 	var check route53.HealthCheck
 	resourceName := "aws_route53_health_check.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53HealthCheckDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53HealthCheckDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53HealthCheckIpv6Config,
@@ -226,9 +226,9 @@ func TestAccAWSRoute53HealthCheck_CloudWatchAlarmCheck(t *testing.T) {
 	var check route53.HealthCheck
 	resourceName := "aws_route53_health_check.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53HealthCheckDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53HealthCheckDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53HealthCheckCloudWatchAlarm,
@@ -290,9 +290,9 @@ func TestAccAWSRoute53HealthCheck_Disabled(t *testing.T) {
 	resourceName := "aws_route53_health_check.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53HealthCheckDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53HealthCheckDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53HealthCheckConfigDisabled(true),
@@ -328,9 +328,9 @@ func TestAccAWSRoute53HealthCheck_disappears(t *testing.T) {
 	var check route53.HealthCheck
 	resourceName := "aws_route53_health_check.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53HealthCheckDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53HealthCheckDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53HealthCheckConfig,

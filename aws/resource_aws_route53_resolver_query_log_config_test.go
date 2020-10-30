@@ -73,9 +73,9 @@ func TestAccAWSRoute53ResolverQueryLogConfig_basic(t *testing.T) {
 	s3BucketResourceName := "aws_s3_bucket.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ResolverQueryLogConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ResolverQueryLogConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ResolverQueryLogConfigConfig(rName),
@@ -103,9 +103,9 @@ func TestAccAWSRoute53ResolverQueryLogConfig_disappears(t *testing.T) {
 	resourceName := "aws_route53_resolver_query_log_config.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ResolverQueryLogConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ResolverQueryLogConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ResolverQueryLogConfigConfig(rName),
@@ -126,9 +126,9 @@ func TestAccAWSRoute53ResolverQueryLogConfig_tags(t *testing.T) {
 	cwLogGroupResourceName := "aws_cloudwatch_log_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ResolverQueryLogConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ResolverQueryLogConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ResolverQueryLogConfigConfigTags1(rName, "key1", "value1"),

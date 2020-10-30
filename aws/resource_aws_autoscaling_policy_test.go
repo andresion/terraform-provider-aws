@@ -24,9 +24,9 @@ func TestAccAWSAutoscalingPolicy_basic(t *testing.T) {
 	name := fmt.Sprintf("terraform-testacc-asp-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAutoscalingPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAutoscalingPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAutoscalingPolicyConfig_basic(name),
@@ -111,9 +111,9 @@ func TestAccAWSAutoscalingPolicy_disappears(t *testing.T) {
 	name := fmt.Sprintf("terraform-testacc-asp-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAutoscalingPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAutoscalingPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAutoscalingPolicyConfig_basic(name),
@@ -172,9 +172,9 @@ func TestAccAWSAutoscalingPolicy_SimpleScalingStepAdjustment(t *testing.T) {
 	name := fmt.Sprintf("terraform-testacc-asp-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAutoscalingPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAutoscalingPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAutoscalingPolicyConfig_SimpleScalingStepAdjustment(name),
@@ -200,9 +200,9 @@ func TestAccAWSAutoscalingPolicy_TargetTrack_Predefined(t *testing.T) {
 	name := fmt.Sprintf("terraform-testacc-asp-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAutoscalingPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAutoscalingPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsAutoscalingPolicyConfig_TargetTracking_Predefined(name),
@@ -226,9 +226,9 @@ func TestAccAWSAutoscalingPolicy_TargetTrack_Custom(t *testing.T) {
 	name := fmt.Sprintf("terraform-testacc-asp-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAutoscalingPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAutoscalingPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsAutoscalingPolicyConfig_TargetTracking_Custom(name),
@@ -254,9 +254,9 @@ func TestAccAWSAutoscalingPolicy_zerovalue(t *testing.T) {
 	resourceStepName := "aws_autoscaling_policy.foobar_step"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAutoscalingPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAutoscalingPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAutoscalingPolicyConfig_zerovalue(acctest.RandString(5)),

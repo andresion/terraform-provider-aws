@@ -12,8 +12,8 @@ func TestAccDataSourceAwsAcmpcaCertificateAuthority_basic(t *testing.T) {
 	datasourceName := "data.aws_acmpca_certificate_authority.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccDataSourceAwsAcmpcaCertificateAuthorityConfig_NonExistent,

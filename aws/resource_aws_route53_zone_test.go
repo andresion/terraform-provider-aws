@@ -81,9 +81,9 @@ func TestAccAWSRoute53Zone_basic(t *testing.T) {
 	zoneName := fmt.Sprintf("%s.terraformtest.com", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ZoneConfig(zoneName),
@@ -113,9 +113,9 @@ func TestAccAWSRoute53Zone_disappears(t *testing.T) {
 	zoneName := fmt.Sprintf("%s.terraformtest.com", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ZoneConfig(zoneName),
@@ -133,9 +133,9 @@ func TestAccAWSRoute53Zone_multiple(t *testing.T) {
 	var zone0, zone1, zone2, zone3, zone4 route53.GetHostedZoneOutput
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ZoneConfigMultiple(),
@@ -164,9 +164,9 @@ func TestAccAWSRoute53Zone_Comment(t *testing.T) {
 	zoneName := fmt.Sprintf("%s.terraformtest.com", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ZoneConfigComment(zoneName, "comment1"),
@@ -201,9 +201,9 @@ func TestAccAWSRoute53Zone_DelegationSetID(t *testing.T) {
 	zoneName := fmt.Sprintf("%s.terraformtest.com", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ZoneConfigDelegationSetID(zoneName),
@@ -230,9 +230,9 @@ func TestAccAWSRoute53Zone_ForceDestroy(t *testing.T) {
 	zoneName := fmt.Sprintf("%s.terraformtest.com", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ZoneConfigForceDestroy(zoneName),
@@ -255,9 +255,9 @@ func TestAccAWSRoute53Zone_ForceDestroy_TrailingPeriod(t *testing.T) {
 	zoneName := fmt.Sprintf("%s.terraformtest.com", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ZoneConfigForceDestroyTrailingPeriod(zoneName),
@@ -280,9 +280,9 @@ func TestAccAWSRoute53Zone_Tags(t *testing.T) {
 	zoneName := fmt.Sprintf("%s.terraformtest.com", rName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ZoneConfigTagsSingle(zoneName, "tag1key", "tag1value"),
@@ -328,9 +328,9 @@ func TestAccAWSRoute53Zone_VPC_Single(t *testing.T) {
 	zoneName := fmt.Sprintf("%s.terraformtest.com", rName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ZoneConfigVPCSingle(rName, zoneName),
@@ -360,9 +360,9 @@ func TestAccAWSRoute53Zone_VPC_Multiple(t *testing.T) {
 	zoneName := fmt.Sprintf("%s.terraformtest.com", rName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ZoneConfigVPCMultiple(rName, zoneName),
@@ -393,9 +393,9 @@ func TestAccAWSRoute53Zone_VPC_Updates(t *testing.T) {
 	zoneName := fmt.Sprintf("%s.terraformtest.com", rName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ZoneConfigVPCSingle(rName, zoneName),

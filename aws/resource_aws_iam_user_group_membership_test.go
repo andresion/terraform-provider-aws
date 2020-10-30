@@ -24,9 +24,9 @@ func TestAccAWSUserGroupMembership_basic(t *testing.T) {
 	usersAndGroupsConfig := testAccAWSUserGroupMembershipConfigUsersAndGroups(userName1, userName2, groupName1, groupName2, groupName3)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccAWSUserGroupMembershipDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccAWSUserGroupMembershipDestroy,
 		Steps: []resource.TestStep{
 			// simplest test
 			{

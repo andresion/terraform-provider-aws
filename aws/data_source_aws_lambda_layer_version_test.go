@@ -14,8 +14,8 @@ func TestAccDataSourceAWSLambdaLayerVersion_basic(t *testing.T) {
 	resourceName := "aws_lambda_layer_version.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAWSLambdaLayerVersionConfigBasic(rName),
@@ -42,8 +42,8 @@ func TestAccDataSourceAWSLambdaLayerVersion_version(t *testing.T) {
 	resourceName := "aws_lambda_layer_version.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAWSLambdaLayerVersionConfigVersion(rName),
@@ -62,8 +62,8 @@ func TestAccDataSourceAWSLambdaLayerVersion_runtime(t *testing.T) {
 	resourceName := "aws_lambda_layer_version.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAWSLambdaLayerVersionConfigRuntimes(rName),

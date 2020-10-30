@@ -87,9 +87,9 @@ func TestAccAWSCloudHsmV2Cluster_basic(t *testing.T) {
 	resourceName := "aws_cloudhsm_v2_cluster.cluster"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudHsmV2ClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudHsmV2ClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudHsmV2ClusterConfig(),
@@ -116,9 +116,9 @@ func TestAccAWSCloudHsmV2Cluster_Tags(t *testing.T) {
 	resourceName := "aws_cloudhsm_v2_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudHsmV2ClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudHsmV2ClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudHsmV2ClusterConfigTags2("key1", "value1", "key2", "value2"),

@@ -19,9 +19,9 @@ func TestAccAWSAPIGatewayMethod_basic(t *testing.T) {
 	resourceName := "aws_api_gateway_method.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodConfig(rInt),
@@ -57,9 +57,9 @@ func TestAccAWSAPIGatewayMethod_customauthorizer(t *testing.T) {
 	resourceName := "aws_api_gateway_method.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodConfigWithCustomAuthorizer(rInt),
@@ -98,9 +98,9 @@ func TestAccAWSAPIGatewayMethod_cognitoauthorizer(t *testing.T) {
 	resourceName := "aws_api_gateway_method.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodConfigWithCognitoAuthorizer(rInt),
@@ -142,9 +142,9 @@ func TestAccAWSAPIGatewayMethod_customrequestvalidator(t *testing.T) {
 	resourceName := "aws_api_gateway_method.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodConfigWithCustomRequestValidator(rInt),
@@ -182,9 +182,9 @@ func TestAccAWSAPIGatewayMethod_disappears(t *testing.T) {
 	resourceName := "aws_api_gateway_method.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodConfig(rInt),

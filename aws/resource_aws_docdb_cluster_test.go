@@ -23,9 +23,9 @@ func TestAccAWSDocDBCluster_basic(t *testing.T) {
 	resourceName := "aws_docdb_cluster.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDocDBClusterConfig(rInt),
@@ -66,9 +66,9 @@ func TestAccAWSDocDBCluster_namePrefix(t *testing.T) {
 	var v docdb.DBCluster
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDocDBClusterConfig_namePrefix(),
@@ -98,9 +98,9 @@ func TestAccAWSDocDBCluster_generatedName(t *testing.T) {
 	var v docdb.DBCluster
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDocDBClusterConfig_generatedName(),
@@ -131,9 +131,9 @@ func TestAccAWSDocDBCluster_takeFinalSnapshot(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBClusterSnapshot(rInt),
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBClusterSnapshot(rInt),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDocDBClusterConfigWithFinalSnapshot(rInt),
@@ -161,9 +161,9 @@ func TestAccAWSDocDBCluster_takeFinalSnapshot(t *testing.T) {
 /// https://github.com/hashicorp/terraform/issues/11568
 func TestAccAWSDocDBCluster_missingUserNameCausesError(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccDocDBClusterConfigWithoutUserNameAndPassword(acctest.RandInt()),
@@ -178,9 +178,9 @@ func TestAccAWSDocDBCluster_updateTags(t *testing.T) {
 	ri := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDocDBClusterConfig(ri),
@@ -219,9 +219,9 @@ func TestAccAWSDocDBCluster_updateCloudwatchLogsExports(t *testing.T) {
 	ri := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDocDBClusterNoCloudwatchLogsConfig(ri),
@@ -257,9 +257,9 @@ func TestAccAWSDocDBCluster_kmsKey(t *testing.T) {
 	var v docdb.DBCluster
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDocDBClusterConfig_kmsKey(acctest.RandInt()),
@@ -288,9 +288,9 @@ func TestAccAWSDocDBCluster_encrypted(t *testing.T) {
 	var v docdb.DBCluster
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDocDBClusterConfig_encrypted(acctest.RandInt()),
@@ -323,9 +323,9 @@ func TestAccAWSDocDBCluster_backupsUpdate(t *testing.T) {
 
 	ri := acctest.RandInt()
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDocDBClusterConfig_backups(ri),
@@ -373,9 +373,9 @@ func TestAccAWSDocDBCluster_Port(t *testing.T) {
 	resourceName := "aws_docdb_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDocDBClusterConfig_Port(rInt, 5432),
@@ -413,9 +413,9 @@ func TestAccAWSDocDBCluster_deleteProtection(t *testing.T) {
 	resourceName := "aws_docdb_cluster.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDocDBClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDocDBClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDocDBClusterConfigDeleteProtection(true),

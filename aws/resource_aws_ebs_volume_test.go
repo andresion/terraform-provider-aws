@@ -300,9 +300,9 @@ func TestAccAWSEBSVolume_NoIops(t *testing.T) {
 	resourceName := "aws_ebs_volume.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVolumeDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVolumeDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEbsVolumeConfigWithNoIops,
@@ -323,9 +323,9 @@ func TestAccAWSEBSVolume_NoIops(t *testing.T) {
 func TestAccAWSEBSVolume_InvalidIopsForType(t *testing.T) {
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVolumeDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVolumeDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAwsEbsVolumeConfigWithInvalidIopsForType,
@@ -421,9 +421,9 @@ func TestAccAWSEBSVolume_disappears(t *testing.T) {
 	resourceName := "aws_ebs_volume.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVolumeDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVolumeDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEbsVolumeConfig,

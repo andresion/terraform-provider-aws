@@ -71,9 +71,9 @@ func TestAccAWSRoute53ResolverQueryLogConfigAssociation_basic(t *testing.T) {
 	vpcResourceName := "aws_vpc.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ResolverQueryLogConfigAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ResolverQueryLogConfigAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ResolverQueryLogConfigAssociationConfig(rName),
@@ -98,9 +98,9 @@ func TestAccAWSRoute53ResolverQueryLogConfigAssociation_disappears(t *testing.T)
 	resourceName := "aws_route53_resolver_query_log_config_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ResolverQueryLogConfigAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ResolverQueryLogConfigAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ResolverQueryLogConfigAssociationConfig(rName),

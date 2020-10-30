@@ -13,8 +13,8 @@ func TestAccDataSourceAWSLBListener_basic(t *testing.T) {
 	targetGroupName := fmt.Sprintf("testtargetgroup-%s", acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAWSLBListenerConfigBasic(lbName, targetGroupName),
@@ -44,8 +44,8 @@ func TestAccDataSourceAWSLBListener_BackwardsCompatibility(t *testing.T) {
 	targetGroupName := fmt.Sprintf("testtargetgroup-%s", acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAWSLBListenerConfigBackwardsCompatibility(lbName, targetGroupName),
@@ -77,8 +77,8 @@ func TestAccDataSourceAWSLBListener_https(t *testing.T) {
 	certificate := tlsRsaX509SelfSignedCertificatePem(key, "example.com")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAWSLBListenerConfigHTTPS(lbName, targetGroupName, tlsPemEscapeNewlines(certificate), tlsPemEscapeNewlines(key)),

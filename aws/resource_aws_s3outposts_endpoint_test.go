@@ -16,9 +16,9 @@ func TestAccAWSS3OutpostsEndpoint_basic(t *testing.T) {
 	rInt := acctest.RandIntRange(0, 255)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3OutpostsEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3OutpostsEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3OutpostsEndpointConfig(rInt),
@@ -48,9 +48,9 @@ func TestAccAWSS3OutpostsEndpoint_disappears(t *testing.T) {
 	rInt := acctest.RandIntRange(0, 255)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3OutpostsEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3OutpostsEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3OutpostsEndpointConfig(rInt),

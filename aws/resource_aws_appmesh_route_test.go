@@ -110,9 +110,9 @@ func testAccAwsAppmeshRoute_grpcRoute(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsAppmeshRouteConfig_grpcRoute(meshName, vrName, vn1Name, vn2Name, rName),
@@ -281,9 +281,9 @@ func testAccAwsAppmeshRoute_grpcRouteTimeout(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsAppmeshRouteConfig_grpcRouteWithTimeout(meshName, vrName, vn1Name, vn2Name, rName),
@@ -379,9 +379,9 @@ func testAccAwsAppmeshRoute_http2Route(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsAppmeshRouteConfig_http2Route(meshName, vrName, vn1Name, vn2Name, rName),
@@ -495,9 +495,9 @@ func testAccAwsAppmeshRoute_http2RouteTimeout(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsAppmeshRouteConfig_http2RouteWithTimeout(meshName, vrName, vn1Name, vn2Name, rName),
@@ -597,9 +597,9 @@ func testAccAwsAppmeshRoute_httpRoute(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshRouteConfig_httpRoute(meshName, vrName, vn1Name, vn2Name, rName),
@@ -707,9 +707,9 @@ func testAccAwsAppmeshRoute_httpRouteTimeout(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshRouteConfig_httpRouteWithTimeout(meshName, vrName, vn1Name, vn2Name, rName),
@@ -801,9 +801,9 @@ func testAccAwsAppmeshRoute_tcpRoute(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshRouteConfig_tcpRoute(meshName, vrName, vn1Name, vn2Name, rName),
@@ -894,9 +894,9 @@ func testAccAwsAppmeshRoute_tcpRouteTimeout(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshRouteConfig_tcpRouteWithTimeout(meshName, vrName, vn1Name, vn2Name, rName),
@@ -972,9 +972,9 @@ func testAccAwsAppmeshRoute_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshRouteConfigWithTags(meshName, vrName, vn1Name, vn2Name, rName, "foo", "bar", "good", "bad"),
@@ -1021,9 +1021,9 @@ func testAccAwsAppmeshRoute_httpHeader(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsAppmeshRouteConfig_httpHeader(meshName, vrName, vn1Name, vn2Name, rName),
@@ -1121,9 +1121,9 @@ func testAccAwsAppmeshRoute_routePriority(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsAppmeshRouteConfig_routePriority(meshName, vrName, vn1Name, vn2Name, rName, 42),
@@ -1203,9 +1203,9 @@ func testAccAwsAppmeshRoute_httpRetryPolicy(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsAppmeshRouteConfig_httpRetryPolicy(meshName, vrName, vn1Name, vn2Name, rName),

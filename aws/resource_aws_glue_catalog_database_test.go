@@ -17,9 +17,9 @@ func TestAccAWSGlueCatalogDatabase_full(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlueDatabaseDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlueDatabaseDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:  testAccGlueCatalogDatabase_basic(rName),
@@ -69,9 +69,9 @@ func TestAccAWSGlueCatalogDatabase_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlueDatabaseDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlueDatabaseDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueCatalogDatabase_basic(rName),

@@ -33,9 +33,9 @@ func TestAccAWSAPIGatewayDomainName_CertificateArn(t *testing.T) {
 	rName := fmt.Sprintf("tf-acc-%s.terraformtest.com", acctest.RandString(8))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayDomainNameDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayDomainNameDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayDomainNameConfig_CertificateArn(rName, certificateArn),
@@ -88,9 +88,9 @@ func TestAccAWSAPIGatewayDomainName_CertificateName(t *testing.T) {
 	resourceName := "aws_api_gateway_domain_name.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayDomainNameDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayDomainNameDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayDomainNameConfig_CertificateName(domainName, certificatePrivateKey, certificateBody, certificateChain),
@@ -123,9 +123,9 @@ func TestAccAWSAPIGatewayDomainName_RegionalCertificateArn(t *testing.T) {
 	certificate := tlsRsaX509SelfSignedCertificatePem(key, rName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayDomainNameDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayDomainNameDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayDomainNameConfig_RegionalCertificateArn(rName, key, certificate),
@@ -166,9 +166,9 @@ func TestAccAWSAPIGatewayDomainName_RegionalCertificateName(t *testing.T) {
 	certificate := tlsRsaX509LocallySignedCertificatePem(caKey, caCertificate, key, "*.terraformtest.com")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayDomainNameDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayDomainNameDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayDomainNameConfig_RegionalCertificateName(rName, key, certificate, caCertificate),
@@ -198,9 +198,9 @@ func TestAccAWSAPIGatewayDomainName_SecurityPolicy(t *testing.T) {
 	certificate := tlsRsaX509SelfSignedCertificatePem(key, rName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayDomainNameDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayDomainNameDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayDomainNameConfig_SecurityPolicy(rName, key, certificate, apigateway.SecurityPolicyTls12),
@@ -228,9 +228,9 @@ func TestAccAWSAPIGatewayDomainName_Tags(t *testing.T) {
 	certificate := tlsRsaX509SelfSignedCertificatePem(key, rName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayDomainNameDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayDomainNameDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayDomainNameConfigTags1(rName, key, certificate, "key1", "value1"),
@@ -276,9 +276,9 @@ func TestAccAWSAPIGatewayDomainName_disappears(t *testing.T) {
 	certificate := tlsRsaX509SelfSignedCertificatePem(key, rName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayDomainNameDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayDomainNameDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayDomainNameConfig_RegionalCertificateArn(rName, key, certificate),

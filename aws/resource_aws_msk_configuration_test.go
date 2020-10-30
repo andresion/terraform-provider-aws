@@ -81,9 +81,9 @@ func TestAccAWSMskConfiguration_basic(t *testing.T) {
 	resourceName := "aws_msk_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckMskConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckMskConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMskConfigurationConfig(rName),
@@ -112,9 +112,9 @@ func TestAccAWSMskConfiguration_disappears(t *testing.T) {
 	resourceName := "aws_msk_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckMskConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckMskConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMskConfigurationConfig(rName),
@@ -134,9 +134,9 @@ func TestAccAWSMskConfiguration_Description(t *testing.T) {
 	resourceName := "aws_msk_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckMskConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckMskConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMskConfigurationConfigDescription(rName, "description1"),
@@ -168,9 +168,9 @@ func TestAccAWSMskConfiguration_KafkaVersions(t *testing.T) {
 	resourceName := "aws_msk_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckMskConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckMskConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMskConfigurationConfigKafkaVersions(rName),
@@ -196,9 +196,9 @@ func TestAccAWSMskConfiguration_ServerProperties(t *testing.T) {
 	serverProperty2 := "auto.create.topics.enable = true"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckMskConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMsk(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckMskConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMskConfigurationConfigServerProperties(rName, serverProperty1),

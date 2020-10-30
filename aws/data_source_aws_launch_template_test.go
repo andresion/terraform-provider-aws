@@ -15,9 +15,9 @@ func TestAccAWSLaunchTemplateDataSource_basic(t *testing.T) {
 	resourceName := "aws_launch_template.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchTemplateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchTemplateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLaunchTemplateDataSourceConfig_Basic(rName),
@@ -39,9 +39,9 @@ func TestAccAWSLaunchTemplateDataSource_filter_basic(t *testing.T) {
 	resourceName := "aws_launch_template.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchTemplateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchTemplateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLaunchTemplateDataSourceConfigBasicFilter(rName),
@@ -84,9 +84,9 @@ func TestAccAWSLaunchTemplateDataSource_filter_tags(t *testing.T) {
 	resourceName := "aws_launch_template.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchTemplateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchTemplateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLaunchTemplateDataSourceConfigFilterTags(rName, rInt),
@@ -108,9 +108,9 @@ func TestAccAWSLaunchTemplateDataSource_metadataOptions(t *testing.T) {
 	resourceName := "aws_launch_template.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchTemplateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchTemplateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLaunchTemplateDataSourceConfig_metadataOptions(rName),
@@ -131,9 +131,9 @@ func TestAccAWSLaunchTemplateDataSource_associatePublicIPAddress(t *testing.T) {
 	resourceName := "aws_launch_template.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchTemplateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchTemplateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLaunchTemplateDataSourceConfig_associatePublicIpAddress(rName, "true"),
@@ -166,9 +166,9 @@ func TestAccAWSLaunchTemplateDataSource_networkInterfaces_deleteOnTermination(t 
 	resourceName := "aws_launch_template.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchTemplateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchTemplateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLaunchTemplateDataSourceConfigNetworkInterfacesDeleteOnTermination(rName, "true"),
@@ -197,9 +197,9 @@ func TestAccAWSLaunchTemplateDataSource_networkInterfaces_deleteOnTermination(t 
 
 func TestAccAWSLaunchTemplateDataSource_NonExistent(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchTemplateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchTemplateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSLaunchTemplateDataSourceConfig_NonExistent,

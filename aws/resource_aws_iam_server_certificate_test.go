@@ -63,9 +63,9 @@ func TestAccAWSIAMServerCertificate_basic(t *testing.T) {
 	certificate := tlsRsaX509SelfSignedCertificatePem(key, "example.com")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckIAMServerCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMServerCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccIAMServerCertConfig(rName, key, certificate),
@@ -95,9 +95,9 @@ func TestAccAWSIAMServerCertificate_name_prefix(t *testing.T) {
 	certificate := tlsRsaX509SelfSignedCertificatePem(key, "example.com")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckIAMServerCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMServerCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccIAMServerCertConfig_random(key, certificate),
@@ -132,9 +132,9 @@ func TestAccAWSIAMServerCertificate_disappears(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckIAMServerCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMServerCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccIAMServerCertConfig_random(key, certificate),
@@ -158,9 +158,9 @@ func TestAccAWSIAMServerCertificate_file(t *testing.T) {
 	resourceId := fmt.Sprintf("terraform-test-cert-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckIAMServerCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMServerCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccIAMServerCertConfig_file(rInt, unixFile),
@@ -196,9 +196,9 @@ func TestAccAWSIAMServerCertificate_Path(t *testing.T) {
 	certificate := tlsRsaX509SelfSignedCertificatePem(key, "example.com")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckIAMServerCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMServerCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccIAMServerCertConfig_path(rName, "/test/", key, certificate),

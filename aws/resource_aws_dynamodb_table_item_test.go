@@ -25,9 +25,9 @@ func TestAccAWSDynamoDbTableItem_basic(t *testing.T) {
 }`
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbItemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbItemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbItemConfigBasic(tableName, hashKey, itemContent),
@@ -59,9 +59,9 @@ func TestAccAWSDynamoDbTableItem_rangeKey(t *testing.T) {
 }`
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbItemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbItemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbItemConfigWithRangeKey(tableName, hashKey, rangeKey, itemContent),
@@ -102,9 +102,9 @@ func TestAccAWSDynamoDbTableItem_withMultipleItems(t *testing.T) {
 }`
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbItemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbItemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbItemConfigWithMultipleItems(tableName, hashKey, rangeKey, firstItem, secondItem),
@@ -149,9 +149,9 @@ func TestAccAWSDynamoDbTableItem_update(t *testing.T) {
 }`
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbItemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbItemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbItemConfigBasic(tableName, hashKey, itemBefore),
@@ -196,9 +196,9 @@ func TestAccAWSDynamoDbTableItem_updateWithRangeKey(t *testing.T) {
 }`
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDynamoDbItemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDynamoDbItemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDynamoDbItemConfigWithRangeKey(tableName, hashKey, rangeKey, itemBefore),

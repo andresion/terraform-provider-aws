@@ -17,9 +17,9 @@ func TestAccAWSGlueUserDefinedFunction_basic(t *testing.T) {
 	resourceName := "aws_glue_user_defined_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlueUDFDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlueUDFDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueUserDefinedFunctionBasicConfig(rName, rName),
@@ -56,9 +56,9 @@ func TestAccAWSGlueUserDefinedFunction_resource_uri(t *testing.T) {
 	resourceName := "aws_glue_user_defined_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlueUDFDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlueUDFDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueUserDefinedFunctionResourceURIConfig1(rName),
@@ -95,9 +95,9 @@ func TestAccAWSGlueUserDefinedFunction_disappears(t *testing.T) {
 	resourceName := "aws_glue_user_defined_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlueUDFDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlueUDFDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlueUserDefinedFunctionBasicConfig(rName, rName),

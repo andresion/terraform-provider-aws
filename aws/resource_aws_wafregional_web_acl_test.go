@@ -122,9 +122,9 @@ func TestAccAWSWafRegionalWebAcl_basic(t *testing.T) {
 	resourceName := "aws_wafregional_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalWebAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalWebAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalWebAclConfig(wafAclName),
@@ -154,9 +154,9 @@ func TestAccAWSWafRegionalWebAcl_tags(t *testing.T) {
 	resourceName := "aws_wafregional_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalWebAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalWebAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalWebAclConfigTags1(wafAclName, "key1", "value1"),
@@ -198,9 +198,9 @@ func TestAccAWSWafRegionalWebAcl_createRateBased(t *testing.T) {
 	resourceName := "aws_wafregional_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalWebAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalWebAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalWebAclConfigRateBased(wafAclName),
@@ -228,9 +228,9 @@ func TestAccAWSWafRegionalWebAcl_createGroup(t *testing.T) {
 	resourceName := "aws_wafregional_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalWebAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalWebAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalWebAclConfigGroup(wafAclName),
@@ -259,9 +259,9 @@ func TestAccAWSWafRegionalWebAcl_changeNameForceNew(t *testing.T) {
 	resourceName := "aws_wafregional_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalWebAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalWebAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalWebAclConfig(wafAclName),
@@ -301,9 +301,9 @@ func TestAccAWSWafRegionalWebAcl_changeDefaultAction(t *testing.T) {
 	resourceName := "aws_wafregional_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalWebAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalWebAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalWebAclConfig(wafAclName),
@@ -342,9 +342,9 @@ func TestAccAWSWafRegionalWebAcl_disappears(t *testing.T) {
 	resourceName := "aws_wafregional_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalWebAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalWebAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalWebAclConfig(wafAclName),
@@ -364,9 +364,9 @@ func TestAccAWSWafRegionalWebAcl_noRules(t *testing.T) {
 	resourceName := "aws_wafregional_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalWebAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalWebAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalWebAclConfig_noRules(wafAclName),
@@ -395,9 +395,9 @@ func TestAccAWSWafRegionalWebAcl_changeRules(t *testing.T) {
 	resourceName := "aws_wafregional_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalWebAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalWebAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalWebAclConfig(wafAclName),
@@ -439,9 +439,9 @@ func TestAccAWSWafRegionalWebAcl_LoggingConfiguration(t *testing.T) {
 	resourceName := "aws_wafregional_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalWebAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalWebAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalWebAclConfigLoggingConfiguration(rName),

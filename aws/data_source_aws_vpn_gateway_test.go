@@ -17,8 +17,8 @@ func TestAccDataSourceAwsVpnGateway_unattached(t *testing.T) {
 	resourceName := "aws_vpn_gateway.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsVpnGatewayUnattachedConfig(rInt),
@@ -42,8 +42,8 @@ func TestAccDataSourceAwsVpnGateway_attached(t *testing.T) {
 	dataSourceName := "data.aws_vpn_gateway.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsVpnGatewayAttachedConfig(rInt),

@@ -23,9 +23,9 @@ func TestAccAWSS3BucketInventory_basic(t *testing.T) {
 	inventoryName := t.Name()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketInventoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketInventoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketInventoryConfig(bucketName, inventoryName),
@@ -68,9 +68,9 @@ func TestAccAWSS3BucketInventory_encryptWithSSES3(t *testing.T) {
 	inventoryName := t.Name()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketInventoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketInventoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketInventoryConfigEncryptWithSSES3(bucketName, inventoryName),
@@ -97,9 +97,9 @@ func TestAccAWSS3BucketInventory_encryptWithSSEKMS(t *testing.T) {
 	inventoryName := t.Name()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketInventoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketInventoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketInventoryConfigEncryptWithSSEKMS(bucketName, inventoryName),

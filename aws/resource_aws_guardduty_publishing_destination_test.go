@@ -86,9 +86,9 @@ func testAccAwsGuardDutyPublishingDestination_basic(t *testing.T) {
 	kmsKeyResourceName := "aws_kms_key.gd_key"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsGuardDutyPublishingDestinationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsGuardDutyPublishingDestinationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsGuardDutyPublishingDestinationConfig_basic(bucketName),
@@ -113,9 +113,9 @@ func testAccAwsGuardDutyPublishingDestination_disappears(t *testing.T) {
 	bucketName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsGuardDutyPublishingDestinationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsGuardDutyPublishingDestinationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsGuardDutyPublishingDestinationConfig_basic(bucketName),

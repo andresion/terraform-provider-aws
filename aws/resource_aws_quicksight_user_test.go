@@ -22,9 +22,9 @@ func TestAccAWSQuickSightUser_basic(t *testing.T) {
 	resourceName2 := "aws_quicksight_user." + rName2
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckQuickSightUserDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckQuickSightUserDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSQuickSightUserConfig(rName1),
@@ -52,9 +52,9 @@ func TestAccAWSQuickSightUser_withInvalidFormattedEmailStillWorks(t *testing.T) 
 	resourceName := "aws_quicksight_user." + rName
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckQuickSightUserDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckQuickSightUserDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSQuickSightUserConfigWithEmail(rName, "nottarealemailbutworks"),
@@ -80,9 +80,9 @@ func TestAccAWSQuickSightUser_disappears(t *testing.T) {
 	resourceName := "aws_quicksight_user." + rName
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckQuickSightUserDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckQuickSightUserDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSQuickSightUserConfig(rName),

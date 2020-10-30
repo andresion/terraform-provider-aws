@@ -80,9 +80,9 @@ func TestAccAWSDBParameterGroup_basic(t *testing.T) {
 	groupName := fmt.Sprintf("parameter-group-test-terraform-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBParameterGroupConfig(groupName),
@@ -173,9 +173,9 @@ func TestAccAWSDBParameterGroup_limit(t *testing.T) {
 	groupName := fmt.Sprintf("parameter-group-test-terraform-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: createAwsDbParameterGroupsExceedDefaultAwsLimit(groupName),
@@ -540,9 +540,9 @@ func TestAccAWSDBParameterGroup_Disappears(t *testing.T) {
 	groupName := fmt.Sprintf("parameter-group-test-terraform-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBParameterGroupConfig(groupName),
@@ -560,9 +560,9 @@ func TestAccAWSDBParameterGroup_namePrefix(t *testing.T) {
 	var v rds.DBParameterGroup
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDBParameterGroupConfig_namePrefix,
@@ -579,9 +579,9 @@ func TestAccAWSDBParameterGroup_generatedName(t *testing.T) {
 	var v rds.DBParameterGroup
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDBParameterGroupConfig_generatedName,
@@ -599,9 +599,9 @@ func TestAccAWSDBParameterGroup_withApplyMethod(t *testing.T) {
 	groupName := fmt.Sprintf("parameter-group-test-terraform-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBParameterGroupConfigWithApplyMethod(groupName),
@@ -638,9 +638,9 @@ func TestAccAWSDBParameterGroup_Only(t *testing.T) {
 	groupName := fmt.Sprintf("parameter-group-test-terraform-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBParameterGroupOnlyConfig(groupName),
@@ -666,9 +666,9 @@ func TestAccAWSDBParameterGroup_MatchDefault(t *testing.T) {
 	groupName := fmt.Sprintf("parameter-group-test-terraform-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBParameterGroupIncludeDefaultConfig(groupName),
@@ -694,9 +694,9 @@ func TestAccAWSDBParameterGroup_updateParameters(t *testing.T) {
 	groupName := fmt.Sprintf("parameter-group-test-terraform-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBParameterGroupUpdateParametersInitialConfig(groupName),

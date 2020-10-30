@@ -17,9 +17,9 @@ func TestAccAWSElasticacheSubnetGroup_basic(t *testing.T) {
 	resourceName := "aws_elasticache_subnet_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheSubnetGroupConfig(acctest.RandInt()),
@@ -46,9 +46,9 @@ func TestAccAWSElasticacheSubnetGroup_update(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheSubnetGroupUpdateConfigPre(rInt),

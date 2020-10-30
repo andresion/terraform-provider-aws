@@ -16,10 +16,10 @@ func TestAccAWSPinpointEmailChannel_basic(t *testing.T) {
 	resourceName := "aws_pinpoint_email_channel.test_email_channel"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSPinpointEmailChannelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSPinpointEmailChannelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSPinpointEmailChannelConfig_FromAddress("user@example.com"),

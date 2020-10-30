@@ -60,9 +60,9 @@ func TestAccAWSBatchJobQueue_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchJobQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchJobQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBatchJobQueueConfigState(rName, batch.JQStateEnabled),
@@ -91,9 +91,9 @@ func TestAccAWSBatchJobQueue_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLaunchTemplateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLaunchTemplateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBatchJobQueueConfigState(rName, batch.JQStateEnabled),
@@ -114,9 +114,9 @@ func TestAccAWSBatchJobQueue_ComputeEnvironments_ExternalOrderUpdate(t *testing.
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchJobQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchJobQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBatchJobQueueConfigState(rName, batch.JQStateEnabled),
@@ -140,9 +140,9 @@ func TestAccAWSBatchJobQueue_Priority(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchJobQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchJobQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBatchJobQueueConfigPriority(rName, 1),
@@ -173,9 +173,9 @@ func TestAccAWSBatchJobQueue_State(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchJobQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchJobQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBatchJobQueueConfigState(rName, batch.JQStateDisabled),
@@ -206,9 +206,9 @@ func TestAccAWSBatchJobQueue_Tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchJobQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchJobQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBatchJobQueueConfigTags1(rName, "key1", "value1"),

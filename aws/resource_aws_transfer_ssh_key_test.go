@@ -17,9 +17,9 @@ func TestAccAWSTransferSshKey_basic(t *testing.T) {
 	rName := acctest.RandString(5)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSTransferSshKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSTransferSshKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSTransferSshKeyConfig_basic(rName),

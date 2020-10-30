@@ -11,9 +11,9 @@ import (
 func TestAccDataSourceAwsEbsVolumes_basic(t *testing.T) {
 	rInt := acctest.RandIntRange(0, 256)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVolumeDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVolumeDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsEbsVolumeIDsConfig(rInt),

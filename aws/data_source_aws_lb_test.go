@@ -15,8 +15,8 @@ func TestAccDataSourceAWSLB_basic(t *testing.T) {
 	resourceName := "aws_lb.alb_test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAWSLBConfigBasic(lbName),
@@ -61,8 +61,8 @@ func TestAccDataSourceAWSLB_outpost(t *testing.T) {
 	resourceName := "aws_lb.alb_test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAWSLBConfigOutpost(lbName),
@@ -95,8 +95,8 @@ func TestAccDataSourceAWSLB_BackwardsCompatibility(t *testing.T) {
 	resourceName := "aws_alb.alb_test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAWSLBConfigBackardsCompatibility(lbName),

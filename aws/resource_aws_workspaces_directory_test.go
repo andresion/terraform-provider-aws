@@ -68,8 +68,8 @@ func TestAccAwsWorkspacesDirectory_basic(t *testing.T) {
 			testAccPreCheckAWSDirectoryServiceSimpleDirectory(t)
 			testAccPreCheckHasIAMRole(t, "workspaces_DefaultRole")
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWorkspacesDirectoryDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWorkspacesDirectoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccWorkspacesDirectoryConfig(rName),
@@ -121,8 +121,8 @@ func TestAccAwsWorkspacesDirectory_disappears(t *testing.T) {
 			testAccPreCheckAWSDirectoryServiceSimpleDirectory(t)
 			testAccPreCheckHasIAMRole(t, "workspaces_DefaultRole")
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWorkspacesDirectoryDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWorkspacesDirectoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccWorkspacesDirectoryConfig(rName),
@@ -149,8 +149,8 @@ func TestAccAwsWorkspacesDirectory_subnetIds(t *testing.T) {
 			testAccPreCheckAWSDirectoryServiceSimpleDirectory(t)
 			testAccPreCheckHasIAMRole(t, "workspaces_DefaultRole")
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWorkspacesDirectoryDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWorkspacesDirectoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccWorkspacesDirectoryConfig_subnetIds(rName),
@@ -181,8 +181,8 @@ func TestAccAwsWorkspacesDirectory_tags(t *testing.T) {
 			testAccPreCheckAWSDirectoryServiceSimpleDirectory(t)
 			testAccPreCheckHasIAMRole(t, "workspaces_DefaultRole")
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWorkspacesDirectoryDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWorkspacesDirectoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccWorkspacesDirectoryConfigTags1(rName, "key1", "value1"),
@@ -231,8 +231,8 @@ func TestAccAwsWorkspacesDirectory_selfServicePermissions(t *testing.T) {
 			testAccPreCheckAWSDirectoryServiceSimpleDirectory(t)
 			testAccPreCheckHasIAMRole(t, "workspaces_DefaultRole")
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWorkspacesDirectoryDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWorkspacesDirectoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccWorkspacesDirectory_selfServicePermissions(rName),
@@ -264,8 +264,8 @@ func TestAccAwsWorkspacesDirectory_workspaceCreationProperties(t *testing.T) {
 			testAccPreCheckAWSDirectoryServiceSimpleDirectory(t)
 			testAccPreCheckHasIAMRole(t, "workspaces_DefaultRole")
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWorkspacesDirectoryDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWorkspacesDirectoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccWorkspacesDirectoryConfig_workspaceCreationProperties(rName),

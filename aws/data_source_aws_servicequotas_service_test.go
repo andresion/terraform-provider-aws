@@ -11,8 +11,8 @@ func TestAccAwsServiceQuotasServiceDataSource_ServiceName(t *testing.T) {
 	dataSourceName := "data.aws_servicequotas_service.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsServiceQuotasServiceDataSourceConfigServiceName("Amazon Virtual Private Cloud (Amazon VPC)"),

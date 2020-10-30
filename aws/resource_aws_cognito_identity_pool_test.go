@@ -21,9 +21,9 @@ func TestAccAWSCognitoIdentityPool_basic(t *testing.T) {
 	resourceName := "aws_cognito_identity_pool.main"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoIdentityPoolDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoIdentityPoolDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoIdentityPoolConfig_basic(name),
@@ -55,9 +55,9 @@ func TestAccAWSCognitoIdentityPool_supportedLoginProviders(t *testing.T) {
 	resourceName := "aws_cognito_identity_pool.main"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoIdentityPoolDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoIdentityPoolDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoIdentityPoolConfig_supportedLoginProviders(name),
@@ -97,9 +97,9 @@ func TestAccAWSCognitoIdentityPool_openidConnectProviderArns(t *testing.T) {
 	resourceName := "aws_cognito_identity_pool.main"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoIdentityPoolDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoIdentityPoolDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoIdentityPoolConfig_openidConnectProviderArns(name),
@@ -138,9 +138,9 @@ func TestAccAWSCognitoIdentityPool_samlProviderArns(t *testing.T) {
 	resourceName := "aws_cognito_identity_pool.main"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoIdentityPoolDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoIdentityPoolDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoIdentityPoolConfig_samlProviderArns(name),
@@ -180,9 +180,9 @@ func TestAccAWSCognitoIdentityPool_cognitoIdentityProviders(t *testing.T) {
 	resourceName := "aws_cognito_identity_pool.main"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoIdentityPoolDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoIdentityPoolDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoIdentityPoolConfig_cognitoIdentityProviders(name),
@@ -234,9 +234,9 @@ func TestAccAWSCognitoIdentityPool_addingNewProviderKeepsOldProvider(t *testing.
 	resourceName := "aws_cognito_identity_pool.main"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoIdentityPoolDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoIdentityPoolDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoIdentityPoolConfig_cognitoIdentityProviders(name),
@@ -278,9 +278,9 @@ func TestAccAWSCognitoIdentityPool_tags(t *testing.T) {
 	resourceName := "aws_cognito_identity_pool.main"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoIdentityPoolDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoIdentityPoolDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoIdentityPoolConfig_Tags1(name, "key1", "value1"),

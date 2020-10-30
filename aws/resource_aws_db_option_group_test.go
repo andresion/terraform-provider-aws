@@ -77,9 +77,9 @@ func TestAccAWSDBOptionGroup_basic(t *testing.T) {
 	rName := fmt.Sprintf("option-group-test-terraform-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBOptionGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBOptionGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBOptionGroupBasicConfig(rName),
@@ -109,9 +109,9 @@ func TestAccAWSDBOptionGroup_timeoutBlock(t *testing.T) {
 	rName := fmt.Sprintf("option-group-test-terraform-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBOptionGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBOptionGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBOptionGroupBasicConfigTimeoutBlock(rName),
@@ -135,9 +135,9 @@ func TestAccAWSDBOptionGroup_namePrefix(t *testing.T) {
 	var v rds.OptionGroup
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBOptionGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBOptionGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBOptionGroup_namePrefix,
@@ -161,9 +161,9 @@ func TestAccAWSDBOptionGroup_generatedName(t *testing.T) {
 	var v rds.OptionGroup
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBOptionGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBOptionGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBOptionGroup_generatedName,
@@ -187,9 +187,9 @@ func TestAccAWSDBOptionGroupConfig_OptionGroupDescription(t *testing.T) {
 	resourceName := "aws_db_option_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBOptionGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBOptionGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBOptionGroupConfigOptionGroupDescription(rName, "description1"),
@@ -212,9 +212,9 @@ func TestAccAWSDBOptionGroup_basicDestroyWithInstance(t *testing.T) {
 	rName := fmt.Sprintf("option-group-test-terraform-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBOptionGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBOptionGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBOptionGroupBasicDestroyConfig(rName),
@@ -234,9 +234,9 @@ func TestAccAWSDBOptionGroup_Option_OptionSettings(t *testing.T) {
 	rName := fmt.Sprintf("option-group-test-terraform-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBOptionGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBOptionGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBOptionGroupOptionSettings(rName),
@@ -288,9 +288,9 @@ func TestAccAWSDBOptionGroup_Option_OptionSettings_IAMRole(t *testing.T) {
 	rName := fmt.Sprintf("option-group-test-terraform-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBOptionGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBOptionGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBOptionGroupOptionSettingsIAMRole(rName),
@@ -318,9 +318,9 @@ func TestAccAWSDBOptionGroup_sqlServerOptionsUpdate(t *testing.T) {
 	rName := fmt.Sprintf("option-group-test-terraform-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBOptionGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBOptionGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBOptionGroupSqlServerEEOptions(rName),
@@ -355,9 +355,9 @@ func TestAccAWSDBOptionGroup_OracleOptionsUpdate(t *testing.T) {
 	rName := fmt.Sprintf("option-group-test-terraform-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBOptionGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBOptionGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBOptionGroupOracleEEOptionSettings(rName, "13.2.0.0.v2"),
@@ -399,9 +399,9 @@ func TestAccAWSDBOptionGroup_Option_OptionSettings_MultipleNonDefault(t *testing
 	resourceName := "aws_db_option_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBOptionGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBOptionGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBOptionGroupConfigOptionOptionSettingsMultiple(rName, "example1"),
@@ -432,9 +432,9 @@ func TestAccAWSDBOptionGroup_multipleOptions(t *testing.T) {
 	rName := fmt.Sprintf("option-group-test-terraform-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBOptionGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBOptionGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBOptionGroupMultipleOptions(rName),
@@ -462,9 +462,9 @@ func TestAccAWSDBOptionGroup_Tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBOptionGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBOptionGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBOptionGroupConfigTags1(rName, "key1", "value1"),
@@ -508,9 +508,9 @@ func TestAccAWSDBOptionGroup_Tags_WithOptions(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBOptionGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBOptionGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBOptionGroupConfigTagsWithOption1(rName, "key1", "value1"),

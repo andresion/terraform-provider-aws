@@ -25,8 +25,8 @@ func TestAccAwsSESIdentityNotificationTopic_basic(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckAWSSES(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSESIdentityNotificationTopicDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSESIdentityNotificationTopicDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: fmt.Sprintf(testAccAwsSESIdentityNotificationTopicConfig_basic, domain),

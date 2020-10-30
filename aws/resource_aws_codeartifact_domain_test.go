@@ -71,9 +71,9 @@ func TestAccAWSCodeArtifactDomain_basic(t *testing.T) {
 	resourceName := "aws_codeartifact_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeArtifactDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeArtifactDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeArtifactDomainBasicConfig(rName),
@@ -102,9 +102,9 @@ func TestAccAWSCodeArtifactDomain_disappears(t *testing.T) {
 	resourceName := "aws_codeartifact_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeArtifactDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeArtifactDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeArtifactDomainBasicConfig(rName),

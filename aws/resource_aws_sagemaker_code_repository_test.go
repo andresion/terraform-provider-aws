@@ -63,9 +63,9 @@ func TestAccAWSSagemakerCodeRepository_basic(t *testing.T) {
 	resourceName := "aws_sagemaker_code_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSagemakerCodeRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSagemakerCodeRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSagemakerCodeRepositoryBasicConfig(rName),
@@ -92,9 +92,9 @@ func TestAccAWSSagemakerCodeRepository_gitConfig_branch(t *testing.T) {
 	resourceName := "aws_sagemaker_code_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSagemakerCodeRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSagemakerCodeRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSagemakerCodeRepositoryGitConfigBranchConfig(rName),
@@ -122,9 +122,9 @@ func TestAccAWSSagemakerCodeRepository_gitConfig_secret(t *testing.T) {
 	resourceName := "aws_sagemaker_code_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSagemakerCodeRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSagemakerCodeRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSagemakerCodeRepositoryGitConfigSecretConfig(rName),
@@ -163,9 +163,9 @@ func TestAccAWSSagemakerCodeRepository_disappears(t *testing.T) {
 	resourceName := "aws_sagemaker_code_repository.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSagemakerCodeRepositoryDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSagemakerCodeRepositoryDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSagemakerCodeRepositoryBasicConfig(rName),

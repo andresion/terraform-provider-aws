@@ -17,9 +17,9 @@ func TestAccAWSCodeArtifactDomainPermissionsPolicy_basic(t *testing.T) {
 	resourceName := "aws_codeartifact_domain_permissions_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeArtifactDomainPermissionsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeArtifactDomainPermissionsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeArtifactDomainPermissionsPolicyBasicConfig(rName),
@@ -56,9 +56,9 @@ func TestAccAWSCodeArtifactDomainPermissionsPolicy_owner(t *testing.T) {
 	resourceName := "aws_codeartifact_domain_permissions_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeArtifactDomainPermissionsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeArtifactDomainPermissionsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeArtifactDomainPermissionsPolicyOwnerConfig(rName),
@@ -84,9 +84,9 @@ func TestAccAWSCodeArtifactDomainPermissionsPolicy_disappears(t *testing.T) {
 	resourceName := "aws_codeartifact_domain_permissions_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeArtifactDomainPermissionsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeArtifactDomainPermissionsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeArtifactDomainPermissionsPolicyBasicConfig(rName),
@@ -105,9 +105,9 @@ func TestAccAWSCodeArtifactDomainPermissionsPolicy_disappears_domain(t *testing.
 	resourceName := "aws_codeartifact_domain_permissions_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeArtifactDomainPermissionsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("codeartifact", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeArtifactDomainPermissionsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeArtifactDomainPermissionsPolicyBasicConfig(rName),

@@ -17,9 +17,9 @@ func TestAccAwsGlobalAcceleratorEndpointGroup_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlobalAcceleratorEndpointGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlobalAcceleratorEndpointGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlobalAcceleratorEndpointGroupConfigBasic(rName),
@@ -49,9 +49,9 @@ func TestAccAwsGlobalAcceleratorEndpointGroup_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlobalAcceleratorEndpointGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlobalAcceleratorEndpointGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlobalAcceleratorEndpointGroupConfigBasic(rName),
@@ -72,9 +72,9 @@ func TestAccAwsGlobalAcceleratorEndpointGroup_ALBEndpoint_ClientIP(t *testing.T)
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlobalAcceleratorEndpointGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlobalAcceleratorEndpointGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlobalAcceleratorEndpointGroupConfigALBEndpointClientIP(rName, false),
@@ -133,9 +133,9 @@ func TestAccAwsGlobalAcceleratorEndpointGroup_InstanceEndpoint(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlobalAcceleratorEndpointGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlobalAcceleratorEndpointGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlobalAcceleratorEndpointGroupConfigInstanceEndpoint(rName),
@@ -175,9 +175,9 @@ func TestAccAwsGlobalAcceleratorEndpointGroup_update(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlobalAcceleratorEndpointGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlobalAcceleratorEndpointGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlobalAcceleratorEndpointGroupConfigBasic(rName),
@@ -213,9 +213,9 @@ func TestAccAwsGlobalAcceleratorEndpointGroup_tcp(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlobalAcceleratorEndpointGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlobalAcceleratorEndpointGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlobalAcceleratorEndpointGroup_tcp(rInt),

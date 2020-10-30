@@ -14,8 +14,8 @@ func TestAccDataSourceAwsInternetGateway_typical(t *testing.T) {
 	ds3ResourceName := "data.aws_internet_gateway.by_tags"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsInternetGatewayConfig,

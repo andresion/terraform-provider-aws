@@ -15,8 +15,8 @@ func TestAccAWSLaunchConfigurationDataSource_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccLaunchConfigurationDataSourceConfig_basic(rName),
@@ -42,8 +42,8 @@ func TestAccAWSLaunchConfigurationDataSource_securityGroups(t *testing.T) {
 	rName := "data.aws_launch_configuration.foo"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccLaunchConfigurationDataSourceConfig_securityGroups(rInt),
@@ -61,8 +61,8 @@ func TestAccAWSLaunchConfigurationDataSource_ebsNoDevice(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccLaunchConfigurationDataSourceConfigEbsNoDevice(rName),

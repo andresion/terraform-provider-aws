@@ -115,9 +115,9 @@ func TestAccAWSCloudWatchEventTarget_basic(t *testing.T) {
 	targetID2 := fmt.Sprintf("tf-acc-cw-target-%s", rName2)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventTargetConfig(ruleName, snsTopicName1, targetID1),
@@ -156,9 +156,9 @@ func TestAccAWSCloudWatchEventTarget_missingTargetId(t *testing.T) {
 	snsTopicName := fmt.Sprintf("tf-acc-%s", rName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventTargetConfigMissingTargetId(ruleName, snsTopicName),
@@ -187,9 +187,9 @@ func TestAccAWSCloudWatchEventTarget_full(t *testing.T) {
 	targetID := fmt.Sprintf("tf-acc-cw-target-full-%s", rName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventTargetConfig_full(ruleName, targetID, ssmDocumentName),
@@ -217,9 +217,9 @@ func TestAccAWSCloudWatchEventTarget_ssmDocument(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf_ssm_Document")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventTargetConfigSsmDocument(rName),
@@ -242,9 +242,9 @@ func TestAccAWSCloudWatchEventTarget_ecs(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf_ecs_target")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventTargetConfigEcs(rName),
@@ -267,9 +267,9 @@ func TestAccAWSCloudWatchEventTarget_ecsWithBlankTaskCount(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf_ecs_target")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventTargetConfigEcsWithBlankTaskCount(rName),
@@ -293,9 +293,9 @@ func TestAccAWSCloudWatchEventTarget_batch(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf_batch_target")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventTargetConfigBatch(rName),
@@ -318,9 +318,9 @@ func TestAccAWSCloudWatchEventTarget_kinesis(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf_kinesis_target")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventTargetConfigKinesis(rName),
@@ -343,9 +343,9 @@ func TestAccAWSCloudWatchEventTarget_sqs(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf_sqs_target")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventTargetConfigSqs(rName),
@@ -368,9 +368,9 @@ func TestAccAWSCloudWatchEventTarget_input_transformer(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf_input_transformer")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSCloudWatchEventTargetConfigInputTransformer(rName, 11),

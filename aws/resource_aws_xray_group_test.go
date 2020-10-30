@@ -18,9 +18,9 @@ func TestAccAWSXrayGroup_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSXrayGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSXrayGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSXrayGroupBasicConfig(rName, "responsetime > 5"),
@@ -55,9 +55,9 @@ func TestAccAWSXrayGroup_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSXrayGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSXrayGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSXrayGroupBasicConfigTags1(rName, "key1", "value1"),
@@ -98,9 +98,9 @@ func TestAccAWSXrayGroup_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSXrayGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSXrayGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSXrayGroupBasicConfig(rName, "responsetime > 5"),

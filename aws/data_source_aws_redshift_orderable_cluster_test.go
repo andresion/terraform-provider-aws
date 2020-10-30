@@ -13,9 +13,9 @@ func TestAccAWSRedshiftOrderableClusterDataSource_ClusterType(t *testing.T) {
 	dataSourceName := "data.aws_redshift_orderable_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRedshiftOrderableClusterPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRedshiftOrderableClusterPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftOrderableClusterDataSourceConfig_ClusterType("multi-node"),
@@ -31,9 +31,9 @@ func TestAccAWSRedshiftOrderableClusterDataSource_ClusterVersion(t *testing.T) {
 	dataSourceName := "data.aws_redshift_orderable_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRedshiftOrderableClusterPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRedshiftOrderableClusterPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftOrderableClusterDataSourceConfig_ClusterVersion("1.0"),
@@ -50,9 +50,9 @@ func TestAccAWSRedshiftOrderableClusterDataSource_NodeType(t *testing.T) {
 	nodeType := "dc2.8xlarge"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRedshiftOrderableClusterPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRedshiftOrderableClusterPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftOrderableClusterDataSourceConfig_NodeType(nodeType),
@@ -69,9 +69,9 @@ func TestAccAWSRedshiftOrderableClusterDataSource_PreferredNodeTypes(t *testing.
 	preferredNodeType := "dc2.8xlarge"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRedshiftOrderableClusterPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRedshiftOrderableClusterPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftOrderableClusterDataSourceConfig_PreferredNodeTypes(preferredNodeType),

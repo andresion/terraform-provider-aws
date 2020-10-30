@@ -16,9 +16,9 @@ func TestAccAWSDirectoryServiceLogSubscription_basic(t *testing.T) {
 	logGroupName := "ad-service-log-subscription-test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDirectoryService(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDirectoryServiceLogSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDirectoryService(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDirectoryServiceLogSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			// test create
 			{

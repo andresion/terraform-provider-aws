@@ -11,8 +11,8 @@ import (
 
 func TestAccAWSRouteDataSource_basic(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsRouteGroupConfig(),
@@ -33,9 +33,9 @@ func TestAccAWSRouteDataSource_TransitGatewayID(t *testing.T) {
 	resourceName := "aws_route.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteDataSourceConfigTransitGatewayID(),
@@ -56,9 +56,9 @@ func TestAccAWSRouteDataSource_LocalGatewayID(t *testing.T) {
 	resourceName := "aws_route.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteDataSourceConfigLocalGatewayID(),

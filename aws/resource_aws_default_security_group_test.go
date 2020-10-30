@@ -18,10 +18,10 @@ func TestAccAWSDefaultSecurityGroup_Vpc_basic(t *testing.T) {
 	vpcResourceName := "aws_vpc.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSDefaultSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDefaultSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDefaultSecurityGroupConfig_Vpc,
@@ -71,10 +71,10 @@ func TestAccAWSDefaultSecurityGroup_Vpc_empty(t *testing.T) {
 	resourceName := "aws_default_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSDefaultSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDefaultSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDefaultSecurityGroupConfig_Vpc_empty,
@@ -103,10 +103,10 @@ func TestAccAWSDefaultSecurityGroup_Classic_basic(t *testing.T) {
 	resourceName := "aws_default_security_group.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSDefaultSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDefaultSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDefaultSecurityGroupConfig_Classic,
@@ -158,10 +158,10 @@ func TestAccAWSDefaultSecurityGroup_Classic_empty(t *testing.T) {
 	resourceName := "aws_default_security_group.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSDefaultSecurityGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccEC2ClassicPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDefaultSecurityGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDefaultSecurityGroupConfig_Classic_empty,

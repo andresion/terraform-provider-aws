@@ -95,10 +95,10 @@ func TestAccAWSPinpointAPNSVoipChannel_basicCertificate(t *testing.T) {
 	configuration := testAccAwsPinpointAPNSVoipChannelCertConfigurationFromEnv(t)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSPinpointAPNSVoipChannelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSPinpointAPNSVoipChannelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSPinpointAPNSVoipChannelConfig_basicCertificate(configuration),
@@ -129,10 +129,10 @@ func TestAccAWSPinpointAPNSVoipChannel_basicToken(t *testing.T) {
 	configuration := testAccAwsPinpointAPNSVoipChannelTokenConfigurationFromEnv(t)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSPinpointAPNSVoipChannelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSPinpointAPNSVoipChannelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSPinpointAPNSVoipChannelConfig_basicToken(configuration),

@@ -18,9 +18,9 @@ func TestAccAWSAPIGatewayMethodSettings_basic(t *testing.T) {
 	resourceName := "aws_api_gateway_method_settings.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodSettingsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodSettingsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodSettingsConfigSettingsLoggingLevel(rName, "INFO"),
@@ -46,9 +46,9 @@ func TestAccAWSAPIGatewayMethodSettings_Settings_CacheDataEncrypted(t *testing.T
 	resourceName := "aws_api_gateway_method_settings.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodSettingsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodSettingsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodSettingsConfigSettingsCacheDataEncrypted(rName, true),
@@ -82,9 +82,9 @@ func TestAccAWSAPIGatewayMethodSettings_Settings_CacheTtlInSeconds(t *testing.T)
 	resourceName := "aws_api_gateway_method_settings.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodSettingsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodSettingsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodSettingsConfigSettingsCacheTtlInSeconds(rName, 0),
@@ -126,9 +126,9 @@ func TestAccAWSAPIGatewayMethodSettings_Settings_CachingEnabled(t *testing.T) {
 	resourceName := "aws_api_gateway_method_settings.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodSettingsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodSettingsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodSettingsConfigSettingsCachingEnabled(rName, true),
@@ -162,9 +162,9 @@ func TestAccAWSAPIGatewayMethodSettings_Settings_DataTraceEnabled(t *testing.T) 
 	resourceName := "aws_api_gateway_method_settings.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodSettingsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodSettingsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodSettingsConfigSettingsDataTraceEnabled(rName, true),
@@ -198,9 +198,9 @@ func TestAccAWSAPIGatewayMethodSettings_Settings_LoggingLevel(t *testing.T) {
 	resourceName := "aws_api_gateway_method_settings.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodSettingsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodSettingsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodSettingsConfigSettingsLoggingLevel(rName, "INFO"),
@@ -236,9 +236,9 @@ func TestAccAWSAPIGatewayMethodSettings_Settings_MetricsEnabled(t *testing.T) {
 	resourceName := "aws_api_gateway_method_settings.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodSettingsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodSettingsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodSettingsConfigSettingsMetricsEnabled(rName, true),
@@ -274,9 +274,9 @@ func TestAccAWSAPIGatewayMethodSettings_Settings_Multiple(t *testing.T) {
 	resourceName := "aws_api_gateway_method_settings.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodSettingsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodSettingsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodSettingsConfigSettingsMultiple(rName, "INFO", true),
@@ -316,9 +316,9 @@ func TestAccAWSAPIGatewayMethodSettings_Settings_RequireAuthorizationForCacheCon
 	resourceName := "aws_api_gateway_method_settings.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodSettingsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodSettingsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodSettingsConfigSettingsRequireAuthorizationForCacheControl(rName, true),
@@ -352,9 +352,9 @@ func TestAccAWSAPIGatewayMethodSettings_Settings_ThrottlingBurstLimit(t *testing
 	resourceName := "aws_api_gateway_method_settings.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodSettingsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodSettingsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodSettingsConfigSettingsThrottlingBurstLimit(rName, 1),
@@ -389,9 +389,9 @@ func TestAccAWSAPIGatewayMethodSettings_Settings_ThrottlingBurstLimitDisabledByD
 	resourceName := "aws_api_gateway_method_settings.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodSettingsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodSettingsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodSettingsConfigSettingsLoggingLevel(rName, "INFO"),
@@ -425,9 +425,9 @@ func TestAccAWSAPIGatewayMethodSettings_Settings_ThrottlingRateLimit(t *testing.
 	resourceName := "aws_api_gateway_method_settings.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodSettingsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodSettingsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodSettingsConfigSettingsThrottlingRateLimit(rName, 1.1),
@@ -462,9 +462,9 @@ func TestAccAWSAPIGatewayMethodSettings_Settings_ThrottlingRateLimitDisabledByDe
 	resourceName := "aws_api_gateway_method_settings.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodSettingsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodSettingsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodSettingsConfigSettingsLoggingLevel(rName, "INFO"),
@@ -498,9 +498,9 @@ func TestAccAWSAPIGatewayMethodSettings_Settings_UnauthorizedCacheControlHeaderS
 	resourceName := "aws_api_gateway_method_settings.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodSettingsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodSettingsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodSettingsConfigSettingsUnauthorizedCacheControlHeaderStrategy(rName, "SUCCEED_WITH_RESPONSE_HEADER"),
@@ -567,9 +567,9 @@ func TestAccAWSAPIGatewayMethodSettings_disappears(t *testing.T) {
 	resourceName := "aws_api_gateway_method_settings.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayMethodSettingsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayMethodSettingsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayMethodSettingsConfigSettingsLoggingLevel(rName, "INFO"),

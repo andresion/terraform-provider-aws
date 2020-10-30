@@ -16,7 +16,7 @@ func TestAccAWSSsmParameterDataSource_basic(t *testing.T) {
 		PreCheck: func() {
 			testAccPreCheck(t)
 		},
-		Providers: testAccProviders,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsSsmParameterDataSourceConfig(name, "false"),
@@ -51,7 +51,7 @@ func TestAccAWSSsmParameterDataSource_fullPath(t *testing.T) {
 		PreCheck: func() {
 			testAccPreCheck(t)
 		},
-		Providers: testAccProviders,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsSsmParameterDataSourceConfig(name, "false"),

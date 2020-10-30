@@ -64,9 +64,9 @@ func TestAccAWSConfigAggregateAuthorization_basic(t *testing.T) {
 	region := "eu-west-1"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSConfigAggregateAuthorizationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSConfigAggregateAuthorizationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSConfigAggregateAuthorizationConfig_basic(rString),
@@ -90,9 +90,9 @@ func TestAccAWSConfigAggregateAuthorization_tags(t *testing.T) {
 	resourceName := "aws_config_aggregate_authorization.example"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSConfigAggregateAuthorizationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSConfigAggregateAuthorizationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSConfigAggregateAuthorizationConfig_tags(rString, "foo", "bar", "fizz", "buzz"),

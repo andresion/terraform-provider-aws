@@ -85,9 +85,9 @@ func TestAccAWSS3AccessPoint_basic(t *testing.T) {
 	resourceName := "aws_s3_access_point.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3AccessPointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3AccessPointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3AccessPointConfig_basic(bucketName, accessPointName),
@@ -125,9 +125,9 @@ func TestAccAWSS3AccessPoint_disappears(t *testing.T) {
 	resourceName := "aws_s3_access_point.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3AccessPointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3AccessPointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3AccessPointConfig_basic(bucketName, accessPointName),
@@ -149,9 +149,9 @@ func TestAccAWSS3AccessPoint_bucketDisappears(t *testing.T) {
 	bucketResourceName := "aws_s3_bucket.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3AccessPointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3AccessPointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3AccessPointConfig_basic(bucketName, accessPointName),
@@ -171,9 +171,9 @@ func TestAccAWSS3AccessPoint_Bucket_Arn(t *testing.T) {
 	resourceName := "aws_s3_access_point.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3AccessPointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3AccessPointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3AccessPointConfig_Bucket_Arn(rName),
@@ -251,9 +251,9 @@ func TestAccAWSS3AccessPoint_Policy(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3AccessPointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3AccessPointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3AccessPointConfig_policy(rName),
@@ -304,9 +304,9 @@ func TestAccAWSS3AccessPoint_PublicAccessBlockConfiguration(t *testing.T) {
 	resourceName := "aws_s3_access_point.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3AccessPointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3AccessPointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3AccessPointConfig_publicAccessBlock(rName),
@@ -343,9 +343,9 @@ func TestAccAWSS3AccessPoint_VpcConfiguration(t *testing.T) {
 	vpcResourceName := "aws_vpc.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3AccessPointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3AccessPointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3AccessPointConfig_vpc(rName),

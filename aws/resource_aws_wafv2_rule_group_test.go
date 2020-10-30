@@ -84,9 +84,9 @@ func TestAccAwsWafv2RuleGroup_basic(t *testing.T) {
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_Basic(ruleGroupName),
@@ -121,9 +121,9 @@ func TestAccAwsWafv2RuleGroup_updateRule(t *testing.T) {
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_Basic(ruleGroupName),
@@ -187,9 +187,9 @@ func TestAccAwsWafv2RuleGroup_updateRuleProperties(t *testing.T) {
 	ruleName2 := fmt.Sprintf("%s-2", ruleGroupName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_BasicUpdate(ruleGroupName),
@@ -358,9 +358,9 @@ func TestAccAwsWafv2RuleGroup_ByteMatchStatement(t *testing.T) {
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_ByteMatchStatement(ruleGroupName),
@@ -420,9 +420,9 @@ func TestAccAwsWafv2RuleGroup_ByteMatchStatement_FieldToMatch(t *testing.T) {
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_ByteMatchStatement_FieldToMatchAllQueryArguments(ruleGroupName),
@@ -583,9 +583,9 @@ func TestAccAwsWafv2RuleGroup_ChangeNameForceNew(t *testing.T) {
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_Basic(ruleGroupName),
@@ -629,9 +629,9 @@ func TestAccAwsWafv2RuleGroup_ChangeCapacityForceNew(t *testing.T) {
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_Basic(ruleGroupName),
@@ -675,9 +675,9 @@ func TestAccAwsWafv2RuleGroup_ChangeMetricNameForceNew(t *testing.T) {
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_Basic(ruleGroupName),
@@ -721,9 +721,9 @@ func TestAccAwsWafv2RuleGroup_Disappears(t *testing.T) {
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_Minimal(ruleGroupName),
@@ -743,9 +743,9 @@ func TestAccAwsWafv2RuleGroup_GeoMatchStatement(t *testing.T) {
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_GeoMatchStatement(ruleGroupName),
@@ -796,9 +796,9 @@ func TestAccAwsWafv2RuleGroup_GeoMatchStatement_ForwardedIPConfig(t *testing.T) 
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_GeoMatchStatement_ForwardedIPConfig(ruleGroupName, "MATCH", "X-Forwarded-For"),
@@ -852,9 +852,9 @@ func TestAccAwsWafv2RuleGroup_IpSetReferenceStatement(t *testing.T) {
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_IpSetReferenceStatement(ruleGroupName),
@@ -888,9 +888,9 @@ func TestAccAwsWafv2RuleGroup_IpSetReferenceStatement_IPSetForwardedIPConfig(t *
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_IpSetReferenceStatement_IPSetForwardedIPConfig(ruleGroupName, "MATCH", "X-Forwarded-For", "FIRST"),
@@ -987,9 +987,9 @@ func TestAccAwsWafv2RuleGroup_LogicalRuleStatements(t *testing.T) {
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_LogicalRuleStatement_And(ruleGroupName),
@@ -1059,9 +1059,9 @@ func TestAccAwsWafv2RuleGroup_Minimal(t *testing.T) {
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_Minimal(ruleGroupName),
@@ -1089,9 +1089,9 @@ func TestAccAwsWafv2RuleGroup_RegexPatternSetReferenceStatement(t *testing.T) {
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_RegexPatternSetReferenceStatement(ruleGroupName),
@@ -1126,9 +1126,9 @@ func TestAccAwsWafv2RuleGroup_RuleAction(t *testing.T) {
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_RuleActionAllow(ruleGroupName),
@@ -1202,9 +1202,9 @@ func TestAccAwsWafv2RuleGroup_SizeConstraintStatement(t *testing.T) {
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_SizeConstraintStatement(ruleGroupName),
@@ -1255,9 +1255,9 @@ func TestAccAwsWafv2RuleGroup_SqliMatchStatement(t *testing.T) {
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_SqliMatchStatement(ruleGroupName),
@@ -1325,9 +1325,9 @@ func TestAccAwsWafv2RuleGroup_Tags(t *testing.T) {
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_OneTag(ruleGroupName, "Tag1", "Value1"),
@@ -1373,9 +1373,9 @@ func TestAccAwsWafv2RuleGroup_XssMatchStatement(t *testing.T) {
 	resourceName := "aws_wafv2_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsWafv2RuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsWafv2RuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RuleGroupConfig_XssMatchStatement(ruleGroupName),

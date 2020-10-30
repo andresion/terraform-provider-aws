@@ -18,9 +18,9 @@ func TestAccAWSSfnActivity_basic(t *testing.T) {
 	resourceName := "aws_sfn_activity.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSfnActivityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSfnActivityDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSfnActivityBasicConfig(name),
@@ -44,9 +44,9 @@ func TestAccAWSSfnActivity_Tags(t *testing.T) {
 	resourceName := "aws_sfn_activity.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSfnActivityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSfnActivityDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSfnActivityBasicConfigTags1(name, "key1", "value1"),

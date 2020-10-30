@@ -130,9 +130,9 @@ func TestAccAWSSecurityGroupRule_Ingress_VPC(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRuleIngressConfig(rInt),
@@ -162,9 +162,9 @@ func TestAccAWSSecurityGroupRule_Ingress_Source_With_Account_Id(t *testing.T) {
 	ruleName := "aws_security_group_rule.allow_self"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRule_Ingress_Source_with_AccountId(rInt),
@@ -207,9 +207,9 @@ func TestAccAWSSecurityGroupRule_Ingress_Protocol(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRuleIngress_protocolConfig,
@@ -256,9 +256,9 @@ func TestAccAWSSecurityGroupRule_Ingress_Ipv6(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRuleIngress_ipv6Config,
@@ -297,9 +297,9 @@ func TestAccAWSSecurityGroupRule_Ingress_Classic(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRuleIngressClassicConfig(rInt),
@@ -346,9 +346,9 @@ func TestAccAWSSecurityGroupRule_MultiIngress(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRuleConfigMultiIngress,
@@ -372,9 +372,9 @@ func TestAccAWSSecurityGroupRule_Egress(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRuleEgressConfig(rInt),
@@ -397,9 +397,9 @@ func TestAccAWSSecurityGroupRule_SelfReference(t *testing.T) {
 	var group ec2.SecurityGroup
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRuleConfigSelfReference,
@@ -420,9 +420,9 @@ func TestAccAWSSecurityGroupRule_SelfReference(t *testing.T) {
 func TestAccAWSSecurityGroupRule_ExpectInvalidTypeError(t *testing.T) {
 	rInt := acctest.RandInt()
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSSecurityGroupRuleExpectInvalidType(rInt),
@@ -435,9 +435,9 @@ func TestAccAWSSecurityGroupRule_ExpectInvalidTypeError(t *testing.T) {
 func TestAccAWSSecurityGroupRule_ExpectInvalidCIDR(t *testing.T) {
 	rInt := acctest.RandInt()
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSSecurityGroupRuleInvalidIPv4CIDR(rInt),
@@ -477,9 +477,9 @@ func TestAccAWSSecurityGroupRule_PartialMatching_basic(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRulePartialMatchingConfig(rInt),
@@ -539,9 +539,9 @@ func TestAccAWSSecurityGroupRule_PartialMatching_Source(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRulePartialMatching_SourceConfig(rInt),
@@ -566,9 +566,9 @@ func TestAccAWSSecurityGroupRule_Issue5310(t *testing.T) {
 	var group ec2.SecurityGroup
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRuleIssue5310,
@@ -590,9 +590,9 @@ func TestAccAWSSecurityGroupRule_Race(t *testing.T) {
 	var group ec2.SecurityGroup
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRuleRace,
@@ -609,9 +609,9 @@ func TestAccAWSSecurityGroupRule_SelfSource(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRuleSelfInSource(rInt),
@@ -669,9 +669,9 @@ func TestAccAWSSecurityGroupRule_PrefixListEgress(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRulePrefixListEgressConfig,
@@ -699,9 +699,9 @@ func TestAccAWSSecurityGroupRule_IngressDescription(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRuleIngressDescriptionConfig(rInt),
@@ -726,9 +726,9 @@ func TestAccAWSSecurityGroupRule_EgressDescription(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRuleEgressDescriptionConfig(rInt),
@@ -753,9 +753,9 @@ func TestAccAWSSecurityGroupRule_IngressDescription_updates(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRuleIngressDescriptionConfig(rInt),
@@ -789,9 +789,9 @@ func TestAccAWSSecurityGroupRule_EgressDescription_updates(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRuleEgressDescriptionConfig(rInt),
@@ -841,9 +841,9 @@ func TestAccAWSSecurityGroupRule_Description_AllPorts(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRuleConfigDescriptionAllPorts(rName, "description1"),
@@ -898,9 +898,9 @@ func TestAccAWSSecurityGroupRule_Description_AllPorts_NonZeroPorts(t *testing.T)
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRuleConfigDescriptionAllPortsNonZeroPorts(rName, "description1"),
@@ -959,9 +959,9 @@ func TestAccAWSSecurityGroupRule_MultipleRuleSearching_AllProtocolCrash(t *testi
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRuleConfigMultipleRuleSearchingAllProtocolCrash(rName),
@@ -1066,9 +1066,9 @@ func TestAccAWSSecurityGroupRule_MultiDescription(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSecurityGroupRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSecurityGroupRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSecurityGroupRuleMultiDescription(rInt, "ingress"),

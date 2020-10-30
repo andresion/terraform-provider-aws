@@ -20,9 +20,9 @@ func TestAccAWSAPIGatewayUsagePlanKey_basic(t *testing.T) {
 	resourceName := "aws_api_gateway_usage_plan_key.main"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayUsagePlanKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayUsagePlanKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSApiGatewayUsagePlanKeyBasicConfig(rName),
@@ -76,9 +76,9 @@ func TestAccAWSAPIGatewayUsagePlanKey_disappears(t *testing.T) {
 	resourceName := "aws_api_gateway_usage_plan_key.main"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayUsagePlanKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayUsagePlanKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSApiGatewayUsagePlanKeyBasicConfig(rName),

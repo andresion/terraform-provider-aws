@@ -13,8 +13,8 @@ func TestAccAwsAutoScalingGroupDataSource_basic(t *testing.T) {
 	resourceName := "aws_autoscaling_group.foo"
 	rName := fmt.Sprintf("tf-test-asg-%d", acctest.RandInt())
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAutoScalingGroupDataResourceConfig(rName),

@@ -15,8 +15,8 @@ func TestAccAWSDataSourceIAMInstanceProfile_basic(t *testing.T) {
 	profileName := fmt.Sprintf("tf-acc-ds-instance-profile-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDatasourceAwsIamInstanceProfileConfig(roleName, profileName),

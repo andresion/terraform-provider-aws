@@ -63,9 +63,9 @@ func TestAccAWSElasticacheReplicationGroup_basic(t *testing.T) {
 	resourceName := "aws_elasticache_replication_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheReplicationGroupConfig(rName),
@@ -97,9 +97,9 @@ func TestAccAWSElasticacheReplicationGroup_Uppercase(t *testing.T) {
 	resourceName := "aws_elasticache_replication_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheReplicationGroupConfig_Uppercase(strings.ToUpper(rName)),
@@ -125,9 +125,9 @@ func TestAccAWSElasticacheReplicationGroup_updateDescription(t *testing.T) {
 	resourceName := "aws_elasticache_replication_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheReplicationGroupConfig(rName),
@@ -169,9 +169,9 @@ func TestAccAWSElasticacheReplicationGroup_updateMaintenanceWindow(t *testing.T)
 	resourceName := "aws_elasticache_replication_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheReplicationGroupConfig(rName),
@@ -205,9 +205,9 @@ func TestAccAWSElasticacheReplicationGroup_updateNodeSize(t *testing.T) {
 	resourceName := "aws_elasticache_replication_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheReplicationGroupConfig(rName),
@@ -248,9 +248,9 @@ func TestAccAWSElasticacheReplicationGroup_updateParameterGroup(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheReplicationGroupConfigParameterGroupName(rName, 0),
@@ -281,9 +281,9 @@ func TestAccAWSElasticacheReplicationGroup_vpc(t *testing.T) {
 	resourceName := "aws_elasticache_replication_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheReplicationGroupInVPCConfig,
@@ -310,9 +310,9 @@ func TestAccAWSElasticacheReplicationGroup_multiAzInVpc(t *testing.T) {
 	resourceName := "aws_elasticache_replication_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheReplicationGroupMultiAZInVPCConfig,
@@ -345,9 +345,9 @@ func TestAccAWSElasticacheReplicationGroup_redisClusterInVpc2(t *testing.T) {
 	resourceName := "aws_elasticache_replication_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheReplicationGroupRedisClusterInVPCConfig,
@@ -381,9 +381,9 @@ func TestAccAWSElasticacheReplicationGroup_ClusterMode_Basic(t *testing.T) {
 	resourceName := "aws_elasticache_replication_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheReplicationGroupNativeRedisClusterConfig(rName, 2, 1),
@@ -413,9 +413,9 @@ func TestAccAWSElasticacheReplicationGroup_ClusterMode_NumNodeGroups(t *testing.
 	resourceName := "aws_elasticache_replication_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheReplicationGroupNativeRedisClusterConfig(rName, 3, 1),
@@ -462,9 +462,9 @@ func TestAccAWSElasticacheReplicationGroup_clusteringAndCacheNodesCausesError(t 
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSElasticacheReplicationGroupNativeRedisClusterErrorConfig(rInt, rName),
@@ -480,9 +480,9 @@ func TestAccAWSElasticacheReplicationGroup_enableSnapshotting(t *testing.T) {
 	resourceName := "aws_elasticache_replication_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheReplicationGroupConfig(rName),
@@ -515,9 +515,9 @@ func TestAccAWSElasticacheReplicationGroup_enableAuthTokenTransitEncryption(t *t
 	resourceName := "aws_elasticache_replication_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheReplicationGroup_EnableAuthTokenTransitEncryptionConfig(acctest.RandInt(), acctest.RandString(10), acctest.RandString(16)),
@@ -542,9 +542,9 @@ func TestAccAWSElasticacheReplicationGroup_enableAtRestEncryption(t *testing.T) 
 	resourceName := "aws_elasticache_replication_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheReplicationGroup_EnableAtRestEncryptionConfig(acctest.RandInt(), acctest.RandString(10)),
@@ -567,9 +567,9 @@ func TestAccAWSElasticacheReplicationGroup_enableAtRestEncryption(t *testing.T) 
 func TestAccAWSElasticacheReplicationGroup_useCmkKmsKeyId(t *testing.T) {
 	var rg elasticache.ReplicationGroup
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheReplicationGroup_UseCmkKmsKeyId(acctest.RandInt(), acctest.RandString(10)),
@@ -588,9 +588,9 @@ func TestAccAWSElasticacheReplicationGroup_NumberCacheClusters(t *testing.T) {
 	resourceName := "aws_elasticache_replication_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheReplicationGroupConfig_NumberCacheClusters(rName, 2, false),
@@ -632,9 +632,9 @@ func TestAccAWSElasticacheReplicationGroup_NumberCacheClusters_Failover_AutoFail
 	resourceName := "aws_elasticache_replication_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheReplicationGroupConfig_NumberCacheClusters(rName, 3, false),
@@ -683,9 +683,9 @@ func TestAccAWSElasticacheReplicationGroup_NumberCacheClusters_Failover_AutoFail
 	resourceName := "aws_elasticache_replication_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheReplicationGroupConfig_NumberCacheClusters(rName, 3, true),
@@ -756,9 +756,9 @@ func TestAccAWSElasticacheReplicationGroup_tags(t *testing.T) {
 	resourceName := "aws_elasticache_replication_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSElasticacheReplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSElasticacheReplicationGroupConfigTags1(rName, "key1", "value1"),

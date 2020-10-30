@@ -117,10 +117,10 @@ func TestAccAWSSNSTopic_name(t *testing.T) {
 	rName := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSSNSTopicDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSTopicDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSNSTopicConfig_withName(rName),
@@ -143,10 +143,10 @@ func TestAccAWSSNSTopic_namePrefix(t *testing.T) {
 	startsWithPrefix := regexp.MustCompile("^terraform-test-topic-")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSSNSTopicDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSTopicDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSNSTopicConfig_withNamePrefix(),
@@ -172,10 +172,10 @@ func TestAccAWSSNSTopic_policy(t *testing.T) {
 	expectedPolicy := fmt.Sprintf(`{"Statement":[{"Sid":"Stmt1445931846145","Effect":"Allow","Principal":{"AWS":"*"},"Action":"sns:Publish","Resource":"arn:%s:sns:%s::example"}],"Version":"2012-10-17","Id":"Policy1445931846145"}`, testAccGetPartition(), testAccGetRegion())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSSNSTopicDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSTopicDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSNSTopicWithPolicy(rName),
@@ -199,10 +199,10 @@ func TestAccAWSSNSTopic_withIAMRole(t *testing.T) {
 	rName := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSSNSTopicDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSTopicDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSNSTopicConfig_withIAMRole(rName),
@@ -217,10 +217,10 @@ func TestAccAWSSNSTopic_withIAMRole(t *testing.T) {
 func TestAccAWSSNSTopic_withFakeIAMRole(t *testing.T) {
 	rName := acctest.RandString(10)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: "aws_sns_topic.test",
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSSNSTopicDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            "aws_sns_topic.test",
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSTopicDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSSNSTopicConfig_withFakeIAMRole(rName),
@@ -237,10 +237,10 @@ func TestAccAWSSNSTopic_withDeliveryPolicy(t *testing.T) {
 	expectedPolicy := `{"http":{"defaultHealthyRetryPolicy": {"minDelayTarget": 20,"maxDelayTarget": 20,"numMaxDelayRetries": 0,"numRetries": 3,"numNoDelayRetries": 0,"numMinDelayRetries": 0,"backoffFunction": "linear"},"disableSubscriptionOverrides": false}}`
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSSNSTopicDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSTopicDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSNSTopicConfig_withDeliveryPolicy(rName),
@@ -266,10 +266,10 @@ func TestAccAWSSNSTopic_deliveryStatus(t *testing.T) {
 	rName := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSSNSTopicDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSTopicDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSNSTopicConfig_deliveryStatus(rName),
@@ -299,10 +299,10 @@ func TestAccAWSSNSTopic_encryption(t *testing.T) {
 	rName := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSSNSTopicDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSTopicDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSNSTopicConfig_withEncryption(rName),
@@ -333,10 +333,10 @@ func TestAccAWSSNSTopic_tags(t *testing.T) {
 	rName := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSSNSTopicDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSTopicDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSNSTopicConfigTags1(rName, "key1", "value1"),

@@ -46,9 +46,9 @@ func TestAccAWSSSMAssociation_basic(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMAssociationBasicConfig(name),
@@ -97,9 +97,9 @@ targets {
 `
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMAssociationBasicConfigWithTargets(name, oneTarget),
@@ -155,9 +155,9 @@ func TestAccAWSSSMAssociation_withParameters(t *testing.T) {
 	resourceName := "aws_ssm_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMAssociationBasicConfigWithParameters(name),
@@ -192,9 +192,9 @@ func TestAccAWSSSMAssociation_withAssociationName(t *testing.T) {
 	resourceName := "aws_ssm_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMAssociationBasicConfigWithAssociationName(rName, assocName1),
@@ -229,9 +229,9 @@ func TestAccAWSSSMAssociation_withAssociationNameAndScheduleExpression(t *testin
 	scheduleExpression2 := "cron(0 16 ? * WED *)"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMAssociationConfigWithAssociationNameAndScheduleExpression(rName, assocName, scheduleExpression1),
@@ -263,9 +263,9 @@ func TestAccAWSSSMAssociation_withDocumentVersion(t *testing.T) {
 	resourceName := "aws_ssm_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMAssociationBasicConfigWithDocumentVersion(name),
@@ -289,9 +289,9 @@ func TestAccAWSSSMAssociation_withOutputLocation(t *testing.T) {
 	resourceName := "aws_ssm_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMAssociationBasicConfigWithOutPutLocation(name),
@@ -337,9 +337,9 @@ func TestAccAWSSSMAssociation_withAutomationTargetParamName(t *testing.T) {
 	resourceName := "aws_ssm_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMAssociationBasicConfigWithAutomationTargetParamName(name),
@@ -372,9 +372,9 @@ func TestAccAWSSSMAssociation_withScheduleExpression(t *testing.T) {
 	resourceName := "aws_ssm_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMAssociationBasicConfigWithScheduleExpression(name),
@@ -409,9 +409,9 @@ func TestAccAWSSSMAssociation_withComplianceSeverity(t *testing.T) {
 	resourceName := "aws_ssm_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMAssociationBasicConfigWithComplianceSeverity(compSeverity1, rName, assocName),
@@ -447,9 +447,9 @@ func TestAccAWSSSMAssociation_rateControl(t *testing.T) {
 	resourceName := "aws_ssm_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMAssociationRateControlConfig(name, "10%"),

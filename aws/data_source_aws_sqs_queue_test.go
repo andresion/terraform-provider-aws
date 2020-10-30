@@ -15,8 +15,8 @@ func TestAccDataSourceAwsSqsQueue_basic(t *testing.T) {
 	datasourceName := "data.aws_sqs_queue.by_name"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsSqsQueueConfig(rName),
@@ -35,8 +35,8 @@ func TestAccDataSourceAwsSqsQueue_tags(t *testing.T) {
 	datasourceName := "data.aws_sqs_queue.by_name"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsSqsQueueConfigTags(rName),

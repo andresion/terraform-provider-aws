@@ -72,9 +72,9 @@ func TestAccAWSIoTTopicRule_basic(t *testing.T) {
 	resourceName := "aws_iot_topic_rule.rule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRule_basic(rName),
@@ -102,9 +102,9 @@ func TestAccAWSIoTTopicRule_cloudwatchalarm(t *testing.T) {
 	resourceName := "aws_iot_topic_rule.rule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRule_cloudwatchalarm(rName),
@@ -126,9 +126,9 @@ func TestAccAWSIoTTopicRule_cloudwatchmetric(t *testing.T) {
 	resourceName := "aws_iot_topic_rule.rule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRule_cloudwatchmetric(rName),
@@ -150,9 +150,9 @@ func TestAccAWSIoTTopicRule_dynamodb(t *testing.T) {
 	resourceName := "aws_iot_topic_rule.rule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRule_dynamodb(rName),
@@ -179,9 +179,9 @@ func TestAccAWSIoTTopicRule_dynamoDbv2(t *testing.T) {
 	rName := acctest.RandString(5)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRule_dynamoDbv2(rName),
@@ -198,9 +198,9 @@ func TestAccAWSIoTTopicRule_elasticsearch(t *testing.T) {
 	resourceName := "aws_iot_topic_rule.rule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRule_elasticsearch(rName),
@@ -222,9 +222,9 @@ func TestAccAWSIoTTopicRule_firehose(t *testing.T) {
 	resourceName := "aws_iot_topic_rule.rule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRule_firehose(rName),
@@ -246,9 +246,9 @@ func TestAccAWSIoTTopicRule_firehose_separator(t *testing.T) {
 	resourceName := "aws_iot_topic_rule.rule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRule_firehose_separator(rName, "\n"),
@@ -276,9 +276,9 @@ func TestAccAWSIoTTopicRule_kinesis(t *testing.T) {
 	resourceName := "aws_iot_topic_rule.rule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRule_kinesis(rName),
@@ -300,9 +300,9 @@ func TestAccAWSIoTTopicRule_lambda(t *testing.T) {
 	resourceName := "aws_iot_topic_rule.rule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRule_lambda(rName),
@@ -324,9 +324,9 @@ func TestAccAWSIoTTopicRule_republish(t *testing.T) {
 	resourceName := "aws_iot_topic_rule.rule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRule_republish(rName),
@@ -348,9 +348,9 @@ func TestAccAWSIoTTopicRule_republish_with_qos(t *testing.T) {
 	resourceName := "aws_iot_topic_rule.rule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRule_republish_with_qos(rName),
@@ -372,9 +372,9 @@ func TestAccAWSIoTTopicRule_s3(t *testing.T) {
 	resourceName := "aws_iot_topic_rule.rule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRule_s3(rName),
@@ -396,9 +396,9 @@ func TestAccAWSIoTTopicRule_sns(t *testing.T) {
 	resourceName := "aws_iot_topic_rule.rule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRule_sns(rName),
@@ -420,9 +420,9 @@ func TestAccAWSIoTTopicRule_sqs(t *testing.T) {
 	resourceName := "aws_iot_topic_rule.rule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRule_sqs(rName),
@@ -444,9 +444,9 @@ func TestAccAWSIoTTopicRule_step_functions(t *testing.T) {
 	resourceName := "aws_iot_topic_rule.rule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRule_step_functions(rName),
@@ -467,9 +467,9 @@ func TestAccAWSIoTTopicRule_iot_analytics(t *testing.T) {
 	rName := acctest.RandString(5)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRule_iot_analytics(rName),
@@ -485,9 +485,9 @@ func TestAccAWSIoTTopicRule_iot_events(t *testing.T) {
 	rName := acctest.RandString(5)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRule_iot_events(rName),
@@ -504,9 +504,9 @@ func TestAccAWSIoTTopicRule_Tags(t *testing.T) {
 	resourceName := "aws_iot_topic_rule.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRuleTags1(rName, "key1", "value1"),
@@ -547,9 +547,9 @@ func TestAccAWSIoTTopicRule_errorAction(t *testing.T) {
 	resourceName := "aws_iot_topic_rule.rule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTTopicRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTTopicRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTTopicRule_errorAction(rName),

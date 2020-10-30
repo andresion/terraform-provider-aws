@@ -120,9 +120,9 @@ func TestAccAWSWafWebAcl_basic(t *testing.T) {
 	resourceName := "aws_waf_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafWebAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafWebAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafWebAclConfig_Required(rName),
@@ -153,9 +153,9 @@ func TestAccAWSWafWebAcl_changeNameForceNew(t *testing.T) {
 	resourceName := "aws_waf_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafWebAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafWebAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafWebAclConfig_Required(rName1),
@@ -196,9 +196,9 @@ func TestAccAWSWafWebAcl_DefaultAction(t *testing.T) {
 	resourceName := "aws_waf_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafWebAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafWebAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafWebAclConfig_DefaultAction(rName, "ALLOW"),
@@ -231,9 +231,9 @@ func TestAccAWSWafWebAcl_Rules(t *testing.T) {
 	resourceName := "aws_waf_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafWebAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafWebAclDestroy,
 		Steps: []resource.TestStep{
 			// Test creating with rule
 			{
@@ -279,9 +279,9 @@ func TestAccAWSWafWebAcl_LoggingConfiguration(t *testing.T) {
 	resourceName := "aws_waf_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafWebAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafWebAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafWebAclConfig_Logging(rName),
@@ -325,9 +325,9 @@ func TestAccAWSWafWebAcl_disappears(t *testing.T) {
 	resourceName := "aws_waf_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafWebAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafWebAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafWebAclConfig_Required(rName),
@@ -347,9 +347,9 @@ func TestAccAWSWafWebAcl_Tags(t *testing.T) {
 	resourceName := "aws_waf_web_acl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafWebAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafWebAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafWebAclConfigTags1(rName, "key1", "value1"),

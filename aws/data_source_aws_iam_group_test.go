@@ -12,8 +12,8 @@ func TestAccAWSDataSourceIAMGroup_basic(t *testing.T) {
 	groupName := fmt.Sprintf("test-datasource-user-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsIAMGroupConfig(groupName),
@@ -35,8 +35,8 @@ func TestAccAWSDataSourceIAMGroup_users(t *testing.T) {
 	userCount := 101
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsIAMGroupConfigWithUser(groupName, userName, groupMemberShipName, userCount),

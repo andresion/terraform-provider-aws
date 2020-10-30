@@ -15,8 +15,8 @@ func TestAccDataSourceAwsWafRegionalIPSet_basic(t *testing.T) {
 	datasourceName := "data.aws_wafregional_ipset.ipset"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccDataSourceAwsWafRegionalIPSet_NonExistent,

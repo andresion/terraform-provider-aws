@@ -20,9 +20,9 @@ func TestAccAWSAppsyncApiKey_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppsyncApiKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppsyncApiKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppsyncApiKeyConfig_Required(rName),
@@ -48,9 +48,9 @@ func TestAccAWSAppsyncApiKey_Description(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppsyncApiKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppsyncApiKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppsyncApiKeyConfig_Description(rName, "description1"),
@@ -83,9 +83,9 @@ func TestAccAWSAppsyncApiKey_Expires(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppsyncApiKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppsyncApiKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppsyncApiKeyConfig_Expires(rName, dateAfterTenDays.Format(time.RFC3339)),

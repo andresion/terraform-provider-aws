@@ -19,9 +19,9 @@ func TestAccAWSRedshiftParameterGroup_basic(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftParameterGroupConfig(rInt),
@@ -44,9 +44,9 @@ func TestAccAWSRedshiftParameterGroup_withParameters(t *testing.T) {
 	resourceName := "aws_redshift_parameter_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftParameterGroupConfig(rInt),
@@ -87,9 +87,9 @@ func TestAccAWSRedshiftParameterGroup_withoutParameters(t *testing.T) {
 	resourceName := "aws_redshift_parameter_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftParameterGroupOnlyConfig(rInt),
@@ -118,9 +118,9 @@ func TestAccAWSRedshiftParameterGroup_withTags(t *testing.T) {
 	resourceName := "aws_redshift_parameter_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftParameterGroupConfigWithTags(rInt, "aaa"),

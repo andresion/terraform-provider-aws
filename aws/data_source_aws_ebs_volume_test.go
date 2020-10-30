@@ -13,8 +13,8 @@ func TestAccAWSEbsVolumeDataSource_basic(t *testing.T) {
 	dataSourceName := "data.aws_ebs_volume.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsEbsVolumeDataSourceConfig,
@@ -36,8 +36,8 @@ func TestAccAWSEbsVolumeDataSource_multipleFilters(t *testing.T) {
 	dataSourceName := "data.aws_ebs_volume.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsEbsVolumeDataSourceConfigWithMultipleFilters,

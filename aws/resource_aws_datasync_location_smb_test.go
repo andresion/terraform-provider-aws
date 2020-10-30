@@ -85,9 +85,9 @@ func TestAccAWSDataSyncLocationSmb_basic(t *testing.T) {
 	resourceName := "aws_datasync_location_smb.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncLocationSmbDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncLocationSmbDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncLocationSmbConfig(),
@@ -118,9 +118,9 @@ func TestAccAWSDataSyncLocationSmb_disappears(t *testing.T) {
 	resourceName := "aws_datasync_location_smb.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncLocationSmbDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncLocationSmbDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncLocationSmbConfig(),
@@ -139,9 +139,9 @@ func TestAccAWSDataSyncLocationSmb_Tags(t *testing.T) {
 	resourceName := "aws_datasync_location_smb.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncLocationSmbDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncLocationSmbDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncLocationSmbConfigTags1("key1", "value1"),

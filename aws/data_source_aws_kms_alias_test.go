@@ -15,8 +15,8 @@ func TestAccDataSourceAwsKmsAlias_AwsService(t *testing.T) {
 	resourceName := "data.aws_kms_alias.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsKmsAlias_name(name),
@@ -38,8 +38,8 @@ func TestAccDataSourceAwsKmsAlias_CMK(t *testing.T) {
 	datasourceAliasResourceName := "data.aws_kms_alias.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsKmsAlias_CMK(rInt),

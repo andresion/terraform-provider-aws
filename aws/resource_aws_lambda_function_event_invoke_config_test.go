@@ -17,9 +17,9 @@ func TestAccAWSLambdaFunctionEventInvokeConfig_basic(t *testing.T) {
 	resourceName := "aws_lambda_function_event_invoke_config.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionEventInvokeConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionEventInvokeConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaFunctionEventInvokeConfigFunctionName(rName),
@@ -48,9 +48,9 @@ func TestAccAWSLambdaFunctionEventInvokeConfig_disappears_LambdaFunction(t *test
 	resourceName := "aws_lambda_function_event_invoke_config.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionEventInvokeConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionEventInvokeConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaFunctionEventInvokeConfigFunctionName(rName),
@@ -70,9 +70,9 @@ func TestAccAWSLambdaFunctionEventInvokeConfig_disappears_LambdaFunctionEventInv
 	resourceName := "aws_lambda_function_event_invoke_config.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionEventInvokeConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionEventInvokeConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaFunctionEventInvokeConfigFunctionName(rName),
@@ -93,9 +93,9 @@ func TestAccAWSLambdaFunctionEventInvokeConfig_DestinationConfig_OnFailure_Desti
 	snsTopicResourceName := "aws_sns_topic.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionEventInvokeConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionEventInvokeConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaFunctionEventInvokeConfigDestinationConfigOnFailureDestinationSqsQueue(rName),
@@ -131,9 +131,9 @@ func TestAccAWSLambdaFunctionEventInvokeConfig_DestinationConfig_OnSuccess_Desti
 	snsTopicResourceName := "aws_sns_topic.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionEventInvokeConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionEventInvokeConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaFunctionEventInvokeConfigDestinationConfigOnSuccessDestinationSqsQueue(rName),
@@ -168,9 +168,9 @@ func TestAccAWSLambdaFunctionEventInvokeConfig_DestinationConfig_Remove(t *testi
 	sqsQueueResourceName := "aws_sqs_queue.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionEventInvokeConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionEventInvokeConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaFunctionEventInvokeConfigDestinationConfigOnFailureDestinationSqsQueue(rName),
@@ -203,9 +203,9 @@ func TestAccAWSLambdaFunctionEventInvokeConfig_DestinationConfig_Swap(t *testing
 	sqsQueueResourceName := "aws_sqs_queue.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionEventInvokeConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionEventInvokeConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaFunctionEventInvokeConfigDestinationConfigOnFailureDestinationSqsQueue(rName),
@@ -240,9 +240,9 @@ func TestAccAWSLambdaFunctionEventInvokeConfig_FunctionName_Arn(t *testing.T) {
 	resourceName := "aws_lambda_function_event_invoke_config.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionEventInvokeConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionEventInvokeConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaFunctionEventInvokeConfigFunctionNameArn(rName),
@@ -267,9 +267,9 @@ func TestAccAWSLambdaFunctionEventInvokeConfig_Qualifier_FunctionName_Arn(t *tes
 	resourceName := "aws_lambda_function_event_invoke_config.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionEventInvokeConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionEventInvokeConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaFunctionEventInvokeConfigQualifierFunctionNameArn(rName),
@@ -293,9 +293,9 @@ func TestAccAWSLambdaFunctionEventInvokeConfig_MaximumEventAgeInSeconds(t *testi
 	resourceName := "aws_lambda_function_event_invoke_config.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionEventInvokeConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionEventInvokeConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaFunctionEventInvokeConfigMaximumEventAgeInSeconds(rName, 100),
@@ -325,9 +325,9 @@ func TestAccAWSLambdaFunctionEventInvokeConfig_MaximumRetryAttempts(t *testing.T
 	resourceName := "aws_lambda_function_event_invoke_config.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionEventInvokeConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionEventInvokeConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaFunctionEventInvokeConfigMaximumRetryAttempts(rName, 0),
@@ -365,9 +365,9 @@ func TestAccAWSLambdaFunctionEventInvokeConfig_Qualifier_AliasName(t *testing.T)
 	resourceName := "aws_lambda_function_event_invoke_config.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionEventInvokeConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionEventInvokeConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaFunctionEventInvokeConfigQualifierAliasName(rName),
@@ -391,9 +391,9 @@ func TestAccAWSLambdaFunctionEventInvokeConfig_Qualifier_FunctionVersion(t *test
 	resourceName := "aws_lambda_function_event_invoke_config.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionEventInvokeConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionEventInvokeConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaFunctionEventInvokeConfigQualifierFunctionVersion(rName),
@@ -417,9 +417,9 @@ func TestAccAWSLambdaFunctionEventInvokeConfig_Qualifier_Latest(t *testing.T) {
 	resourceName := "aws_lambda_function_event_invoke_config.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionEventInvokeConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionEventInvokeConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaFunctionEventInvokeConfigQualifierLatest(rName),

@@ -118,8 +118,8 @@ func TestAccAWSVpnConnection_TransitGatewayID(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckAWSEc2TransitGateway(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccAwsVpnConnectionDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccAwsVpnConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsVpnConnectionConfigTransitGatewayID(rBgpAsn),
@@ -308,9 +308,9 @@ func TestAccAWSVpnConnection_disappears(t *testing.T) {
 	var vpn ec2.VpnConnection
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccAwsVpnConnectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccAwsVpnConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsVpnConnectionConfig(rBgpAsn),

@@ -19,9 +19,9 @@ func TestAccAWSEMRInstanceGroup_basic(t *testing.T) {
 
 	resourceName := "aws_emr_instance_group.task"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrInstanceGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrInstanceGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrInstanceGroupConfig_basic(rInt),
@@ -48,9 +48,9 @@ func TestAccAWSEMRInstanceGroup_BidPrice(t *testing.T) {
 
 	resourceName := "aws_emr_instance_group.task"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrInstanceGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrInstanceGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrInstanceGroupConfig_basic(rInt),
@@ -97,9 +97,9 @@ func TestAccAWSEMRInstanceGroup_ConfigurationsJson(t *testing.T) {
 
 	resourceName := "aws_emr_instance_group.task"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrInstanceGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrInstanceGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrInstanceGroupConfig_ConfigurationsJson(rInt, "partitionName1"),
@@ -137,9 +137,9 @@ func TestAccAWSEMRInstanceGroup_AutoScalingPolicy(t *testing.T) {
 
 	resourceName := "aws_emr_instance_group.task"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrInstanceGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrInstanceGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrInstanceGroupConfig_AutoScalingPolicy(rInt, 1, 3),
@@ -179,9 +179,9 @@ func TestAccAWSEMRInstanceGroup_InstanceCount(t *testing.T) {
 
 	resourceName := "aws_emr_instance_group.task"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrInstanceGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrInstanceGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrInstanceGroupConfig_basic(rInt),
@@ -210,9 +210,9 @@ func TestAccAWSEMRInstanceGroup_EmrClusterDisappears(t *testing.T) {
 	resourceName := "aws_emr_instance_group.task"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrInstanceGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrInstanceGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrInstanceGroupConfig_basic(rInt),
@@ -233,9 +233,9 @@ func TestAccAWSEMRInstanceGroup_EbsConfig_EbsOptimized(t *testing.T) {
 
 	resourceName := "aws_emr_instance_group.task"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrInstanceGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrInstanceGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrInstanceGroupConfig_ebsConfig(rInt, true),

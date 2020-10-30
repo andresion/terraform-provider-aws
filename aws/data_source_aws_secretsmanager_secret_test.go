@@ -12,8 +12,8 @@ import (
 
 func TestAccDataSourceAwsSecretsManagerSecret_basic(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccDataSourceAwsSecretsManagerSecretConfig_MissingRequired,
@@ -37,8 +37,8 @@ func TestAccDataSourceAwsSecretsManagerSecret_ARN(t *testing.T) {
 	datasourceName := "data.aws_secretsmanager_secret.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsSecretsManagerSecretConfig_ARN(rName),
@@ -56,8 +56,8 @@ func TestAccDataSourceAwsSecretsManagerSecret_Name(t *testing.T) {
 	datasourceName := "data.aws_secretsmanager_secret.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsSecretsManagerSecretConfig_Name(rName),
@@ -75,8 +75,8 @@ func TestAccDataSourceAwsSecretsManagerSecret_Policy(t *testing.T) {
 	datasourceName := "data.aws_secretsmanager_secret.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsSecretsManagerSecretConfig_Policy(rName),

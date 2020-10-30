@@ -110,9 +110,9 @@ func TestAccAWSTransferUser_disappears(t *testing.T) {
 	rName := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSTransferUserDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSTransferUserDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSTransferUserConfig_basic(rName),
@@ -129,9 +129,9 @@ func TestAccAWSTransferUser_disappears(t *testing.T) {
 
 func TestAccAWSTransferUser_UserName_Validation(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSTransferUserDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSTransferUserDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSTransferUserName_validation("!@#$%^"),
@@ -164,10 +164,10 @@ func TestAccAWSTransferUser_homeDirectoryMappings(t *testing.T) {
 	resourceName := "aws_transfer_user.foo"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSTransferUserDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSTransferUserDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSTransferUserConfig_homeDirectoryMappings(rName),

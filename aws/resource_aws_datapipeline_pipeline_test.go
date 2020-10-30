@@ -19,9 +19,9 @@ func TestAccAWSDataPipelinePipeline_basic(t *testing.T) {
 	resourceName := "aws_datapipeline_pipeline.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataPipeline(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataPipelinePipelineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataPipeline(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataPipelinePipelineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataPipelinePipelineConfig(rName1),
@@ -53,9 +53,9 @@ func TestAccAWSDataPipelinePipeline_description(t *testing.T) {
 	resourceName := "aws_datapipeline_pipeline.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataPipeline(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataPipelinePipelineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataPipeline(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataPipelinePipelineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataPipelinePipelineConfigWithDescription(rName, "test description"),
@@ -87,9 +87,9 @@ func TestAccAWSDataPipelinePipeline_disappears(t *testing.T) {
 	resourceName := "aws_datapipeline_pipeline.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataPipeline(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataPipelinePipelineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataPipeline(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataPipelinePipelineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataPipelinePipelineConfig(rName),
@@ -109,9 +109,9 @@ func TestAccAWSDataPipelinePipeline_tags(t *testing.T) {
 	resourceName := "aws_datapipeline_pipeline.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataPipeline(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataPipelinePipelineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataPipeline(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataPipelinePipelineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataPipelinePipelineConfigWithTags(rName, "foo", "bar", "fizz", "buzz"),

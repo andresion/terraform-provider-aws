@@ -31,8 +31,8 @@ func TestAccAWSSwfDomain_basic(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckSwfDomainTestingEnabled(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSwfDomainDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSwfDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSwfDomainConfig_Name(rName),
@@ -61,8 +61,8 @@ func TestAccAWSSwfDomain_tags(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckSwfDomainTestingEnabled(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSwfDomainDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSwfDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSwfDomainConfigTags1(rName, "key1", "value1"),
@@ -106,8 +106,8 @@ func TestAccAWSSwfDomain_NamePrefix(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckSwfDomainTestingEnabled(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSwfDomainDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSwfDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSwfDomainConfig_NamePrefix,
@@ -134,8 +134,8 @@ func TestAccAWSSwfDomain_GeneratedName(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckSwfDomainTestingEnabled(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSwfDomainDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSwfDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSwfDomainConfig_GeneratedName,
@@ -161,8 +161,8 @@ func TestAccAWSSwfDomain_Description(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckSwfDomainTestingEnabled(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSwfDomainDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSwfDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSwfDomainConfig_Description(rName, "description1"),

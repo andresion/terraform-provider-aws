@@ -63,9 +63,9 @@ func TestAccAWSGlueJob_basic(t *testing.T) {
 	roleResourceName := "aws_iam_role.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueJobDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueJobDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueJobConfig_Required(rName),
@@ -98,9 +98,9 @@ func TestAccAWSGlueJob_Command(t *testing.T) {
 	resourceName := "aws_glue_job.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueJobDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueJobDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueJobConfig_Command(rName, "testscriptlocation1"),
@@ -134,9 +134,9 @@ func TestAccAWSGlueJob_DefaultArguments(t *testing.T) {
 	resourceName := "aws_glue_job.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueJobDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueJobDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueJobConfig_DefaultArguments(rName, "job-bookmark-disable", "python"),
@@ -172,9 +172,9 @@ func TestAccAWSGlueJob_nonOverridableArguments(t *testing.T) {
 	resourceName := "aws_glue_job.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueJobDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueJobDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueJobnonOverridableArgumentsConfig(rName, "job-bookmark-disable", "python"),
@@ -210,9 +210,9 @@ func TestAccAWSGlueJob_Description(t *testing.T) {
 	resourceName := "aws_glue_job.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueJobDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueJobDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueJobConfig_Description(rName, "First Description"),
@@ -244,9 +244,9 @@ func TestAccAWSGlueJob_GlueVersion(t *testing.T) {
 	resourceName := "aws_glue_job.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueJobDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueJobDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueJobConfig_GlueVersion_MaxCapacity(rName, "0.9"),
@@ -285,9 +285,9 @@ func TestAccAWSGlueJob_ExecutionProperty(t *testing.T) {
 	resourceName := "aws_glue_job.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueJobDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueJobDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSGlueJobConfig_ExecutionProperty(rName, 0),
@@ -325,9 +325,9 @@ func TestAccAWSGlueJob_MaxRetries(t *testing.T) {
 	resourceName := "aws_glue_job.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueJobDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueJobDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSGlueJobConfig_MaxRetries(rName, 11),
@@ -363,9 +363,9 @@ func TestAccAWSGlueJob_NotificationProperty(t *testing.T) {
 	resourceName := "aws_glue_job.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueJobDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueJobDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSGlueJobConfig_NotificationProperty(rName, 0),
@@ -403,9 +403,9 @@ func TestAccAWSGlueJob_Tags(t *testing.T) {
 	resourceName := "aws_glue_job.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueJobDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueJobDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueJobConfigTags1(rName, "key1", "value1"),
@@ -448,9 +448,9 @@ func TestAccAWSGlueJob_Timeout(t *testing.T) {
 	resourceName := "aws_glue_job.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueJobDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueJobDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueJobConfig_Timeout(rName, 1),
@@ -482,9 +482,9 @@ func TestAccAWSGlueJob_SecurityConfiguration(t *testing.T) {
 	resourceName := "aws_glue_job.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueJobDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueJobDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueJobConfig_SecurityConfiguration(rName, "default_encryption"),
@@ -516,9 +516,9 @@ func TestAccAWSGlueJob_WorkerType(t *testing.T) {
 	resourceName := "aws_glue_job.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueJobDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueJobDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueJobConfig_WorkerType(rName, "Standard"),
@@ -557,9 +557,9 @@ func TestAccAWSGlueJob_PythonShell(t *testing.T) {
 	resourceName := "aws_glue_job.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueJobDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueJobDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueJobConfig_PythonShell(rName),
@@ -612,9 +612,9 @@ func TestAccAWSGlueJob_MaxCapacity(t *testing.T) {
 	resourceName := "aws_glue_job.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueJobDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueJobDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueJobConfig_MaxCapacity(rName, 10),
@@ -649,9 +649,9 @@ func TestAccAWSGlueJob_disappears(t *testing.T) {
 	resourceName := "aws_glue_job.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueJobDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueJobDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueJobConfig_Required(rName),

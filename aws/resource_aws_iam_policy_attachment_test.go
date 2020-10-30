@@ -28,9 +28,9 @@ func TestAccAWSIAMPolicyAttachment_basic(t *testing.T) {
 	attachmentName := fmt.Sprintf("tf-acc-attachment-pa-basic-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSPolicyAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSPolicyAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSPolicyAttachConfig(userName, roleName, groupName, policyName, attachmentName),
@@ -63,9 +63,9 @@ func TestAccAWSIAMPolicyAttachment_paginatedEntities(t *testing.T) {
 	attachmentName := fmt.Sprintf("tf-acc-attachment-pa-pe-%s-", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSPolicyAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSPolicyAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSPolicyPaginatedAttachConfig(userNamePrefix, policyName, attachmentName),
@@ -86,9 +86,9 @@ func TestAccAWSIAMPolicyAttachment_Groups_RenamedGroup(t *testing.T) {
 	resourceName := "aws_iam_policy_attachment.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSPolicyAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSPolicyAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIamPolicyAttachmentConfigGroupsRenamedGroup(rName, groupName1),
@@ -117,9 +117,9 @@ func TestAccAWSIAMPolicyAttachment_Roles_RenamedRole(t *testing.T) {
 	resourceName := "aws_iam_policy_attachment.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSPolicyAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSPolicyAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIamPolicyAttachmentConfigRolesRenamedRole(rName, roleName1),
@@ -148,9 +148,9 @@ func TestAccAWSIAMPolicyAttachment_Users_RenamedUser(t *testing.T) {
 	resourceName := "aws_iam_policy_attachment.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSPolicyAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSPolicyAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIamPolicyAttachmentConfigUsersRenamedUser(rName, userName1),

@@ -27,9 +27,9 @@ func testAccAwsOrganizationsAccount_basic(t *testing.T) {
 	email := fmt.Sprintf("tf-acctest+%d@%s", rInt, orgsEmailDomain)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOrganizationsAccountDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOrganizationsAccountDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOrganizationsAccountConfig(name, email),
@@ -73,9 +73,9 @@ func testAccAwsOrganizationsAccount_ParentId(t *testing.T) {
 	parentIdResourceName2 := "aws_organizations_organizational_unit.test2"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOrganizationsAccountDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOrganizationsAccountDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOrganizationsAccountConfigParentId1(name, email),
@@ -117,9 +117,9 @@ func testAccAwsOrganizationsAccount_Tags(t *testing.T) {
 	resourceName := "aws_organizations_account.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOrganizationsAccountDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOrganizationsAccountDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOrganizationsAccountConfigTags1(name, email, "key1", "value1"),

@@ -16,9 +16,9 @@ func TestAccAWSMediaPackageChannel_basic(t *testing.T) {
 	resourceName := "aws_media_package_channel.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMediaPackage(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMediaPackageChannelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMediaPackage(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMediaPackageChannelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMediaPackageChannelConfig(acctest.RandString(5)),
@@ -47,9 +47,9 @@ func TestAccAWSMediaPackageChannel_description(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMediaPackage(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMediaPackageChannelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMediaPackage(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMediaPackageChannelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMediaPackageChannelConfigDescription(rName, "description1"),
@@ -79,9 +79,9 @@ func TestAccAWSMediaPackageChannel_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMediaPackage(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMediaPackageChannelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMediaPackage(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMediaPackageChannelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMediaPackageChannelConfigWithTags(rName, "Environment", "test"),

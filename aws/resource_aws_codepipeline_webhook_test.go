@@ -20,9 +20,9 @@ func TestAccAWSCodePipelineWebhook_basic(t *testing.T) {
 	resourceName := "aws_codepipeline_webhook.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodePipelineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodePipelineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodePipelineWebhookConfig_basic(rName, githubToken),
@@ -51,9 +51,9 @@ func TestAccAWSCodePipelineWebhook_ipAuth(t *testing.T) {
 	resourceName := "aws_codepipeline_webhook.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodePipelineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodePipelineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodePipelineWebhookConfig_ipAuth(rName, githubToken),
@@ -82,9 +82,9 @@ func TestAccAWSCodePipelineWebhook_unauthenticated(t *testing.T) {
 	resourceName := "aws_codepipeline_webhook.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodePipelineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodePipelineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodePipelineWebhookConfig_unauthenticated(rName, githubToken),
@@ -111,9 +111,9 @@ func TestAccAWSCodePipelineWebhook_tags(t *testing.T) {
 	resourceName := "aws_codepipeline_webhook.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodePipelineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodePipelineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodePipelineWebhookConfigWithTags(rName, "tag1value", "tag2value", githubToken),
@@ -171,9 +171,9 @@ func TestAccAWSCodePipelineWebhook_UpdateAuthenticationConfiguration_SecretToken
 	resourceName := "aws_codepipeline_webhook.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodePipelineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodePipeline(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodePipelineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodePipelineWebhookConfig_basic(rName, githubToken),

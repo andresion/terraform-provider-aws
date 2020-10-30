@@ -21,9 +21,9 @@ func TestAccAWSS3BucketNotification_LambdaFunction(t *testing.T) {
 	resourceName := "aws_s3_bucket_notification.notification"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketNotificationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketNotificationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketNotificationConfigLambdaFunction(rName),
@@ -62,9 +62,9 @@ func TestAccAWSS3BucketNotification_LambdaFunction_LambdaFunctionArn_Alias(t *te
 	resourceName := "aws_s3_bucket_notification.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketNotificationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketNotificationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketNotificationConfigLambdaFunctionLambdaFunctionArnAlias(rName),
@@ -92,9 +92,9 @@ func TestAccAWSS3BucketNotification_Queue(t *testing.T) {
 	resourceName := "aws_s3_bucket_notification.notification"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketNotificationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketNotificationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketNotificationConfigQueue(rName),
@@ -133,9 +133,9 @@ func TestAccAWSS3BucketNotification_Topic(t *testing.T) {
 	resourceName := "aws_s3_bucket_notification.notification"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketNotificationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketNotificationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketNotificationConfigTopic(rName),
@@ -163,9 +163,9 @@ func TestAccAWSS3BucketNotification_Topic_Multiple(t *testing.T) {
 	resourceName := "aws_s3_bucket_notification.notification"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketNotificationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketNotificationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketNotificationConfigTopicMultiple(rName),
@@ -217,9 +217,9 @@ func TestAccAWSS3BucketNotification_update(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketNotificationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketNotificationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketNotificationConfigTopic(rName),

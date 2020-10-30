@@ -31,9 +31,9 @@ func TestAccAWSDefaultNetworkAcl_basic(t *testing.T) {
 	resourceName := "aws_default_network_acl.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDefaultNetworkAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDefaultNetworkAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDefaultNetworkConfig_basic,
@@ -58,9 +58,9 @@ func TestAccAWSDefaultNetworkAcl_basicIpv6Vpc(t *testing.T) {
 	resourceName := "aws_default_network_acl.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDefaultNetworkAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDefaultNetworkAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDefaultNetworkConfig_basicIpv6Vpc,
@@ -86,9 +86,9 @@ func TestAccAWSDefaultNetworkAcl_deny_ingress(t *testing.T) {
 	resourceName := "aws_default_network_acl.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDefaultNetworkAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDefaultNetworkAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDefaultNetworkConfig_deny_ingress,
@@ -111,9 +111,9 @@ func TestAccAWSDefaultNetworkAcl_withIpv6Ingress(t *testing.T) {
 	resourceName := "aws_default_network_acl.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDefaultNetworkAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDefaultNetworkAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDefaultNetworkConfig_includingIpv6Rule,
@@ -136,9 +136,9 @@ func TestAccAWSDefaultNetworkAcl_SubnetRemoval(t *testing.T) {
 	resourceName := "aws_default_network_acl.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDefaultNetworkAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDefaultNetworkAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDefaultNetworkConfig_Subnets,
@@ -178,9 +178,9 @@ func TestAccAWSDefaultNetworkAcl_SubnetReassign(t *testing.T) {
 	resourceName := "aws_default_network_acl.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDefaultNetworkAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDefaultNetworkAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDefaultNetworkConfig_Subnets,

@@ -20,9 +20,9 @@ func TestAccAWSCognitoUserGroup_basic(t *testing.T) {
 	resourceName := "aws_cognito_user_group.main"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoUserGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoUserGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoUserGroupConfig_basic(poolName, groupName),
@@ -54,9 +54,9 @@ func TestAccAWSCognitoUserGroup_complex(t *testing.T) {
 	resourceName := "aws_cognito_user_group.main"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoUserGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoUserGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoUserGroupConfig_complex(poolName, groupName, "This is the user group description", 1),
@@ -92,9 +92,9 @@ func TestAccAWSCognitoUserGroup_RoleArn(t *testing.T) {
 	resourceName := "aws_cognito_user_group.main"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoUserGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoUserGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoUserGroupConfig_RoleArn(rName),

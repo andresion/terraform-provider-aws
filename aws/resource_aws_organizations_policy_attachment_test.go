@@ -23,9 +23,9 @@ func testAccAwsOrganizationsPolicyAttachment_Account(t *testing.T) {
 	tagPolicyContent := `{ "tags": { "Product": { "tag_key": { "@@assign": "Product" }, "enforced_for": { "@@assign": [ "ec2:instance" ] } } } }`
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOrganizationsPolicyAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOrganizationsPolicyAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOrganizationsPolicyAttachmentConfig_Account(rName, organizations.PolicyTypeServiceControlPolicy, serviceControlPolicyContent),
@@ -59,9 +59,9 @@ func testAccAwsOrganizationsPolicyAttachment_OrganizationalUnit(t *testing.T) {
 	targetIdResourceName := "aws_organizations_organizational_unit.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOrganizationsPolicyAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOrganizationsPolicyAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOrganizationsPolicyAttachmentConfig_OrganizationalUnit(rName),
@@ -87,9 +87,9 @@ func testAccAwsOrganizationsPolicyAttachment_Root(t *testing.T) {
 	targetIdResourceName := "aws_organizations_organization.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOrganizationsPolicyAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOrganizationsPolicyAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOrganizationsPolicyAttachmentConfig_Root(rName),

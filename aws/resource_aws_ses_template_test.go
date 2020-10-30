@@ -20,9 +20,9 @@ func TestAccAWSSesTemplate_basic(t *testing.T) {
 	var template ses.Template
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSesTemplateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSesTemplateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsSesTemplateResourceConfigBasic1(rName),
@@ -50,9 +50,9 @@ func TestAccAWSSesTemplate_Update(t *testing.T) {
 	var template ses.Template
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSesTemplateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSesTemplateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsSesTemplateResourceConfigBasic1(rName),
@@ -99,9 +99,9 @@ func TestAccAWSSesTemplate_disappears(t *testing.T) {
 	var template ses.Template
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSesTemplateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSesTemplateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsSesTemplateResourceConfigBasic1(rName),

@@ -78,9 +78,9 @@ func TestAccAWSCognitoUserPoolDomain_basic(t *testing.T) {
 	poolName := fmt.Sprintf("tf-acc-test-pool-%s", acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoUserPoolDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoUserPoolDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoUserPoolDomainConfig_basic(domainName, poolName),
@@ -130,9 +130,9 @@ func TestAccAWSCognitoUserPoolDomain_custom(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoUserPoolDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoUserPoolDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoUserPoolDomainConfig_custom(customSubDomainName, poolName, certificateArn),
@@ -157,9 +157,9 @@ func TestAccAWSCognitoUserPoolDomain_disappears(t *testing.T) {
 	resourceName := "aws_cognito_user_pool_domain.main"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoUserPoolDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoUserPoolDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoUserPoolDomainConfig_basic(domainName, poolName),

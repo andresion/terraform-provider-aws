@@ -83,9 +83,9 @@ func TestAccAWSEMRCluster_basic(t *testing.T) {
 	resourceName := "aws_emr_cluster.tf-test-cluster"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfig(rName),
@@ -125,9 +125,9 @@ func TestAccAWSEMRCluster_additionalInfo(t *testing.T) {
 	resourceName := "aws_emr_cluster.tf-test-cluster"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfigAdditionalInfo(rName),
@@ -159,9 +159,9 @@ func TestAccAWSEMRCluster_disappears(t *testing.T) {
 	resourceName := "aws_emr_cluster.tf-test-cluster"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfig(rName),
@@ -181,9 +181,9 @@ func TestAccAWSEMRCluster_configurationsJson(t *testing.T) {
 	resourceName := "aws_emr_cluster.tf-test-cluster"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfigConfigurationsJson(rName),
@@ -279,9 +279,9 @@ func TestAccAWSEMRCluster_CoreInstanceGroup_AutoscalingPolicy(t *testing.T) {
 	resourceName := "aws_emr_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfigCoreInstanceGroupAutoscalingPolicy(rName, autoscalingPolicy1),
@@ -329,9 +329,9 @@ func TestAccAWSEMRCluster_CoreInstanceGroup_BidPrice(t *testing.T) {
 	resourceName := "aws_emr_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfigCoreInstanceGroupBidPrice(rName, "0.50"),
@@ -370,9 +370,9 @@ func TestAccAWSEMRCluster_CoreInstanceGroup_InstanceCount(t *testing.T) {
 	resourceName := "aws_emr_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfigCoreInstanceGroupInstanceCount(rName, 2),
@@ -420,9 +420,9 @@ func TestAccAWSEMRCluster_CoreInstanceGroup_InstanceType(t *testing.T) {
 	resourceName := "aws_emr_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfigCoreInstanceGroupInstanceType(rName, "m4.large"),
@@ -461,9 +461,9 @@ func TestAccAWSEMRCluster_CoreInstanceGroup_Name(t *testing.T) {
 	resourceName := "aws_emr_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfigCoreInstanceGroupName(rName, "name1"),
@@ -505,9 +505,9 @@ func TestAccAWSEMRCluster_Ec2Attributes_DefaultManagedSecurityGroups(t *testing.
 	vpcResourceName := "aws_vpc.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfigEc2AttributesDefaultManagedSecurityGroups(rName),
@@ -545,9 +545,9 @@ func TestAccAWSEMRCluster_Kerberos_ClusterDedicatedKdc(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	password := fmt.Sprintf("NeverKeepPasswordsInPlainText%s!", rName)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfig_Kerberos_ClusterDedicatedKdc(rName, password),
@@ -579,9 +579,9 @@ func TestAccAWSEMRCluster_MasterInstanceGroup_BidPrice(t *testing.T) {
 	resourceName := "aws_emr_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfigMasterInstanceGroupBidPrice(rName, "0.50"),
@@ -620,9 +620,9 @@ func TestAccAWSEMRCluster_MasterInstanceGroup_InstanceCount(t *testing.T) {
 	resourceName := "aws_emr_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfigMasterInstanceGroupInstanceCount(rName, 3),
@@ -661,9 +661,9 @@ func TestAccAWSEMRCluster_MasterInstanceGroup_InstanceType(t *testing.T) {
 	resourceName := "aws_emr_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfigMasterInstanceGroupInstanceType(rName, "m4.large"),
@@ -702,9 +702,9 @@ func TestAccAWSEMRCluster_MasterInstanceGroup_Name(t *testing.T) {
 	resourceName := "aws_emr_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfigMasterInstanceGroupName(rName, "name1"),
@@ -743,9 +743,9 @@ func TestAccAWSEMRCluster_security_config(t *testing.T) {
 	resourceName := "aws_emr_cluster.tf-test-cluster"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfig_SecurityConfiguration(rName),
@@ -774,9 +774,9 @@ func TestAccAWSEMRCluster_Step_Basic(t *testing.T) {
 	resourceName := "aws_emr_cluster.tf-test-cluster"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfig_Step_Single(rName),
@@ -811,9 +811,9 @@ func TestAccAWSEMRCluster_Step_ConfigMode(t *testing.T) {
 	resourceName := "aws_emr_cluster.tf-test-cluster"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfig_Step_Single(rName),
@@ -876,9 +876,9 @@ func TestAccAWSEMRCluster_Step_Multiple(t *testing.T) {
 	resourceName := "aws_emr_cluster.tf-test-cluster"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfig_Step_Multiple(rName),
@@ -917,9 +917,9 @@ func TestAccAWSEMRCluster_bootstrap_ordering(t *testing.T) {
 	resourceName := "aws_emr_cluster.test"
 	rName := acctest.RandomWithPrefix("tf-emr-bootstrap")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfig_bootstrap(rName),
@@ -1016,9 +1016,9 @@ func TestAccAWSEMRCluster_terminationProtected(t *testing.T) {
 	resourceName := "aws_emr_cluster.tf-test-cluster"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfigTerminationPolicy(rName, "false"),
@@ -1072,9 +1072,9 @@ func TestAccAWSEMRCluster_keepJob(t *testing.T) {
 	resourceName := "aws_emr_cluster.tf-test-cluster"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfig_keepJob(rName, "false"),
@@ -1103,9 +1103,9 @@ func TestAccAWSEMRCluster_visibleToAllUsers(t *testing.T) {
 	resourceName := "aws_emr_cluster.tf-test-cluster"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfig(rName),
@@ -1152,9 +1152,9 @@ func TestAccAWSEMRCluster_s3Logging(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	bucketName := fmt.Sprintf("s3n://%s/", rName)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfigS3Logging(rName),
@@ -1183,9 +1183,9 @@ func TestAccAWSEMRCluster_tags(t *testing.T) {
 	resourceName := "aws_emr_cluster.tf-test-cluster"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfig(rName),
@@ -1227,9 +1227,9 @@ func TestAccAWSEMRCluster_root_volume_size(t *testing.T) {
 	resourceName := "aws_emr_cluster.tf-test-cluster"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfig(rName),
@@ -1264,9 +1264,9 @@ func TestAccAWSEMRCluster_step_concurrency_level(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_emr_cluster.tf-test-cluster"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfigStepConcurrencyLevel(rName, 2),
@@ -1301,9 +1301,9 @@ func TestAccAWSEMRCluster_ebs_config(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_emr_cluster.tf-test-cluster"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrEbsConfig(rName, 2),
@@ -1333,9 +1333,9 @@ func TestAccAWSEMRCluster_custom_ami_id(t *testing.T) {
 	resourceName := "aws_emr_cluster.tf-test-cluster"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfigCustomAmiID(rName),
@@ -1364,9 +1364,9 @@ func TestAccAWSEMRCluster_instance_fleet(t *testing.T) {
 	resourceName := "aws_emr_cluster.tf-test-cluster"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfigInstanceFleets(rName),
@@ -1386,9 +1386,9 @@ func TestAccAWSEMRCluster_instance_fleet_master_only(t *testing.T) {
 	resourceName := "aws_emr_cluster.tf-test-cluster"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrClusterConfigInstanceFleetsMasterOnly(rName),

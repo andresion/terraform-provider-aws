@@ -18,9 +18,9 @@ func TestAccAWSDefaultSubnet_basic(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDefaultSubnetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDefaultSubnetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDefaultSubnetConfigBasic(rInt),
@@ -51,9 +51,9 @@ func TestAccAWSDefaultSubnet_publicIp(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDefaultSubnetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDefaultSubnetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDefaultSubnetConfigPublicIp(rInt),

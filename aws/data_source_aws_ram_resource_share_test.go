@@ -15,8 +15,8 @@ func TestAccDataSourceAwsRamResourceShare_basic(t *testing.T) {
 	datasourceName := "data.aws_ram_resource_share.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccDataSourceAwsRamResourceShareConfig_NonExistent,
@@ -40,8 +40,8 @@ func TestAccDataSourceAwsRamResourceShare_Tags(t *testing.T) {
 	datasourceName := "data.aws_ram_resource_share.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsRamResourceShareConfig_Tags(rName),

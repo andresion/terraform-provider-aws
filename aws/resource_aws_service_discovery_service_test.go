@@ -118,9 +118,9 @@ func TestAccAWSServiceDiscoveryService_private(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsServiceDiscoveryServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsServiceDiscoveryServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccServiceDiscoveryServiceConfig_private(rName, 5),
@@ -164,9 +164,9 @@ func TestAccAWSServiceDiscoveryService_public(t *testing.T) {
 	resourceName := "aws_service_discovery_service.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsServiceDiscoveryServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsServiceDiscoveryServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccServiceDiscoveryServiceConfig_public(rName, 5, "/path"),
@@ -217,9 +217,9 @@ func TestAccAWSServiceDiscoveryService_http(t *testing.T) {
 	resourceName := "aws_service_discovery_service.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsServiceDiscoveryServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsServiceDiscoveryServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccServiceDiscoveryServiceConfig_http(rName),
@@ -244,9 +244,9 @@ func TestAccAWSServiceDiscoveryService_disappears(t *testing.T) {
 	resourceName := "aws_service_discovery_service.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsServiceDiscoveryServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsServiceDiscoveryServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccServiceDiscoveryServiceConfig_http(rName),
@@ -265,9 +265,9 @@ func TestAccAWSServiceDiscoveryService_Tags(t *testing.T) {
 	resourceName := "aws_service_discovery_service.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsServiceDiscoveryServiceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsServiceDiscoveryServiceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccServiceDiscoveryServiceConfigTags1(rName, "key1", "value1"),

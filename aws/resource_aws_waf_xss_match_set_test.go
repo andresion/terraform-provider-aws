@@ -19,9 +19,9 @@ func TestAccAWSWafXssMatchSet_basic(t *testing.T) {
 	resourceName := "aws_waf_xss_match_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafXssMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafXssMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafXssMatchSetConfig(rName),
@@ -60,9 +60,9 @@ func TestAccAWSWafXssMatchSet_changeNameForceNew(t *testing.T) {
 	resourceName := "aws_waf_xss_match_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafXssMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafXssMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafXssMatchSetConfig(rName),
@@ -95,9 +95,9 @@ func TestAccAWSWafXssMatchSet_disappears(t *testing.T) {
 	resourceName := "aws_waf_xss_match_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafXssMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafXssMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafXssMatchSetConfig(rName),
@@ -117,9 +117,9 @@ func TestAccAWSWafXssMatchSet_changeTuples(t *testing.T) {
 	resourceName := "aws_waf_xss_match_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafXssMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafXssMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafXssMatchSetConfig(setName),
@@ -176,9 +176,9 @@ func TestAccAWSWafXssMatchSet_noTuples(t *testing.T) {
 	resourceName := "aws_waf_xss_match_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafXssMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafXssMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafXssMatchSetConfig_noTuples(setName),

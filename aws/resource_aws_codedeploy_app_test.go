@@ -18,9 +18,9 @@ func TestAccAWSCodeDeployApp_basic(t *testing.T) {
 	resourceName := "aws_codedeploy_app.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeDeployAppDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeDeployAppDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeDeployAppConfigName(rName),
@@ -53,9 +53,9 @@ func TestAccAWSCodeDeployApp_computePlatform(t *testing.T) {
 	resourceName := "aws_codedeploy_app.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeDeployAppDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeDeployAppDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeDeployAppConfigComputePlatform(rName, "Lambda"),
@@ -82,9 +82,9 @@ func TestAccAWSCodeDeployApp_computePlatform_ECS(t *testing.T) {
 	resourceName := "aws_codedeploy_app.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeDeployAppDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeDeployAppDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeDeployAppConfigComputePlatform(rName, "ECS"),
@@ -108,9 +108,9 @@ func TestAccAWSCodeDeployApp_computePlatform_Lambda(t *testing.T) {
 	resourceName := "aws_codedeploy_app.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeDeployAppDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeDeployAppDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeDeployAppConfigComputePlatform(rName, "Lambda"),
@@ -135,9 +135,9 @@ func TestAccAWSCodeDeployApp_name(t *testing.T) {
 	resourceName := "aws_codedeploy_app.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeDeployAppDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeDeployAppDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeDeployAppConfigName(rName1),

@@ -135,9 +135,9 @@ func testAccAwsEc2ClientVpnEndpoint_basic(t *testing.T) {
 	resourceName := "aws_ec2_client_vpn_endpoint.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2ClientVpnEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2ClientVpnEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2ClientVpnEndpointConfig(rStr),
@@ -164,9 +164,9 @@ func testAccAwsEc2ClientVpnEndpoint_disappears(t *testing.T) {
 	resourceName := "aws_ec2_client_vpn_endpoint.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2ClientVpnEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2ClientVpnEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2ClientVpnEndpointConfig(rStr),
@@ -186,9 +186,9 @@ func testAccAwsEc2ClientVpnEndpoint_msAD(t *testing.T) {
 	resourceName := "aws_ec2_client_vpn_endpoint.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2ClientVpnEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2ClientVpnEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2ClientVpnEndpointConfigWithMicrosoftAD(rStr),
@@ -213,9 +213,9 @@ func testAccAwsEc2ClientVpnEndpoint_mutualAuthAndMsAD(t *testing.T) {
 	resourceName := "aws_ec2_client_vpn_endpoint.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2ClientVpnEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2ClientVpnEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2ClientVpnEndpointConfigWithMutualAuthAndMicrosoftAD(rStr),
@@ -241,9 +241,9 @@ func testAccAwsEc2ClientVpnEndpoint_federated(t *testing.T) {
 	resourceName := "aws_ec2_client_vpn_endpoint.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckClientVPNSyncronize(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2ClientVpnEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckClientVPNSyncronize(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2ClientVpnEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2ClientVpnEndpointConfigWithFederatedAuth(rStr),
@@ -270,9 +270,9 @@ func testAccAwsEc2ClientVpnEndpoint_withLogGroup(t *testing.T) {
 	logStreamResourceName := "aws_cloudwatch_log_stream.ls"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2ClientVpnEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2ClientVpnEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2ClientVpnEndpointConfig(rStr),
@@ -305,9 +305,9 @@ func testAccAwsEc2ClientVpnEndpoint_withDNSServers(t *testing.T) {
 	resourceName := "aws_ec2_client_vpn_endpoint.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2ClientVpnEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2ClientVpnEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2ClientVpnEndpointConfig(rStr),
@@ -331,9 +331,9 @@ func testAccAwsEc2ClientVpnEndpoint_tags(t *testing.T) {
 	rStr := acctest.RandString(5)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2ClientVpnEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2ClientVpnEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2ClientVpnEndpointConfig_tags(rStr),
@@ -373,9 +373,9 @@ func testAccAwsEc2ClientVpnEndpoint_splitTunnel(t *testing.T) {
 	resourceName := "aws_ec2_client_vpn_endpoint.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2ClientVpnEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2ClientVpnEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2ClientVpnEndpointConfigSplitTunnel(rName, true),

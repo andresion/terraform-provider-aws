@@ -92,9 +92,9 @@ func TestAccAWSGameliftAlias_basic(t *testing.T) {
 	uMessage := fmt.Sprintf("tf test updated message %s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGameliftAliasDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGameliftAliasDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGameliftAliasBasicConfig(aliasName, description, message),
@@ -138,9 +138,9 @@ func TestAccAWSGameliftAlias_tags(t *testing.T) {
 	aliasName := acctest.RandomWithPrefix("tf-acc-alias")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGameliftAliasDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGameliftAliasDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGameliftAliasBasicConfigTags1(aliasName, "key1", "value1"),
@@ -207,9 +207,9 @@ func TestAccAWSGameliftAlias_fleetRouting(t *testing.T) {
 	resourceName := "aws_gamelift_alias.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGameliftAliasDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGameliftAliasDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGameliftAliasAllFieldsConfig(aliasName, description,
@@ -244,9 +244,9 @@ func TestAccAWSGameliftAlias_disappears(t *testing.T) {
 	message := fmt.Sprintf("tf test message %s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGameliftAliasDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSGamelift(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGameliftAliasDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGameliftAliasBasicConfig(aliasName, description, message),

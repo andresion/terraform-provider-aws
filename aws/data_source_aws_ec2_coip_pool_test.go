@@ -11,8 +11,8 @@ func TestAccDataSourceAwsEc2CoipPool_Filter(t *testing.T) {
 	dataSourceName := "data.aws_ec2_coip_pool.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsEc2CoipPoolDataSourceConfigFilter(),
@@ -30,8 +30,8 @@ func TestAccDataSourceAwsEc2CoipPool_Id(t *testing.T) {
 	dataSourceName := "data.aws_ec2_coip_pool.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsEc2CoipPoolDataSourceConfigId(),

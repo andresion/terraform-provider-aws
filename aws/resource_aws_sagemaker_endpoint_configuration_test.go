@@ -62,9 +62,9 @@ func TestAccAWSSagemakerEndpointConfiguration_basic(t *testing.T) {
 	resourceName := "aws_sagemaker_endpoint_configuration.foo"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSagemakerEndpointConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSagemakerEndpointConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSagemakerEndpointConfigurationConfig_Basic(rName),
@@ -93,9 +93,9 @@ func TestAccAWSSagemakerEndpointConfiguration_ProductionVariants_InitialVariantW
 	resourceName := "aws_sagemaker_endpoint_configuration.foo"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSagemakerEndpointConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSagemakerEndpointConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSagemakerEndpointConfigurationConfig_ProductionVariants_InitialVariantWeight(rName),
@@ -119,9 +119,9 @@ func TestAccAWSSagemakerEndpointConfiguration_ProductionVariants_AcceleratorType
 	resourceName := "aws_sagemaker_endpoint_configuration.foo"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSagemakerEndpointConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSagemakerEndpointConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSagemakerEndpointConfigurationConfig_ProductionVariant_AcceleratorType(rName),
@@ -144,9 +144,9 @@ func TestAccAWSSagemakerEndpointConfiguration_KmsKeyId(t *testing.T) {
 	resourceName := "aws_sagemaker_endpoint_configuration.foo"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSagemakerEndpointConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSagemakerEndpointConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSagemakerEndpointConfiguration_Config_KmsKeyId(rName),
@@ -169,9 +169,9 @@ func TestAccAWSSagemakerEndpointConfiguration_Tags(t *testing.T) {
 	resourceName := "aws_sagemaker_endpoint_configuration.foo"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSagemakerEndpointConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSagemakerEndpointConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSagemakerEndpointConfigurationConfig_Tags(rName),

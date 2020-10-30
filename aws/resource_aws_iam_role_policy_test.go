@@ -24,9 +24,9 @@ func TestAccAWSIAMRolePolicy_basic(t *testing.T) {
 	roleName := "aws_iam_role.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckIAMRolePolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMRolePolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccIAMRolePolicyConfig(role, policy1),
@@ -71,9 +71,9 @@ func TestAccAWSIAMRolePolicy_disappears(t *testing.T) {
 	rolePolicyResourceName := fmt.Sprintf("aws_iam_role_policy.test_%s", suffix)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckIAMRolePolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMRolePolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsIamRolePolicyConfig(suffix),
@@ -184,9 +184,9 @@ func TestAccAWSIAMRolePolicy_invalidJSON(t *testing.T) {
 	role := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckIAMRolePolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMRolePolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccIAMRolePolicyConfig_invalidJSON(role),
@@ -200,9 +200,9 @@ func TestAccAWSIAMRolePolicy_Policy_InvalidResource(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckIAMRolePolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMRolePolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccIAMRolePolicyConfig_Policy_InvalidResource(rName),

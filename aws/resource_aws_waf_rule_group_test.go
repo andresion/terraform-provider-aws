@@ -74,9 +74,9 @@ func TestAccAWSWafRuleGroup_basic(t *testing.T) {
 	resourceName := "aws_waf_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRuleGroupConfig(ruleName, groupName),
@@ -113,9 +113,9 @@ func TestAccAWSWafRuleGroup_changeNameForceNew(t *testing.T) {
 	resourceName := "aws_waf_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRuleGroupConfig(ruleName, groupName),
@@ -151,9 +151,9 @@ func TestAccAWSWafRuleGroup_disappears(t *testing.T) {
 	resourceName := "aws_waf_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRuleGroupConfig(ruleName, groupName),
@@ -179,9 +179,9 @@ func TestAccAWSWafRuleGroup_changeActivatedRules(t *testing.T) {
 	resourceName := "aws_waf_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRuleGroupConfig(ruleName1, groupName),
@@ -269,9 +269,9 @@ func TestAccAWSWafRuleGroup_Tags(t *testing.T) {
 	resourceName := "aws_waf_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafWebAclDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafWebAclDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRuleGroupConfigTags1(groupName, "key1", "value1"),
@@ -319,9 +319,9 @@ func TestAccAWSWafRuleGroup_noActivatedRules(t *testing.T) {
 	resourceName := "aws_waf_rule_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRuleGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRuleGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRuleGroupConfig_noActivatedRules(groupName),

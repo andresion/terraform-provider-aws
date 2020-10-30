@@ -14,8 +14,8 @@ func TestAccAWSCloudFormationStack_dataSource_basic(t *testing.T) {
 	resourceName := "data.aws_cloudformation_stack.network"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsCloudFormationStackDataSourceConfig_basic(stackName),
@@ -99,8 +99,8 @@ func TestAccAWSCloudFormationStack_dataSource_yaml(t *testing.T) {
 	resourceName := "data.aws_cloudformation_stack.yaml"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsCloudFormationStackDataSourceConfig_yaml(stackName),

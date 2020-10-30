@@ -87,9 +87,9 @@ func TestAccAwsAcmpcaCertificateAuthority_basic(t *testing.T) {
 	resourceName := "aws_acmpca_certificate_authority.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAcmpcaCertificateAuthorityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAcmpcaCertificateAuthorityDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsAcmpcaCertificateAuthorityConfig_Required,
@@ -131,9 +131,9 @@ func TestAccAwsAcmpcaCertificateAuthority_disappears(t *testing.T) {
 	resourceName := "aws_acmpca_certificate_authority.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAcmpcaCertificateAuthorityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAcmpcaCertificateAuthorityDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsAcmpcaCertificateAuthorityConfig_Required,
@@ -153,9 +153,9 @@ func TestAccAwsAcmpcaCertificateAuthority_Enabled(t *testing.T) {
 	resourceName := "aws_acmpca_certificate_authority.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAcmpcaCertificateAuthorityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAcmpcaCertificateAuthorityDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsAcmpcaCertificateAuthorityConfig_Enabled(rName, acmpca.CertificateAuthorityTypeRoot, true),
@@ -202,9 +202,9 @@ func TestAccAwsAcmpcaCertificateAuthority_RevocationConfiguration_CrlConfigurati
 	resourceName := "aws_acmpca_certificate_authority.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAcmpcaCertificateAuthorityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAcmpcaCertificateAuthorityDestroy,
 		Steps: []resource.TestStep{
 			// Test creating revocation configuration on resource creation
 			{
@@ -287,9 +287,9 @@ func TestAccAwsAcmpcaCertificateAuthority_RevocationConfiguration_CrlConfigurati
 	resourceName := "aws_acmpca_certificate_authority.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAcmpcaCertificateAuthorityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAcmpcaCertificateAuthorityDestroy,
 		Steps: []resource.TestStep{
 			// Test creating revocation configuration on resource creation
 			{
@@ -356,9 +356,9 @@ func TestAccAwsAcmpcaCertificateAuthority_RevocationConfiguration_CrlConfigurati
 	resourceName := "aws_acmpca_certificate_authority.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAcmpcaCertificateAuthorityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAcmpcaCertificateAuthorityDestroy,
 		Steps: []resource.TestStep{
 			// Test creating revocation configuration on resource creation
 			{
@@ -413,9 +413,9 @@ func TestAccAwsAcmpcaCertificateAuthority_Tags(t *testing.T) {
 	resourceName := "aws_acmpca_certificate_authority.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAcmpcaCertificateAuthorityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAcmpcaCertificateAuthorityDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsAcmpcaCertificateAuthorityConfig_Tags_Single,

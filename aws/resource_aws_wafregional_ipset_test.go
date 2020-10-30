@@ -24,9 +24,9 @@ func TestAccAWSWafRegionalIPSet_basic(t *testing.T) {
 	ipsetName := fmt.Sprintf("ip-set-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalIPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalIPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalIPSetConfig(ipsetName),
@@ -54,9 +54,9 @@ func TestAccAWSWafRegionalIPSet_disappears(t *testing.T) {
 	var v waf.IPSet
 	ipsetName := fmt.Sprintf("ip-set-%s", acctest.RandString(5))
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalIPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalIPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalIPSetConfig(ipsetName),
@@ -77,9 +77,9 @@ func TestAccAWSWafRegionalIPSet_changeNameForceNew(t *testing.T) {
 	ipsetNewName := fmt.Sprintf("ip-set-new-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalIPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalIPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalIPSetConfig(ipsetName),
@@ -118,9 +118,9 @@ func TestAccAWSWafRegionalIPSet_changeDescriptors(t *testing.T) {
 	ipsetName := fmt.Sprintf("ip-set-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalIPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalIPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalIPSetConfig(ipsetName),
@@ -180,9 +180,9 @@ func TestAccAWSWafRegionalIPSet_IpSetDescriptors_1000UpdateLimit(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalIPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalIPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalIPSetConfig_IpSetDescriptors(ipsetName, strings.Join(ipSetDescriptors, "\n")),
@@ -206,9 +206,9 @@ func TestAccAWSWafRegionalIPSet_noDescriptors(t *testing.T) {
 	ipsetName := fmt.Sprintf("ip-set-%s", acctest.RandString(5))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegionalIPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("waf-regional", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegionalIPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegionalIPSetConfig_noDescriptors(ipsetName),

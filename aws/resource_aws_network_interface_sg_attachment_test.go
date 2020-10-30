@@ -18,9 +18,9 @@ func TestAccAWSNetworkInterfaceSGAttachment_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNetworkInterfaceSGAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNetworkInterfaceSGAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsNetworkInterfaceSGAttachmentConfig(rName),
@@ -40,9 +40,9 @@ func TestAccAWSNetworkInterfaceSGAttachment_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNetworkInterfaceSGAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNetworkInterfaceSGAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsNetworkInterfaceSGAttachmentConfig(rName),
@@ -72,9 +72,9 @@ func TestAccAWSNetworkInterfaceSGAttachment_Instance(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNetworkInterfaceSGAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNetworkInterfaceSGAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsNetworkInterfaceSGAttachmentConfigViaInstance(rName),
@@ -96,9 +96,9 @@ func TestAccAWSNetworkInterfaceSGAttachment_DataSource(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNetworkInterfaceSGAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNetworkInterfaceSGAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsNetworkInterfaceSGAttachmentConfigViaDataSource(rName),
@@ -126,9 +126,9 @@ func TestAccAWSNetworkInterfaceSGAttachment_Multiple(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNetworkInterfaceSGAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNetworkInterfaceSGAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsNetworkInterfaceSGAttachmentConfigMultiple(rName),

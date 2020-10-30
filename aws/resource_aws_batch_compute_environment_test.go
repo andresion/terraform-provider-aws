@@ -68,9 +68,9 @@ func TestAccAWSBatchComputeEnvironment_disappears(t *testing.T) {
 	resourceName := "aws_batch_compute_environment.ec2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchComputeEnvironmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchComputeEnvironmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSBatchComputeEnvironmentConfigEC2(rInt),
@@ -89,9 +89,9 @@ func TestAccAWSBatchComputeEnvironment_createEc2(t *testing.T) {
 	resourceName := "aws_batch_compute_environment.ec2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchComputeEnvironmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchComputeEnvironmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSBatchComputeEnvironmentConfigEC2(rInt),
@@ -108,9 +108,9 @@ func TestAccAWSBatchComputeEnvironment_createWithNamePrefix(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchComputeEnvironmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchComputeEnvironmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSBatchComputeEnvironmentConfigNamePrefix(rInt),
@@ -129,9 +129,9 @@ func TestAccAWSBatchComputeEnvironment_createEc2WithTags(t *testing.T) {
 	rInt := acctest.RandInt()
 	resourceName := "aws_batch_compute_environment.ec2"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchComputeEnvironmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchComputeEnvironmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSBatchComputeEnvironmentConfigEC2WithTags(rInt),
@@ -154,9 +154,9 @@ func TestAccAWSBatchComputeEnvironment_createSpot(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchComputeEnvironmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchComputeEnvironmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSBatchComputeEnvironmentConfigSpot(rInt),
@@ -172,9 +172,9 @@ func TestAccAWSBatchComputeEnvironment_createUnmanaged(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchComputeEnvironmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchComputeEnvironmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSBatchComputeEnvironmentConfigUnmanaged(rInt),
@@ -191,9 +191,9 @@ func TestAccAWSBatchComputeEnvironment_ComputeResources_DesiredVcpus_Computed(t 
 	resourceName := "aws_batch_compute_environment.ec2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchComputeEnvironmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchComputeEnvironmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSBatchComputeEnvironmentConfigComputeResourcesMaxVcpusMinVcpus(rInt, 8, 4),
@@ -227,9 +227,9 @@ func TestAccAWSBatchComputeEnvironment_ComputeResources_MinVcpus(t *testing.T) {
 	resourceName := "aws_batch_compute_environment.ec2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchComputeEnvironmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchComputeEnvironmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSBatchComputeEnvironmentConfigComputeResourcesMaxVcpusMinVcpus(rInt, 4, 0),
@@ -266,9 +266,9 @@ func TestAccAWSBatchComputeEnvironment_ComputeResources_MaxVcpus(t *testing.T) {
 	resourceName := "aws_batch_compute_environment.ec2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchComputeEnvironmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchComputeEnvironmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSBatchComputeEnvironmentConfigComputeResourcesMaxVcpusMinVcpus(rInt, 4, 0),
@@ -305,9 +305,9 @@ func TestAccAWSBatchComputeEnvironment_updateInstanceType(t *testing.T) {
 	resourceName := "aws_batch_compute_environment.ec2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchComputeEnvironmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchComputeEnvironmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSBatchComputeEnvironmentConfigEC2(rInt),
@@ -339,9 +339,9 @@ func TestAccAWSBatchComputeEnvironment_updateComputeEnvironmentName(t *testing.T
 	resourceName := "aws_batch_compute_environment.ec2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchComputeEnvironmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchComputeEnvironmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSBatchComputeEnvironmentConfigEC2(rInt),
@@ -370,9 +370,9 @@ func TestAccAWSBatchComputeEnvironment_createEc2WithoutComputeResources(t *testi
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchComputeEnvironmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchComputeEnvironmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSBatchComputeEnvironmentConfigEC2WithoutComputeResources(rInt),
@@ -386,9 +386,9 @@ func TestAccAWSBatchComputeEnvironment_createUnmanagedWithComputeResources(t *te
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchComputeEnvironmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchComputeEnvironmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSBatchComputeEnvironmentConfigUnmanagedWithComputeResources(rInt),
@@ -406,9 +406,9 @@ func TestAccAWSBatchComputeEnvironment_launchTemplate(t *testing.T) {
 	resourceName := "aws_batch_compute_environment.ec2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchComputeEnvironmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchComputeEnvironmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSBatchComputeEnvironmentConfigLaunchTemplate(rInt),
@@ -436,9 +436,9 @@ func TestAccAWSBatchComputeEnvironment_UpdateLaunchTemplate(t *testing.T) {
 	resourceName := "aws_batch_compute_environment.ec2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchComputeEnvironmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchComputeEnvironmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSBatchComputeEnvironmentUpdateLaunchTemplateInExistingComputeEnvironment(rInt, "$Default"),
@@ -467,9 +467,9 @@ func TestAccAWSBatchComputeEnvironment_createSpotWithAllocationStrategy(t *testi
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchComputeEnvironmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchComputeEnvironmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSBatchComputeEnvironmentConfigSpotWithAllocationStrategy(rInt),
@@ -486,9 +486,9 @@ func TestAccAWSBatchComputeEnvironment_createSpotWithoutBidPercentage(t *testing
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchComputeEnvironmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchComputeEnvironmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSBatchComputeEnvironmentConfigSpotWithoutBidPercentage(rInt),
@@ -503,9 +503,9 @@ func TestAccAWSBatchComputeEnvironment_updateState(t *testing.T) {
 	resourceName := "aws_batch_compute_environment.ec2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchComputeEnvironmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchComputeEnvironmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSBatchComputeEnvironmentConfigEC2UpdateState(rInt, batch.CEStateEnabled),
@@ -535,9 +535,9 @@ func TestAccAWSBatchComputeEnvironment_Tags(t *testing.T) {
 	resourceName := "aws_batch_compute_environment.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchComputeEnvironmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchComputeEnvironmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSBatchComputeEnvironmentConfigTags1(rInt, "key1", "value1"),

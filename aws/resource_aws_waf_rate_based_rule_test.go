@@ -20,9 +20,9 @@ func TestAccAWSWafRateBasedRule_basic(t *testing.T) {
 	resourceName := "aws_waf_rate_based_rule.wafrule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRateBasedRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRateBasedRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRateBasedRuleConfig(wafRuleName),
@@ -50,9 +50,9 @@ func TestAccAWSWafRateBasedRule_changeNameForceNew(t *testing.T) {
 	resourceName := "aws_waf_rate_based_rule.wafrule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafIPSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafIPSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRateBasedRuleConfig(wafRuleName),
@@ -87,9 +87,9 @@ func TestAccAWSWafRateBasedRule_disappears(t *testing.T) {
 	resourceName := "aws_waf_rate_based_rule.wafrule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRateBasedRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRateBasedRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRateBasedRuleConfig(wafRuleName),
@@ -112,9 +112,9 @@ func TestAccAWSWafRateBasedRule_changePredicates(t *testing.T) {
 	resourceName := "aws_waf_rate_based_rule.wafrule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRateBasedRuleConfig(ruleName),
@@ -159,9 +159,9 @@ func TestAccAWSWafRateBasedRule_changeRateLimit(t *testing.T) {
 	resourceName := "aws_waf_rate_based_rule.wafrule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRateBasedRuleConfig_changeRateLimit(ruleName, 4000),
@@ -206,9 +206,9 @@ func TestAccAWSWafRateBasedRule_noPredicates(t *testing.T) {
 	resourceName := "aws_waf_rate_based_rule.wafrule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRateBasedRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRateBasedRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRateBasedRuleConfig_noPredicates(ruleName),
@@ -233,9 +233,9 @@ func TestAccAWSWafRateBasedRule_Tags(t *testing.T) {
 	resourceName := "aws_waf_rate_based_rule.wafrule"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRateBasedRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRateBasedRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRateBasedRuleConfigTags1(ruleName, "key1", "value1"),

@@ -20,9 +20,9 @@ func TestAccAWSUserSSHKey_basic(t *testing.T) {
 	resourceName := "aws_iam_user_ssh_key.user"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserSSHKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserSSHKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: config,
@@ -48,9 +48,9 @@ func TestAccAWSUserSSHKey_pemEncoding(t *testing.T) {
 	resourceName := "aws_iam_user_ssh_key.user"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserSSHKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserSSHKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: config,

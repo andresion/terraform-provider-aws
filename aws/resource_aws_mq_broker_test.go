@@ -241,9 +241,9 @@ func TestAccAWSMqBroker_basic(t *testing.T) {
 	resourceName := "aws_mq_broker.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMqBrokerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMqBrokerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMqBrokerConfig(sgName, brokerName),
@@ -322,9 +322,9 @@ func TestAccAWSMqBroker_allFieldsDefaultVpc(t *testing.T) {
 </broker>`
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMqBrokerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMqBrokerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMqBrokerConfig_allFieldsDefaultVpc(sgName, cfgNameBefore, cfgBodyBefore, brokerName),
@@ -442,9 +442,9 @@ func TestAccAWSMqBroker_allFieldsCustomVpc(t *testing.T) {
 </broker>`
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMqBrokerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMqBrokerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMqBrokerConfig_allFieldsCustomVpc(sgName, cfgNameBefore, cfgBodyBefore, brokerName),
@@ -548,9 +548,9 @@ func TestAccAWSMqBroker_EncryptionOptions_KmsKeyId(t *testing.T) {
 	resourceName := "aws_mq_broker.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMqBrokerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMqBrokerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMqBrokerConfigEncryptionOptionsKmsKeyId(rName),
@@ -577,9 +577,9 @@ func TestAccAWSMqBroker_EncryptionOptions_UseAwsOwnedKey_Disabled(t *testing.T) 
 	resourceName := "aws_mq_broker.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMqBrokerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMqBrokerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMqBrokerConfigEncryptionOptionsUseAwsOwnedKey(rName, false),
@@ -605,9 +605,9 @@ func TestAccAWSMqBroker_EncryptionOptions_UseAwsOwnedKey_Enabled(t *testing.T) {
 	resourceName := "aws_mq_broker.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMqBrokerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMqBrokerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMqBrokerConfigEncryptionOptionsUseAwsOwnedKey(rName, true),
@@ -634,9 +634,9 @@ func TestAccAWSMqBroker_updateUsers(t *testing.T) {
 	resourceName := "aws_mq_broker.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMqBrokerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMqBrokerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMqBrokerConfig_updateUsers1(sgName, brokerName),
@@ -703,9 +703,9 @@ func TestAccAWSMqBroker_updateTags(t *testing.T) {
 	resourceName := "aws_mq_broker.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMqBrokerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMqBrokerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMqBrokerConfig_updateTags1(sgName, brokerName),
@@ -751,9 +751,9 @@ func TestAccAWSMqBroker_updateSecurityGroup(t *testing.T) {
 	resourceName := "aws_mq_broker.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMqBrokerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMqBrokerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMqBrokerConfig(sgName, brokerName),
@@ -800,9 +800,9 @@ func TestAccAWSMqBroker_disappears(t *testing.T) {
 	resourceName := "aws_mq_broker.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMqBrokerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMqBrokerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMqBrokerConfig(sgName, brokerName),

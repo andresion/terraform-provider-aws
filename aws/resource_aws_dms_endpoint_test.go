@@ -16,9 +16,9 @@ func TestAccAwsDmsEndpoint_basic(t *testing.T) {
 	randId := acctest.RandString(8) + "-basic"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: dmsEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             dmsEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: dmsEndpointBasicConfig(randId),
@@ -55,9 +55,9 @@ func TestAccAwsDmsEndpoint_S3(t *testing.T) {
 	randId := acctest.RandString(8) + "-s3"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: dmsEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             dmsEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: dmsEndpointS3Config(randId),
@@ -101,9 +101,9 @@ func TestAccAwsDmsEndpoint_DynamoDb(t *testing.T) {
 	randId := acctest.RandString(8) + "-dynamodb"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: dmsEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             dmsEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: dmsEndpointDynamoDbConfig(randId),
@@ -133,9 +133,9 @@ func TestAccAwsDmsEndpoint_Elasticsearch(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: dmsEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             dmsEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: dmsEndpointElasticsearchConfig(rName),
@@ -162,9 +162,9 @@ func TestAccAwsDmsEndpoint_Elasticsearch_ErrorRetryDuration(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: dmsEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             dmsEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: dmsEndpointElasticsearchConfigErrorRetryDuration(rName, 60),
@@ -199,9 +199,9 @@ func TestAccAwsDmsEndpoint_Elasticsearch_FullLoadErrorPercentage(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: dmsEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             dmsEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: dmsEndpointElasticsearchConfigFullLoadErrorPercentage(rName, 1),
@@ -240,9 +240,9 @@ func TestAccAwsDmsEndpoint_Kafka_Broker(t *testing.T) {
 	brokerPort2 := 3456
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: dmsEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             dmsEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: dmsEndpointKafkaConfigBroker(rName, brokerPrefix, brokerService, brokerPort1),
@@ -277,9 +277,9 @@ func TestAccAwsDmsEndpoint_Kafka_Topic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: dmsEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             dmsEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: dmsEndpointKafkaConfigTopic(rName, "topic1"),
@@ -312,9 +312,9 @@ func TestAccAwsDmsEndpoint_Kinesis(t *testing.T) {
 	randId := acctest.RandString(8) + "-kinesis"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: dmsEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             dmsEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: dmsEndpointKinesisConfig(randId),
@@ -349,9 +349,9 @@ func TestAccAwsDmsEndpoint_MongoDb(t *testing.T) {
 	randId := acctest.RandString(8) + "-mongodb"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: dmsEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             dmsEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: dmsEndpointMongoDbConfig(randId),
@@ -393,9 +393,9 @@ func TestAccAwsDmsEndpoint_DocDB(t *testing.T) {
 	randId := acctest.RandString(8) + "-docdb"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: dmsEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             dmsEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: dmsEndpointDocDBConfig(randId),
@@ -432,9 +432,9 @@ func TestAccAwsDmsEndpoint_Db2(t *testing.T) {
 	randId := acctest.RandString(8) + "-db2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: dmsEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             dmsEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: dmsEndpointDb2Config(randId),

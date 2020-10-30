@@ -15,8 +15,8 @@ func TestAccDataSourceAwsKmsKey_basic(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-kms-key-%s", acctest.RandStringFromCharSet(13, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsKmsKeyConfig(rName),

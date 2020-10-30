@@ -84,9 +84,9 @@ func TestAccAWSRedshiftSubnetGroup_basic(t *testing.T) {
 	resourceName := "aws_redshift_subnet_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRedshiftSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRedshiftSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRedshiftSubnetGroupConfig(rInt),
@@ -115,9 +115,9 @@ func TestAccAWSRedshiftSubnetGroup_disappears(t *testing.T) {
 	resourceName := "aws_redshift_subnet_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRedshiftSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRedshiftSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRedshiftSubnetGroupConfig(rInt),
@@ -137,9 +137,9 @@ func TestAccAWSRedshiftSubnetGroup_updateDescription(t *testing.T) {
 	resourceName := "aws_redshift_subnet_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRedshiftSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRedshiftSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRedshiftSubnetGroupConfig(rInt),
@@ -174,9 +174,9 @@ func TestAccAWSRedshiftSubnetGroup_updateSubnetIds(t *testing.T) {
 	resourceName := "aws_redshift_subnet_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRedshiftSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRedshiftSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRedshiftSubnetGroupConfig(rInt),
@@ -211,9 +211,9 @@ func TestAccAWSRedshiftSubnetGroup_tags(t *testing.T) {
 	resourceName := "aws_redshift_subnet_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRedshiftSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRedshiftSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRedshiftSubnetGroupConfigWithTags(rInt),

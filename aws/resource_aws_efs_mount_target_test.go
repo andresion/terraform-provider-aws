@@ -94,9 +94,9 @@ func TestAccAWSEFSMountTarget_basic(t *testing.T) {
 	resourceName2 := "aws_efs_mount_target.test2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsMountTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsMountTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSMountTargetConfig(ct),
@@ -136,9 +136,9 @@ func TestAccAWSEFSMountTarget_disappears(t *testing.T) {
 	ct := fmt.Sprintf("createtoken-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpnGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpnGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSMountTargetConfig(ct),
@@ -157,9 +157,9 @@ func TestAccAWSEFSMountTarget_IpAddress(t *testing.T) {
 	resourceName := "aws_efs_mount_target.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsMountTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsMountTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSMountTargetConfigIpAddress("10.0.0.100"),
@@ -183,9 +183,9 @@ func TestAccAWSEFSMountTarget_IpAddress_EmptyString(t *testing.T) {
 	resourceName := "aws_efs_mount_target.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsMountTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsMountTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSMountTargetConfigIpAddress(""),

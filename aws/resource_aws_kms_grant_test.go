@@ -17,9 +17,9 @@ func TestAccAWSKmsGrant_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsGrantDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsGrantDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsGrant_Basic(rName, "\"Encrypt\", \"Decrypt\""),
@@ -48,9 +48,9 @@ func TestAccAWSKmsGrant_withConstraints(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsGrantDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsGrantDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsGrant_withConstraints(rName, "encryption_context_equals", `foo = "bar"
@@ -95,9 +95,9 @@ func TestAccAWSKmsGrant_withRetiringPrincipal(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsGrantDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsGrantDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsGrant_withRetiringPrincipal(rName),
@@ -121,9 +121,9 @@ func TestAccAWSKmsGrant_bare(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsGrantDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsGrantDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsGrant_bare(rName),
@@ -149,9 +149,9 @@ func TestAccAWSKmsGrant_ARN(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsGrantDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsGrantDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsGrant_ARN(rName, "\"Encrypt\", \"Decrypt\""),
@@ -180,9 +180,9 @@ func TestAccAWSKmsGrant_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSKmsGrantDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSKmsGrantDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSKmsGrant_Basic(rName, "\"Encrypt\", \"Decrypt\""),

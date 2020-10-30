@@ -13,8 +13,8 @@ func TestAccDataSourceAwsApiGatewayVpcLink_basic(t *testing.T) {
 	resourceName := "aws_api_gateway_vpc_link.vpc_link"
 	dataSourceName := "data.aws_api_gateway_vpc_link.vpc_link"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsApiGatewayVpcLinkConfig(rName),

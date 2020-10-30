@@ -20,9 +20,9 @@ func TestAccAWSWafByteMatchSet_basic(t *testing.T) {
 	resourceName := "aws_waf_byte_match_set.byte_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafByteMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafByteMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafByteMatchSetConfig(byteMatchSet),
@@ -64,9 +64,9 @@ func TestAccAWSWafByteMatchSet_changeNameForceNew(t *testing.T) {
 	resourceName := "aws_waf_byte_match_set.byte_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafByteMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafByteMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafByteMatchSetConfig(byteMatchSet),
@@ -99,9 +99,9 @@ func TestAccAWSWafByteMatchSet_changeTuples(t *testing.T) {
 	resourceName := "aws_waf_byte_match_set.byte_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafByteMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafByteMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafByteMatchSetConfig(byteMatchSetName),
@@ -166,9 +166,9 @@ func TestAccAWSWafByteMatchSet_noTuples(t *testing.T) {
 	resourceName := "aws_waf_byte_match_set.byte_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafByteMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafByteMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafByteMatchSetConfig_noTuples(byteMatchSetName),
@@ -193,9 +193,9 @@ func TestAccAWSWafByteMatchSet_disappears(t *testing.T) {
 	resourceName := "aws_waf_byte_match_set.byte_set"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafByteMatchSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafByteMatchSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafByteMatchSetConfig(byteMatchSet),

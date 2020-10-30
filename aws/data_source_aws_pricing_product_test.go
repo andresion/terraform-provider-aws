@@ -15,8 +15,8 @@ func TestAccDataSourceAwsPricingProduct_ec2(t *testing.T) {
 	os.Setenv("AWS_DEFAULT_REGION", "us-east-1")
 	defer os.Setenv("AWS_DEFAULT_REGION", oldRegion)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsPricingProductConfigEc2("test", "c5.large"),
@@ -34,8 +34,8 @@ func TestAccDataSourceAwsPricingProduct_redshift(t *testing.T) {
 	os.Setenv("AWS_DEFAULT_REGION", "us-east-1")
 	defer os.Setenv("AWS_DEFAULT_REGION", oldRegion)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsPricingProductConfigRedshift(),

@@ -87,9 +87,9 @@ func TestAccAWSNatGateway_tags(t *testing.T) {
 	resourceName := "aws_nat_gateway.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckNatGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckNatGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccNatGatewayConfigTags1("key1", "value1"),

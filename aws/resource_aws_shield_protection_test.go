@@ -17,9 +17,9 @@ func TestAccAWSShieldProtection_GlobalAccelerator(t *testing.T) {
 	rName := acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSShield(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSShieldProtectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSShield(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSShieldProtectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccShieldProtectionGlobalAcceleratorConfig(rName),
@@ -41,9 +41,9 @@ func TestAccAWSShieldProtection_ElasticIPAddress(t *testing.T) {
 	rName := acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSShield(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSShieldProtectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSShield(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSShieldProtectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccShieldProtectionElasticIPAddressConfig(rName),
@@ -65,9 +65,9 @@ func TestAccAWSShieldProtection_Alb(t *testing.T) {
 	rName := acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSShield(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSShieldProtectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSShield(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSShieldProtectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccShieldProtectionAlbConfig(rName),
@@ -89,9 +89,9 @@ func TestAccAWSShieldProtection_Elb(t *testing.T) {
 	rName := acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSShield(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSShieldProtectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSShield(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSShieldProtectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccShieldProtectionElbConfig(rName),
@@ -118,8 +118,8 @@ func TestAccAWSShieldProtection_Cloudfront(t *testing.T) {
 			testAccPartitionHasServicePreCheck("cloudfront", t)
 			testAccPreCheckAWSShield(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSShieldProtectionDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSShieldProtectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccShieldProtectionCloudfrontConfig(rName, testAccShieldProtectionCloudfrontRetainConfig()),
@@ -141,9 +141,9 @@ func TestAccAWSShieldProtection_Route53(t *testing.T) {
 	rName := acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSShield(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSShieldProtectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSShield(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSShieldProtectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccShieldProtectionRoute53HostedZoneConfig(rName),

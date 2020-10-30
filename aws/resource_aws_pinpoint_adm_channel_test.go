@@ -48,10 +48,10 @@ func TestAccAWSPinpointADMChannel_basic(t *testing.T) {
 	config := testAccAwsPinpointADMChannelConfigurationFromEnv(t)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSPinpointADMChannelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSPinpointADMChannelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSPinpointADMChannelConfig_basic(config),

@@ -15,9 +15,9 @@ func TestAccAWSIAMAccountPasswordPolicy_basic(t *testing.T) {
 	resourceName := "aws_iam_account_password_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIAMAccountPasswordPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIAMAccountPasswordPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMAccountPasswordPolicy,

@@ -17,9 +17,9 @@ func TestAccAWSMqConfiguration_basic(t *testing.T) {
 	resourceName := "aws_mq_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMqConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMqConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMqConfigurationConfig(configurationName),
@@ -59,9 +59,9 @@ func TestAccAWSMqConfiguration_withData(t *testing.T) {
 	resourceName := "aws_mq_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMqConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMqConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMqConfigurationWithDataConfig(configurationName),
@@ -89,9 +89,9 @@ func TestAccAWSMqConfiguration_updateTags(t *testing.T) {
 	resourceName := "aws_mq_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMqConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMq(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMqConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMqConfigurationConfig_updateTags1(configurationName),

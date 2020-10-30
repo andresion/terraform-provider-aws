@@ -16,9 +16,9 @@ func TestAccAWSSESReceiptFilter_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSES(t); testAccPreCheckSESReceiptRule(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSESReceiptFilterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSES(t); testAccPreCheckSESReceiptRule(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSESReceiptFilterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSESReceiptFilterConfig(rName),
@@ -44,9 +44,9 @@ func TestAccAWSSESReceiptFilter_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSES(t); testAccPreCheckSESReceiptRule(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSESReceiptFilterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSES(t); testAccPreCheckSESReceiptRule(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSESReceiptFilterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSESReceiptFilterConfig(rName),

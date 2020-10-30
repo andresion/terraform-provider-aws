@@ -16,9 +16,9 @@ func TestAccAWSOpsworksPermission_basic(t *testing.T) {
 	sName := fmt.Sprintf("tf-ops-perm-%d", acctest.RandInt())
 	var opsperm opsworks.Permission
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOpsworksPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOpsworksPermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOpsworksPermissionCreate(sName, "true", "true", "iam_only"),
@@ -99,9 +99,9 @@ func TestAccAWSOpsworksPermission_Self(t *testing.T) {
 	resourceName := "aws_opsworks_permission.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil, // Cannot delete own OpsWorks Permission
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("opsworks", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil, // Cannot delete own OpsWorks Permission
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOpsworksPermissionSelf(rName, true, true),

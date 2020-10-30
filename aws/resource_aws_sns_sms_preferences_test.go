@@ -32,9 +32,9 @@ func testAccAWSSNSSMSPreferences_empty(t *testing.T) {
 	resourceName := "aws_sns_sms_preferences.test_pref"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSNSSMSPrefsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSSMSPrefsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSNSSMSPreferencesConfig_empty,
@@ -55,9 +55,9 @@ func testAccAWSSNSSMSPreferences_defaultSMSType(t *testing.T) {
 	resourceName := "aws_sns_sms_preferences.test_pref"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSNSSMSPrefsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSSMSPrefsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSNSSMSPreferencesConfig_defSMSType,
@@ -78,9 +78,9 @@ func testAccAWSSNSSMSPreferences_almostAll(t *testing.T) {
 	resourceName := "aws_sns_sms_preferences.test_pref"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSNSSMSPrefsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSSMSPrefsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSNSSMSPreferencesConfig_almostAll,
@@ -99,9 +99,9 @@ func testAccAWSSNSSMSPreferences_deliveryRole(t *testing.T) {
 	iamRoleName := "aws_iam_role.test_smsdelivery_role"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSNSSMSPrefsDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSSMSPrefsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSNSSMSPreferencesConfig_deliveryRole,

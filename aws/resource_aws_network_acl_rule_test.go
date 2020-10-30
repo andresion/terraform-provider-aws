@@ -16,9 +16,9 @@ import (
 
 func TestAccAWSNetworkAclRule_basic(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNetworkAclRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNetworkAclRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNetworkAclRuleBasicConfig,
@@ -52,9 +52,9 @@ func TestAccAWSNetworkAclRule_basic(t *testing.T) {
 
 func TestAccAWSNetworkAclRule_disappears(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNetworkAclRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNetworkAclRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNetworkAclRuleBasicConfig,
@@ -70,9 +70,9 @@ func TestAccAWSNetworkAclRule_disappears(t *testing.T) {
 
 func TestAccAWSNetworkAclRule_ingressEgressSameNumberDisappears(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNetworkAclRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNetworkAclRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNetworkAclRuleIngressEgressSameNumberMissing,
@@ -91,9 +91,9 @@ func TestAccAWSNetworkAclRule_disappears_NetworkAcl(t *testing.T) {
 	resourceName := "aws_network_acl.bar"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNetworkAclRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNetworkAclRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNetworkAclRuleBasicConfig,
@@ -109,9 +109,9 @@ func TestAccAWSNetworkAclRule_disappears_NetworkAcl(t *testing.T) {
 
 func TestAccAWSNetworkAclRule_missingParam(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNetworkAclRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNetworkAclRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSNetworkAclRuleMissingParam,
@@ -123,9 +123,9 @@ func TestAccAWSNetworkAclRule_missingParam(t *testing.T) {
 
 func TestAccAWSNetworkAclRule_ipv6(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNetworkAclRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNetworkAclRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNetworkAclRuleIpv6Config,
@@ -148,9 +148,9 @@ func TestAccAWSNetworkAclRule_ipv6ICMP(t *testing.T) {
 	resourceName := "aws_network_acl_rule.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNetworkAclRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNetworkAclRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNetworkAclRuleConfigIpv6ICMP(rName),
@@ -175,9 +175,9 @@ func TestAccAWSNetworkAclRule_ipv6VpcAssignGeneratedIpv6CidrBlockUpdate(t *testi
 	resourceName := "aws_network_acl_rule.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNetworkAclRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNetworkAclRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNetworkAclRuleConfigIpv6VpcNotAssignGeneratedIpv6CidrBlockUpdate(),
@@ -208,9 +208,9 @@ func TestAccAWSNetworkAclRule_ipv6VpcAssignGeneratedIpv6CidrBlockUpdate(t *testi
 
 func TestAccAWSNetworkAclRule_allProtocol(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNetworkAclRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNetworkAclRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:             testAccAWSNetworkAclRuleAllProtocolConfig,
@@ -226,9 +226,9 @@ func TestAccAWSNetworkAclRule_allProtocol(t *testing.T) {
 
 func TestAccAWSNetworkAclRule_tcpProtocol(t *testing.T) {
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNetworkAclRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNetworkAclRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:             testAccAWSNetworkAclRuleTcpProtocolConfig,

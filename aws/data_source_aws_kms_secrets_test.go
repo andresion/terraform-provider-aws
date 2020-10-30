@@ -21,8 +21,8 @@ func TestAccAWSKmsSecretsDataSource_basic(t *testing.T) {
 
 	// Run a resource test to setup our KMS key
 	resource.Test(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsKmsSecretsDataSourceKey,
@@ -65,8 +65,8 @@ func testAccDataSourceAwsKmsSecretsDecrypt(t *testing.T, plaintext string, encry
 		dataSourceName := "data.aws_kms_secrets.test"
 
 		resource.Test(t, resource.TestCase{
-			PreCheck:  func() { testAccPreCheck(t) },
-			Providers: testAccProviders,
+			PreCheck:                 func() { testAccPreCheck(t) },
+			ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 			Steps: []resource.TestStep{
 				{
 					Config: testAccCheckAwsKmsSecretsDataSourceSecret(*encryptedPayload),

@@ -44,9 +44,9 @@ func TestAccAWSElasticSearchDomainPolicy_basic(t *testing.T) {
 	name := fmt.Sprintf("tf-test-%d", ri)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainPolicyConfig(ri, policy),

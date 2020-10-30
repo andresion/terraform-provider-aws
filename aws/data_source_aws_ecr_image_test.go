@@ -15,8 +15,8 @@ func TestAccAWSEcrDataSource_ecrImage(t *testing.T) {
 	resourceByDigest := "data.aws_ecr_image.by_digest"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsEcrImageDataSourceConfig(registry, repo, tag),

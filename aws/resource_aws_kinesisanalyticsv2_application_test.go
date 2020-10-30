@@ -86,9 +86,9 @@ func TestAccAWSKinesisAnalyticsV2Application_basicFlinkApplication(t *testing.T)
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigBasicFlinkApplication(rName),
@@ -145,9 +145,9 @@ func TestAccAWSKinesisAnalyticsV2Application_basicSQLApplication(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigBasicSQLApplication(rName),
@@ -182,9 +182,9 @@ func TestAccAWSKinesisAnalyticsV2Application_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigBasicSQLApplication(rName),
@@ -205,9 +205,9 @@ func TestAccAWSKinesisAnalyticsV2Application_ApplicationCodeConfiguration_Update
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigApplicationCodeConfiguration(rName, "SELECT 1;\n"),
@@ -282,9 +282,9 @@ func TestAccAWSKinesisAnalyticsV2Application_CloudWatchLoggingOptions_Add(t *tes
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigBasicSQLApplication(rName),
@@ -340,9 +340,9 @@ func TestAccAWSKinesisAnalyticsV2Application_CloudWatchLoggingOptions_Delete(t *
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigCloudWatchLoggingOptions(rName, 0),
@@ -399,9 +399,9 @@ func TestAccAWSKinesisAnalyticsV2Application_CloudWatchLoggingOptions_Update(t *
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigCloudWatchLoggingOptions(rName, 0),
@@ -459,9 +459,9 @@ func TestAccAWSKinesisAnalyticsV2Application_EnvironmentProperties_Update(t *tes
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigEnvironmentProperties(rName),
@@ -646,9 +646,9 @@ func TestAccAWSKinesisAnalyticsV2Application_FlinkApplicationConfiguration_Updat
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigFlinkApplicationConfiguration(rName),
@@ -760,9 +760,9 @@ func TestAccAWSKinesisAnalyticsV2Application_FlinkApplicationConfiguration_Envir
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigFlinkApplicationConfigurationEnvironmentProperties(rName),
@@ -903,9 +903,9 @@ func TestAccAWSKinesisAnalyticsV2Application_ServiceExecutionRole_Update(t *test
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigBasicSQLApplicationPlusDescription(rName),
@@ -960,9 +960,9 @@ func TestAccAWSKinesisAnalyticsV2Application_SQLApplicationConfiguration_Input_A
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigSQLApplicationConfigurationNotSpecified(rName),
@@ -1064,9 +1064,9 @@ func TestAccAWSKinesisAnalyticsV2Application_SQLApplicationConfiguration_Input_U
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigSQLApplicationConfigurationInput(rName),
@@ -1199,9 +1199,9 @@ func TestAccAWSKinesisAnalyticsV2Application_SQLApplicationConfiguration_InputPr
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigSQLApplicationConfigurationInput(rName),
@@ -1331,9 +1331,9 @@ func TestAccAWSKinesisAnalyticsV2Application_SQLApplicationConfiguration_InputPr
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigSQLApplicationConfigurationInputProcessingConfiguration(rName, 0),
@@ -1464,9 +1464,9 @@ func TestAccAWSKinesisAnalyticsV2Application_SQLApplicationConfiguration_InputPr
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigSQLApplicationConfigurationInputProcessingConfiguration(rName, 0),
@@ -1602,9 +1602,9 @@ func TestAccAWSKinesisAnalyticsV2Application_SQLApplicationConfiguration_Multipl
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigSQLApplicationConfigurationMultiple(rName),
@@ -1790,9 +1790,9 @@ func TestAccAWSKinesisAnalyticsV2Application_SQLApplicationConfiguration_Output_
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigSQLApplicationConfigurationOutput(rName),
@@ -1928,9 +1928,9 @@ func TestAccAWSKinesisAnalyticsV2Application_SQLApplicationConfiguration_Referen
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigSQLApplicationConfigurationNotSpecified(rName),
@@ -2027,9 +2027,9 @@ func TestAccAWSKinesisAnalyticsV2Application_SQLApplicationConfiguration_Referen
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigSQLApplicationConfigurationReferenceDataSource(rName),
@@ -2126,9 +2126,9 @@ func TestAccAWSKinesisAnalyticsV2Application_SQLApplicationConfiguration_Referen
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigSQLApplicationConfigurationReferenceDataSource(rName),
@@ -2250,9 +2250,9 @@ func TestAccAWSKinesisAnalyticsV2Application_Tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigTags1(rName, "key1", "value1"),
@@ -2298,9 +2298,9 @@ func TestAccAWSKinesisAnalyticsV2Application_SQLApplicationConfiguration_VPCConf
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigVPCConfigurationNotSpecified(rName),
@@ -2415,9 +2415,9 @@ func TestAccAWSKinesisAnalyticsV2Application_SQLApplicationConfiguration_VPCConf
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigVPCConfiguration(rName),
@@ -2532,9 +2532,9 @@ func TestAccAWSKinesisAnalyticsV2Application_SQLApplicationConfiguration_VPCConf
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckKinesisAnalyticsV2ApplicationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSKinesisAnalyticsV2(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckKinesisAnalyticsV2ApplicationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccKinesisAnalyticsV2ApplicationConfigVPCConfiguration(rName),

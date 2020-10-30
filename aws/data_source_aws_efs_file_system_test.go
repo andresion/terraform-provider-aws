@@ -14,8 +14,8 @@ func TestAccDataSourceAwsEfsFileSystem_id(t *testing.T) {
 	resourceName := "aws_efs_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsEfsFileSystemIDConfig,
@@ -43,8 +43,8 @@ func TestAccDataSourceAwsEfsFileSystem_name(t *testing.T) {
 	resourceName := "aws_efs_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsEfsFileSystemNameConfig,
@@ -70,8 +70,8 @@ func TestAccDataSourceAwsEfsFileSystem_name(t *testing.T) {
 func TestAccDataSourceAwsEfsFileSystem_NonExistent(t *testing.T) {
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccDataSourceAwsEfsFileSystemIDConfig_NonExistent,

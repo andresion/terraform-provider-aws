@@ -11,9 +11,9 @@ import (
 
 func TestAccAWSMainRouteTableAssociation_basic(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckMainRouteTableAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckMainRouteTableAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMainRouteTableAssociationConfig,

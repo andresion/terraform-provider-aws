@@ -80,9 +80,9 @@ func TestAccAWSSagemakerNotebookInstance_basic(t *testing.T) {
 	resourceName := "aws_sagemaker_notebook_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSagemakerNotebookInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSagemakerNotebookInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSagemakerNotebookInstanceBasicConfig(rName),
@@ -116,9 +116,9 @@ func TestAccAWSSagemakerNotebookInstance_update(t *testing.T) {
 	resourceName := "aws_sagemaker_notebook_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSagemakerNotebookInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSagemakerNotebookInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSagemakerNotebookInstanceBasicConfig(rName),
@@ -149,9 +149,9 @@ func TestAccAWSSagemakerNotebookInstance_volumesize(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	var resourceName = "aws_sagemaker_notebook_instance.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSagemakerNotebookInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSagemakerNotebookInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSagemakerNotebookInstanceBasicConfig(rName),
@@ -192,9 +192,9 @@ func TestAccAWSSagemakerNotebookInstance_LifecycleConfigName(t *testing.T) {
 	sagemakerLifecycleConfigResourceName := "aws_sagemaker_notebook_instance_lifecycle_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSagemakerNotebookInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSagemakerNotebookInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSagemakerNotebookInstanceConfigLifecycleConfigName(rName),
@@ -232,9 +232,9 @@ func TestAccAWSSagemakerNotebookInstance_tags(t *testing.T) {
 	resourceName := "aws_sagemaker_notebook_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSagemakerNotebookInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSagemakerNotebookInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSagemakerNotebookInstanceConfigTags1(rName, "key1", "value1"),
@@ -276,9 +276,9 @@ func TestAccAWSSagemakerNotebookInstance_kms(t *testing.T) {
 	resourceName := "aws_sagemaker_notebook_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSagemakerNotebookInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSagemakerNotebookInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSagemakerNotebookInstanceKMSConfig(rName),
@@ -302,9 +302,9 @@ func TestAccAWSSagemakerNotebookInstance_disappears(t *testing.T) {
 	resourceName := "aws_sagemaker_notebook_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSagemakerNotebookInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSagemakerNotebookInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSagemakerNotebookInstanceBasicConfig(rName),
@@ -394,9 +394,9 @@ func TestAccAWSSagemakerNotebookInstance_root_access(t *testing.T) {
 	resourceName := "aws_sagemaker_notebook_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSagemakerNotebookInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSagemakerNotebookInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSagemakerNotebookInstanceConfigRootAccess(rName, "Disabled"),
@@ -427,9 +427,9 @@ func TestAccAWSSagemakerNotebookInstance_direct_internet_access(t *testing.T) {
 	resourceName := "aws_sagemaker_notebook_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSagemakerNotebookInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSagemakerNotebookInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSagemakerNotebookInstanceConfigDirectInternetAccess(rName, "Disabled"),
@@ -465,9 +465,9 @@ func TestAccAWSSagemakerNotebookInstance_default_code_repository(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	var resourceName = "aws_sagemaker_notebook_instance.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSagemakerNotebookInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSagemakerNotebookInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSagemakerNotebookInstanceConfigDefaultCodeRepository(rName, "https://github.com/terraform-providers/terraform-provider-aws.git"),
@@ -504,9 +504,9 @@ func TestAccAWSSagemakerNotebookInstance_additional_code_repositories(t *testing
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	var resourceName = "aws_sagemaker_notebook_instance.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSagemakerNotebookInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSagemakerNotebookInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSagemakerNotebookInstanceConfigAdditionalCodeRepository1(rName, "https://github.com/terraform-providers/terraform-provider-aws.git"),
@@ -554,9 +554,9 @@ func TestAccAWSSagemakerNotebookInstance_default_code_repository_sagemakerRepo(t
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	var resourceName = "aws_sagemaker_notebook_instance.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSagemakerNotebookInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSagemakerNotebookInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSagemakerNotebookInstanceConfigDefaultCodeRepositorySageMakerRepo(rName),

@@ -18,9 +18,9 @@ func TestAccAwsSecretsManagerSecretRotation_basic(t *testing.T) {
 	lambdaFunctionResourceName := "aws_lambda_function.test1"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSecretsManagerSecretRotationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSecretsManagerSecretRotationDestroy,
 		Steps: []resource.TestStep{
 			// Test creating secret rotation resource
 			{

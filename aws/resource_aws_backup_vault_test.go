@@ -17,9 +17,9 @@ func TestAccAwsBackupVault_basic(t *testing.T) {
 	rInt := acctest.RandInt()
 	resourceName := "aws_backup_vault.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupVaultDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupVaultDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBackupVaultConfig(rInt),
@@ -42,9 +42,9 @@ func TestAccAwsBackupVault_withKmsKey(t *testing.T) {
 	rInt := acctest.RandInt()
 	resourceName := "aws_backup_vault.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupVaultDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupVaultDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBackupVaultWithKmsKey(rInt),
@@ -68,9 +68,9 @@ func TestAccAwsBackupVault_withTags(t *testing.T) {
 	rInt := acctest.RandInt()
 	resourceName := "aws_backup_vault.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupVaultDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupVaultDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBackupVaultWithTags(rInt),
@@ -116,9 +116,9 @@ func TestAccAwsBackupVault_disappears(t *testing.T) {
 	rInt := acctest.RandInt()
 	resourceName := "aws_backup_vault.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupVaultDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupVaultDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBackupVaultConfig(rInt),

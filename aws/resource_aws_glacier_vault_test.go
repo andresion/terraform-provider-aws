@@ -79,9 +79,9 @@ func TestAccAWSGlacierVault_basic(t *testing.T) {
 	resourceName := "aws_glacier_vault.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlacierVaultDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlacierVaultDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlacierVault_basic(rInt),
@@ -103,9 +103,9 @@ func TestAccAWSGlacierVault_full(t *testing.T) {
 	resourceName := "aws_glacier_vault.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlacierVaultDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlacierVaultDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlacierVault_full(rInt),
@@ -127,9 +127,9 @@ func TestAccAWSGlacierVault_RemoveNotifications(t *testing.T) {
 	resourceName := "aws_glacier_vault.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlacierVaultDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlacierVaultDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlacierVault_full(rInt),

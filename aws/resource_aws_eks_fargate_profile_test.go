@@ -85,9 +85,9 @@ func TestAccAWSEksFargateProfile_basic(t *testing.T) {
 	resourceName := "aws_eks_fargate_profile.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEks(t); testAccPreCheckAWSEksFargateProfile(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEksFargateProfileDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEks(t); testAccPreCheckAWSEksFargateProfile(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEksFargateProfileDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEksFargateProfileConfigFargateProfileName(rName),
@@ -118,9 +118,9 @@ func TestAccAWSEksFargateProfile_disappears(t *testing.T) {
 	resourceName := "aws_eks_fargate_profile.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEks(t); testAccPreCheckAWSEksFargateProfile(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEksFargateProfileDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEks(t); testAccPreCheckAWSEksFargateProfile(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEksFargateProfileDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEksFargateProfileConfigFargateProfileName(rName),
@@ -140,9 +140,9 @@ func TestAccAWSEksFargateProfile_Selector_Labels(t *testing.T) {
 	resourceName := "aws_eks_fargate_profile.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEks(t); testAccPreCheckAWSEksFargateProfile(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEksFargateProfileDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEks(t); testAccPreCheckAWSEksFargateProfile(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEksFargateProfileDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEksFargateProfileConfigSelectorLabels1(rName, "key1", "value1"),
@@ -165,9 +165,9 @@ func TestAccAWSEksFargateProfile_Tags(t *testing.T) {
 	resourceName := "aws_eks_fargate_profile.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSEks(t); testAccPreCheckAWSEksFargateProfile(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEksFargateProfileDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSEks(t); testAccPreCheckAWSEksFargateProfile(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEksFargateProfileDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEksFargateProfileConfigTags1(rName, "key1", "value1"),

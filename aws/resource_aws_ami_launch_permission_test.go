@@ -16,9 +16,9 @@ func TestAccAWSAMILaunchPermission_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAMILaunchPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAMILaunchPermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAMILaunchPermissionConfig(rName),
@@ -41,9 +41,9 @@ func TestAccAWSAMILaunchPermission_Disappears_LaunchPermission(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAMILaunchPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAMILaunchPermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAMILaunchPermissionConfig(rName),
@@ -64,9 +64,9 @@ func TestAccAWSAMILaunchPermission_Disappears_LaunchPermission_Public(t *testing
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAMILaunchPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAMILaunchPermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAMILaunchPermissionConfig(rName),
@@ -87,9 +87,9 @@ func TestAccAWSAMILaunchPermission_Disappears_AMI(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAMILaunchPermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAMILaunchPermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAMILaunchPermissionConfig(rName),

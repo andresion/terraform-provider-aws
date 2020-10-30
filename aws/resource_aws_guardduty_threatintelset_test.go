@@ -21,9 +21,9 @@ func testAccAwsGuardDutyThreatintelset_basic(t *testing.T) {
 	resourceName := "aws_guardduty_threatintelset.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsGuardDutyThreatintelsetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsGuardDutyThreatintelsetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGuardDutyThreatintelsetConfig_basic(bucketName, keyName1, threatintelsetName1, true),
@@ -59,9 +59,9 @@ func testAccAwsGuardDutyThreatintelset_tags(t *testing.T) {
 	resourceName := "aws_guardduty_threatintelset.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsGuardDutyThreatintelsetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsGuardDutyThreatintelsetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGuardDutyThreatintelsetConfigTags1(rName, "key1", "value1"),

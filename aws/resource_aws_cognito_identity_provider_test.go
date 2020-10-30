@@ -17,9 +17,9 @@ func TestAccAWSCognitoIdentityProvider_basic(t *testing.T) {
 	userPoolName := fmt.Sprintf("tf-acc-cognito-user-pool-%s", acctest.RandString(7))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoIdentityProviderDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoIdentityProviderDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoIdentityProviderConfig_basic(userPoolName),

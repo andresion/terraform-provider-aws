@@ -207,9 +207,9 @@ func TestAccAWSLB_networkLoadbalancerEIP(t *testing.T) {
 	lbName := fmt.Sprintf("testaccawslb-basic-%s", acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfig_networkLoadBalancerEIP(lbName),
@@ -236,10 +236,10 @@ func TestAccAWSLB_NLB_privateipv4address(t *testing.T) {
 	resourceName := "aws_lb.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfig_networkLoadBalancerPrivateIPV4Address(lbName),
@@ -265,10 +265,10 @@ func TestAccAWSLB_BackwardsCompatibility(t *testing.T) {
 	resourceName := "aws_alb.lb_test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfigBackwardsCompatibility(lbName),
@@ -299,10 +299,10 @@ func TestAccAWSLB_generatedName(t *testing.T) {
 	resourceName := "aws_lb.lb_test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfig_generatedName(),
@@ -320,10 +320,10 @@ func TestAccAWSLB_generatesNameForZeroValue(t *testing.T) {
 	resourceName := "aws_lb.lb_test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfig_zeroValueName(),
@@ -341,10 +341,10 @@ func TestAccAWSLB_namePrefix(t *testing.T) {
 	resourceName := "aws_lb.lb_test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfig_namePrefix(),
@@ -365,10 +365,10 @@ func TestAccAWSLB_tags(t *testing.T) {
 	resourceName := "aws_lb.lb_test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfig_basic(lbName),
@@ -405,10 +405,10 @@ func TestAccAWSLB_networkLoadbalancer_updateCrossZone(t *testing.T) {
 	resourceName := "aws_lb.lb_test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfig_networkLoadbalancer(lbName, true),
@@ -446,10 +446,10 @@ func TestAccAWSLB_applicationLoadBalancer_updateHttp2(t *testing.T) {
 	resourceName := "aws_lb.lb_test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfig_enableHttp2(lbName, false),
@@ -486,10 +486,10 @@ func TestAccAWSLB_applicationLoadBalancer_updateDropInvalidHeaderFields(t *testi
 	lbName := fmt.Sprintf("testaccawsalb-headers-%s", acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: "aws_lb.lb_test",
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            "aws_lb.lb_test",
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfig_enableDropInvalidHeaderFields(lbName, false),
@@ -527,10 +527,10 @@ func TestAccAWSLB_applicationLoadBalancer_updateDeletionProtection(t *testing.T)
 	resourceName := "aws_lb.lb_test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfig_enableDeletionProtection(lbName, false),
@@ -568,10 +568,10 @@ func TestAccAWSLB_updatedSecurityGroups(t *testing.T) {
 	resourceName := "aws_lb.lb_test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfig_basic(lbName),
@@ -598,10 +598,10 @@ func TestAccAWSLB_updatedSubnets(t *testing.T) {
 	resourceName := "aws_lb.lb_test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfig_basic(lbName),
@@ -628,10 +628,10 @@ func TestAccAWSLB_updatedIpAddressType(t *testing.T) {
 	resourceName := "aws_lb.lb_test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfigWithIpAddressType(lbName),
@@ -660,10 +660,10 @@ func TestAccAWSLB_noSecurityGroup(t *testing.T) {
 	resourceName := "aws_lb.lb_test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfig_nosg(lbName),
@@ -693,10 +693,10 @@ func TestAccAWSLB_ALB_AccessLogs(t *testing.T) {
 	resourceName := "aws_lb.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfigALBAccessLogs(true, lbName, bucketName, ""),
@@ -781,10 +781,10 @@ func TestAccAWSLB_ALB_AccessLogs_Prefix(t *testing.T) {
 	resourceName := "aws_lb.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfigALBAccessLogs(true, lbName, bucketName, "prefix1"),
@@ -851,10 +851,10 @@ func TestAccAWSLB_NLB_AccessLogs(t *testing.T) {
 	resourceName := "aws_lb.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfigNLBAccessLogs(true, lbName, bucketName, ""),
@@ -939,10 +939,10 @@ func TestAccAWSLB_NLB_AccessLogs_Prefix(t *testing.T) {
 	resourceName := "aws_lb.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfigNLBAccessLogs(true, lbName, bucketName, "prefix1"),
@@ -1008,10 +1008,10 @@ func TestAccAWSLB_networkLoadbalancer_subnet_change(t *testing.T) {
 	resourceName := "aws_lb.lb_test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSLBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBConfig_networkLoadbalancer_subnets(lbName),

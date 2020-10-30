@@ -23,9 +23,9 @@ func TestAccAWSRDSClusterEndpoint_basic(t *testing.T) {
 	defaultResourceName := "aws_rds_cluster_endpoint.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSClusterEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSClusterEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSClusterEndpointConfig(rInt),
@@ -63,9 +63,9 @@ func TestAccAWSRDSClusterEndpoint_tags(t *testing.T) {
 	resourceName := "aws_rds_cluster_endpoint.reader"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSClusterEndpointDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSClusterEndpointDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSClusterEndpointConfigTags1(rInt, "key1", "value1"),

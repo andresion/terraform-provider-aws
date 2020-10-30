@@ -15,9 +15,9 @@ func TestAccAWSMediaStoreContainer_basic(t *testing.T) {
 	resourceName := "aws_media_store_container.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMediaStore(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMediaStoreContainerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMediaStore(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMediaStoreContainerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMediaStoreContainerConfig(acctest.RandString(5)),
@@ -39,9 +39,9 @@ func TestAccAWSMediaStoreContainer_tags(t *testing.T) {
 	resourceName := "aws_media_store_container.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMediaStore(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMediaStoreContainerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMediaStore(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMediaStoreContainerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMediaStoreContainerConfigWithTags(rName, "foo", "bar", "fizz", "buzz"),

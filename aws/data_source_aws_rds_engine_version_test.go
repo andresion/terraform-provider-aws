@@ -17,9 +17,9 @@ func TestAccAWSRDSEngineVersionDataSource_basic(t *testing.T) {
 	paramGroup := "oracle-ee-19"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRDSEngineVersionPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRDSEngineVersionPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRDSEngineVersionDataSourceBasicConfig(engine, version, paramGroup),
@@ -51,9 +51,9 @@ func TestAccAWSRDSEngineVersionDataSource_upgradeTargets(t *testing.T) {
 	dataSourceName := "data.aws_rds_engine_version.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRDSEngineVersionPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRDSEngineVersionPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRDSEngineVersionDataSourceUpgradeTargetsConfig(),
@@ -69,9 +69,9 @@ func TestAccAWSRDSEngineVersionDataSource_preferred(t *testing.T) {
 	dataSourceName := "data.aws_rds_engine_version.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRDSEngineVersionPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRDSEngineVersionPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRDSEngineVersionDataSourcePreferredConfig(),
@@ -87,9 +87,9 @@ func TestAccAWSRDSEngineVersionDataSource_defaultOnly(t *testing.T) {
 	dataSourceName := "data.aws_rds_engine_version.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSRDSEngineVersionPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSRDSEngineVersionPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRDSEngineVersionDataSourceDefaultOnlyConfig(),

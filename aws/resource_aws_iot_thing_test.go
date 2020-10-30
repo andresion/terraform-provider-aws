@@ -18,9 +18,9 @@ func TestAccAWSIotThing_basic(t *testing.T) {
 	resourceName := "aws_iot_thing.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIotThingDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIotThingDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIotThingConfig_basic(thingName),
@@ -51,9 +51,9 @@ func TestAccAWSIotThing_full(t *testing.T) {
 	resourceName := "aws_iot_thing.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIotThingDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIotThingDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIotThingConfig_full(thingName, typeName, "42"),

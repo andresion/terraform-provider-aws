@@ -12,9 +12,9 @@ import (
 
 func TestAccAWSCloudHsmV2Hsm_basic(t *testing.T) {
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudHsmV2HsmDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudHsmV2HsmDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudHsmV2Hsm(),

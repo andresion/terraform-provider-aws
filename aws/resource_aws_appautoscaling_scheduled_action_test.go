@@ -15,9 +15,9 @@ import (
 func TestAccAWSAppautoscalingScheduledAction_dynamo(t *testing.T) {
 	ts := time.Now().AddDate(0, 0, 1).Format("2006-01-02T15:04:05")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppautoscalingScheduledActionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppautoscalingScheduledActionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppautoscalingScheduledActionConfig_DynamoDB(acctest.RandString(5), ts),
@@ -32,9 +32,9 @@ func TestAccAWSAppautoscalingScheduledAction_dynamo(t *testing.T) {
 func TestAccAWSAppautoscalingScheduledAction_ECS(t *testing.T) {
 	ts := time.Now().AddDate(0, 0, 1).Format("2006-01-02T15:04:05")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppautoscalingScheduledActionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppautoscalingScheduledActionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppautoscalingScheduledActionConfig_ECS(acctest.RandString(5), ts),
@@ -49,9 +49,9 @@ func TestAccAWSAppautoscalingScheduledAction_ECS(t *testing.T) {
 func TestAccAWSAppautoscalingScheduledAction_EMR(t *testing.T) {
 	ts := time.Now().AddDate(0, 0, 1).Format("2006-01-02T15:04:05")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppautoscalingScheduledActionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppautoscalingScheduledActionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppautoscalingScheduledActionConfig_EMR(acctest.RandString(5), ts),
@@ -69,9 +69,9 @@ func TestAccAWSAppautoscalingScheduledAction_Name_Duplicate(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppautoscalingScheduledActionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppautoscalingScheduledActionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppautoscalingScheduledActionConfig_Name_Duplicate(rName),
@@ -89,9 +89,9 @@ func TestAccAWSAppautoscalingScheduledAction_SpotFleet(t *testing.T) {
 	validUntil := time.Now().UTC().Add(24 * time.Hour).Format(time.RFC3339)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppautoscalingScheduledActionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppautoscalingScheduledActionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppautoscalingScheduledActionConfig_SpotFleet(acctest.RandString(5), ts, validUntil),

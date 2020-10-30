@@ -75,8 +75,8 @@ func TestAccAWSSESConfigurationSet_basic(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckAWSSES(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSESConfigurationSetDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSESConfigurationSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSESConfigurationSetConfig(escRandomInteger),

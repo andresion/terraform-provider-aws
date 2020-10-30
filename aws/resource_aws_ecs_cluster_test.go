@@ -68,9 +68,9 @@ func TestAccAWSEcsCluster_basic(t *testing.T) {
 	resourceName := "aws_ecs_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsClusterConfig(rName),
@@ -97,9 +97,9 @@ func TestAccAWSEcsCluster_disappears(t *testing.T) {
 	resourceName := "aws_ecs_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsClusterConfig(rName),
@@ -119,9 +119,9 @@ func TestAccAWSEcsCluster_Tags(t *testing.T) {
 	resourceName := "aws_ecs_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsClusterConfigTags1(rName, "key1", "value1"),
@@ -165,9 +165,9 @@ func TestAccAWSEcsCluster_SingleCapacityProvider(t *testing.T) {
 	resourceName := "aws_ecs_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsClusterSingleCapacityProvider(rName, providerName),
@@ -191,9 +191,9 @@ func TestAccAWSEcsCluster_CapacityProviders(t *testing.T) {
 	resourceName := "aws_ecs_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsClusterCapacityProviders(rName),
@@ -221,9 +221,9 @@ func TestAccAWSEcsCluster_CapacityProvidersUpdate(t *testing.T) {
 	resourceName := "aws_ecs_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsClusterCapacityProvidersFargate(rName),
@@ -259,9 +259,9 @@ func TestAccAWSEcsCluster_CapacityProvidersNoStrategy(t *testing.T) {
 	resourceName := "aws_ecs_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsClusterCapacityProvidersFargateNoStrategy(rName),
@@ -291,9 +291,9 @@ func TestAccAWSEcsCluster_containerInsights(t *testing.T) {
 	resourceName := "aws_ecs_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsClusterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsClusterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsClusterConfig(rName),

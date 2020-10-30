@@ -17,9 +17,9 @@ func TestAccAWSElasticTranscoderPreset_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSElasticTranscoder(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckElasticTranscoderPresetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSElasticTranscoder(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckElasticTranscoderPresetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsElasticTranscoderPresetConfig(rName),
@@ -42,9 +42,9 @@ func TestAccAWSElasticTranscoderPreset_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSElasticTranscoder(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckElasticTranscoderPresetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSElasticTranscoder(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckElasticTranscoderPresetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsElasticTranscoderPresetConfig(rName),
@@ -65,9 +65,9 @@ func TestAccAWSElasticTranscoderPreset_AudioCodecOptions_empty(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSElasticTranscoder(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckElasticTranscoderPresetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSElasticTranscoder(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckElasticTranscoderPresetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsElasticTranscoderPresetConfigAudioCodecOptionsEmpty(rName),
@@ -91,9 +91,9 @@ func TestAccAWSElasticTranscoderPreset_Description(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSElasticTranscoder(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckElasticTranscoderPresetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSElasticTranscoder(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckElasticTranscoderPresetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsElasticTranscoderPresetConfigDescription(rName, "description1"),
@@ -118,9 +118,9 @@ func TestAccAWSElasticTranscoderPreset_Full(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSElasticTranscoder(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckElasticTranscoderPresetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSElasticTranscoder(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckElasticTranscoderPresetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsElasticTranscoderPresetConfigFull1(rName),
@@ -167,9 +167,9 @@ func TestAccAWSElasticTranscoderPreset_Video_FrameRate(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSElasticTranscoder(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckElasticTranscoderPresetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSElasticTranscoder(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckElasticTranscoderPresetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsElasticTranscoderPresetConfigVideoFrameRate(rName, "29.97"),

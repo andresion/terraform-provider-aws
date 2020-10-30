@@ -13,8 +13,8 @@ func TestAccAWSInstanceDataSource_basic(t *testing.T) {
 	datasourceName := "data.aws_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfig,
@@ -37,8 +37,8 @@ func TestAccAWSInstanceDataSource_tags(t *testing.T) {
 	datasourceName := "data.aws_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfig_Tags(rInt),
@@ -57,8 +57,8 @@ func TestAccAWSInstanceDataSource_AzUserData(t *testing.T) {
 	datasourceName := "data.aws_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfig_AzUserData,
@@ -79,8 +79,8 @@ func TestAccAWSInstanceDataSource_gp2IopsDevice(t *testing.T) {
 	datasourceName := "data.aws_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfig_gp2IopsDevice,
@@ -103,8 +103,8 @@ func TestAccAWSInstanceDataSource_blockDevices(t *testing.T) {
 	datasourceName := "data.aws_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfig_blockDevices,
@@ -127,8 +127,8 @@ func TestAccAWSInstanceDataSource_blockDevices(t *testing.T) {
 // Test to verify that ebs_block_device kms_key_id does not elicit a panic
 func TestAccAWSInstanceDataSource_EbsBlockDevice_KmsKeyId(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfig_EbsBlockDevice_KmsKeyId,
@@ -140,8 +140,8 @@ func TestAccAWSInstanceDataSource_EbsBlockDevice_KmsKeyId(t *testing.T) {
 // Test to verify that root_block_device kms_key_id does not elicit a panic
 func TestAccAWSInstanceDataSource_RootBlockDevice_KmsKeyId(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfig_RootBlockDevice_KmsKeyId,
@@ -155,8 +155,8 @@ func TestAccAWSInstanceDataSource_rootInstanceStore(t *testing.T) {
 	datasourceName := "data.aws_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfig_rootInstanceStore,
@@ -178,8 +178,8 @@ func TestAccAWSInstanceDataSource_privateIP(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfig_privateIP(rName),
@@ -199,8 +199,8 @@ func TestAccAWSInstanceDataSource_secondaryPrivateIPs(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfig_secondaryPrivateIPs(rName),
@@ -220,8 +220,8 @@ func TestAccAWSInstanceDataSource_keyPair(t *testing.T) {
 	rName := fmt.Sprintf("tf-test-key-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfig_keyPair(rName),
@@ -242,8 +242,8 @@ func TestAccAWSInstanceDataSource_VPC(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfig_VPC(rName),
@@ -265,8 +265,8 @@ func TestAccAWSInstanceDataSource_PlacementGroup(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfig_PlacementGroup(rName),
@@ -284,8 +284,8 @@ func TestAccAWSInstanceDataSource_SecurityGroups(t *testing.T) {
 	datasourceName := "data.aws_instance.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfig_SecurityGroups(rInt),
@@ -307,8 +307,8 @@ func TestAccAWSInstanceDataSource_VPCSecurityGroups(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfig_VPCSecurityGroups(rName),
@@ -328,8 +328,8 @@ func TestAccAWSInstanceDataSource_getPasswordData_trueToFalse(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfig_getPasswordData(rName, true),
@@ -354,8 +354,8 @@ func TestAccAWSInstanceDataSource_getPasswordData_falseToTrue(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfig_getPasswordData(rName, false),
@@ -380,8 +380,8 @@ func TestAccAWSInstanceDataSource_GetUserData(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfigGetUserData(rName, true),
@@ -414,8 +414,8 @@ func TestAccAWSInstanceDataSource_GetUserData_NoUserData(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfigGetUserDataNoUserData(rName, true),
@@ -451,8 +451,8 @@ func TestAccAWSInstanceDataSource_creditSpecification(t *testing.T) {
 	rName := fmt.Sprintf("tf-testacc-instance-%s", acctest.RandStringFromCharSet(12, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 
@@ -473,8 +473,8 @@ func TestAccAWSInstanceDataSource_metadataOptions(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstanceDataSourceConfig_metadataOptions(rName),

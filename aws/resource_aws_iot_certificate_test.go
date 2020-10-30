@@ -13,9 +13,9 @@ import (
 
 func TestAccAWSIoTCertificate_csr(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTCertificateDestroy_basic,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTCertificateDestroy_basic,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTCertificate_csr,
@@ -34,9 +34,9 @@ func TestAccAWSIoTCertificate_csr(t *testing.T) {
 
 func TestAccAWSIoTCertificate_keys_certificate(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTCertificateDestroy_basic,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTCertificateDestroy_basic,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTCertificate_keys_certificate,

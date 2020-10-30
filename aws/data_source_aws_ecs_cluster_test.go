@@ -10,8 +10,8 @@ import (
 
 func TestAccAWSEcsDataSource_ecsCluster(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsEcsClusterDataSourceConfig,
@@ -29,8 +29,8 @@ func TestAccAWSEcsDataSource_ecsCluster(t *testing.T) {
 
 func TestAccAWSEcsDataSource_ecsClusterContainerInsights(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsEcsClusterDataSourceConfigContainerInsights,

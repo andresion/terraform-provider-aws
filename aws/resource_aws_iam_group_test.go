@@ -150,9 +150,9 @@ func TestAccAWSIAMGroup_basic(t *testing.T) {
 	groupName2 := fmt.Sprintf("tf-acc-group-basic-2-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGroupConfig(groupName),
@@ -185,9 +185,9 @@ func TestAccAWSIAMGroup_nameChange(t *testing.T) {
 	groupName2 := fmt.Sprintf("tf-acc-group-basic-2-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGroupConfig(groupName),

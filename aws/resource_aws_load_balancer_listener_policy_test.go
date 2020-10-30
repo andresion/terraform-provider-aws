@@ -19,9 +19,9 @@ func TestAccAWSLoadBalancerListenerPolicy_basic(t *testing.T) {
 	lbName := rChar
 	mcName := rChar
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLoadBalancerListenerPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLoadBalancerListenerPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLoadBalancerListenerPolicyConfig_basic0(lbName, mcName),

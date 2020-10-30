@@ -60,9 +60,9 @@ func TestAccAWSSagemakerModel_basic(t *testing.T) {
 	rName := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSagemakerModelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSagemakerModelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSagemakerModelConfig(rName, image),
@@ -91,9 +91,9 @@ func TestAccAWSSagemakerModel_tags(t *testing.T) {
 	rName := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSagemakerModelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSagemakerModelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSagemakerModelConfigTags(rName, image),
@@ -125,9 +125,9 @@ func TestAccAWSSagemakerModel_primaryContainerModelDataUrl(t *testing.T) {
 	modelDataUrl := fmt.Sprintf("https://s3-us-west-2.amazonaws.com/terraform-testacc-sagemaker-model-data-bucket-%s/model.tar.gz", rName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSagemakerModelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSagemakerModelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSagemakerPrimaryContainerModelDataUrlConfig(rName, image, modelDataUrl),
@@ -150,9 +150,9 @@ func TestAccAWSSagemakerModel_primaryContainerHostname(t *testing.T) {
 	rName := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSagemakerModelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSagemakerModelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSagemakerPrimaryContainerHostnameConfig(rName, image),
@@ -175,9 +175,9 @@ func TestAccAWSSagemakerModel_primaryContainerEnvironment(t *testing.T) {
 	rName := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSagemakerModelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSagemakerModelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSagemakerPrimaryContainerEnvironmentConfig(rName, image),
@@ -202,9 +202,9 @@ func TestAccAWSSagemakerModel_primaryContainerModeSingle(t *testing.T) {
 	rName := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSagemakerModelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSagemakerModelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSagemakerPrimaryContainerModeSingle(rName, image),
@@ -227,9 +227,9 @@ func TestAccAWSSagemakerModel_containers(t *testing.T) {
 	rName := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSagemakerModelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSagemakerModelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSagemakerModelContainers(rName, image),
@@ -255,9 +255,9 @@ func TestAccAWSSagemakerModel_vpcConfig(t *testing.T) {
 	rName := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSagemakerModelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSagemakerModelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSagemakerModelVpcConfig(rName, image),
@@ -281,9 +281,9 @@ func TestAccAWSSagemakerModel_networkIsolation(t *testing.T) {
 	rName := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSagemakerModelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSagemakerModelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSagemakerModelNetworkIsolation(rName, image),

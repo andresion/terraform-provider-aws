@@ -22,9 +22,9 @@ func TestAccAWSAPIGatewayAccount_basic(t *testing.T) {
 	expectedRoleArn_second := regexp.MustCompile("role/" + secondName + "$")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayAccountDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayAccountDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayAccountConfig_updated(firstName),

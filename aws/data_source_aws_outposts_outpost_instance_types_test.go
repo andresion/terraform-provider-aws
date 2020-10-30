@@ -12,9 +12,9 @@ func TestAccAWSOutpostsOutpostInstanceTypesDataSource_basic(t *testing.T) {
 	dataSourceName := "data.aws_outposts_outpost_instance_types.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSOutpostsOutpostInstanceTypesDataSourceConfig(),

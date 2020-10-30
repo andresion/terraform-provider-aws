@@ -16,9 +16,9 @@ func TestAccAWSXraySamplingRule_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSXray(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSXraySamplingRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSXray(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSXraySamplingRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSXraySamplingRuleConfig_basic(rName),
@@ -56,9 +56,9 @@ func TestAccAWSXraySamplingRule_update(t *testing.T) {
 	updatedReservoirSize := acctest.RandIntRange(0, 2147483647)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSXray(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSXraySamplingRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSXray(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSXraySamplingRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSXraySamplingRuleConfig_update(rName, acctest.RandIntRange(0, 9999), acctest.RandIntRange(0, 2147483647)),
@@ -111,9 +111,9 @@ func TestAccAWSXraySamplingRule_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSXray(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSXraySamplingRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSXray(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSXraySamplingRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSXraySamplingRuleConfigTags1(rName, "key1", "value1"),
@@ -155,9 +155,9 @@ func TestAccAWSXraySamplingRule_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSXray(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSXraySamplingRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSXray(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSXraySamplingRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSXraySamplingRuleConfig_basic(rName),

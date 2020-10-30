@@ -17,9 +17,9 @@ func TestAccAWSIAMSamlProvider_basic(t *testing.T) {
 	resourceName := "aws_iam_saml_provider.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckIAMSamlProviderDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMSamlProviderDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccIAMSamlProviderConfig(rName),
@@ -52,9 +52,9 @@ func TestAccAWSIAMSamlProvider_disappears(t *testing.T) {
 	resourceName := "aws_iam_saml_provider.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckIAMSamlProviderDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckIAMSamlProviderDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccIAMSamlProviderConfig(rName),

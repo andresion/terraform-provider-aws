@@ -27,9 +27,9 @@ func TestAccAWSSESEmailIdentity_basic(t *testing.T) {
 	resourceName := "aws_ses_email_identity.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSESEmailIdentityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSESEmailIdentityDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsSESEmailIdentityConfig(email),
@@ -54,9 +54,9 @@ func TestAccAWSSESEmailIdentity_trailingPeriod(t *testing.T) {
 	resourceName := "aws_ses_email_identity.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSESEmailIdentityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSESEmailIdentityDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsSESEmailIdentityConfig(email),

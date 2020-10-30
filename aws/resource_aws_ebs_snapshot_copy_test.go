@@ -17,9 +17,9 @@ func TestAccAWSEbsSnapshotCopy_basic(t *testing.T) {
 	resourceName := "aws_ebs_snapshot_copy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEbsSnapshotCopyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEbsSnapshotCopyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEbsSnapshotCopyConfig,
@@ -38,9 +38,9 @@ func TestAccAWSEbsSnapshotCopy_tags(t *testing.T) {
 	resourceName := "aws_ebs_snapshot_copy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEbsSnapshotCopyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEbsSnapshotCopyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEbsSnapshotCopyConfigTags1("key1", "value1"),
@@ -76,9 +76,9 @@ func TestAccAWSEbsSnapshotCopy_withDescription(t *testing.T) {
 	resourceName := "aws_ebs_snapshot_copy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEbsSnapshotCopyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEbsSnapshotCopyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEbsSnapshotCopyConfigWithDescription,
@@ -122,9 +122,9 @@ func TestAccAWSEbsSnapshotCopy_withKms(t *testing.T) {
 	resourceName := "aws_ebs_snapshot_copy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEbsSnapshotCopyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEbsSnapshotCopyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEbsSnapshotCopyConfigWithKms,
@@ -142,9 +142,9 @@ func TestAccAWSEbsSnapshotCopy_disappears(t *testing.T) {
 	resourceName := "aws_ebs_snapshot_copy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEbsSnapshotCopyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEbsSnapshotCopyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEbsSnapshotCopyConfig,

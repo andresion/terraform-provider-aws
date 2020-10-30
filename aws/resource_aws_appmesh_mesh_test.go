@@ -72,9 +72,9 @@ func testAccAwsAppmeshMesh_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshMeshDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshMeshDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshMeshConfig_basic(rName),
@@ -103,9 +103,9 @@ func testAccAwsAppmeshMesh_egressFilter(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshMeshDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshMeshDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshMeshConfig_egressFilter(rName, "ALLOW_ALL"),
@@ -142,9 +142,9 @@ func testAccAwsAppmeshMesh_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshMeshDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshMeshDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshMeshConfigWithTags(rName),

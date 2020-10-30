@@ -118,9 +118,9 @@ func TestAccAwsDxGateway_basic(t *testing.T) {
 	resourceName := "aws_dx_gateway.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDxGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDxGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDxGatewayConfig(acctest.RandString(5), acctest.RandIntRange(64512, 65534)),
@@ -145,9 +145,9 @@ func TestAccAwsDxGateway_complex(t *testing.T) {
 	resourceName := "aws_dx_gateway.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDxGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDxGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDxGatewayAssociationConfig_multiVpnGatewaysSingleAccount(rName1, rName2, rBgpAsn),

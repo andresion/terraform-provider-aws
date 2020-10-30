@@ -72,9 +72,9 @@ func TestAccAWSAPIGatewayBasePathMapping_basic(t *testing.T) {
 	certificate := tlsRsaX509SelfSignedCertificatePem(key, name)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayBasePathDestroy(name),
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayBasePathDestroy(name),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayBasePathConfigBasePath(name, key, certificate, "tf-acc-test"),
@@ -101,9 +101,9 @@ func TestAccAWSAPIGatewayBasePathMapping_BasePath_Empty(t *testing.T) {
 	certificate := tlsRsaX509SelfSignedCertificatePem(key, name)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayBasePathDestroy(name),
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayBasePathDestroy(name),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayBasePathConfigBasePath(name, key, certificate, ""),
@@ -130,9 +130,9 @@ func TestAccAWSAPIGatewayBasePathMapping_disappears(t *testing.T) {
 	certificate := tlsRsaX509SelfSignedCertificatePem(key, name)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayBasePathDestroy(name),
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayBasePathDestroy(name),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayBasePathConfigBasePath(name, key, certificate, "tf-acc-test"),

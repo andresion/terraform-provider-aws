@@ -325,9 +325,9 @@ func TestAccAWSRouteTable_Route_ConfigMode(t *testing.T) {
 	resourceName := "aws_route_table.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRouteTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRouteTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteTableConfigRouteConfigModeBlocks(),
@@ -374,9 +374,9 @@ func TestAccAWSRouteTable_Route_TransitGatewayID(t *testing.T) {
 	resourceName := "aws_route_table.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRouteTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRouteTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteTableConfigRouteTransitGatewayID(),
@@ -398,9 +398,9 @@ func TestAccAWSRouteTable_Route_LocalGatewayID(t *testing.T) {
 	resourceName := "aws_route_table.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRouteTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRouteTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteTableConfigRouteLocalGatewayID(),
@@ -500,9 +500,9 @@ func TestAccAWSRouteTable_vpcPeering(t *testing.T) {
 		return nil
 	}
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRouteTableDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRouteTableDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRouteTableVpcPeeringConfig,
@@ -543,8 +543,8 @@ func TestAccAWSRouteTable_vgwRoutePropagation(t *testing.T) {
 
 	}
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		CheckDestroy: resource.ComposeTestCheckFunc(
 			testAccCheckVpnGatewayDestroy,
 			testAccCheckRouteTableDestroy,
@@ -573,9 +573,9 @@ func TestAccAWSRouteTable_ConditionalCidrBlock(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteTableConfigConditionalIpv4Ipv6(rName, false),

@@ -14,8 +14,8 @@ func TestAccAWSCodeCommitRepositoryDataSource_basic(t *testing.T) {
 	datasourceName := "data.aws_codecommit_repository.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsCodeCommitRepositoryDataSourceConfig(rName),

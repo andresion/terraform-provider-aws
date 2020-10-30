@@ -16,10 +16,10 @@ func TestAccAWSPinpointSMSChannel_basic(t *testing.T) {
 	resourceName := "aws_pinpoint_sms_channel.test_sms_channel"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSPinpointSMSChannelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSPinpointSMSChannelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSPinpointSMSChannelConfig_basic,
@@ -60,10 +60,10 @@ func TestAccAWSPinpointSMSChannel_full(t *testing.T) {
 	newShortCode := "7890"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSPinpointSMSChannelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSPinpointSMSChannelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSPinpointSMSChannelConfig_full(senderId, shortCode),

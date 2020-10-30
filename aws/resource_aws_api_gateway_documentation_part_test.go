@@ -23,9 +23,9 @@ func TestAccAWSAPIGatewayDocumentationPart_basic(t *testing.T) {
 	resourceName := "aws_api_gateway_documentation_part.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayDocumentationPartDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayDocumentationPartDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayDocumentationPartConfig(apiName, strconv.Quote(properties)),
@@ -67,9 +67,9 @@ func TestAccAWSAPIGatewayDocumentationPart_method(t *testing.T) {
 	resourceName := "aws_api_gateway_documentation_part.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayDocumentationPartDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayDocumentationPartDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayDocumentationPartMethodConfig(apiName, strconv.Quote(properties)),
@@ -115,9 +115,9 @@ func TestAccAWSAPIGatewayDocumentationPart_responseHeader(t *testing.T) {
 	resourceName := "aws_api_gateway_documentation_part.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayDocumentationPartDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayDocumentationPartDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayDocumentationPartResponseHeaderConfig(apiName, strconv.Quote(properties)),
@@ -166,9 +166,9 @@ func TestAccAWSAPIGatewayDocumentationPart_disappears(t *testing.T) {
 	resourceName := "aws_api_gateway_documentation_part.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayDocumentationPartDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayDocumentationPartDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayDocumentationPartConfig(apiName, strconv.Quote(properties)),

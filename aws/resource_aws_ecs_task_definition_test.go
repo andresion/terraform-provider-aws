@@ -72,9 +72,9 @@ func TestAccAWSEcsTaskDefinition_basic(t *testing.T) {
 	resourceName := "aws_ecs_task_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinition(tdName),
@@ -108,9 +108,9 @@ func TestAccAWSEcsTaskDefinition_withScratchVolume(t *testing.T) {
 	resourceName := "aws_ecs_task_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinitionWithScratchVolume(tdName),
@@ -135,9 +135,9 @@ func TestAccAWSEcsTaskDefinition_withDockerVolume(t *testing.T) {
 	resourceName := "aws_ecs_task_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinitionWithDockerVolumes(tdName),
@@ -163,9 +163,9 @@ func TestAccAWSEcsTaskDefinition_withDockerVolumeMinimalConfig(t *testing.T) {
 	resourceName := "aws_ecs_task_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinitionWithDockerVolumesMinimalConfig(tdName),
@@ -191,9 +191,9 @@ func TestAccAWSEcsTaskDefinition_withEFSVolumeMinimal(t *testing.T) {
 	resourceName := "aws_ecs_task_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinitionWithEFSVolumeMinimal(tdName),
@@ -219,9 +219,9 @@ func TestAccAWSEcsTaskDefinition_withEFSVolume(t *testing.T) {
 	resourceName := "aws_ecs_task_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinitionWithEFSVolume(tdName, "/home/test"),
@@ -246,9 +246,9 @@ func TestAccAWSEcsTaskDefinition_withTransitEncryptionEFSVolume(t *testing.T) {
 	tdName := acctest.RandomWithPrefix("tf-acc-td-with-efs-volume")
 	resourceName := "aws_ecs_task_definition.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinitionWithTransitEncryptionEFSVolume(tdName, "ENABLED", 2999),
@@ -274,9 +274,9 @@ func TestAccAWSEcsTaskDefinition_withEFSAccessPoint(t *testing.T) {
 	resourceName := "aws_ecs_task_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinitionWithEFSAccessPoint(tdName, "DISABLED"),
@@ -302,9 +302,9 @@ func TestAccAWSEcsTaskDefinition_withTaskScopedDockerVolume(t *testing.T) {
 	resourceName := "aws_ecs_task_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinitionWithTaskScopedDockerVolume(tdName),
@@ -335,9 +335,9 @@ func TestAccAWSEcsTaskDefinition_withEcsService(t *testing.T) {
 	resourceName := "aws_ecs_task_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinitionWithEcsService(clusterName, svcName, tdName),
@@ -372,9 +372,9 @@ func TestAccAWSEcsTaskDefinition_withTaskRoleArn(t *testing.T) {
 	resourceName := "aws_ecs_task_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinitionWithTaskRoleArn(roleName, policyName, tdName),
@@ -401,9 +401,9 @@ func TestAccAWSEcsTaskDefinition_withNetworkMode(t *testing.T) {
 	resourceName := "aws_ecs_task_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinitionWithNetworkMode(roleName, policyName, tdName),
@@ -431,9 +431,9 @@ func TestAccAWSEcsTaskDefinition_withIPCMode(t *testing.T) {
 	resourceName := "aws_ecs_task_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinitionWithIpcMode(roleName, policyName, tdName),
@@ -461,9 +461,9 @@ func TestAccAWSEcsTaskDefinition_withPidMode(t *testing.T) {
 	resourceName := "aws_ecs_task_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinitionWithPidMode(roleName, policyName, tdName),
@@ -489,9 +489,9 @@ func TestAccAWSEcsTaskDefinition_constraint(t *testing.T) {
 	resourceName := "aws_ecs_task_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinition_constraint(tdName),
@@ -519,9 +519,9 @@ func TestAccAWSEcsTaskDefinition_changeVolumesForcesNewResource(t *testing.T) {
 	resourceName := "aws_ecs_task_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinition(tdName),
@@ -554,9 +554,9 @@ func TestAccAWSEcsTaskDefinition_arrays(t *testing.T) {
 	tdName := acctest.RandomWithPrefix("tf-acc-td-arrays")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinitionArrays(tdName),
@@ -581,9 +581,9 @@ func TestAccAWSEcsTaskDefinition_Fargate(t *testing.T) {
 	resourceName := "aws_ecs_task_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinitionFargate(tdName, `[{"protocol": "tcp", "containerPort": 8000}]`),
@@ -618,9 +618,9 @@ func TestAccAWSEcsTaskDefinition_ExecutionRole(t *testing.T) {
 	resourceName := "aws_ecs_task_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinitionExecutionRole(roleName, policyName, tdName),
@@ -658,9 +658,9 @@ func TestAccAWSEcsTaskDefinition_Inactive(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinition(tdName),
@@ -689,9 +689,9 @@ func TestAccAWSEcsTaskDefinition_Tags(t *testing.T) {
 	resourceName := "aws_ecs_task_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinitionConfigTags1(rName, "key1", "value1"),
@@ -744,9 +744,9 @@ func TestAccAWSEcsTaskDefinition_ProxyConfiguration(t *testing.T) {
 	egressIgnoredIPs := "169.254.170.2,169.254.169.254"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinitionConfigProxyConfiguration(rName, containerName, proxyType, ignoredUid, ignoredGid, appPorts, proxyIngressPort, proxyEgressPort, egressIgnoredPorts, egressIgnoredIPs),
@@ -772,9 +772,9 @@ func TestAccAWSEcsTaskDefinition_inferenceAccelerator(t *testing.T) {
 	resourceName := "aws_ecs_task_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsTaskDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsTaskDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsTaskDefinitionConfigInferenceAccelerator(tdName),

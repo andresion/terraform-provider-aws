@@ -13,8 +13,8 @@ import (
 func TestAccDataSourceAwsDirectoryServiceDirectory_NonExistent(t *testing.T) {
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccDataSourceAwsDirectoryServiceDirectoryConfig_NonExistent,
@@ -30,8 +30,8 @@ func TestAccDataSourceAwsDirectoryServiceDirectory_SimpleAD(t *testing.T) {
 	dataSourceName := "data.aws_directory_service_directory.test-simple-ad"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSDirectoryServiceSimpleDirectory(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDirectoryServiceSimpleDirectory(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsDirectoryServiceDirectoryConfig_SimpleAD(alias),
@@ -61,8 +61,8 @@ func TestAccDataSourceAwsDirectoryServiceDirectory_MicrosoftAD(t *testing.T) {
 	dataSourceName := "data.aws_directory_service_directory.test-microsoft-ad"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsDirectoryServiceDirectoryConfig_MicrosoftAD(alias),
@@ -96,7 +96,7 @@ func TestAccDataSourceAWSDirectoryServiceDirectory_connector(t *testing.T) {
 			testAccPreCheckAWSDirectoryService(t)
 			testAccPreCheckAWSDirectoryServiceSimpleDirectory(t)
 		},
-		Providers: testAccProviders,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceDirectoryServiceDirectoryConfig_connector(),

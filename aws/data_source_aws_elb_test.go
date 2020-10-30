@@ -13,8 +13,8 @@ func TestAccDataSourceAWSELB_basic(t *testing.T) {
 	rName := fmt.Sprintf("TestAccDataSourceAWSELB-%s", acctest.RandStringFromCharSet(5, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAWSELBConfigBasic(rName, t.Name()),

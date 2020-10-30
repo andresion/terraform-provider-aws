@@ -12,8 +12,8 @@ func TestAccDataSourceRoute53DelegationSet_basic(t *testing.T) {
 	resourceName := "aws_route53_delegation_set.dset"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSourceAWSRoute53DelegationSetConfig_basic,

@@ -19,9 +19,9 @@ func testAccAWSAccessAnalyzerAnalyzer_basic(t *testing.T) {
 	resourceName := "aws_accessanalyzer_analyzer.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSAccessAnalyzer(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAccessAnalyzerAnalyzerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSAccessAnalyzer(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAccessAnalyzerAnalyzerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAccessAnalyzerAnalyzerConfigAnalyzerName(rName),
@@ -50,9 +50,9 @@ func testAccAWSAccessAnalyzerAnalyzer_disappears(t *testing.T) {
 	resourceName := "aws_accessanalyzer_analyzer.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSAccessAnalyzer(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAccessAnalyzerAnalyzerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSAccessAnalyzer(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAccessAnalyzerAnalyzerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAccessAnalyzerAnalyzerConfigAnalyzerName(rName),
@@ -74,9 +74,9 @@ func testAccAWSAccessAnalyzerAnalyzer_Tags(t *testing.T) {
 	resourceName := "aws_accessanalyzer_analyzer.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSAccessAnalyzer(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAccessAnalyzerAnalyzerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSAccessAnalyzer(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAccessAnalyzerAnalyzerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAccessAnalyzerAnalyzerConfigTags1(rName, "key1", "value1"),
@@ -125,8 +125,8 @@ func testAccAWSAccessAnalyzerAnalyzer_Type_Organization(t *testing.T) {
 			testAccPreCheckAWSAccessAnalyzer(t)
 			testAccOrganizationsAccountPreCheck(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAccessAnalyzerAnalyzerDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAccessAnalyzerAnalyzerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAccessAnalyzerAnalyzerConfigTypeOrganization(rName),

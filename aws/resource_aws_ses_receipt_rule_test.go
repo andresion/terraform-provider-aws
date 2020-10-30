@@ -21,8 +21,8 @@ func TestAccAWSSESReceiptRule_basic(t *testing.T) {
 			testAccPreCheckAWSSES(t)
 			testAccPreCheckSESReceiptRule(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSESReceiptRuleDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSESReceiptRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSESReceiptRuleBasicConfig(rInt),
@@ -47,8 +47,8 @@ func TestAccAWSSESReceiptRule_s3Action(t *testing.T) {
 			testAccPreCheckAWSSES(t)
 			testAccPreCheckSESReceiptRule(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSESReceiptRuleDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSESReceiptRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSESReceiptRuleS3ActionConfig(rInt),
@@ -73,8 +73,8 @@ func TestAccAWSSESReceiptRule_order(t *testing.T) {
 			testAccPreCheckAWSSES(t)
 			testAccPreCheckSESReceiptRule(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSESReceiptRuleDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSESReceiptRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSESReceiptRuleOrderConfig(rInt),
@@ -99,8 +99,8 @@ func TestAccAWSSESReceiptRule_actions(t *testing.T) {
 			testAccPreCheckAWSSES(t)
 			testAccPreCheckSESReceiptRule(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSESReceiptRuleDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSESReceiptRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSESReceiptRuleActionsConfig(rInt),
@@ -128,8 +128,8 @@ func TestAccAWSSESReceiptRule_disappears(t *testing.T) {
 			testAccPreCheckAWSSES(t)
 			testAccPreCheckSESReceiptRule(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSESReceiptRuleDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSESReceiptRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSESReceiptRuleBasicConfig(rInt),

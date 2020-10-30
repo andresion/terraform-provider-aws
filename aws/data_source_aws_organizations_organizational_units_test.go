@@ -14,7 +14,7 @@ func testAccDataSourceAwsOrganizationsOrganizationalUnits_basic(t *testing.T) {
 			testAccPreCheck(t)
 			testAccOrganizationsAccountPreCheck(t)
 		},
-		Providers: testAccProviders,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsOrganizationsOrganizationalUnitsConfig,

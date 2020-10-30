@@ -20,10 +20,10 @@ func TestAccAWSPinpointBaiduChannel_basic(t *testing.T) {
 	secretKey := "456"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSPinpointBaiduChannelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSPinpointBaiduChannelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSPinpointBaiduChannelConfig_basic(apiKey, secretKey),

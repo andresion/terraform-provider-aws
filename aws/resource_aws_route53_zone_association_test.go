@@ -13,9 +13,9 @@ func TestAccAWSRoute53ZoneAssociation_basic(t *testing.T) {
 	resourceName := "aws_route53_zone_association.foobar"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ZoneAssociationConfig,
@@ -36,9 +36,9 @@ func TestAccAWSRoute53ZoneAssociation_disappears(t *testing.T) {
 	resourceName := "aws_route53_zone_association.foobar"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ZoneAssociationConfig,
@@ -57,9 +57,9 @@ func TestAccAWSRoute53ZoneAssociation_disappears_VPC(t *testing.T) {
 	vpcResourceName := "aws_vpc.bar"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ZoneAssociationConfig,
@@ -78,9 +78,9 @@ func TestAccAWSRoute53ZoneAssociation_disappears_Zone(t *testing.T) {
 	route53ZoneResourceName := "aws_route53_zone.foo"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckRoute53ZoneAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckRoute53ZoneAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccRoute53ZoneAssociationConfig,

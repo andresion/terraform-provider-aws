@@ -16,9 +16,9 @@ func TestAccAwsDaxParameterGroup_basic(t *testing.T) {
 	resourceName := "aws_dax_parameter_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDax(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsDaxParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDax(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsDaxParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDaxParameterGroupConfig(rName),

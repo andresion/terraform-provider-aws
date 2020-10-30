@@ -80,9 +80,9 @@ func TestAccAWSDataSyncAgent_basic(t *testing.T) {
 	resourceName := "aws_datasync_agent.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncAgentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncAgentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncAgentConfig(),
@@ -108,9 +108,9 @@ func TestAccAWSDataSyncAgent_disappears(t *testing.T) {
 	resourceName := "aws_datasync_agent.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncAgentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncAgentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncAgentConfig(),
@@ -131,9 +131,9 @@ func TestAccAWSDataSyncAgent_AgentName(t *testing.T) {
 	resourceName := "aws_datasync_agent.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncAgentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncAgentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncAgentConfigName(rName1),
@@ -164,9 +164,9 @@ func TestAccAWSDataSyncAgent_Tags(t *testing.T) {
 	resourceName := "aws_datasync_agent.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncAgentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSDataSync(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncAgentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncAgentConfigTags1("key1", "value1"),

@@ -19,9 +19,9 @@ func testAccAwsOrganizationsOrganizationalUnit_basic(t *testing.T) {
 	resourceName := "aws_organizations_organizational_unit.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOrganizationsOrganizationalUnitDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOrganizationsOrganizationalUnitDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOrganizationsOrganizationalUnitConfig(name),
@@ -50,9 +50,9 @@ func testAccAwsOrganizationsOrganizationalUnit_Name(t *testing.T) {
 	resourceName := "aws_organizations_organizational_unit.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOrganizationsOrganizationalUnitDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOrganizationsOrganizationalUnitDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOrganizationsOrganizationalUnitConfig(name1),

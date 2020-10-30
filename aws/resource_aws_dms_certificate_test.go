@@ -17,9 +17,9 @@ func TestAccAWSDmsCertificate_basic(t *testing.T) {
 	randId := acctest.RandString(8)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: dmsCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             dmsCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: dmsCertificateConfig(randId),

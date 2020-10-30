@@ -18,9 +18,9 @@ func TestAccAWSEMRInstanceFleet_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_emr_instance_fleet.task"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrInstanceFleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrInstanceFleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrInstanceFleetConfig(rName),
@@ -45,9 +45,9 @@ func TestAccAWSEMRInstanceFleet_zero_count(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_emr_instance_fleet.task"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrInstanceFleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrInstanceFleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrInstanceFleetConfig(rName),
@@ -80,9 +80,9 @@ func TestAccAWSEMRInstanceFleet_ebsBasic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_emr_instance_fleet.task"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrInstanceFleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrInstanceFleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrInstanceFleetConfigEbsBasic(rName),
@@ -107,9 +107,9 @@ func TestAccAWSEMRInstanceFleet_full(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_emr_instance_fleet.task"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrInstanceFleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrInstanceFleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrInstanceFleetConfigFull(rName),
@@ -136,9 +136,9 @@ func TestAccAWSEMRInstanceFleet_disappears(t *testing.T) {
 	emrClusterResourceName := "aws_emr_cluster.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEmrInstanceFleetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEmrInstanceFleetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEmrInstanceFleetConfig(rName),

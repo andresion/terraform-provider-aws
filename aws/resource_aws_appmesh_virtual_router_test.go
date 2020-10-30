@@ -88,9 +88,9 @@ func testAccAwsAppmeshVirtualRouter_basic(t *testing.T) {
 	vrName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshVirtualRouterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshVirtualRouterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshVirtualRouterConfig_basic(meshName, vrName),
@@ -141,9 +141,9 @@ func testAccAwsAppmeshVirtualRouter_tags(t *testing.T) {
 	vrName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAppmeshVirtualRouterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck(appmesh.EndpointsID, t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAppmeshVirtualRouterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppmeshVirtualRouterConfig_tags(meshName, vrName, "foo", "bar", "good", "bad"),

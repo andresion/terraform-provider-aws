@@ -11,8 +11,8 @@ import (
 func TestAccAWSDataSourceRedshiftCluster_basic(t *testing.T) {
 	rInt := acctest.RandInt()
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSourceRedshiftClusterConfig(rInt),
@@ -44,8 +44,8 @@ func TestAccAWSDataSourceRedshiftCluster_basic(t *testing.T) {
 func TestAccAWSDataSourceRedshiftCluster_vpc(t *testing.T) {
 	rInt := acctest.RandInt()
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSourceRedshiftClusterConfigWithVpc(rInt),
@@ -63,8 +63,8 @@ func TestAccAWSDataSourceRedshiftCluster_vpc(t *testing.T) {
 func TestAccAWSDataSourceRedshiftCluster_logging(t *testing.T) {
 	rInt := acctest.RandInt()
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSourceRedshiftClusterConfigWithLogging(rInt),

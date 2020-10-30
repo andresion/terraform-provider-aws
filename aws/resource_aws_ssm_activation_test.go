@@ -19,9 +19,9 @@ func TestAccAWSSSMActivation_basic(t *testing.T) {
 	resourceName := "aws_ssm_activation.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMActivationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMActivationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMActivationBasicConfig(name, tag),
@@ -50,9 +50,9 @@ func TestAccAWSSSMActivation_update(t *testing.T) {
 	resourceName := "aws_ssm_activation.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMActivationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMActivationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMActivationBasicConfig(name, "My Activation"),
@@ -101,9 +101,9 @@ func TestAccAWSSSMActivation_expirationDate(t *testing.T) {
 	resourceName := "aws_ssm_activation.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMActivationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMActivationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMActivationConfig_expirationDate(rName, expirationDateS),
@@ -131,9 +131,9 @@ func TestAccAWSSSMActivation_disappears(t *testing.T) {
 	resourceName := "aws_ssm_activation.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMActivationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMActivationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMActivationBasicConfig(name, tag),

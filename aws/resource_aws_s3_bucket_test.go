@@ -169,9 +169,9 @@ func TestAccAWSS3Bucket_basic(t *testing.T) {
 	resourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfig_Basic(bucketName),
@@ -202,9 +202,9 @@ func TestAccAWSS3Bucket_Bucket_EmptyString(t *testing.T) {
 	resourceName := "aws_s3_bucket.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigBucketEmptyString,
@@ -228,9 +228,9 @@ func TestAccAWSS3Bucket_tagsWithNoSystemTags(t *testing.T) {
 	bucketName := acctest.RandomWithPrefix("tf-test-bucket")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfig_withTags(bucketName),
@@ -288,8 +288,8 @@ func TestAccAWSS3Bucket_tagsWithSystemTags(t *testing.T) {
 	var stackId string
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		CheckDestroy: resource.ComposeAggregateTestCheckFunc(
 			testAccCheckAWSS3BucketDestroy,
 			func(s *terraform.State) error {
@@ -368,9 +368,9 @@ func TestAccAWSS3Bucket_ignoreTags(t *testing.T) {
 	bucketName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: composeConfig(
@@ -412,9 +412,9 @@ func TestAccAWSS3MultiBucket_withTags(t *testing.T) {
 	resourceName := "aws_s3_bucket.bucket1"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3MultiBucketConfigWithTags(rInt),
@@ -433,9 +433,9 @@ func TestAccAWSS3Bucket_namePrefix(t *testing.T) {
 	resourceName := "aws_s3_bucket.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfig_namePrefix,
@@ -458,9 +458,9 @@ func TestAccAWSS3Bucket_generatedName(t *testing.T) {
 	resourceName := "aws_s3_bucket.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfig_generatedName,
@@ -487,8 +487,8 @@ func TestAccAWSS3Bucket_acceleration(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPartitionHasServicePreCheck("cloudfront", t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigWithAcceleration(bucketName),
@@ -519,9 +519,9 @@ func TestAccAWSS3Bucket_RequestPayer(t *testing.T) {
 	resourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigRequestPayerBucketOwner(bucketName),
@@ -555,9 +555,9 @@ func TestAccAWSS3Bucket_Policy(t *testing.T) {
 	resourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigWithPolicy(bucketName, partition),
@@ -605,9 +605,9 @@ func TestAccAWSS3Bucket_UpdateAcl(t *testing.T) {
 	resourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigWithAcl(bucketName),
@@ -638,9 +638,9 @@ func TestAccAWSS3Bucket_UpdateGrant(t *testing.T) {
 	resourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigWithGrants(bucketName),
@@ -680,9 +680,9 @@ func TestAccAWSS3Bucket_AclToGrant(t *testing.T) {
 	resourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigWithAcl(bucketName),
@@ -709,9 +709,9 @@ func TestAccAWSS3Bucket_GrantToAcl(t *testing.T) {
 	resourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigWithGrants(bucketName),
@@ -739,9 +739,9 @@ func TestAccAWSS3Bucket_Website_Simple(t *testing.T) {
 	resourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketWebsiteConfig(bucketName),
@@ -783,9 +783,9 @@ func TestAccAWSS3Bucket_WebsiteRedirect(t *testing.T) {
 	resourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketWebsiteConfigWithRedirect(bucketName),
@@ -827,9 +827,9 @@ func TestAccAWSS3Bucket_WebsiteRoutingRules(t *testing.T) {
 	resourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketWebsiteConfigWithRoutingRules(bucketName),
@@ -877,9 +877,9 @@ func TestAccAWSS3Bucket_enableDefaultEncryption_whenTypical(t *testing.T) {
 	resourceName := "aws_s3_bucket.arbitrary"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketEnableDefaultEncryption(bucketName),
@@ -907,9 +907,9 @@ func TestAccAWSS3Bucket_enableDefaultEncryption_whenAES256IsUsed(t *testing.T) {
 	resourceName := "aws_s3_bucket.arbitrary"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketEnableDefaultEncryptionWithAES256(bucketName),
@@ -937,9 +937,9 @@ func TestAccAWSS3Bucket_disableDefaultEncryption_whenDefaultEncryptionIsEnabled(
 	resourceName := "aws_s3_bucket.arbitrary"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketEnableDefaultEncryptionWithDefaultKey(bucketName),
@@ -972,9 +972,9 @@ func TestAccAWSS3Bucket_shouldFailNotFound(t *testing.T) {
 	resourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketDestroyedConfig(bucketName),
@@ -993,9 +993,9 @@ func TestAccAWSS3Bucket_Versioning(t *testing.T) {
 	resourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfig_Basic(bucketName),
@@ -1060,9 +1060,9 @@ func TestAccAWSS3Bucket_Cors_Update(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigWithCORS(bucketName),
@@ -1135,9 +1135,9 @@ func TestAccAWSS3Bucket_Cors_Delete(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigWithCORS(bucketName),
@@ -1156,9 +1156,9 @@ func TestAccAWSS3Bucket_Cors_EmptyOrigin(t *testing.T) {
 	resourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigWithCORSEmptyOrigin(bucketName),
@@ -1193,9 +1193,9 @@ func TestAccAWSS3Bucket_Logging(t *testing.T) {
 	resourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigWithLogging(bucketName),
@@ -1219,9 +1219,9 @@ func TestAccAWSS3Bucket_LifecycleBasic(t *testing.T) {
 	resourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigWithLifecycle(bucketName),
@@ -1335,9 +1335,9 @@ func TestAccAWSS3Bucket_LifecycleExpireMarkerOnly(t *testing.T) {
 	resourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigWithLifecycleExpireMarker(bucketName),
@@ -1372,9 +1372,9 @@ func TestAccAWSS3Bucket_LifecycleRule_Expiration_EmptyConfigurationBlock(t *test
 	resourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigLifecycleRuleExpirationEmptyConfigurationBlock(rName),
@@ -1392,9 +1392,9 @@ func TestAccAWSS3Bucket_LifecycleRule_AbortIncompleteMultipartUploadDays_NoExpir
 	resourceName := "aws_s3_bucket.bucket"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigLifecycleRuleAbortIncompleteMultipartUploadDays(rName),
@@ -2006,9 +2006,9 @@ func TestAccAWSS3Bucket_SameRegionReplicationSchemaV2(t *testing.T) {
 	rNameDestination := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfigSameRegionReplicationWithV2ConfigurationNoTags(rName, rNameDestination),
@@ -2058,9 +2058,9 @@ func TestAccAWSS3Bucket_objectLock(t *testing.T) {
 	resourceName := "aws_s3_bucket.arbitrary"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketObjectLockEnabledNoDefaultRetention(bucketName),
@@ -2097,9 +2097,9 @@ func TestAccAWSS3Bucket_forceDestroy(t *testing.T) {
 	bucketName := acctest.RandomWithPrefix("tf-test-bucket")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfig_forceDestroy(bucketName),
@@ -2122,9 +2122,9 @@ func TestAccAWSS3Bucket_forceDestroyWithEmptyPrefixes(t *testing.T) {
 	bucketName := acctest.RandomWithPrefix("tf-test-bucket")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfig_forceDestroy(bucketName),
@@ -2142,9 +2142,9 @@ func TestAccAWSS3Bucket_forceDestroyWithObjectLockEnabled(t *testing.T) {
 	bucketName := acctest.RandomWithPrefix("tf-test-bucket")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketConfig_forceDestroyWithObjectLockEnabled(bucketName),

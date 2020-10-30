@@ -13,8 +13,8 @@ func TestAccDataSourceAwsEfsMountTarget_basic(t *testing.T) {
 	dataSourceName := "data.aws_efs_mount_target.test"
 	resourceName := "aws_efs_mount_target.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEfsMountTargetConfigByMountTargetId(rName),

@@ -74,9 +74,9 @@ func TestAccAWSBatchJobDefinition_basic(t *testing.T) {
 	resourceName := "aws_batch_job_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchJobDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchJobDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBatchJobDefinitionConfigName(rName),
@@ -135,9 +135,9 @@ func TestAccAWSBatchJobDefinition_ContainerProperties_Advanced(t *testing.T) {
 	resourceName := "aws_batch_job_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchJobDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchJobDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBatchJobDefinitionConfigContainerPropertiesAdvanced(rName),
@@ -161,9 +161,9 @@ func TestAccAWSBatchJobDefinition_updateForcesNewResource(t *testing.T) {
 	resourceName := "aws_batch_job_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchJobDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchJobDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBatchJobDefinitionConfigContainerPropertiesAdvanced(rName),
@@ -194,9 +194,9 @@ func TestAccAWSBatchJobDefinition_Tags(t *testing.T) {
 	resourceName := "aws_batch_job_definition.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBatchJobDefinitionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBatchJobDefinitionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBatchJobDefinitionConfigTags1(rName, "key1", "value1"),

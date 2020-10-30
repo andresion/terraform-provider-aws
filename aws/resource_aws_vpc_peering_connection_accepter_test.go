@@ -20,9 +20,9 @@ func TestAccAWSVPCPeeringConnectionAccepter_sameRegionSameAccount(t *testing.T) 
 	rName := fmt.Sprintf("terraform-testacc-pcxaccpt-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccAwsVPCPeeringConnectionAccepterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccAwsVPCPeeringConnectionAccepterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsVPCPeeringConnectionAccepterConfigSameRegionSameAccount(rName),

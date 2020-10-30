@@ -20,9 +20,9 @@ func TestAccAWSCloudwatchLogSubscriptionFilter_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCloudwatchLogSubscriptionFilterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCloudwatchLogSubscriptionFilterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudwatchLogSubscriptionFilterConfigDestinationArnLambda(rName),
@@ -52,9 +52,9 @@ func TestAccAWSCloudwatchLogSubscriptionFilter_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCloudwatchLogSubscriptionFilterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCloudwatchLogSubscriptionFilterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudwatchLogSubscriptionFilterConfigDestinationArnLambda(rName),
@@ -77,9 +77,9 @@ func TestAccAWSCloudwatchLogSubscriptionFilter_disappears_LogGroup(t *testing.T)
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCloudwatchLogSubscriptionFilterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCloudwatchLogSubscriptionFilterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudwatchLogSubscriptionFilterConfigDestinationArnLambda(rName),
@@ -102,9 +102,9 @@ func TestAccAWSCloudwatchLogSubscriptionFilter_DestinationArn_KinesisDataFirehos
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCloudwatchLogSubscriptionFilterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCloudwatchLogSubscriptionFilterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudwatchLogSubscriptionFilterConfigDestinationArnKinesisDataFirehose(rName),
@@ -131,9 +131,9 @@ func TestAccAWSCloudwatchLogSubscriptionFilter_DestinationArn_KinesisStream(t *t
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCloudwatchLogSubscriptionFilterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCloudwatchLogSubscriptionFilterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudwatchLogSubscriptionFilterConfigDestinationArnKinesisStream(rName),
@@ -159,9 +159,9 @@ func TestAccAWSCloudwatchLogSubscriptionFilter_Distribution(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCloudwatchLogSubscriptionFilterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCloudwatchLogSubscriptionFilterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudwatchLogSubscriptionFilterConfigDistribution(rName, "Random"),
@@ -196,9 +196,9 @@ func TestAccAWSCloudwatchLogSubscriptionFilter_RoleArn(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckCloudwatchLogSubscriptionFilterDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckCloudwatchLogSubscriptionFilterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudwatchLogSubscriptionFilterConfigRoleArn1(rName),

@@ -22,9 +22,9 @@ func TestAccAWSLoadBalancerBackendServerPolicy_basic(t *testing.T) {
 	lbName := fmt.Sprintf("tf-acc-lb-bsp-basic-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLoadBalancerBackendServerPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLoadBalancerBackendServerPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLoadBalancerBackendServerPolicyConfig_basic0(lbName, privateKey1, publicKey1, certificate1),

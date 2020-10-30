@@ -95,10 +95,10 @@ func TestAccAWSPinpointAPNSChannel_basicCertificate(t *testing.T) {
 	configuration := testAccAwsPinpointAPNSChannelCertConfigurationFromEnv(t)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSPinpointAPNSChannelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSPinpointAPNSChannelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSPinpointAPNSChannelConfig_basicCertificate(configuration),
@@ -129,10 +129,10 @@ func TestAccAWSPinpointAPNSChannel_basicToken(t *testing.T) {
 	configuration := testAccAwsPinpointAPNSChannelTokenConfigurationFromEnv(t)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSPinpointAPNSChannelDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSPinpointAPNSChannelDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSPinpointAPNSChannelConfig_basicToken(configuration),

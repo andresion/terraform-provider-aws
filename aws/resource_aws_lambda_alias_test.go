@@ -25,9 +25,9 @@ func TestAccAWSLambdaAlias_basic(t *testing.T) {
 	functionArnResourcePart := fmt.Sprintf("function:%s:%s", funcName, aliasName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLambdaAliasDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLambdaAliasDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLambdaAliasConfig(roleName, policyName, attachmentName, funcName, aliasName),
@@ -60,9 +60,9 @@ func TestAccAWSLambdaAlias_FunctionName_Name(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLambdaAliasDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLambdaAliasDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLambdaAliasConfigUsingFunctionName(rName, rName, rName, rName, rName),
@@ -100,9 +100,9 @@ func TestAccAWSLambdaAlias_nameupdate(t *testing.T) {
 	functionArnResourcePartUpdate := fmt.Sprintf("function:%s:%s", funcName, aliasNameUpdate)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLambdaAliasDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLambdaAliasDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLambdaAliasConfig(roleName, policyName, attachmentName, funcName, aliasName),
@@ -144,9 +144,9 @@ func TestAccAWSLambdaAlias_routingconfig(t *testing.T) {
 	functionArnResourcePart := fmt.Sprintf("function:%s:%s", funcName, aliasName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLambdaAliasDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLambdaAliasDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLambdaAliasConfig(roleName, policyName, attachmentName, funcName, aliasName),

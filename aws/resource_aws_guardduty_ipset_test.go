@@ -21,9 +21,9 @@ func testAccAwsGuardDutyIpset_basic(t *testing.T) {
 	resourceName := "aws_guardduty_ipset.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsGuardDutyIpsetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsGuardDutyIpsetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGuardDutyIpsetConfig_basic(bucketName, keyName1, ipsetName1, true),
@@ -59,9 +59,9 @@ func testAccAwsGuardDutyIpset_tags(t *testing.T) {
 	resourceName := "aws_guardduty_ipset.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsGuardDutyIpsetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsGuardDutyIpsetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGuardDutyIpsetConfigTags1(rName, "key1", "value1"),

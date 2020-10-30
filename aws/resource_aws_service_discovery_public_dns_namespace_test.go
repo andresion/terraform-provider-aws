@@ -98,9 +98,9 @@ func TestAccAWSServiceDiscoveryPublicDnsNamespace_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsServiceDiscoveryPublicDnsNamespaceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsServiceDiscoveryPublicDnsNamespaceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccServiceDiscoveryPublicDnsNamespaceConfig(rName),
@@ -126,9 +126,9 @@ func TestAccAWSServiceDiscoveryPublicDnsNamespace_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsServiceDiscoveryPublicDnsNamespaceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsServiceDiscoveryPublicDnsNamespaceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccServiceDiscoveryPublicDnsNamespaceConfig(rName),
@@ -147,9 +147,9 @@ func TestAccAWSServiceDiscoveryPublicDnsNamespace_Description(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsServiceDiscoveryPublicDnsNamespaceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsServiceDiscoveryPublicDnsNamespaceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccServiceDiscoveryPublicDnsNamespaceConfigDescription(rName, "test"),
@@ -167,9 +167,9 @@ func TestAccAWSServiceDiscoveryPublicDnsNamespace_Tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsServiceDiscoveryPublicDnsNamespaceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsServiceDiscoveryPublicDnsNamespaceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccServiceDiscoveryPublicDnsNamespaceConfigTags1(rName, "key1", "value1"),

@@ -19,9 +19,9 @@ func TestAccAWSWorkLinkWorkLinkWebsiteCertificateAuthorityAssociation_basic(t *t
 	resourceName := "aws_worklink_website_certificate_authority_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWorkLink(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWorkLinkWebsiteCertificateAuthorityAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWorkLink(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWorkLinkWebsiteCertificateAuthorityAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWorkLinkWebsiteCertificateAuthorityAssociationConfig(suffix),
@@ -48,9 +48,9 @@ func TestAccAWSWorkLinkWorkLinkWebsiteCertificateAuthorityAssociation_DisplayNam
 	displayName1 := fmt.Sprintf("tf-website-certificate-%s", acctest.RandStringFromCharSet(5, acctest.CharSetAlpha))
 	displayName2 := fmt.Sprintf("tf-website-certificate-%s", acctest.RandStringFromCharSet(5, acctest.CharSetAlpha))
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWorkLink(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWorkLinkWebsiteCertificateAuthorityAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWorkLink(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWorkLinkWebsiteCertificateAuthorityAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWorkLinkWebsiteCertificateAuthorityAssociationConfigDisplayName(suffix, displayName1),
@@ -80,9 +80,9 @@ func TestAccAWSWorkLinkWorkLinkWebsiteCertificateAuthorityAssociation_Disappears
 	resourceName := "aws_worklink_website_certificate_authority_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWorkLink(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWorkLinkWebsiteCertificateAuthorityAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWorkLink(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWorkLinkWebsiteCertificateAuthorityAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWorkLinkWebsiteCertificateAuthorityAssociationConfig(suffix),

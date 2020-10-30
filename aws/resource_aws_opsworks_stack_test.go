@@ -28,8 +28,8 @@ func TestAccAWSOpsworksStack_noVpcBasic(t *testing.T) {
 			testAccPartitionHasServicePreCheck("opsworks", t)
 			testAccPreCheckAWSOpsWorksStacks(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOpsworksStackDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOpsworksStackDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOpsworksStackConfigNoVpcCreate(stackName),
@@ -58,8 +58,8 @@ func TestAccAWSOpsworksStack_noVpcChangeServiceRoleForceNew(t *testing.T) {
 			testAccPartitionHasServicePreCheck("opsworks", t)
 			testAccPreCheckAWSOpsWorksStacks(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOpsworksStackDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOpsworksStackDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOpsworksStackConfigNoVpcCreate(stackName),
@@ -94,8 +94,8 @@ func TestAccAWSOpsworksStack_vpc(t *testing.T) {
 			testAccPartitionHasServicePreCheck("opsworks", t)
 			testAccPreCheckAWSOpsWorksStacks(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOpsworksStackDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOpsworksStackDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOpsworksStackConfigVpcCreate(stackName),
@@ -142,8 +142,8 @@ func TestAccAWSOpsworksStack_noVpcCreateTags(t *testing.T) {
 			testAccPartitionHasServicePreCheck("opsworks", t)
 			testAccPreCheckAWSOpsWorksStacks(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOpsworksStackDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOpsworksStackDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOpsworksStackConfigNoVpcCreateTags(stackName),
@@ -185,8 +185,8 @@ func TestAccAWSOpsworksStack_CustomCookbooks_SetPrivateProperties(t *testing.T) 
 			testAccPartitionHasServicePreCheck("opsworks", t)
 			testAccPreCheckAWSOpsWorksStacks(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOpsworksStackDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOpsworksStackDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSOpsworksStackConfig_CustomCookbooks_Set(stackName),
@@ -222,9 +222,9 @@ func TestAccAWSOpsWorksStack_classicEndpoints(t *testing.T) {
 	var opsstack opsworks.Stack
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccRegionPreCheck(t, "us-west-2") }, //lintignore:AWSAT003
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsOpsworksStackDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccRegionPreCheck(t, "us-west-2") }, //lintignore:AWSAT003
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsOpsworksStackDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsOpsWorksStack_classic_endpoint(stackName, rInt),

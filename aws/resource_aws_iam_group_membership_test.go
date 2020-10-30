@@ -24,9 +24,9 @@ func TestAccAWSGroupMembership_basic(t *testing.T) {
 	membershipName := fmt.Sprintf("tf-acc-membership-gm-basic-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGroupMembershipDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGroupMembershipDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGroupMemberConfig(groupName, userName, membershipName),
@@ -64,9 +64,9 @@ func TestAccAWSGroupMembership_paginatedUserList(t *testing.T) {
 	userNamePrefix := fmt.Sprintf("tf-acc-user-gm-pul-%s-", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGroupMembershipDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGroupMembershipDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGroupMemberConfigPaginatedUserList(groupName, membershipName, userNamePrefix),

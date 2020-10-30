@@ -551,9 +551,9 @@ func TestAccAWSALBTargetGroup_lambda(t *testing.T) {
 	resourceName := "aws_alb_target_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSALBTargetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSALBTargetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSALBTargetGroupConfig_lambda(rName),
@@ -584,9 +584,9 @@ func TestAccAWSALBTargetGroup_lambdaMultiValueHeadersEnabled(t *testing.T) {
 	resourceName := "aws_alb_target_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSALBTargetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSALBTargetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSALBTargetGroupConfig_lambdaMultiValueHeadersEnabled(rName, true),
@@ -631,9 +631,9 @@ func TestAccAWSALBTargetGroup_missingPortProtocolVpc(t *testing.T) {
 	targetGroupName := fmt.Sprintf("test-target-group-%s", acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSALBTargetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSALBTargetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSALBTargetGroupConfig_missing_port(targetGroupName),

@@ -14,9 +14,9 @@ func TestAccAWSSnapshotCreateVolumePermission_basic(t *testing.T) {
 	accountId := "111122223333"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccAWSSnapshotCreateVolumePermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccAWSSnapshotCreateVolumePermissionDestroy,
 		Steps: []resource.TestStep{
 			// Scaffold everything
 			{
@@ -42,9 +42,9 @@ func TestAccAWSSnapshotCreateVolumePermission_disappears(t *testing.T) {
 	accountId := "111122223333"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccAWSSnapshotCreateVolumePermissionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccAWSSnapshotCreateVolumePermissionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSnapshotCreateVolumePermissionConfig(true, accountId),

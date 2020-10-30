@@ -18,9 +18,9 @@ func TestAccAWSAthenaWorkGroup_basic(t *testing.T) {
 	resourceName := "aws_athena_workgroup.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAthenaWorkGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAthenaWorkGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAthenaWorkGroupConfig(rName),
@@ -52,9 +52,9 @@ func TestAccAWSAthenaWorkGroup_disappears(t *testing.T) {
 	resourceName := "aws_athena_workgroup.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAthenaWorkGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAthenaWorkGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAthenaWorkGroupConfig(rName),
@@ -74,9 +74,9 @@ func TestAccAWSAthenaWorkGroup_Configuration_BytesScannedCutoffPerQuery(t *testi
 	resourceName := "aws_athena_workgroup.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAthenaWorkGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAthenaWorkGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAthenaWorkGroupConfigConfigurationBytesScannedCutoffPerQuery(rName, 12582912),
@@ -110,9 +110,9 @@ func TestAccAWSAthenaWorkGroup_Configuration_EnforceWorkgroupConfiguration(t *te
 	resourceName := "aws_athena_workgroup.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAthenaWorkGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAthenaWorkGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAthenaWorkGroupConfigConfigurationEnforceWorkgroupConfiguration(rName, false),
@@ -146,9 +146,9 @@ func TestAccAWSAthenaWorkGroup_Configuration_PublishCloudWatchMetricsEnabled(t *
 	resourceName := "aws_athena_workgroup.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAthenaWorkGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAthenaWorkGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAthenaWorkGroupConfigConfigurationPublishCloudWatchMetricsEnabled(rName, false),
@@ -182,9 +182,9 @@ func TestAccAWSAthenaWorkGroup_Configuration_ResultConfiguration_EncryptionConfi
 	resourceName := "aws_athena_workgroup.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAthenaWorkGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAthenaWorkGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAthenaWorkGroupConfigConfigurationResultConfigurationEncryptionConfigurationEncryptionOptionSseS3(rName),
@@ -214,9 +214,9 @@ func TestAccAWSAthenaWorkGroup_Configuration_ResultConfiguration_EncryptionConfi
 	rEncryption2 := athena.EncryptionOptionCseKms
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAthenaWorkGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAthenaWorkGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAthenaWorkGroupConfigConfigurationResultConfigurationEncryptionConfigurationEncryptionOptionWithKms(rName, rEncryption),
@@ -256,9 +256,9 @@ func TestAccAWSAthenaWorkGroup_Configuration_ResultConfiguration_OutputLocation(
 	rOutputLocation2 := fmt.Sprintf("%s-2", rName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAthenaWorkGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAthenaWorkGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAthenaWorkGroupConfigConfigurationResultConfigurationOutputLocation(rName, rOutputLocation1),
@@ -296,9 +296,9 @@ func TestAccAWSAthenaWorkGroup_Configuration_ResultConfiguration_OutputLocation_
 	rOutputLocation2 := fmt.Sprintf("%s-2", rName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAthenaWorkGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAthenaWorkGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAthenaWorkGroupConfigConfigurationResultConfigurationOutputLocationForceDestroy(rName, rOutputLocation1),
@@ -336,9 +336,9 @@ func TestAccAWSAthenaWorkGroup_Description(t *testing.T) {
 	rDescriptionUpdate := acctest.RandString(20)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAthenaWorkGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAthenaWorkGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAthenaWorkGroupConfigDescription(rName, rDescription),
@@ -370,9 +370,9 @@ func TestAccAWSAthenaWorkGroup_State(t *testing.T) {
 	resourceName := "aws_athena_workgroup.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAthenaWorkGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAthenaWorkGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAthenaWorkGroupConfigState(rName, athena.WorkGroupStateDisabled),
@@ -414,9 +414,9 @@ func TestAccAWSAthenaWorkGroup_ForceDestroy(t *testing.T) {
 	resourceName := "aws_athena_workgroup.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAthenaWorkGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAthenaWorkGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAthenaWorkGroupConfigForceDestroy(rName, dbName),
@@ -442,9 +442,9 @@ func TestAccAWSAthenaWorkGroup_Tags(t *testing.T) {
 	resourceName := "aws_athena_workgroup.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAthenaWorkGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAthenaWorkGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAthenaWorkGroupConfigTags1(rName, "key1", "value1"),

@@ -19,9 +19,9 @@ func TestAccAWSMediaConvertQueue_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMediaConvert(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMediaConvertQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMediaConvert(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMediaConvertQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMediaConvertQueueConfig_Basic(rName),
@@ -50,9 +50,9 @@ func TestAccAWSMediaConvertQueue_ReservationPlanSettings(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMediaConvert(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMediaConvertQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMediaConvert(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMediaConvertQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMediaConvertQueueConfig_ReservedQueue(rName, mediaconvert.CommitmentOneYear, mediaconvert.RenewalTypeAutoRenew, 1),
@@ -91,9 +91,9 @@ func TestAccAWSMediaConvertQueue_withStatus(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMediaConvert(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMediaConvertQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMediaConvert(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMediaConvertQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMediaConvertQueueConfig_withStatus(rName, mediaconvert.QueueStatusPaused),
@@ -124,9 +124,9 @@ func TestAccAWSMediaConvertQueue_withTags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMediaConvert(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMediaConvertQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMediaConvert(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMediaConvertQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMediaConvertQueueConfig_withTags(rName, "foo", "bar", "fizz", "buzz"),
@@ -168,9 +168,9 @@ func TestAccAWSMediaConvertQueue_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMediaConvert(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMediaConvertQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMediaConvert(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMediaConvertQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMediaConvertQueueConfig_Basic(rName),
@@ -192,9 +192,9 @@ func TestAccAWSMediaConvertQueue_withDescription(t *testing.T) {
 	description2 := acctest.RandomWithPrefix("Description: ")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSMediaConvert(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsMediaConvertQueueDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSMediaConvert(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsMediaConvertQueueDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccMediaConvertQueueConfig_withDescription(rName, description1),

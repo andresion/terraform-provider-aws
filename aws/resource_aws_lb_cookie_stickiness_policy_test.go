@@ -16,9 +16,9 @@ import (
 func TestAccAWSLBCookieStickinessPolicy_basic(t *testing.T) {
 	lbName := fmt.Sprintf("tf-test-lb-%s", acctest.RandString(5))
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLBCookieStickinessPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLBCookieStickinessPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccLBCookieStickinessPolicyConfig(lbName),
@@ -118,9 +118,9 @@ func TestAccAWSLBCookieStickinessPolicy_drift(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLBCookieStickinessPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLBCookieStickinessPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccLBCookieStickinessPolicyConfig(lbName),
@@ -160,9 +160,9 @@ func TestAccAWSLBCookieStickinessPolicy_missingLB(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLBCookieStickinessPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLBCookieStickinessPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccLBCookieStickinessPolicyConfig(lbName),

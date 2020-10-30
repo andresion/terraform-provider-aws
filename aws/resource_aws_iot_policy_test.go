@@ -19,9 +19,9 @@ func TestAccAWSIoTPolicy_basic(t *testing.T) {
 	resourceName := "aws_iot_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTPolicyDestroy_basic,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTPolicyDestroy_basic,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTPolicyConfigInitialState(rName),
@@ -48,9 +48,9 @@ func TestAccAWSIoTPolicy_disappears(t *testing.T) {
 	resourceName := "aws_iot_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTPolicyDestroy_basic,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTPolicyDestroy_basic,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIoTPolicyConfigInitialState(rName),
@@ -68,9 +68,9 @@ func TestAccAWSIoTPolicy_invalidJson(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIoTPolicyDestroy_basic,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIoTPolicyDestroy_basic,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSIoTPolicyInvalidJsonConfig(rName),

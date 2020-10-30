@@ -19,9 +19,9 @@ func TestAccAWSCodeBuildWebhook_Bitbucket(t *testing.T) {
 	resourceName := "aws_codebuild_webhook.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildWebhookDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildWebhookDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildWebhookConfig_Bitbucket(rName),
@@ -50,9 +50,9 @@ func TestAccAWSCodeBuildWebhook_GitHub(t *testing.T) {
 	resourceName := "aws_codebuild_webhook.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildWebhookDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildWebhookDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildWebhookConfig_GitHub(rName),
@@ -81,9 +81,9 @@ func TestAccAWSCodeBuildWebhook_GitHubEnterprise(t *testing.T) {
 	resourceName := "aws_codebuild_webhook.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildWebhookDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildWebhookDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildWebhookConfig_GitHubEnterprise(rName, "dev"),
@@ -129,9 +129,9 @@ func TestAccAWSCodeBuildWebhook_BranchFilter(t *testing.T) {
 	resourceName := "aws_codebuild_webhook.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildWebhookDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildWebhookDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildWebhookConfig_BranchFilter(rName, "master"),
@@ -163,9 +163,9 @@ func TestAccAWSCodeBuildWebhook_FilterGroup(t *testing.T) {
 	resourceName := "aws_codebuild_webhook.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildWebhookDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildWebhookDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildWebhookConfig_FilterGroup(rName),

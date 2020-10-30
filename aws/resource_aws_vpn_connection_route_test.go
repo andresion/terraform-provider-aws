@@ -16,9 +16,9 @@ import (
 func TestAccAWSVpnConnectionRoute_basic(t *testing.T) {
 	rBgpAsn := acctest.RandIntRange(64512, 65534)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccAwsVpnConnectionRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccAwsVpnConnectionRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsVpnConnectionRouteConfig(rBgpAsn),

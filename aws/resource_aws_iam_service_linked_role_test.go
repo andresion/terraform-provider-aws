@@ -146,8 +146,8 @@ func TestAccAWSIAMServiceLinkedRole_basic(t *testing.T) {
 		PreCheck: func() {
 			testAccPreCheck(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIAMServiceLinkedRoleDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIAMServiceLinkedRoleDestroy,
 		Steps: []resource.TestStep{
 			{
 				PreConfig: func() {
@@ -198,8 +198,8 @@ func TestAccAWSIAMServiceLinkedRole_CustomSuffix(t *testing.T) {
 		PreCheck: func() {
 			testAccPreCheck(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIAMServiceLinkedRoleDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIAMServiceLinkedRoleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMServiceLinkedRoleConfig_CustomSuffix(awsServiceName, customSuffix),
@@ -228,8 +228,8 @@ func TestAccAWSIAMServiceLinkedRole_CustomSuffix_DiffSuppressFunc(t *testing.T) 
 		PreCheck: func() {
 			testAccPreCheck(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIAMServiceLinkedRoleDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIAMServiceLinkedRoleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMServiceLinkedRoleConfig(awsServiceName),
@@ -258,8 +258,8 @@ func TestAccAWSIAMServiceLinkedRole_Description(t *testing.T) {
 		PreCheck: func() {
 			testAccPreCheck(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSIAMServiceLinkedRoleDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSIAMServiceLinkedRoleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMServiceLinkedRoleConfig_Description(awsServiceName, customSuffix, "description1"),

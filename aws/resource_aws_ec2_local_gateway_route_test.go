@@ -17,9 +17,9 @@ func TestAccAWSEc2LocalGatewayRoute_basic(t *testing.T) {
 	resourceName := "aws_ec2_local_gateway_route.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2LocalGatewayRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2LocalGatewayRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2LocalGatewayRouteConfigDestinationCidrBlock(destinationCidrBlock),
@@ -45,9 +45,9 @@ func TestAccAWSEc2LocalGatewayRoute_disappears(t *testing.T) {
 	resourceName := "aws_ec2_local_gateway_route.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2LocalGatewayRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2LocalGatewayRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEc2LocalGatewayRouteConfigDestinationCidrBlock(destinationCidrBlock),

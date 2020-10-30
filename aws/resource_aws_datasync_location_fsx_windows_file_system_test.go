@@ -88,8 +88,8 @@ func TestAccAWSDataSyncLocationFsxWindows_basic(t *testing.T) {
 			testAccPartitionHasServicePreCheck("fsx", t)
 			testAccPreCheckAWSDataSync(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncLocationFsxWindowsDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncLocationFsxWindowsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncLocationFsxWindowsConfig(),
@@ -124,8 +124,8 @@ func TestAccAWSDataSyncLocationFsxWindows_disappears(t *testing.T) {
 			testAccPartitionHasServicePreCheck("fsx", t)
 			testAccPreCheckAWSDataSync(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncLocationFsxWindowsDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncLocationFsxWindowsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncLocationFsxWindowsConfig(),
@@ -149,8 +149,8 @@ func TestAccAWSDataSyncLocationFsxWindows_subdirectory(t *testing.T) {
 			testAccPartitionHasServicePreCheck("fsx", t)
 			testAccPreCheckAWSDataSync(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncLocationFsxWindowsDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncLocationFsxWindowsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncLocationFsxWindowsConfigSubdirectory("/subdirectory1/"),
@@ -180,8 +180,8 @@ func TestAccAWSDataSyncLocationFsxWindows_tags(t *testing.T) {
 			testAccPartitionHasServicePreCheck("fsx", t)
 			testAccPreCheckAWSDataSync(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDataSyncLocationFsxWindowsDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDataSyncLocationFsxWindowsDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSyncLocationFsxWindowsConfigTags1("key1", "value1"),

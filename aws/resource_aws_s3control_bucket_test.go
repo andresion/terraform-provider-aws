@@ -19,9 +19,9 @@ func TestAccAWSS3ControlBucket_basic(t *testing.T) {
 	resourceName := "aws_s3control_bucket.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3ControlBucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3ControlBucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3ControlBucketConfig_Bucket(rName),
@@ -49,9 +49,9 @@ func TestAccAWSS3ControlBucket_disappears(t *testing.T) {
 	resourceName := "aws_s3control_bucket.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3ControlBucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3ControlBucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3ControlBucketConfig_Bucket(rName),
@@ -72,9 +72,9 @@ func TestAccAWSS3ControlBucket_Tags(t *testing.T) {
 	resourceName := "aws_s3control_bucket.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3ControlBucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3ControlBucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3ControlBucketConfig_Tags1(rName, "key1", "value1"),

@@ -22,9 +22,9 @@ func TestAccAWSNeptuneClusterParameterGroup_basic(t *testing.T) {
 	resourceName := "aws_neptune_cluster_parameter_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterParameterGroupConfig(parameterGroupName),
@@ -54,9 +54,9 @@ func TestAccAWSNeptuneClusterParameterGroup_namePrefix(t *testing.T) {
 	resourceName := "aws_neptune_cluster_parameter_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterParameterGroupConfig_namePrefix,
@@ -81,9 +81,9 @@ func TestAccAWSNeptuneClusterParameterGroup_generatedName(t *testing.T) {
 	resourceName := "aws_neptune_cluster_parameter_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterParameterGroupConfig_generatedName,
@@ -108,9 +108,9 @@ func TestAccAWSNeptuneClusterParameterGroup_Description(t *testing.T) {
 	parameterGroupName := acctest.RandomWithPrefix("cluster-parameter-group-test-terraform")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterParameterGroupConfig_Description(parameterGroupName, "custom description"),
@@ -137,9 +137,9 @@ func TestAccAWSNeptuneClusterParameterGroup_Parameter(t *testing.T) {
 	parameterGroupName := acctest.RandomWithPrefix("cluster-parameter-group-test-tf")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterParameterGroupConfig_Parameter(parameterGroupName, "neptune_enable_audit_log", "1"),
@@ -184,9 +184,9 @@ func TestAccAWSNeptuneClusterParameterGroup_Tags(t *testing.T) {
 	parameterGroupName := acctest.RandomWithPrefix("cluster-parameter-group-test-tf")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSNeptuneClusterParameterGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSNeptuneClusterParameterGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneClusterParameterGroupConfig_Tags(parameterGroupName, "key1", "value1"),

@@ -17,9 +17,9 @@ func TestAccAWSVpcPeeringConnectionOptions_basic(t *testing.T) {
 	pcxResourceName := "aws_vpc_peering_connection.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSVpcPeeringConnectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSVpcPeeringConnectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpcPeeringConnectionOptionsConfig_sameRegion_sameAccount(rName, true, true),

@@ -20,9 +20,9 @@ func TestAccAWSS3ControlBucketLifecycleConfiguration_basic(t *testing.T) {
 	resourceName := "aws_s3control_bucket_lifecycle_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3ControlBucketLifecycleConfigurationConfig_Rule_Id(rName, "test"),
@@ -52,9 +52,9 @@ func TestAccAWSS3ControlBucketLifecycleConfiguration_disappears(t *testing.T) {
 	resourceName := "aws_s3control_bucket_lifecycle_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3ControlBucketLifecycleConfigurationConfig_Rule_Id(rName, "test"),
@@ -73,9 +73,9 @@ func TestAccAWSS3ControlBucketLifecycleConfiguration_Rule_AbortIncompleteMultipa
 	resourceName := "aws_s3control_bucket_lifecycle_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3ControlBucketLifecycleConfigurationConfig_Rule_AbortIncompleteMultipartUpload_DaysAfterInitiation(rName, 1),
@@ -115,9 +115,9 @@ func TestAccAWSS3ControlBucketLifecycleConfiguration_Rule_Expiration_Date(t *tes
 	date2 := time.Now().AddDate(0, 0, 2).Format("2006-01-02")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3ControlBucketLifecycleConfigurationConfig_Rule_Expiration_Date(rName, date1),
@@ -155,9 +155,9 @@ func TestAccAWSS3ControlBucketLifecycleConfiguration_Rule_Expiration_Days(t *tes
 	resourceName := "aws_s3control_bucket_lifecycle_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3ControlBucketLifecycleConfigurationConfig_Rule_Expiration_Days(rName, 7),
@@ -196,9 +196,9 @@ func TestAccAWSS3ControlBucketLifecycleConfiguration_Rule_Expiration_ExpiredObje
 	resourceName := "aws_s3control_bucket_lifecycle_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3ControlBucketLifecycleConfigurationConfig_Rule_Expiration_ExpiredObjectDeleteMarker(rName, true),
@@ -236,9 +236,9 @@ func TestAccAWSS3ControlBucketLifecycleConfiguration_Rule_Filter_Prefix(t *testi
 	resourceName := "aws_s3control_bucket_lifecycle_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3ControlBucketLifecycleConfigurationConfig_Rule_Filter_Prefix(rName, "test1/"),
@@ -276,9 +276,9 @@ func TestAccAWSS3ControlBucketLifecycleConfiguration_Rule_Filter_Tags(t *testing
 	resourceName := "aws_s3control_bucket_lifecycle_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3ControlBucketLifecycleConfigurationConfig_Rule_Filter_Tags1(rName, "key1", "value1"),
@@ -334,9 +334,9 @@ func TestAccAWSS3ControlBucketLifecycleConfiguration_Rule_Id(t *testing.T) {
 	resourceName := "aws_s3control_bucket_lifecycle_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3ControlBucketLifecycleConfigurationConfig_Rule_Id(rName, "test1"),
@@ -372,9 +372,9 @@ func TestAccAWSS3ControlBucketLifecycleConfiguration_Rule_Status(t *testing.T) {
 	resourceName := "aws_s3control_bucket_lifecycle_configuration.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3ControlBucketLifecycleConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3ControlBucketLifecycleConfigurationConfig_Rule_Status(rName, s3control.ExpirationStatusDisabled),

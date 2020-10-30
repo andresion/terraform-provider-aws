@@ -17,9 +17,9 @@ func TestAccAWSSSMPatchBaseline_basic(t *testing.T) {
 	name := acctest.RandString(10)
 	resourceName := "aws_ssm_patch_baseline.foo"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMPatchBaselineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMPatchBaselineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMPatchBaselineBasicConfig(name),
@@ -66,9 +66,9 @@ func TestAccAWSSSMPatchBaseline_tags(t *testing.T) {
 	name := acctest.RandString(10)
 	resourceName := "aws_ssm_patch_baseline.foo"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMPatchBaselineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMPatchBaselineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMPatchBaselineBasicConfigTags1(name, "key1", "value1"),
@@ -110,9 +110,9 @@ func TestAccAWSSSMPatchBaseline_disappears(t *testing.T) {
 	resourceName := "aws_ssm_patch_baseline.foo"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMPatchBaselineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMPatchBaselineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMPatchBaselineBasicConfig(name),
@@ -131,9 +131,9 @@ func TestAccAWSSSMPatchBaseline_OperatingSystem(t *testing.T) {
 	name := acctest.RandString(10)
 	resourceName := "aws_ssm_patch_baseline.foo"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMPatchBaselineDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMPatchBaselineDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMPatchBaselineConfigWithOperatingSystem(name),

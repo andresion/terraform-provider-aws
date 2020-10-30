@@ -122,9 +122,9 @@ func TestAccAWSAcmCertificate_emailValidation(t *testing.T) {
 	domain := testAccAwsAcmCertificateRandomSubDomain(rootDomain)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateConfig(domain, acm.ValidationMethodEmail),
@@ -154,9 +154,9 @@ func TestAccAWSAcmCertificate_dnsValidation(t *testing.T) {
 	domain := testAccAwsAcmCertificateRandomSubDomain(rootDomain)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateConfig(domain, acm.ValidationMethodDns),
@@ -188,9 +188,9 @@ func TestAccAWSAcmCertificate_root(t *testing.T) {
 	rootDomain := testAccAwsAcmCertificateDomainFromEnv(t)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateConfig(rootDomain, acm.ValidationMethodDns),
@@ -223,9 +223,9 @@ func TestAccAWSAcmCertificate_privateCert(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateConfig_privateCert(rName),
@@ -256,9 +256,9 @@ func TestAccAWSAcmCertificate_root_TrailingPeriod(t *testing.T) {
 	domain := fmt.Sprintf("%s.", rootDomain)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAcmCertificateConfig(domain, acm.ValidationMethodDns),
@@ -274,9 +274,9 @@ func TestAccAWSAcmCertificate_rootAndWildcardSan(t *testing.T) {
 	wildcardDomain := fmt.Sprintf("*.%s", rootDomain)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateConfig_subjectAlternativeNames(rootDomain, strconv.Quote(wildcardDomain), acm.ValidationMethodDns),
@@ -313,9 +313,9 @@ func TestAccAWSAcmCertificate_SubjectAlternativeNames_EmptyString(t *testing.T) 
 	domain := testAccAwsAcmCertificateRandomSubDomain(rootDomain)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAcmCertificateConfig_subjectAlternativeNames(domain, strconv.Quote(""), acm.ValidationMethodDns),
@@ -332,9 +332,9 @@ func TestAccAWSAcmCertificate_san_single(t *testing.T) {
 	sanDomain := testAccAwsAcmCertificateRandomSubDomain(rootDomain)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateConfig_subjectAlternativeNames(domain, strconv.Quote(sanDomain), acm.ValidationMethodDns),
@@ -374,9 +374,9 @@ func TestAccAWSAcmCertificate_san_multiple(t *testing.T) {
 	sanDomain2 := testAccAwsAcmCertificateRandomSubDomain(rootDomain)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateConfig_subjectAlternativeNames(domain, fmt.Sprintf("%q, %q", sanDomain1, sanDomain2), acm.ValidationMethodDns),
@@ -420,9 +420,9 @@ func TestAccAWSAcmCertificate_san_TrailingPeriod(t *testing.T) {
 	resourceName := "aws_acm_certificate.cert"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateConfig_subjectAlternativeNames(domain, strconv.Quote(sanDomain), acm.ValidationMethodDns),
@@ -460,9 +460,9 @@ func TestAccAWSAcmCertificate_wildcard(t *testing.T) {
 	wildcardDomain := fmt.Sprintf("*.%s", rootDomain)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateConfig(wildcardDomain, acm.ValidationMethodDns),
@@ -495,9 +495,9 @@ func TestAccAWSAcmCertificate_wildcardAndRootSan(t *testing.T) {
 	wildcardDomain := fmt.Sprintf("*.%s", rootDomain)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateConfig_subjectAlternativeNames(wildcardDomain, strconv.Quote(rootDomain), acm.ValidationMethodDns),
@@ -534,9 +534,9 @@ func TestAccAWSAcmCertificate_disableCTLogging(t *testing.T) {
 	rootDomain := testAccAwsAcmCertificateDomainFromEnv(t)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateConfig_disableCTLogging(rootDomain, acm.ValidationMethodDns),
@@ -571,9 +571,9 @@ func TestAccAWSAcmCertificate_tags(t *testing.T) {
 	domain := testAccAwsAcmCertificateRandomSubDomain(rootDomain)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateConfig(domain, acm.ValidationMethodDns),
@@ -628,9 +628,9 @@ func TestAccAWSAcmCertificate_imported_DomainName(t *testing.T) {
 	newCertificate := tlsRsaX509LocallySignedCertificatePem(newCaKey, newCaCertificate, key, commonName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateConfigPrivateKey(certificate, key, caCertificate),
@@ -671,9 +671,9 @@ func TestAccAWSAcmCertificate_imported_IpAddress(t *testing.T) { // Reference: h
 	resourceName := "aws_acm_certificate.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateConfigPrivateKeyWithoutChain("1.2.3.4"),
@@ -699,9 +699,9 @@ func TestAccAWSAcmCertificate_PrivateKey_Tags(t *testing.T) {
 	resourceName := "aws_acm_certificate.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAcmCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAcmCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAcmCertificateConfigPrivateKeyTags("1.2.3.4"),

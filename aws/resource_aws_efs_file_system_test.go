@@ -91,9 +91,9 @@ func TestAccAWSEFSFileSystem_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSFileSystemConfig(rName),
@@ -130,9 +130,9 @@ func TestAccAWSEFSFileSystem_tags(t *testing.T) {
 	resourceName := "aws_efs_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSFileSystemConfigTags1(rName, "key1", "value1"),
@@ -185,9 +185,9 @@ func TestAccAWSEFSFileSystem_pagedTags(t *testing.T) {
 	resourceName := "aws_efs_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSFileSystemConfigPagedTags(rInt),
@@ -213,9 +213,9 @@ func TestAccAWSEFSFileSystem_kmsKey(t *testing.T) {
 	resourceName := "aws_efs_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSFileSystemConfigWithKmsKey(rInt),
@@ -239,9 +239,9 @@ func TestAccAWSEFSFileSystem_kmsConfigurationWithoutEncryption(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSEFSFileSystemConfigWithKmsKeyNoEncryption(rInt),
@@ -256,9 +256,9 @@ func TestAccAWSEFSFileSystem_ProvisionedThroughputInMibps(t *testing.T) {
 	resourceName := "aws_efs_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSFileSystemConfig_ProvisionedThroughputInMibps(1.0),
@@ -291,9 +291,9 @@ func TestAccAWSEFSFileSystem_ThroughputMode(t *testing.T) {
 	resourceName := "aws_efs_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSFileSystemConfig_ProvisionedThroughputInMibps(1.0),
@@ -326,9 +326,9 @@ func TestAccAWSEFSFileSystem_lifecyclePolicy(t *testing.T) {
 	resourceName := "aws_efs_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSFileSystemConfigWithLifecyclePolicy(
@@ -372,9 +372,9 @@ func TestAccAWSEFSFileSystem_lifecyclePolicy_update(t *testing.T) {
 	resourceName := "aws_efs_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSFileSystemConfigWithLifecyclePolicy("transition_to_ia", efs.TransitionToIARulesAfter30Days),
@@ -404,9 +404,9 @@ func TestAccAWSEFSFileSystem_lifecyclePolicy_removal(t *testing.T) {
 	resourceName := "aws_efs_file_system.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSFileSystemConfigWithLifecyclePolicy("transition_to_ia", efs.TransitionToIARulesAfter14Days),
@@ -438,9 +438,9 @@ func TestAccAWSEFSFileSystem_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-disappears")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckEfsFileSystemDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckEfsFileSystemDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEFSFileSystemConfig(rName),

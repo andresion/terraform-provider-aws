@@ -16,9 +16,9 @@ func TestAccAWSRedshiftSnapshotCopyGrant_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftSnapshotCopyGrantDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftSnapshotCopyGrantDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftSnapshotCopyGrant_Basic(rName),
@@ -43,9 +43,9 @@ func TestAccAWSRedshiftSnapshotCopyGrant_Update(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftSnapshotCopyGrantDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftSnapshotCopyGrantDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftSnapshotCopyGrantWithTags(rName),
@@ -86,9 +86,9 @@ func TestAccAWSRedshiftSnapshotCopyGrant_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftSnapshotCopyGrantDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftSnapshotCopyGrantDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftSnapshotCopyGrant_Basic(rName),

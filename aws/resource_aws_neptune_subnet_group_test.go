@@ -20,9 +20,9 @@ func TestAccAWSNeptuneSubnetGroup_basic(t *testing.T) {
 	rName := fmt.Sprintf("tf-test-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckNeptuneSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckNeptuneSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccNeptuneSubnetGroupConfig(rName),
@@ -48,9 +48,9 @@ func TestAccAWSNeptuneSubnetGroup_namePrefix(t *testing.T) {
 	var v neptune.DBSubnetGroup
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckNeptuneSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckNeptuneSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccNeptuneSubnetGroupConfig_namePrefix(),
@@ -75,9 +75,9 @@ func TestAccAWSNeptuneSubnetGroup_generatedName(t *testing.T) {
 	var v neptune.DBSubnetGroup
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckNeptuneSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckNeptuneSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccNeptuneSubnetGroupConfig_generatedName(),
@@ -100,9 +100,9 @@ func TestAccAWSNeptuneSubnetGroup_updateDescription(t *testing.T) {
 
 	rName := fmt.Sprintf("tf-test-%d", acctest.RandInt())
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckNeptuneSubnetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckNeptuneSubnetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccNeptuneSubnetGroupConfig(rName),

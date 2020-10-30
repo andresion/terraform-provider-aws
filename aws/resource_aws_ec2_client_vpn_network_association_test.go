@@ -104,9 +104,9 @@ func testAccAwsEc2ClientVpnNetworkAssociation_basic(t *testing.T) {
 	defaultSecurityGroupResourceName := "aws_default_security_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2ClientVpnNetworkAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2ClientVpnNetworkAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2ClientVpnNetworkAssociationConfigBasic(rStr),
@@ -138,9 +138,9 @@ func testAccAwsEc2ClientVpnNetworkAssociation_disappears(t *testing.T) {
 	resourceName := "aws_ec2_client_vpn_network_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2ClientVpnNetworkAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheckClientVPNSyncronize(t); testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2ClientVpnNetworkAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2ClientVpnNetworkAssociationConfigBasic(rStr),
@@ -163,9 +163,9 @@ func testAccAwsEc2ClientVpnNetworkAssociation_securityGroups(t *testing.T) {
 	securityGroup2ResourceName := "aws_security_group.test2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckClientVPNSyncronize(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2ClientVpnNetworkAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckClientVPNSyncronize(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2ClientVpnNetworkAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEc2ClientVpnNetworkAssociationTwoSecurityGroups(rStr),

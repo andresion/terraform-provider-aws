@@ -19,9 +19,9 @@ func TestAccAwsLexSlotType_basic(t *testing.T) {
 	testSlotTypeID := "test_slot_type_" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexSlotTypeDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexSlotTypeDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLexSlotTypeConfig_basic(testSlotTypeID),
@@ -60,9 +60,9 @@ func TestAccAwsLexSlotType_createVersion(t *testing.T) {
 	testSlotTypeID := "test_slot_type_" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexSlotTypeDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexSlotTypeDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLexSlotTypeConfig_basic(testSlotTypeID),
@@ -102,9 +102,9 @@ func TestAccAwsLexSlotType_description(t *testing.T) {
 	testSlotTypeID := "test_slot_type_" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexSlotTypeDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexSlotTypeDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLexSlotTypeConfig_basic(testSlotTypeID),
@@ -142,9 +142,9 @@ func TestAccAwsLexSlotType_enumerationValues(t *testing.T) {
 	testSlotTypeID := "test_slot_type_" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexSlotTypeDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexSlotTypeDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLexSlotTypeConfig_basic(testSlotTypeID),
@@ -188,9 +188,9 @@ func TestAccAwsLexSlotType_name(t *testing.T) {
 	testSlotTypeID2 := "test_slot_type_" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexSlotTypeDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexSlotTypeDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLexSlotTypeConfig_basic(testSlotTypeID1),
@@ -228,9 +228,9 @@ func TestAccAwsLexSlotType_valueSelectionStrategy(t *testing.T) {
 	testSlotTypeID := "test_slot_type_" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexSlotTypeDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexSlotTypeDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLexSlotTypeConfig_basic(testSlotTypeID),
@@ -268,9 +268,9 @@ func TestAccAwsLexSlotType_disappears(t *testing.T) {
 	testSlotTypeID := "test_slot_type_" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexSlotTypeDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexSlotTypeDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLexSlotTypeConfig_basic(testSlotTypeID),

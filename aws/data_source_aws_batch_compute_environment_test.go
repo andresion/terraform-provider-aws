@@ -14,8 +14,8 @@ func TestAccDataSourceAwsBatchComputeEnvironment_basic(t *testing.T) {
 	datasourceName := "data.aws_batch_compute_environment.by_name"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBatch(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsBatchComputeEnvironmentConfig(rName),

@@ -21,9 +21,9 @@ func TestAccAWSQuickSightGroup_basic(t *testing.T) {
 	rName2 := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckQuickSightGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckQuickSightGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSQuickSightGroupConfig(rName1),
@@ -56,9 +56,9 @@ func TestAccAWSQuickSightGroup_withDescription(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckQuickSightGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckQuickSightGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSQuickSightGroupConfigWithDescription(rName, "Description 1"),
@@ -89,9 +89,9 @@ func TestAccAWSQuickSightGroup_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckQuickSightGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckQuickSightGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSQuickSightGroupConfig(rName),

@@ -20,9 +20,9 @@ func TestAccAWSCognitoUserPoolClient_basic(t *testing.T) {
 	resourceName := "aws_cognito_user_pool_client.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoUserPoolClientDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoUserPoolClientDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoUserPoolClientConfig_basic(userPoolName, clientName),
@@ -49,9 +49,9 @@ func TestAccAWSCognitoUserPoolClient_RefreshTokenValidity(t *testing.T) {
 	resourceName := "aws_cognito_user_pool_client.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoUserPoolClientDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoUserPoolClientDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoUserPoolClientConfig_RefreshTokenValidity(rName, 60),
@@ -83,9 +83,9 @@ func TestAccAWSCognitoUserPoolClient_Name(t *testing.T) {
 	resourceName := "aws_cognito_user_pool_client.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoUserPoolClientDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoUserPoolClientDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoUserPoolClientConfig_Name(rName, "name1"),
@@ -118,9 +118,9 @@ func TestAccAWSCognitoUserPoolClient_allFields(t *testing.T) {
 	resourceName := "aws_cognito_user_pool_client.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoUserPoolClientDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoUserPoolClientDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoUserPoolClientConfig_allFields(userPoolName, clientName, 300),
@@ -174,9 +174,9 @@ func TestAccAWSCognitoUserPoolClient_allFieldsUpdatingOneField(t *testing.T) {
 	resourceName := "aws_cognito_user_pool_client.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoUserPoolClientDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoUserPoolClientDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoUserPoolClientConfig_allFields(userPoolName, clientName, 300),
@@ -238,8 +238,8 @@ func TestAccAWSCognitoUserPoolClient_analyticsConfig(t *testing.T) {
 			testAccPreCheckAWSCognitoIdentityProvider(t)
 			testAccPreCheckAWSPinpointApp(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoUserPoolClientDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoUserPoolClientDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoUserPoolClientConfigAnalyticsConfig(userPoolName, clientName),
@@ -283,9 +283,9 @@ func TestAccAWSCognitoUserPoolClient_disappears(t *testing.T) {
 	resourceName := "aws_cognito_user_pool_client.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoUserPoolClientDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentityProvider(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoUserPoolClientDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoUserPoolClientConfig_basic(userPoolName, clientName),

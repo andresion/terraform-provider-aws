@@ -19,9 +19,9 @@ func TestAccAWSCognitoIdentityPoolRolesAttachment_basic(t *testing.T) {
 	updatedName := acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoIdentityPoolRolesAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoIdentityPoolRolesAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoIdentityPoolRolesAttachmentConfig_basic(name),
@@ -53,9 +53,9 @@ func TestAccAWSCognitoIdentityPoolRolesAttachment_roleMappings(t *testing.T) {
 	name := acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoIdentityPoolRolesAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoIdentityPoolRolesAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoIdentityPoolRolesAttachmentConfig_basic(name),
@@ -107,9 +107,9 @@ func TestAccAWSCognitoIdentityPoolRolesAttachment_disappears(t *testing.T) {
 	name := acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoIdentityPoolRolesAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoIdentityPoolRolesAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCognitoIdentityPoolRolesAttachmentConfig_basic(name),
@@ -127,9 +127,9 @@ func TestAccAWSCognitoIdentityPoolRolesAttachment_roleMappingsWithAmbiguousRoleR
 	name := acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoIdentityPoolRolesAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoIdentityPoolRolesAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSCognitoIdentityPoolRolesAttachmentConfig_roleMappingsWithAmbiguousRoleResolutionError(name),
@@ -143,9 +143,9 @@ func TestAccAWSCognitoIdentityPoolRolesAttachment_roleMappingsWithRulesTypeError
 	name := acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoIdentityPoolRolesAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoIdentityPoolRolesAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSCognitoIdentityPoolRolesAttachmentConfig_roleMappingsWithRulesTypeError(name),
@@ -159,9 +159,9 @@ func TestAccAWSCognitoIdentityPoolRolesAttachment_roleMappingsWithTokenTypeError
 	name := acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCognitoIdentityPoolRolesAttachmentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCognitoIdentity(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCognitoIdentityPoolRolesAttachmentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSCognitoIdentityPoolRolesAttachmentConfig_roleMappingsWithTokenTypeError(name),

@@ -16,8 +16,8 @@ func TestAccDataSourceAwsSecretsManagerSecretVersion_basic(t *testing.T) {
 	datasourceName := "data.aws_secretsmanager_secret_version.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccDataSourceAwsSecretsManagerSecretVersionConfig_NonExistent,
@@ -39,8 +39,8 @@ func TestAccDataSourceAwsSecretsManagerSecretVersion_VersionID(t *testing.T) {
 	datasourceName := "data.aws_secretsmanager_secret_version.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsSecretsManagerSecretVersionConfig_VersionID(rName),
@@ -58,8 +58,8 @@ func TestAccDataSourceAwsSecretsManagerSecretVersion_VersionStage(t *testing.T) 
 	datasourceName := "data.aws_secretsmanager_secret_version.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsSecretsManagerSecretVersionConfig_VersionStage_Custom(rName),

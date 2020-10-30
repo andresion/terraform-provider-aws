@@ -65,9 +65,9 @@ func TestAccAWSElasticSearchDomain_basic(t *testing.T) {
 	resourceId := fmt.Sprintf("tf-test-%d", ri)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig(ri),
@@ -94,9 +94,9 @@ func TestAccAWSElasticSearchDomain_RequireHTTPS(t *testing.T) {
 	resourceId := fmt.Sprintf("tf-test-%d", ri)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig_DomainEndpointOptions(ri, true, "Policy-Min-TLS-1-0-2019-07"),
@@ -128,9 +128,9 @@ func TestAccAWSElasticSearchDomain_ClusterConfig_ZoneAwarenessConfig(t *testing.
 	resourceName := "aws_elasticsearch_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig_ClusterConfig_ZoneAwarenessConfig_AvailabilityZoneCount(rName, 3),
@@ -186,9 +186,9 @@ func TestAccAWSElasticSearchDomain_warm(t *testing.T) {
 	resourceName := "aws_elasticsearch_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfigWarm(rName, "ultrawarm1.medium.elasticsearch", false, 6),
@@ -243,9 +243,9 @@ func TestAccAWSElasticSearchDomain_withDedicatedMaster(t *testing.T) {
 	resourceId := fmt.Sprintf("tf-test-%d", ri)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig_WithDedicatedClusterMaster(ri, false),
@@ -282,8 +282,8 @@ func TestAccAWSElasticSearchDomain_duplicate(t *testing.T) {
 	resourceName := "aws_elasticsearch_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		CheckDestroy: func(s *terraform.State) error {
 			conn := testAccProvider.Meta().(*AWSClient).esconn
 			_, err := conn.DeleteElasticsearchDomain(&elasticsearch.DeleteElasticsearchDomainInput{
@@ -331,9 +331,9 @@ func TestAccAWSElasticSearchDomain_v23(t *testing.T) {
 	resourceName := "aws_elasticsearch_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfigV23(ri),
@@ -360,9 +360,9 @@ func TestAccAWSElasticSearchDomain_complex(t *testing.T) {
 	resourceName := "aws_elasticsearch_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig_complex(ri),
@@ -387,9 +387,9 @@ func TestAccAWSElasticSearchDomain_vpc(t *testing.T) {
 	resourceName := "aws_elasticsearch_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig_vpc(ri),
@@ -414,9 +414,9 @@ func TestAccAWSElasticSearchDomain_vpc_update(t *testing.T) {
 	resourceName := "aws_elasticsearch_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig_vpc_update1(ri),
@@ -449,9 +449,9 @@ func TestAccAWSElasticSearchDomain_internetToVpcEndpoint(t *testing.T) {
 	resourceName := "aws_elasticsearch_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig(ri),
@@ -481,9 +481,9 @@ func TestAccAWSElasticSearchDomain_AdvancedSecurityOptions_UserDB(t *testing.T) 
 	resourceName := "aws_elasticsearch_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig_AdvancedSecurityOptionsUserDb(domainName),
@@ -513,9 +513,9 @@ func TestAccAWSElasticSearchDomain_AdvancedSecurityOptions_IAM(t *testing.T) {
 	resourceName := "aws_elasticsearch_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig_AdvancedSecurityOptionsIAM(domainName),
@@ -545,9 +545,9 @@ func TestAccAWSElasticSearchDomain_AdvancedSecurityOptions_Disabled(t *testing.T
 	resourceName := "aws_elasticsearch_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig_AdvancedSecurityOptionsDisabled(domainName),
@@ -578,9 +578,9 @@ func TestAccAWSElasticSearchDomain_LogPublishingOptions_IndexSlowLogs(t *testing
 	resourceName := "aws_elasticsearch_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig_LogPublishingOptions(ri, elasticsearch.LogTypeIndexSlowLogs),
@@ -609,9 +609,9 @@ func TestAccAWSElasticSearchDomain_LogPublishingOptions_SearchSlowLogs(t *testin
 	resourceName := "aws_elasticsearch_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig_LogPublishingOptions(ri, elasticsearch.LogTypeSearchSlowLogs),
@@ -640,9 +640,9 @@ func TestAccAWSElasticSearchDomain_LogPublishingOptions_EsApplicationLogs(t *tes
 	resourceName := "aws_elasticsearch_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig_LogPublishingOptions(ri, elasticsearch.LogTypeEsApplicationLogs),
@@ -671,9 +671,9 @@ func TestAccAWSElasticSearchDomain_LogPublishingOptions_AuditLogs(t *testing.T) 
 	resourceName := "aws_elasticsearch_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig_LogPublishingOptions(ri, elasticsearch.LogTypeAuditLogs),
@@ -709,8 +709,8 @@ func TestAccAWSElasticSearchDomain_CognitoOptionsCreateAndRemove(t *testing.T) {
 			testAccPreCheckAWSCognitoIdentityProvider(t)
 			testAccPreCheckIamServiceLinkedRoleEs(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig_CognitoOptions(ri, true),
@@ -748,8 +748,8 @@ func TestAccAWSElasticSearchDomain_CognitoOptionsUpdate(t *testing.T) {
 			testAccPreCheckAWSCognitoIdentityProvider(t)
 			testAccPreCheckIamServiceLinkedRoleEs(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig_CognitoOptions(ri, false),
@@ -782,9 +782,9 @@ func TestAccAWSElasticSearchDomain_policy(t *testing.T) {
 	resourceId := fmt.Sprintf("tf-test-%d", ri)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfigWithPolicy(ri, ri),
@@ -809,9 +809,9 @@ func TestAccAWSElasticSearchDomain_encrypt_at_rest_default_key(t *testing.T) {
 	resourceId := fmt.Sprintf("tf-test-%d", ri)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfigWithEncryptAtRestDefaultKey(ri),
@@ -837,9 +837,9 @@ func TestAccAWSElasticSearchDomain_encrypt_at_rest_specify_key(t *testing.T) {
 	resourceId := fmt.Sprintf("tf-test-%d", ri)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfigWithEncryptAtRestWithKey(ri),
@@ -865,9 +865,9 @@ func TestAccAWSElasticSearchDomain_NodeToNodeEncryption(t *testing.T) {
 	resourceId := fmt.Sprintf("tf-test-%d", ri)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfigwithNodeToNodeEncryption(ri),
@@ -893,9 +893,9 @@ func TestAccAWSElasticSearchDomain_tags(t *testing.T) {
 	resourceName := "aws_elasticsearch_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSELBDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSELBDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig(ri),
@@ -930,9 +930,9 @@ func TestAccAWSElasticSearchDomain_update(t *testing.T) {
 	resourceName := "aws_elasticsearch_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig_ClusterUpdate(ri, 2, 22),
@@ -966,9 +966,9 @@ func TestAccAWSElasticSearchDomain_update_volume_type(t *testing.T) {
 	resourceName := "aws_elasticsearch_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig_ClusterUpdateEBSVolume(ri, 24),
@@ -1009,9 +1009,9 @@ func TestAccAWSElasticSearchDomain_WithVolumeType_Missing(t *testing.T) {
 	rName := fmt.Sprintf("tf-acc-test-%s", acctest.RandStringFromCharSet(16, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfigWithDisabledEBSAndVolumeType(rName, ""),
@@ -1043,9 +1043,9 @@ func TestAccAWSElasticSearchDomain_update_version(t *testing.T) {
 	resourceName := "aws_elasticsearch_domain.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckESDomainDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckIamServiceLinkedRoleEs(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckESDomainDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccESDomainConfig_ClusterUpdateVersion(ri, "5.5"),

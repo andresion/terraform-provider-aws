@@ -70,9 +70,9 @@ func TestAccAWSDBProxy_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBProxyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBProxyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBProxyConfig(rName),
@@ -112,9 +112,9 @@ func TestAccAWSDBProxy_Name(t *testing.T) {
 	nName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBProxyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBProxyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBProxyConfigName(rName, rName),
@@ -145,9 +145,9 @@ func TestAccAWSDBProxy_DebugLogging(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBProxyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBProxyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBProxyConfigDebugLogging(rName, true),
@@ -178,9 +178,9 @@ func TestAccAWSDBProxy_IdleClientTimeout(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBProxyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBProxyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBProxyConfigIdleClientTimeout(rName, 900),
@@ -211,9 +211,9 @@ func TestAccAWSDBProxy_RequireTls(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBProxyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBProxyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBProxyConfigRequireTls(rName, true),
@@ -245,9 +245,9 @@ func TestAccAWSDBProxy_RoleArn(t *testing.T) {
 	nName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBProxyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBProxyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBProxyConfigName(rName, rName),
@@ -279,9 +279,9 @@ func TestAccAWSDBProxy_VpcSecurityGroupIds(t *testing.T) {
 	nName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBProxyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBProxyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBProxyConfigName(rName, rName),
@@ -315,9 +315,9 @@ func TestAccAWSDBProxy_AuthDescription(t *testing.T) {
 	description := "foo"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBProxyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBProxyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBProxyConfigName(rName, rName),
@@ -349,9 +349,9 @@ func TestAccAWSDBProxy_AuthIamAuth(t *testing.T) {
 	iamAuth := "REQUIRED"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBProxyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBProxyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBProxyConfigName(rName, rName),
@@ -383,9 +383,9 @@ func TestAccAWSDBProxy_AuthSecretArn(t *testing.T) {
 	nName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBProxyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBProxyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBProxyConfigName(rName, rName),
@@ -418,9 +418,9 @@ func TestAccAWSDBProxy_Tags(t *testing.T) {
 	value := "bar"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBProxyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBProxyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBProxyConfigName(rName, rName),
@@ -450,9 +450,9 @@ func TestAccAWSDBProxy_disappears(t *testing.T) {
 	resourceName := "aws_db_proxy.test"
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDBProxyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccDBProxyPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDBProxyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDBProxyConfig(rName),

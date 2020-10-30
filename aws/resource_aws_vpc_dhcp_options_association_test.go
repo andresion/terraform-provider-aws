@@ -16,9 +16,9 @@ func TestAccAWSDHCPOptionsAssociation_basic(t *testing.T) {
 	resourceName := "aws_vpc_dhcp_options_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDHCPOptionsAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDHCPOptionsAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDHCPOptionsAssociationConfig,
@@ -44,9 +44,9 @@ func TestAccAWSDHCPOptionsAssociation_disappears_vpc(t *testing.T) {
 	resourceName := "aws_vpc_dhcp_options_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDHCPOptionsAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDHCPOptionsAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDHCPOptionsAssociationConfig,
@@ -68,9 +68,9 @@ func TestAccAWSDHCPOptionsAssociation_disappears_dhcp(t *testing.T) {
 	resourceName := "aws_vpc_dhcp_options_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckDHCPOptionsAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckDHCPOptionsAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDHCPOptionsAssociationConfig,

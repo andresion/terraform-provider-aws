@@ -155,9 +155,9 @@ func TestAccAWSIAMRole_basic(t *testing.T) {
 	resourceName := "aws_iam_role.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRoleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRoleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMRoleConfig(rName),
@@ -182,9 +182,9 @@ func TestAccAWSIAMRole_basicWithDescription(t *testing.T) {
 	resourceName := "aws_iam_role.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRoleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRoleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMRoleConfigWithDescription(rName),
@@ -255,9 +255,9 @@ func TestAccAWSIAMRole_testNameChange(t *testing.T) {
 	resourceName := "aws_iam_role.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRoleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRoleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMRolePre(rName),
@@ -284,9 +284,9 @@ func TestAccAWSIAMRole_badJSON(t *testing.T) {
 	rName := acctest.RandString(10)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRoleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRoleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSIAMRoleConfig_badJson(rName),
@@ -303,9 +303,9 @@ func TestAccAWSIAMRole_disappears(t *testing.T) {
 	resourceName := "aws_iam_role.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRoleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRoleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMRoleConfig(rName),
@@ -325,9 +325,9 @@ func TestAccAWSIAMRole_force_detach_policies(t *testing.T) {
 	resourceName := "aws_iam_role.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRoleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRoleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMRoleConfig_force_detach_policies(rName),
@@ -352,9 +352,9 @@ func TestAccAWSIAMRole_MaxSessionDuration(t *testing.T) {
 	resourceName := "aws_iam_role.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRoleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRoleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccCheckIAMRoleConfig_MaxSessionDuration(rName, 3599),
@@ -402,9 +402,9 @@ func TestAccAWSIAMRole_PermissionsBoundary(t *testing.T) {
 	permissionsBoundary2 := fmt.Sprintf("arn:%s:iam::aws:policy/ReadOnlyAccess", testAccGetPartition())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserDestroy,
 		Steps: []resource.TestStep{
 			// Test creation
 			{
@@ -468,9 +468,9 @@ func TestAccAWSIAMRole_tags(t *testing.T) {
 	resourceName := "aws_iam_role.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSUserDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSUserDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIAMRoleConfig_tags(rName),

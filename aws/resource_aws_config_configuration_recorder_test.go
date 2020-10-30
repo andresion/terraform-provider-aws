@@ -71,9 +71,9 @@ func testAccConfigConfigurationRecorder_basic(t *testing.T) {
 	resourceName := "aws_config_configuration_recorder.foo"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigConfigurationRecorderDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigConfigurationRecorderDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigConfigurationRecorderConfig_basic(rInt),
@@ -97,9 +97,9 @@ func testAccConfigConfigurationRecorder_allParams(t *testing.T) {
 	resourceName := "aws_config_configuration_recorder.foo"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigConfigurationRecorderDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigConfigurationRecorderDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigConfigurationRecorderConfig_allParams(rInt),
@@ -123,9 +123,9 @@ func testAccConfigConfigurationRecorder_importBasic(t *testing.T) {
 	rInt := acctest.RandInt()
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigConfigurationRecorderDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigConfigurationRecorderDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigConfigurationRecorderConfig_basic(rInt),

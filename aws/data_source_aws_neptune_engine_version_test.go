@@ -15,9 +15,9 @@ func TestAccAWSNeptuneEngineVersionDataSource_basic(t *testing.T) {
 	version := "1.0.1.0"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSNeptuneEngineVersionPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSNeptuneEngineVersionPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneEngineVersionDataSourceBasicConfig(version),
@@ -42,9 +42,9 @@ func TestAccAWSNeptuneEngineVersionDataSource_preferred(t *testing.T) {
 	dataSourceName := "data.aws_neptune_engine_version.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSNeptuneEngineVersionPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSNeptuneEngineVersionPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneEngineVersionDataSourcePreferredConfig(),
@@ -61,9 +61,9 @@ func TestAccAWSNeptuneEngineVersionDataSource_defaultOnly(t *testing.T) {
 	dataSourceName := "data.aws_neptune_engine_version.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSNeptuneEngineVersionPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSNeptuneEngineVersionPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSNeptuneEngineVersionDataSourceDefaultOnlyConfig(),

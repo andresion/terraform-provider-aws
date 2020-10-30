@@ -21,8 +21,8 @@ func TestAccAWSEc2TrafficMirrorFilter_basic(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckAWSEc2TrafficMirrorFilter(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2TrafficMirrorFilterDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2TrafficMirrorFilterDestroy,
 		Steps: []resource.TestStep{
 			//create
 			{
@@ -69,8 +69,8 @@ func TestAccAWSEc2TrafficMirrorFilter_tags(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckAWSEc2TrafficMirrorFilter(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2TrafficMirrorFilterDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2TrafficMirrorFilterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccTrafficMirrorFilterConfigTags1("key1", "value1"),
@@ -116,8 +116,8 @@ func TestAccAWSEc2TrafficMirrorFilter_disappears(t *testing.T) {
 			testAccPreCheck(t)
 			testAccPreCheckAWSEc2TrafficMirrorFilter(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEc2TrafficMirrorFilterDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEc2TrafficMirrorFilterDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccTrafficMirrorFilterConfig(description),

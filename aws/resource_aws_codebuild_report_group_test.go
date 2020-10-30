@@ -18,9 +18,9 @@ func TestAccAWSCodeBuildReportGroup_basic(t *testing.T) {
 	resourceName := "aws_codebuild_report_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuildReportGroup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildReportGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuildReportGroup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildReportGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildReportGroupBasicConfig(rName),
@@ -48,9 +48,9 @@ func TestAccAWSCodeBuildReportGroup_export_s3(t *testing.T) {
 	resourceName := "aws_codebuild_report_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuildReportGroup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildReportGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuildReportGroup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildReportGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildReportGroupS3ExportConfig(rName),
@@ -96,9 +96,9 @@ func TestAccAWSCodeBuildReportGroup_tags(t *testing.T) {
 	resourceName := "aws_codebuild_report_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuildReportGroup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildReportGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuildReportGroup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildReportGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildReportGroupConfigTags1(rName, "key1", "value1"),
@@ -140,9 +140,9 @@ func TestAccAWSCodeBuildReportGroup_disappears(t *testing.T) {
 	resourceName := "aws_codebuild_report_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuildReportGroup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildReportGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuildReportGroup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildReportGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildReportGroupBasicConfig(rName),

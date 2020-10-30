@@ -98,9 +98,9 @@ func TestAccAWSServiceDiscoveryPrivateDnsNamespace_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsServiceDiscoveryPrivateDnsNamespaceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsServiceDiscoveryPrivateDnsNamespaceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccServiceDiscoveryPrivateDnsNamespaceConfig(rName),
@@ -127,9 +127,9 @@ func TestAccAWSServiceDiscoveryPrivateDnsNamespace_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsServiceDiscoveryPrivateDnsNamespaceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsServiceDiscoveryPrivateDnsNamespaceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccServiceDiscoveryPrivateDnsNamespaceConfig(rName),
@@ -148,9 +148,9 @@ func TestAccAWSServiceDiscoveryPrivateDnsNamespace_Description(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsServiceDiscoveryPrivateDnsNamespaceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsServiceDiscoveryPrivateDnsNamespaceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccServiceDiscoveryPrivateDnsNamespaceConfigDescription(rName, "test"),
@@ -170,9 +170,9 @@ func TestAccAWSServiceDiscoveryPrivateDnsNamespace_error_Overlap(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsServiceDiscoveryPrivateDnsNamespaceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsServiceDiscoveryPrivateDnsNamespaceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccServiceDiscoveryPrivateDnsNamespaceConfigOverlapping(rName),
@@ -187,9 +187,9 @@ func TestAccAWSServiceDiscoveryPrivateDnsNamespace_Tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsServiceDiscoveryPrivateDnsNamespaceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSServiceDiscovery(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsServiceDiscoveryPrivateDnsNamespaceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccServiceDiscoveryPrivateDnsNamespaceConfigTags1(rName, "key1", "value1"),

@@ -73,9 +73,9 @@ func TestAccAWSGlueMLTransform_basic(t *testing.T) {
 	tableResourceName := "aws_glue_catalog_table.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueMLTransformDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueMLTransformDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueMLTransformBasicConfig(rName),
@@ -120,9 +120,9 @@ func TestAccAWSGlueMLTransform_typeFindMatchesFull(t *testing.T) {
 	resourceName := "aws_glue_ml_transform.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueMLTransformDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueMLTransformDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueMLTransformTypeFindMatchesFullConfig(rName, true, 0.5),
@@ -179,9 +179,9 @@ func TestAccAWSGlueMLTransform_description(t *testing.T) {
 	resourceName := "aws_glue_ml_transform.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueMLTransformDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueMLTransformDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueMLTransformConfigDescription(rName, "First Description"),
@@ -213,9 +213,9 @@ func TestAccAWSGlueMLTransform_glueVersion(t *testing.T) {
 	resourceName := "aws_glue_ml_transform.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueMLTransformDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueMLTransformDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueMLTransformConfigGlueVersion(rName, "0.9"),
@@ -247,9 +247,9 @@ func TestAccAWSGlueMLTransform_maxRetries(t *testing.T) {
 	resourceName := "aws_glue_ml_transform.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueMLTransformDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueMLTransformDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSGlueMLTransformConfigMaxRetries(rName, 11),
@@ -285,9 +285,9 @@ func TestAccAWSGlueMLTransform_tags(t *testing.T) {
 	resourceName := "aws_glue_ml_transform.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueMLTransformDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueMLTransformDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueMLTransformConfigTags1(rName, "key1", "value1"),
@@ -330,9 +330,9 @@ func TestAccAWSGlueMLTransform_timeout(t *testing.T) {
 	resourceName := "aws_glue_ml_transform.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueMLTransformDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueMLTransformDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueMLTransformConfigTimeout(rName, 1),
@@ -364,9 +364,9 @@ func TestAccAWSGlueMLTransform_workerType(t *testing.T) {
 	resourceName := "aws_glue_ml_transform.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueMLTransformDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueMLTransformDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueMLTransformConfigWorkerType(rName, "Standard", 1),
@@ -400,9 +400,9 @@ func TestAccAWSGlueMLTransform_maxCapacity(t *testing.T) {
 	resourceName := "aws_glue_ml_transform.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueMLTransformDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueMLTransformDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueMLTransformConfigMaxCapacity(rName, 10),
@@ -434,9 +434,9 @@ func TestAccAWSGlueMLTransform_disappears(t *testing.T) {
 	resourceName := "aws_glue_ml_transform.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSGlueMLTransformDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSGlueMLTransformDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSGlueMLTransformBasicConfig(rName),

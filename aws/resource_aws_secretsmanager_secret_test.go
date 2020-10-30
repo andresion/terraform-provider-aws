@@ -70,9 +70,9 @@ func TestAccAwsSecretsManagerSecret_basic(t *testing.T) {
 	resourceName := "aws_secretsmanager_secret.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSecretsManagerSecretDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSecretsManagerSecretDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsSecretsManagerSecretConfig_Name(rName),
@@ -105,9 +105,9 @@ func TestAccAwsSecretsManagerSecret_withNamePrefix(t *testing.T) {
 	resourceName := "aws_secretsmanager_secret.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSecretsManagerSecretDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSecretsManagerSecretDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsSecretsManagerSecretConfig_withNamePrefix(rPrefix),
@@ -133,9 +133,9 @@ func TestAccAwsSecretsManagerSecret_Description(t *testing.T) {
 	resourceName := "aws_secretsmanager_secret.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSecretsManagerSecretDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSecretsManagerSecretDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsSecretsManagerSecretConfig_Description(rName, "description1"),
@@ -167,9 +167,9 @@ func TestAccAwsSecretsManagerSecret_KmsKeyID(t *testing.T) {
 	resourceName := "aws_secretsmanager_secret.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSecretsManagerSecretDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSecretsManagerSecretDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsSecretsManagerSecretConfig_KmsKeyID(rName),
@@ -201,9 +201,9 @@ func TestAccAwsSecretsManagerSecret_RecoveryWindowInDays_Recreate(t *testing.T) 
 	resourceName := "aws_secretsmanager_secret.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSecretsManagerSecretDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSecretsManagerSecretDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsSecretsManagerSecretConfig_RecoveryWindowInDays(rName, 0),
@@ -237,9 +237,9 @@ func TestAccAwsSecretsManagerSecret_RotationLambdaARN(t *testing.T) {
 	lambdaFunctionResourceName := "aws_lambda_function.test1"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSecretsManagerSecretDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSecretsManagerSecretDestroy,
 		Steps: []resource.TestStep{
 			// Test enabling rotation on resource creation
 			{
@@ -288,9 +288,9 @@ func TestAccAwsSecretsManagerSecret_RotationRules(t *testing.T) {
 	resourceName := "aws_secretsmanager_secret.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSecretsManagerSecretDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSecretsManagerSecretDestroy,
 		Steps: []resource.TestStep{
 			// Test creating rotation rules on resource creation
 			{
@@ -341,9 +341,9 @@ func TestAccAwsSecretsManagerSecret_Tags(t *testing.T) {
 	resourceName := "aws_secretsmanager_secret.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSecretsManagerSecretDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSecretsManagerSecretDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsSecretsManagerSecretConfig_Tags_Single(rName),
@@ -394,9 +394,9 @@ func TestAccAwsSecretsManagerSecret_policy(t *testing.T) {
 	resourceName := "aws_secretsmanager_secret.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSecretsManagerSecretDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSecretsManager(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSecretsManagerSecretDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsSecretsManagerSecretConfig_Policy(rName),

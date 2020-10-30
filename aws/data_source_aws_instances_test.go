@@ -10,8 +10,8 @@ import (
 
 func TestAccAWSInstancesDataSource_basic(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstancesDataSourceConfig_ids,
@@ -29,8 +29,8 @@ func TestAccAWSInstancesDataSource_basic(t *testing.T) {
 func TestAccAWSInstancesDataSource_tags(t *testing.T) {
 	rInt := acctest.RandInt()
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstancesDataSourceConfig_tags(rInt),
@@ -45,8 +45,8 @@ func TestAccAWSInstancesDataSource_tags(t *testing.T) {
 func TestAccAWSInstancesDataSource_instance_state_names(t *testing.T) {
 	rInt := acctest.RandInt()
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInstancesDataSourceConfig_instance_state_names(rInt),

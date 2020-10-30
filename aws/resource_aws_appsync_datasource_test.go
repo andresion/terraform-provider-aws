@@ -17,9 +17,9 @@ func TestAccAwsAppsyncDatasource_basic(t *testing.T) {
 	resourceName := "aws_appsync_datasource.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppsyncDatasourceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppsyncDatasourceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppsyncDatasourceConfig_Type_None(rName),
@@ -49,9 +49,9 @@ func TestAccAwsAppsyncDatasource_Description(t *testing.T) {
 	resourceName := "aws_appsync_datasource.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppsyncDatasourceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppsyncDatasourceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppsyncDatasourceConfig_Description(rName, "description1"),
@@ -81,9 +81,9 @@ func TestAccAwsAppsyncDatasource_DynamoDBConfig_Region(t *testing.T) {
 	resourceName := "aws_appsync_datasource.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppsyncDatasourceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppsyncDatasourceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppsyncDatasourceConfig_DynamoDBConfig_Region(rName, testAccGetRegion()),
@@ -115,9 +115,9 @@ func TestAccAwsAppsyncDatasource_DynamoDBConfig_UseCallerCredentials(t *testing.
 	resourceName := "aws_appsync_datasource.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppsyncDatasourceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppsyncDatasourceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppsyncDatasourceConfig_DynamoDBConfig_UseCallerCredentials(rName, true),
@@ -149,9 +149,9 @@ func TestAccAwsAppsyncDatasource_ElasticsearchConfig_Region(t *testing.T) {
 	resourceName := "aws_appsync_datasource.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppsyncDatasourceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppsyncDatasourceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppsyncDatasourceConfig_ElasticsearchConfig_Region(rName, testAccGetRegion()),
@@ -183,9 +183,9 @@ func TestAccAwsAppsyncDatasource_HTTPConfig_Endpoint(t *testing.T) {
 	resourceName := "aws_appsync_datasource.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppsyncDatasourceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppsyncDatasourceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppsyncDatasourceConfig_HTTPConfig_Endpoint(rName, "http://example.com"),
@@ -219,9 +219,9 @@ func TestAccAwsAppsyncDatasource_Type(t *testing.T) {
 	resourceName := "aws_appsync_datasource.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppsyncDatasourceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppsyncDatasourceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppsyncDatasourceConfig_Type_None(rName),
@@ -248,9 +248,9 @@ func TestAccAwsAppsyncDatasource_Type_DynamoDB(t *testing.T) {
 	resourceName := "aws_appsync_datasource.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppsyncDatasourceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppsyncDatasourceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppsyncDatasourceConfig_Type_DynamoDB(rName),
@@ -278,9 +278,9 @@ func TestAccAwsAppsyncDatasource_Type_Elasticsearch(t *testing.T) {
 	resourceName := "aws_appsync_datasource.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppsyncDatasourceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppsyncDatasourceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppsyncDatasourceConfig_Type_Elasticsearch(rName),
@@ -307,9 +307,9 @@ func TestAccAwsAppsyncDatasource_Type_HTTP(t *testing.T) {
 	resourceName := "aws_appsync_datasource.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppsyncDatasourceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppsyncDatasourceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppsyncDatasourceConfig_Type_HTTP(rName),
@@ -336,9 +336,9 @@ func TestAccAwsAppsyncDatasource_Type_Lambda(t *testing.T) {
 	resourceName := "aws_appsync_datasource.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppsyncDatasourceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppsyncDatasourceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppsyncDatasourceConfig_Type_Lambda(rName),
@@ -364,9 +364,9 @@ func TestAccAwsAppsyncDatasource_Type_None(t *testing.T) {
 	resourceName := "aws_appsync_datasource.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAppsyncDatasourceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("appsync", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAppsyncDatasourceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppsyncDatasourceConfig_Type_None(rName),

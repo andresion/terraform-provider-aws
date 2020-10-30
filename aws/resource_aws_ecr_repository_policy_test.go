@@ -17,9 +17,9 @@ func TestAccAWSEcrRepositoryPolicy_basic(t *testing.T) {
 	resourceName := "aws_ecr_repository_policy.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcrRepositoryPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcrRepositoryPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcrRepositoryPolicy(randString),
@@ -41,9 +41,9 @@ func TestAccAWSEcrRepositoryPolicy_iam(t *testing.T) {
 	resourceName := "aws_ecr_repository_policy.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcrRepositoryPolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcrRepositoryPolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcrRepositoryPolicyWithIAMRole(randString),

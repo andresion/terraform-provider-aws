@@ -17,8 +17,8 @@ func TestAccDataSourceAwsRoute53ResolverRule_basic(t *testing.T) {
 	ds3ResourceName := "data.aws_route53_resolver_rule.by_name_and_rule_type"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsRoute53ResolverRule_basic(rName),
@@ -67,8 +67,8 @@ func TestAccDataSourceAwsRoute53ResolverRule_ResolverEndpointIdWithTags(t *testi
 	ds1ResourceName := "data.aws_route53_resolver_rule.by_resolver_endpoint_id"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSRoute53Resolver(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsRoute53ResolverRule_resolverEndpointIdWithTags(rName),

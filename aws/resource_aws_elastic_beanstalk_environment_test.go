@@ -79,9 +79,9 @@ func TestAccAWSBeanstalkEnv_basic(t *testing.T) {
 	beanstalkEndpointURL := regexp.MustCompile("awseb.+?EBLoa[^,].+?elb.amazonaws.com")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBeanstalkEnvDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBeanstalkEnvDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBeanstalkEnvConfig(rName),
@@ -116,9 +116,9 @@ func TestAccAWSBeanstalkEnv_tier(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBeanstalkEnvDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBeanstalkEnvDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBeanstalkWorkerEnvConfig(rName),
@@ -149,9 +149,9 @@ func TestAccAWSBeanstalkEnv_cname_prefix(t *testing.T) {
 	beanstalkCnameRegexp := regexp.MustCompile("^" + rName + ".+?elasticbeanstalk.com$")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBeanstalkEnvDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBeanstalkEnvDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBeanstalkEnvCnamePrefixConfig(rName),
@@ -180,9 +180,9 @@ func TestAccAWSBeanstalkEnv_config(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBeanstalkEnvDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBeanstalkEnvDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBeanstalkConfigTemplate(rName, 1),
@@ -226,9 +226,9 @@ func TestAccAWSBeanstalkEnv_resource(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBeanstalkEnvDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBeanstalkEnvDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBeanstalkResourceOptionSetting(rName),
@@ -256,9 +256,9 @@ func TestAccAWSBeanstalkEnv_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBeanstalkEnvDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBeanstalkEnvDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBeanstalkTagsTemplate(rName, "test1", "test2"),
@@ -304,8 +304,8 @@ func TestAccAWSBeanstalkEnv_template_change(t *testing.T) {
 		PreCheck: func() {
 			testAccPreCheck(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBeanstalkEnvDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBeanstalkEnvDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBeanstalkEnv_TemplateChange_stack(rName),
@@ -336,9 +336,9 @@ func TestAccAWSBeanstalkEnv_settings_update(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBeanstalkEnvDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBeanstalkEnvDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBeanstalkEnvConfig(rName),
@@ -379,9 +379,9 @@ func TestAccAWSBeanstalkEnv_version_label(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBeanstalkEnvDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBeanstalkEnvDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBeanstalkEnvApplicationVersionConfig(rName),
@@ -415,9 +415,9 @@ func TestAccAWSBeanstalkEnv_settingWithJsonValue(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBeanstalkEnvDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBeanstalkEnvDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBeanstalkEnvSettingJsonValue(rName),
@@ -445,9 +445,9 @@ func TestAccAWSBeanstalkEnv_platformArn(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckBeanstalkEnvDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckBeanstalkEnvDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBeanstalkEnvConfig_platform_arn(rName),

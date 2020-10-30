@@ -14,9 +14,9 @@ import (
 func TestAccAWSSSMPatchGroup_basic(t *testing.T) {
 	name := acctest.RandString(10)
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMPatchGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMPatchGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMPatchGroupBasicConfig(name),

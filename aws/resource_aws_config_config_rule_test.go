@@ -19,9 +19,9 @@ func testAccConfigConfigRule_basic(t *testing.T) {
 	resourceName := "aws_config_config_rule.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigConfigRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigConfigRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigConfigRuleConfig_basic(rName),
@@ -44,9 +44,9 @@ func testAccConfigConfigRule_ownerAws(t *testing.T) {
 	resourceName := "aws_config_config_rule.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigConfigRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigConfigRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigConfigRuleConfig_ownerAws(rName),
@@ -80,9 +80,9 @@ func testAccConfigConfigRule_customlambda(t *testing.T) {
 	path := "test-fixtures/lambdatest.zip"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigConfigRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigConfigRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigConfigRuleConfig_customLambda(rInt, path),
@@ -117,9 +117,9 @@ func testAccConfigConfigRule_importAws(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigConfigRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigConfigRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigConfigRuleConfig_ownerAws(rName),
@@ -141,9 +141,9 @@ func testAccConfigConfigRule_importLambda(t *testing.T) {
 	path := "test-fixtures/lambdatest.zip"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigConfigRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigConfigRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigConfigRuleConfig_customLambda(rInt, path),
@@ -164,9 +164,9 @@ func testAccConfigConfigRule_Scope_TagKey(t *testing.T) {
 	resourceName := "aws_config_config_rule.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigConfigRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigConfigRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigConfigRuleConfig_Scope_TagKey(rName, "key1"),
@@ -194,9 +194,9 @@ func testAccConfigConfigRule_Scope_TagKey_Empty(t *testing.T) {
 	resourceName := "aws_config_config_rule.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigConfigRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigConfigRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigConfigRuleConfig_Scope_TagKey(rName, ""),
@@ -214,9 +214,9 @@ func testAccConfigConfigRule_Scope_TagValue(t *testing.T) {
 	resourceName := "aws_config_config_rule.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigConfigRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigConfigRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigConfigRuleConfig_Scope_TagValue(rName, "value1"),
@@ -244,9 +244,9 @@ func testAccConfigConfigRule_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigConfigRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigConfigRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigConfigRuleConfig_Tags(rName, "foo", "bar", "fizz", "buzz"),

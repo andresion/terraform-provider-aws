@@ -17,9 +17,9 @@ func TestAccAWSEcrLifecyclePolicy_basic(t *testing.T) {
 	resourceName := "aws_ecr_lifecycle_policy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcrLifecyclePolicyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcrLifecyclePolicyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccEcrLifecyclePolicyConfig(rName),

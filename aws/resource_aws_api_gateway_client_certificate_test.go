@@ -17,9 +17,9 @@ func TestAccAWSAPIGatewayClientCertificate_basic(t *testing.T) {
 	resourceName := "aws_api_gateway_client_certificate.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayClientCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayClientCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayClientCertificateConfig_basic,
@@ -51,9 +51,9 @@ func TestAccAWSAPIGatewayClientCertificate_tags(t *testing.T) {
 	resourceName := "aws_api_gateway_client_certificate.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayClientCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayClientCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayClientCertificateConfigTags1("key1", "value1"),
@@ -94,9 +94,9 @@ func TestAccAWSAPIGatewayClientCertificate_disappears(t *testing.T) {
 	resourceName := "aws_api_gateway_client_certificate.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAPIGatewayClientCertificateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAPIGatewayClientCertificateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAPIGatewayClientCertificateConfig_basic,

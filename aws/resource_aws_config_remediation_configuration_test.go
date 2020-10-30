@@ -20,9 +20,9 @@ func testAccConfigRemediationConfiguration_basic(t *testing.T) {
 	expectedName := fmt.Sprintf("%s-tf-acc-test-%d", prefix, rInt)
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigRemediationConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigRemediationConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigRemediationConfigurationConfig(prefix, sseAlgorithm, rInt),
@@ -51,9 +51,9 @@ func testAccConfigRemediationConfiguration_disappears(t *testing.T) {
 	sseAlgorithm := "AES256"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigRemediationConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigRemediationConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigRemediationConfigurationConfig(prefix, sseAlgorithm, rInt),
@@ -78,9 +78,9 @@ func testAccConfigRemediationConfiguration_recreates(t *testing.T) {
 	sseAlgorithm := "AES256"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigRemediationConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigRemediationConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigRemediationConfigurationConfig(originalName, sseAlgorithm, rInt),
@@ -112,9 +112,9 @@ func testAccConfigRemediationConfiguration_updates(t *testing.T) {
 	updatedSseAlgorithm := "aws:kms"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckConfigRemediationConfigurationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckConfigRemediationConfigurationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccConfigRemediationConfigurationConfig(name, originalSseAlgorithm, rInt),

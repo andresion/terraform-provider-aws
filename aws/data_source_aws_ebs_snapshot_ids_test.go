@@ -10,8 +10,8 @@ import (
 
 func TestAccDataSourceAwsEbsSnapshotIds_basic(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsEbsSnapshotIdsConfig_basic(),
@@ -27,8 +27,8 @@ func TestAccDataSourceAwsEbsSnapshotIds_sorted(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsEbsSnapshotIdsConfig_sorted1(rName),
@@ -56,8 +56,8 @@ func TestAccDataSourceAwsEbsSnapshotIds_sorted(t *testing.T) {
 
 func TestAccDataSourceAwsEbsSnapshotIds_empty(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccDataSourceAwsEbsSnapshotIdsConfig_empty,

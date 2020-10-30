@@ -57,8 +57,8 @@ func TestAccDataSourceAWSS3BucketObject_basicViaAccessPoint(t *testing.T) {
 	accessPointResourceName := "aws_s3_access_point.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSourceS3ObjectConfig_basicViaAccessPoint(rName),

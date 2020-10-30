@@ -17,9 +17,9 @@ func TestAccAWSSSMDocument_basic(t *testing.T) {
 	name := acctest.RandString(10)
 	resourceName := "aws_ssm_document.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMDocumentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMDocumentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMDocumentBasicConfig(name),
@@ -45,9 +45,9 @@ func TestAccAWSSSMDocument_target_type(t *testing.T) {
 	name := acctest.RandString(10)
 	resourceName := "aws_ssm_document.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMDocumentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMDocumentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMDocumentBasicConfigTargetType(name, "/"),
@@ -76,9 +76,9 @@ func TestAccAWSSSMDocument_update(t *testing.T) {
 	name := acctest.RandString(10)
 	resourceName := "aws_ssm_document.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMDocumentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMDocumentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMDocument20Config(name),
@@ -110,9 +110,9 @@ func TestAccAWSSSMDocument_permission_public(t *testing.T) {
 	name := acctest.RandString(10)
 	resourceName := "aws_ssm_document.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMDocumentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMDocumentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMDocumentPublicPermissionConfig(name),
@@ -136,9 +136,9 @@ func TestAccAWSSSMDocument_permission_private(t *testing.T) {
 	resourceName := "aws_ssm_document.test"
 	ids := "123456789012"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMDocumentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMDocumentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMDocumentPrivatePermissionConfig(name, ids),
@@ -161,9 +161,9 @@ func TestAccAWSSSMDocument_permission_batching(t *testing.T) {
 	resourceName := "aws_ssm_document.test"
 	ids := "123456789012,123456789013,123456789014,123456789015,123456789016,123456789017,123456789018,123456789019,123456789020,123456789021,123456789022,123456789023,123456789024,123456789025,123456789026,123456789027,123456789028,123456789029,123456789030,123456789031,123456789032"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMDocumentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMDocumentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMDocumentPrivatePermissionConfig(name, ids),
@@ -188,9 +188,9 @@ func TestAccAWSSSMDocument_permission_change(t *testing.T) {
 	idsRemove := "123456789012"
 	idsAdd := "123456789012,123456789014"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMDocumentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMDocumentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMDocumentPrivatePermissionConfig(name, idsInitial),
@@ -229,9 +229,9 @@ func TestAccAWSSSMDocument_params(t *testing.T) {
 	name := acctest.RandString(10)
 	resourceName := "aws_ssm_document.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMDocumentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMDocumentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMDocumentParamConfig(name),
@@ -258,9 +258,9 @@ func TestAccAWSSSMDocument_automation(t *testing.T) {
 	name := acctest.RandString(10)
 	resourceName := "aws_ssm_document.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMDocumentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMDocumentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMDocumentTypeAutomationConfig(name),
@@ -288,9 +288,9 @@ func TestAccAWSSSMDocument_package(t *testing.T) {
 	defer os.Remove(source)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMDocumentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMDocumentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMDocumentTypePackageConfig(name, source, rInt),
@@ -321,9 +321,9 @@ func TestAccAWSSSMDocument_SchemaVersion_1(t *testing.T) {
 	resourceName := "aws_ssm_document.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMDocumentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMDocumentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMDocumentConfigSchemaVersion1(rName),
@@ -352,9 +352,9 @@ func TestAccAWSSSMDocument_session(t *testing.T) {
 	name := acctest.RandString(10)
 	resourceName := "aws_ssm_document.test"
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMDocumentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMDocumentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMDocumentTypeSessionConfig(name),
@@ -398,9 +398,9 @@ mainSteps:
       - Get-Process
 `
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMDocumentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMDocumentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMDocumentConfig_DocumentFormat_YAML(name, content1),
@@ -432,9 +432,9 @@ func TestAccAWSSSMDocument_Tags(t *testing.T) {
 	resourceName := "aws_ssm_document.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSSMDocumentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSSMDocumentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSSMDocumentConfig_Tags_Single(rName, "key1", "value1"),

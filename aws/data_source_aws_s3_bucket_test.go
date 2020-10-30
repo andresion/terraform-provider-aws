@@ -14,8 +14,8 @@ func TestAccDataSourceS3Bucket_basic(t *testing.T) {
 	hostedZoneID, _ := HostedZoneIDForRegion(region)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSourceS3BucketConfig_basic(bucketName),
@@ -38,8 +38,8 @@ func TestAccDataSourceS3Bucket_website(t *testing.T) {
 	region := testAccGetRegion()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDataSourceS3BucketWebsiteConfig(bucketName),

@@ -37,9 +37,9 @@ func testAccAWSWafRegexPatternSet_basic(t *testing.T) {
 	resourceName := "aws_waf_regex_pattern_set.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegexPatternSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegexPatternSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegexPatternSetConfig(patternSetName),
@@ -67,9 +67,9 @@ func testAccAWSWafRegexPatternSet_changePatterns(t *testing.T) {
 	resourceName := "aws_waf_regex_pattern_set.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegexPatternSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegexPatternSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegexPatternSetConfig(patternSetName),
@@ -107,9 +107,9 @@ func testAccAWSWafRegexPatternSet_noPatterns(t *testing.T) {
 	resourceName := "aws_waf_regex_pattern_set.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegexPatternSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegexPatternSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegexPatternSetConfig_noPatterns(patternSetName),
@@ -134,9 +134,9 @@ func testAccAWSWafRegexPatternSet_disappears(t *testing.T) {
 	resourceName := "aws_waf_regex_pattern_set.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafRegexPatternSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWaf(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafRegexPatternSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSWafRegexPatternSetConfig(patternSetName),

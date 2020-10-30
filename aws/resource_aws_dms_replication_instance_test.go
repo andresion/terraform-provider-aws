@@ -84,9 +84,9 @@ func TestAccAWSDmsReplicationInstance_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDmsReplicationInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDmsReplicationInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDmsReplicationInstanceConfig_ReplicationInstanceClass(rName, replicationInstanceClass),
@@ -122,9 +122,9 @@ func TestAccAWSDmsReplicationInstance_AllocatedStorage(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDmsReplicationInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDmsReplicationInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDmsReplicationInstanceConfig_AllocatedStorage(rName, 5),
@@ -155,9 +155,9 @@ func TestAccAWSDmsReplicationInstance_AutoMinorVersionUpgrade(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDmsReplicationInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDmsReplicationInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDmsReplicationInstanceConfig_AutoMinorVersionUpgrade(rName, true),
@@ -196,9 +196,9 @@ func TestAccAWSDmsReplicationInstance_AvailabilityZone(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDmsReplicationInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDmsReplicationInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDmsReplicationInstanceConfig_AvailabilityZone(rName),
@@ -261,9 +261,9 @@ func TestAccAWSDmsReplicationInstance_EngineVersion(t *testing.T) {
 				),
 			}
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDmsReplicationInstanceDestroy,
-		Steps:        testSteps,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDmsReplicationInstanceDestroy,
+		Steps:                    testSteps,
 	})
 }
 
@@ -273,9 +273,9 @@ func TestAccAWSDmsReplicationInstance_KmsKeyArn(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDmsReplicationInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDmsReplicationInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDmsReplicationInstanceConfig_KmsKeyArn(rName),
@@ -299,9 +299,9 @@ func TestAccAWSDmsReplicationInstance_MultiAz(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDmsReplicationInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDmsReplicationInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDmsReplicationInstanceConfig_MultiAz(rName, true),
@@ -339,9 +339,9 @@ func TestAccAWSDmsReplicationInstance_PreferredMaintenanceWindow(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDmsReplicationInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDmsReplicationInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDmsReplicationInstanceConfig_PreferredMaintenanceWindow(rName, "sun:00:30-sun:02:30"),
@@ -372,9 +372,9 @@ func TestAccAWSDmsReplicationInstance_PubliclyAccessible(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDmsReplicationInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDmsReplicationInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDmsReplicationInstanceConfig_PubliclyAccessible(rName, true),
@@ -402,9 +402,9 @@ func TestAccAWSDmsReplicationInstance_ReplicationInstanceClass(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDmsReplicationInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDmsReplicationInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDmsReplicationInstanceConfig_ReplicationInstanceClass(rName, replicationInstanceClass1),
@@ -436,9 +436,9 @@ func TestAccAWSDmsReplicationInstance_ReplicationSubnetGroupId(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDmsReplicationInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDmsReplicationInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDmsReplicationInstanceConfig_ReplicationSubnetGroupId(rName),
@@ -462,9 +462,9 @@ func TestAccAWSDmsReplicationInstance_Tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDmsReplicationInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDmsReplicationInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDmsReplicationInstanceConfig_Tags_One(rName, "key1", "value1"),
@@ -506,9 +506,9 @@ func TestAccAWSDmsReplicationInstance_VpcSecurityGroupIds(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSDmsReplicationInstanceDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSDmsReplicationInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDmsReplicationInstanceConfig_VpcSecurityGroupIds(rName),

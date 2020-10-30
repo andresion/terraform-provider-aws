@@ -16,9 +16,9 @@ func TestAccAWSDocDBEngineVersionDataSource_basic(t *testing.T) {
 	version := "3.6.0"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSDocDBEngineVersionPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSDocDBEngineVersionPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDocDBEngineVersionDataSourceBasicConfig(engine, version),
@@ -41,9 +41,9 @@ func TestAccAWSDocDBEngineVersionDataSource_preferred(t *testing.T) {
 	dataSourceName := "data.aws_docdb_engine_version.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSDocDBEngineVersionPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSDocDBEngineVersionPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDocDBEngineVersionDataSourcePreferredConfig(),
@@ -59,9 +59,9 @@ func TestAccAWSDocDBEngineVersionDataSource_defaultOnly(t *testing.T) {
 	dataSourceName := "data.aws_docdb_engine_version.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAWSDocDBEngineVersionPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: nil,
+		PreCheck:                 func() { testAccPreCheck(t); testAccAWSDocDBEngineVersionPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             nil,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSDocDBEngineVersionDataSourceDefaultOnlyConfig(),

@@ -142,9 +142,9 @@ func TestAccAWSVpnGateway_withAvailabilityZoneSetToState(t *testing.T) {
 	resourceName := "aws_vpn_gateway.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpnGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpnGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpnGatewayConfigWithAZ,
@@ -167,9 +167,9 @@ func TestAccAWSVpnGateway_withAmazonSideAsnSetToState(t *testing.T) {
 	resourceName := "aws_vpn_gateway.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpnGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpnGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpnGatewayConfigWithASN,
@@ -193,9 +193,9 @@ func TestAccAWSVpnGateway_disappears(t *testing.T) {
 	resourceName := "aws_vpn_gateway.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckVpnGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpnGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpnGatewayConfig,
@@ -250,10 +250,10 @@ func TestAccAWSVpnGateway_reattach(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckVpnGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpnGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckVpnGatewayConfigReattach,
@@ -314,10 +314,10 @@ func TestAccAWSVpnGateway_delete(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckVpnGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpnGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccVpnGatewayConfig,
@@ -342,10 +342,10 @@ func TestAccAWSVpnGateway_tags(t *testing.T) {
 	resourceName := "aws_vpn_gateway.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckVpnGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckVpnGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckVpnGatewayConfigTags1("key1", "value1"),

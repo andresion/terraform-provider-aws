@@ -72,9 +72,9 @@ func TestAccAWSLambdaFunction_basic(t *testing.T) {
 	sgName := fmt.Sprintf("tf_acc_sg_lambda_func_basic_%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigBasic(funcName, policyName, roleName, sgName),
@@ -103,9 +103,9 @@ func TestAccAWSLambdaFunction_disappears(t *testing.T) {
 	resourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigBasic(rName, rName, rName, rName),
@@ -130,9 +130,9 @@ func TestAccAWSLambdaFunction_concurrency(t *testing.T) {
 	resourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigBasicConcurrency(funcName, policyName, roleName, sgName),
@@ -173,9 +173,9 @@ func TestAccAWSLambdaFunction_concurrencyCycle(t *testing.T) {
 	resourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigBasic(funcName, policyName, roleName, sgName),
@@ -222,9 +222,9 @@ func TestAccAWSLambdaFunction_expectFilenameAndS3Attributes(t *testing.T) {
 	sgName := fmt.Sprintf("tf_acc_sg_lambda_func_expect_%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSLambdaConfigWithoutFilenameAndS3Attributes(funcName, policyName, roleName, sgName),
@@ -245,9 +245,9 @@ func TestAccAWSLambdaFunction_envVariables(t *testing.T) {
 	resourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigBasic(funcName, policyName, roleName, sgName),
@@ -308,9 +308,9 @@ func TestAccAWSLambdaFunction_encryptedEnvVariables(t *testing.T) {
 	resourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigEncryptedEnvVariables(keyDesc, funcName, policyName, roleName, sgName),
@@ -355,9 +355,9 @@ func TestAccAWSLambdaFunction_versioned(t *testing.T) {
 	version := "1"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigVersioned("test-fixtures/lambdatest.zip", funcName, policyName, roleName, sgName),
@@ -403,9 +403,9 @@ func TestAccAWSLambdaFunction_versionedUpdate(t *testing.T) {
 	versionUpdated := "3"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigVersioned("test-fixtures/lambdatest.zip", funcName, policyName, roleName, sgName),
@@ -468,9 +468,9 @@ func TestAccAWSLambdaFunction_DeadLetterConfig(t *testing.T) {
 	resourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigWithDeadLetterConfig(funcName, topicName, policyName, roleName, sgName),
@@ -519,9 +519,9 @@ func TestAccAWSLambdaFunction_DeadLetterConfigUpdated(t *testing.T) {
 	resourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigWithDeadLetterConfig(funcName, topic1Name, policyName, roleName, sgName),
@@ -558,9 +558,9 @@ func TestAccAWSLambdaFunction_nilDeadLetterConfig(t *testing.T) {
 	sgName := fmt.Sprintf("tf_acc_sg_lambda_func_nil_dlcfg_%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigWithNilDeadLetterConfig(funcName, policyName, roleName, sgName),
@@ -582,9 +582,9 @@ func TestAccAWSLambdaFunction_FileSystemConfig(t *testing.T) {
 	sgName := fmt.Sprintf("tf_acc_sg_lambda_func_basic_%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			// Ensure a function with lambda file system configuration can be created
 			{
@@ -641,9 +641,9 @@ func TestAccAWSLambdaFunction_tracingConfig(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigWithTracingConfig(funcName, policyName, roleName, sgName),
@@ -684,9 +684,9 @@ func TestAccAWSLambdaFunction_KmsKeyArn_NoEnvironmentVariables(t *testing.T) {
 	resourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigKmsKeyArnNoEnvironmentVariables(rName),
@@ -718,9 +718,9 @@ func TestAccAWSLambdaFunction_Layers(t *testing.T) {
 	resourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigWithLayers(funcName, layerName, policyName, roleName, sgName),
@@ -755,9 +755,9 @@ func TestAccAWSLambdaFunction_LayersUpdate(t *testing.T) {
 	resourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigWithLayers(funcName, layerName, policyName, roleName, sgName),
@@ -800,9 +800,9 @@ func TestAccAWSLambdaFunction_VPC(t *testing.T) {
 	resourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigWithVPC(funcName, policyName, roleName, sgName),
@@ -834,9 +834,9 @@ func TestAccAWSLambdaFunction_VPCRemoval(t *testing.T) {
 	resourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigWithVPC(rName, rName, rName, rName),
@@ -874,9 +874,9 @@ func TestAccAWSLambdaFunction_VPCUpdate(t *testing.T) {
 	resourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigWithVPC(funcName, policyName, roleName, sgName),
@@ -925,9 +925,9 @@ func TestAccAWSLambdaFunction_VPC_withInvocation(t *testing.T) {
 	resourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigWithVPC(funcName, policyName, roleName, sgName),
@@ -955,9 +955,9 @@ func TestAccAWSLambdaFunction_VpcConfig_ProperIamDependencies(t *testing.T) {
 	vpcResourceName := "aws_vpc.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigVpcConfigProperIamDependencies(rName),
@@ -984,9 +984,9 @@ func TestAccAWSLambdaFunction_EmptyVpcConfig(t *testing.T) {
 	resourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigWithEmptyVpcConfig(funcName, policyName, roleName, sgName),
@@ -1015,9 +1015,9 @@ func TestAccAWSLambdaFunction_s3(t *testing.T) {
 	resourceName := "aws_lambda_function.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigS3(bucketName, roleName, funcName),
@@ -1055,9 +1055,9 @@ func TestAccAWSLambdaFunction_localUpdate(t *testing.T) {
 	var timeBeforeUpdate time.Time
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				PreConfig: func() {
@@ -1122,9 +1122,9 @@ func TestAccAWSLambdaFunction_localUpdate_nameOnly(t *testing.T) {
 	defer os.Remove(updatedPath)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				PreConfig: func() {
@@ -1182,9 +1182,9 @@ func TestAccAWSLambdaFunction_s3Update_basic(t *testing.T) {
 	key := "lambda-func.zip"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				PreConfig: func() {
@@ -1244,9 +1244,9 @@ func TestAccAWSLambdaFunction_s3Update_unversioned(t *testing.T) {
 	key2 := "lambda-func-modified.zip"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				PreConfig: func() {
@@ -1299,9 +1299,9 @@ func TestAccAWSLambdaFunction_tags(t *testing.T) {
 	sgName := fmt.Sprintf("tf_acc_sg_lambda_func_tags_%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaConfigBasic(funcName, policyName, roleName, sgName),
@@ -1392,10 +1392,10 @@ func TestAccAWSLambdaFunction_runtimes(t *testing.T) {
 	})
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaFunctionDestroy,
-		Steps:        steps,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaFunctionDestroy,
+		Steps:                    steps,
 	})
 }
 

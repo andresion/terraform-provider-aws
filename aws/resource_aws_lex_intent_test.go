@@ -20,9 +20,9 @@ func TestAccAwsLexIntent_basic(t *testing.T) {
 	testIntentID := "test_intent_" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexIntentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexIntentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLexIntentConfig_basic(testIntentID),
@@ -65,9 +65,9 @@ func TestAccAwsLexIntent_createVersion(t *testing.T) {
 	testIntentID := "test_intent_" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexIntentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexIntentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLexIntentConfig_basic(testIntentID),
@@ -106,9 +106,9 @@ func TestAccAwsLexIntent_conclusionStatement(t *testing.T) {
 	testIntentID := "test_intent_" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexIntentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexIntentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLexIntentConfig_conclusionStatement(testIntentID),
@@ -158,9 +158,9 @@ func TestAccAwsLexIntent_confirmationPromptAndRejectionStatement(t *testing.T) {
 	testIntentID := "test_intent_" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexIntentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexIntentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLexIntentConfig_confirmationPromptAndRejectionStatement(testIntentID),
@@ -220,9 +220,9 @@ func TestAccAwsLexIntent_dialogCodeHook(t *testing.T) {
 	testIntentID := "test_intent_" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexIntentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexIntentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: composeConfig(
@@ -252,9 +252,9 @@ func TestAccAwsLexIntent_followUpPrompt(t *testing.T) {
 	testIntentID := "test_intent_" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexIntentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexIntentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLexIntentConfig_followUpPrompt(testIntentID),
@@ -320,9 +320,9 @@ func TestAccAwsLexIntent_fulfillmentActivity(t *testing.T) {
 	testIntentID := "test_intent_" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexIntentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexIntentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: composeConfig(
@@ -354,9 +354,9 @@ func TestAccAwsLexIntent_sampleUtterances(t *testing.T) {
 	testIntentID := "test_intent_" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexIntentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexIntentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLexIntentConfig_sampleUtterances(testIntentID),
@@ -395,9 +395,9 @@ func TestAccAwsLexIntent_slots(t *testing.T) {
 	testIntentID := "test_intent_" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexIntentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexIntentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLexIntentConfig_slots(testIntentID),
@@ -447,9 +447,9 @@ func TestAccAwsLexIntent_slotsCustom(t *testing.T) {
 	testIntentID := "test_intent_" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexIntentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexIntentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: composeConfig(
@@ -490,9 +490,9 @@ func TestAccAwsLexIntent_disappears(t *testing.T) {
 	testIntentID := "test_intent_" + acctest.RandStringFromCharSet(8, acctest.CharSetAlpha)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexIntentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexIntentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLexIntentConfig_basic(testIntentID),
@@ -549,9 +549,9 @@ func TestAccAwsLexIntent_updateWithExternalChange(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsLexIntentDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPartitionHasServicePreCheck("models.lex", t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsLexIntentDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsLexIntentConfig_basic(testIntentID),

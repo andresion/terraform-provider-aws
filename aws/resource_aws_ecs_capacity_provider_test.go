@@ -103,9 +103,9 @@ func TestAccAWSEcsCapacityProvider_basic(t *testing.T) {
 	resourceName := "aws_ecs_capacity_provider.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsCapacityProviderDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsCapacityProviderDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsCapacityProviderConfig(rName),
@@ -139,9 +139,9 @@ func TestAccAWSEcsCapacityProvider_disappears(t *testing.T) {
 	resourceName := "aws_ecs_capacity_provider.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsCapacityProviderDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsCapacityProviderDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsCapacityProviderConfig(rName),
@@ -161,9 +161,9 @@ func TestAccAWSEcsCapacityProvider_ManagedScaling(t *testing.T) {
 	resourceName := "aws_ecs_capacity_provider.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsCapacityProviderDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsCapacityProviderDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsCapacityProviderConfigManagedScaling(rName),
@@ -194,9 +194,9 @@ func TestAccAWSEcsCapacityProvider_ManagedScalingPartial(t *testing.T) {
 	resourceName := "aws_ecs_capacity_provider.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsCapacityProviderDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsCapacityProviderDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsCapacityProviderConfigManagedScalingPartial(rName),
@@ -227,9 +227,9 @@ func TestAccAWSEcsCapacityProvider_Tags(t *testing.T) {
 	resourceName := "aws_ecs_capacity_provider.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSEcsCapacityProviderDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSEcsCapacityProviderDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSEcsCapacityProviderConfigTags1(rName, "key1", "value1"),

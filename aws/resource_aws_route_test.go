@@ -36,8 +36,8 @@ func TestAccAWSRoute_basic(t *testing.T) {
 		PreCheck: func() {
 			testAccPreCheck(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRouteDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteBasicConfig(),
@@ -63,8 +63,8 @@ func TestAccAWSRoute_disappears(t *testing.T) {
 		PreCheck: func() {
 			testAccPreCheck(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRouteDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteBasicConfig(),
@@ -100,8 +100,8 @@ func TestAccAWSRoute_ipv6Support(t *testing.T) {
 		PreCheck: func() {
 			testAccPreCheck(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRouteDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteConfigIpv6(),
@@ -132,8 +132,8 @@ func TestAccAWSRoute_ipv6ToInternetGateway(t *testing.T) {
 		PreCheck: func() {
 			testAccPreCheck(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRouteDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteConfigIpv6InternetGateway(),
@@ -158,8 +158,8 @@ func TestAccAWSRoute_ipv6ToInstance(t *testing.T) {
 		PreCheck: func() {
 			testAccPreCheck(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRouteDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteConfigIpv6Instance(),
@@ -188,8 +188,8 @@ func TestAccAWSRoute_ipv6ToNetworkInterface(t *testing.T) {
 		PreCheck: func() {
 			testAccPreCheck(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRouteDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteConfigIpv6NetworkInterface(),
@@ -214,8 +214,8 @@ func TestAccAWSRoute_ipv6ToPeeringConnection(t *testing.T) {
 		PreCheck: func() {
 			testAccPreCheck(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRouteDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteConfigIpv6PeeringConnection(),
@@ -241,8 +241,8 @@ func TestAccAWSRoute_changeRouteTable(t *testing.T) {
 		PreCheck: func() {
 			testAccPreCheck(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRouteDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteBasicConfig(),
@@ -315,8 +315,8 @@ func TestAccAWSRoute_changeCidr(t *testing.T) {
 		PreCheck: func() {
 			testAccPreCheck(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRouteDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteBasicConfig(),
@@ -359,8 +359,8 @@ func TestAccAWSRoute_noopdiff(t *testing.T) {
 		PreCheck: func() {
 			testAccPreCheck(t)
 		},
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRouteDestroy,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteNoopChange(),
@@ -391,9 +391,9 @@ func TestAccAWSRoute_doesNotCrashWithVPCEndpoint(t *testing.T) {
 	var route ec2.Route
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteWithVPCEndpoint(),
@@ -417,9 +417,9 @@ func TestAccAWSRoute_TransitGatewayID_DestinationCidrBlock(t *testing.T) {
 	transitGatewayResourceName := "aws_ec2_transit_gateway.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteConfigTransitGatewayIDDestinatationCidrBlock(),
@@ -444,9 +444,9 @@ func TestAccAWSRoute_LocalGatewayID(t *testing.T) {
 	localGatewayDataSourceName := "data.aws_ec2_local_gateway.first"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteResourceConfigLocalGatewayID(),
@@ -471,9 +471,9 @@ func TestAccAWSRoute_ConditionalCidrBlock(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRouteDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRouteDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRouteConfigConditionalIpv4Ipv6(rName, false),

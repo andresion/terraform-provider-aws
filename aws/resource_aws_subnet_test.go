@@ -358,9 +358,9 @@ func TestAccAWSSubnet_disappears(t *testing.T) {
 	resourceName := "aws_subnet.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckSubnetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSubnetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSubnetConfig,
@@ -380,10 +380,10 @@ func TestAccAWSSubnet_outpost(t *testing.T) {
 	resourceName := "aws_subnet.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckSubnetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckSubnetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccSubnetConfigOutpost(),

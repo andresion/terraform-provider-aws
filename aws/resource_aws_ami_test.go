@@ -20,9 +20,9 @@ func TestAccAWSAMI_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAmiDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAmiDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAmiConfigBasic(rName, 8),
@@ -57,9 +57,9 @@ func TestAccAWSAMI_description(t *testing.T) {
 	descUpdated := acctest.RandomWithPrefix("desc-updated")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAmiDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAmiDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAmiConfigDesc(rName, desc, 8),
@@ -93,9 +93,9 @@ func TestAccAWSAMI_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAmiDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAmiDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAmiConfigBasic(rName, 8),
@@ -115,9 +115,9 @@ func TestAccAWSAMI_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAmiDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAmiDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAmiConfigTags1(rName, "key1", "value1", 8),
@@ -171,9 +171,9 @@ func TestAccAWSAMI_snapshotSize(t *testing.T) {
 	}
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAmiDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAmiDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAmiConfigBasic(rName, 20),

@@ -18,10 +18,10 @@ func TestAccAWSPinpointEventStream_basic(t *testing.T) {
 	rName2 := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSPinpointEventStreamDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSPinpointApp(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSPinpointEventStreamDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSPinpointEventStreamConfig_basic(rName),

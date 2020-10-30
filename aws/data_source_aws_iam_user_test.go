@@ -14,8 +14,8 @@ func TestAccAWSDataSourceIAMUser_basic(t *testing.T) {
 	userName := fmt.Sprintf("test-datasource-user-%d", acctest.RandInt())
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsDataSourceIAMUserConfig(userName),

@@ -12,9 +12,9 @@ func TestAccAWSSNSTopicPolicy_basic(t *testing.T) {
 	resourceName := "aws_sns_topic_policy.custom"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSSNSTopicDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSSNSTopicDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSSNSTopicConfig_withPolicy,

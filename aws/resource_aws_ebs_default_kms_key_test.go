@@ -16,9 +16,9 @@ func TestAccAWSEBSDefaultKmsKey_basic(t *testing.T) {
 	resourceNameKey := "aws_kms_key.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEbsDefaultKmsKeyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEbsDefaultKmsKeyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEbsDefaultKmsKeyConfig_basic,

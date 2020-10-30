@@ -177,9 +177,9 @@ func TestAccAwsGlobalAcceleratorAccelerator_basic(t *testing.T) {
 	dnsNameRegex := regexp.MustCompile(`^a[a-f0-9]{16}\.awsglobalaccelerator\.com$`)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlobalAcceleratorAcceleratorDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlobalAcceleratorAcceleratorDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlobalAcceleratorAccelerator_basic(rName, false),
@@ -216,9 +216,9 @@ func TestAccAwsGlobalAcceleratorAccelerator_update(t *testing.T) {
 	newName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlobalAcceleratorAcceleratorDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlobalAcceleratorAcceleratorDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlobalAcceleratorAccelerator_basic(rName, true),
@@ -251,9 +251,9 @@ func TestAccAwsGlobalAcceleratorAccelerator_attributes(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlobalAcceleratorAcceleratorDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlobalAcceleratorAcceleratorDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlobalAcceleratorAccelerator_attributes(rName),
@@ -279,9 +279,9 @@ func TestAccAwsGlobalAcceleratorAccelerator_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckGlobalAcceleratorAcceleratorDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckGlobalAccelerator(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckGlobalAcceleratorAcceleratorDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccGlobalAcceleratorAccelerator_tags(rName, false, "foo", "var"),

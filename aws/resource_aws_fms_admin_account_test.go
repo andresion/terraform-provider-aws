@@ -19,9 +19,9 @@ func TestAccAwsFmsAdminAccount_basic(t *testing.T) {
 	resourceName := "aws_fms_admin_account.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckFmsAdminAccountDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccOrganizationsAccountPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckFmsAdminAccountDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccFmsAdminAccountConfig_basic,

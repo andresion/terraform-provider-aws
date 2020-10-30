@@ -309,9 +309,9 @@ func TestAccAWSLBTargetGroup_Protocol_Tls(t *testing.T) {
 	resourceName := "aws_lb_target_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBTargetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBTargetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLBTargetGroupConfig_Protocol_Tls(rName),
@@ -1114,9 +1114,9 @@ func TestAccAWSLBTargetGroup_stickinessValidALB(t *testing.T) {
 
 func TestAccAWSLBTargetGroup_stickinessInvalidNLB(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBTargetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBTargetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSLBTargetGroupConfig_stickinessValidity("TCP", "lb_cookie", true),
@@ -1141,9 +1141,9 @@ func TestAccAWSLBTargetGroup_stickinessInvalidNLB(t *testing.T) {
 
 func TestAccAWSLBTargetGroup_stickinessInvalidALB(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSLBTargetGroupDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSLBTargetGroupDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSLBTargetGroupConfig_stickinessValidity("HTTP", "source_ip", true),

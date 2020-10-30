@@ -189,9 +189,9 @@ func TestAccAWSTransferServer_disappears(t *testing.T) {
 	var conf transfer.DescribedServer
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSTransferServerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSTransferServerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSTransferServerConfig_basic,
@@ -212,10 +212,10 @@ func TestAccAWSTransferServer_forcedestroy(t *testing.T) {
 	rName := acctest.RandString(5)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSTransferServerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSTransferServerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSTransferServerConfig_forcedestroy(rName),
@@ -245,10 +245,10 @@ func TestAccAWSTransferServer_vpcEndpointId(t *testing.T) {
 	resourceName := "aws_transfer_server.default"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSTransferServerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSTransfer(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSTransferServerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSTransferServerConfig_VpcEndPoint,
@@ -274,10 +274,10 @@ func TestAccAWSTransferServer_hostKey(t *testing.T) {
 	hostKey := "test-fixtures/transfer-ssh-rsa-key"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:      func() { testAccPreCheck(t) },
-		IDRefreshName: resourceName,
-		Providers:     testAccProviders,
-		CheckDestroy:  testAccCheckAWSTransferServerDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		IDRefreshName:            resourceName,
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSTransferServerDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSTransferServerConfig_hostKey(hostKey),

@@ -66,9 +66,9 @@ func TestAccAWSAPIGatewayVpcLink_basic(t *testing.T) {
 	vpcLinkNameUpdated := fmt.Sprintf("tf-apigateway-update-%s", rName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAPIGatewayVpcLinkDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAPIGatewayVpcLinkDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAPIGatewayVpcLinkConfig(rName, "test"),
@@ -106,9 +106,9 @@ func TestAccAWSAPIGatewayVpcLink_tags(t *testing.T) {
 	description := "test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAPIGatewayVpcLinkDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAPIGatewayVpcLinkDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAPIGatewayVpcLinkConfigTags1(rName, description, "key1", "value1"),
@@ -158,9 +158,9 @@ func TestAccAWSAPIGatewayVpcLink_disappears(t *testing.T) {
 	resourceName := "aws_api_gateway_vpc_link.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsAPIGatewayVpcLinkDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsAPIGatewayVpcLinkDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAPIGatewayVpcLinkConfig(rName, "test"),

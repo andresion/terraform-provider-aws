@@ -18,9 +18,9 @@ func TestAccAWSCodeDeployDeploymentConfig_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeDeployDeploymentConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeDeployDeploymentConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeDeployDeploymentConfigFleet(rName, 75),
@@ -46,9 +46,9 @@ func TestAccAWSCodeDeployDeploymentConfig_fleetPercent(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeDeployDeploymentConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeDeployDeploymentConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeDeployDeploymentConfigFleet(rName, 75),
@@ -88,9 +88,9 @@ func TestAccAWSCodeDeployDeploymentConfig_hostCount(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeDeployDeploymentConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeDeployDeploymentConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeDeployDeploymentConfigHostCount(rName, 1),
@@ -130,9 +130,9 @@ func TestAccAWSCodeDeployDeploymentConfig_trafficCanary(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeDeployDeploymentConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeDeployDeploymentConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeDeployDeploymentConfigTrafficCanary(rName, 10, 50),
@@ -178,9 +178,9 @@ func TestAccAWSCodeDeployDeploymentConfig_trafficLinear(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeDeployDeploymentConfigDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeDeployDeploymentConfigDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeDeployDeploymentConfigTrafficLinear(rName, 10, 50),

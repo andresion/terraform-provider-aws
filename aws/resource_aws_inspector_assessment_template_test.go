@@ -19,9 +19,9 @@ func TestAccAWSInspectorTemplate_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSInspectorTemplateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSInspectorTemplateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSInspectorTemplateAssessmentBasic(rName),
@@ -50,9 +50,9 @@ func TestAccAWSInspectorTemplate_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSInspectorTemplateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSInspectorTemplateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSInspectorTemplateAssessmentBasic(rName),
@@ -72,9 +72,9 @@ func TestAccAWSInspectorTemplate_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSInspectorTemplateDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSInspectorTemplateDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSInspectorTemplateAssessmentTags1(rName, "key1", "value1"),

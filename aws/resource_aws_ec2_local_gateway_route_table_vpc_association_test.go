@@ -18,9 +18,9 @@ func TestAccAwsEc2LocalGatewayRouteTableVpcAssociation_basic(t *testing.T) {
 	vpcResourceName := "aws_vpc.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2LocalGatewayRouteTableVpcAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2LocalGatewayRouteTableVpcAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEc2LocalGatewayRouteTableVpcAssociationConfig(rName),
@@ -46,9 +46,9 @@ func TestAccAwsEc2LocalGatewayRouteTableVpcAssociation_disappears(t *testing.T) 
 	resourceName := "aws_ec2_local_gateway_route_table_vpc_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2LocalGatewayRouteTableVpcAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2LocalGatewayRouteTableVpcAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEc2LocalGatewayRouteTableVpcAssociationConfig(rName),
@@ -67,9 +67,9 @@ func TestAccAwsEc2LocalGatewayRouteTableVpcAssociation_Tags(t *testing.T) {
 	resourceName := "aws_ec2_local_gateway_route_table_vpc_association.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsEc2LocalGatewayRouteTableVpcAssociationDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSOutpostsOutposts(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsEc2LocalGatewayRouteTableVpcAssociationDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsEc2LocalGatewayRouteTableVpcAssociationConfigTags1(rName, "key1", "value1"),

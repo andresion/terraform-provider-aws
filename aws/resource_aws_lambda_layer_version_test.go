@@ -68,9 +68,9 @@ func TestAccAWSLambdaLayerVersion_basic(t *testing.T) {
 	layerName := fmt.Sprintf("tf_acc_lambda_layer_basic_%s", acctest.RandString(8))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaLayerVersionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaLayerVersionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaLayerVersionBasic(layerName),
@@ -101,9 +101,9 @@ func TestAccAWSLambdaLayerVersion_update(t *testing.T) {
 	layerName := fmt.Sprintf("tf_acc_lambda_layer_basic_%s", acctest.RandString(8))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaLayerVersionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaLayerVersionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaLayerVersionCreateBeforeDestroy(layerName, "test-fixtures/lambdatest.zip"),
@@ -132,9 +132,9 @@ func TestAccAWSLambdaLayerVersion_s3(t *testing.T) {
 	bucketName := fmt.Sprintf("tf-acc-bucket-lambda-layer-s3-%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaLayerVersionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaLayerVersionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaLayerVersionS3(bucketName, layerName),
@@ -157,9 +157,9 @@ func TestAccAWSLambdaLayerVersion_compatibleRuntimes(t *testing.T) {
 	layerName := fmt.Sprintf("tf_acc_lambda_layer_runtimes_%s", rString)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaLayerVersionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaLayerVersionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaLayerVersionCompatibleRuntimes(layerName),
@@ -186,9 +186,9 @@ func TestAccAWSLambdaLayerVersion_description(t *testing.T) {
 	testDescription := "test description"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaLayerVersionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaLayerVersionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaLayerVersionDescription(layerName, testDescription),
@@ -215,9 +215,9 @@ func TestAccAWSLambdaLayerVersion_licenseInfo(t *testing.T) {
 	testLicenseInfo := "MIT"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckLambdaLayerVersionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckLambdaLayerVersionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSLambdaLayerVersionLicenseInfo(layerName, testLicenseInfo),

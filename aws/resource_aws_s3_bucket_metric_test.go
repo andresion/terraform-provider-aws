@@ -271,9 +271,9 @@ func TestAccAWSS3BucketMetric_basic(t *testing.T) {
 	metricName := t.Name()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketMetricDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketMetricDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketMetricsConfigWithoutFilter(bucketName, metricName),
@@ -304,9 +304,9 @@ func TestAccAWSS3BucketMetric_WithEmptyFilter(t *testing.T) {
 	metricName := t.Name()
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketMetricDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketMetricDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketMetricsConfigWithEmptyFilter(bucketName, metricName),
@@ -330,9 +330,9 @@ func TestAccAWSS3BucketMetric_WithFilterPrefix(t *testing.T) {
 	prefixUpdate := fmt.Sprintf("prefix-update-%d/", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketMetricDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketMetricDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketMetricsConfigWithFilterPrefix(bucketName, metricName, prefix),
@@ -376,9 +376,9 @@ func TestAccAWSS3BucketMetric_WithFilterPrefixAndMultipleTags(t *testing.T) {
 	tag2Update := fmt.Sprintf("tag2-update-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketMetricDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketMetricDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketMetricsConfigWithFilterPrefixAndMultipleTags(bucketName, metricName, prefix, tag1, tag2),
@@ -424,9 +424,9 @@ func TestAccAWSS3BucketMetric_WithFilterPrefixAndSingleTag(t *testing.T) {
 	tag1Update := fmt.Sprintf("tag-update-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketMetricDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketMetricDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketMetricsConfigWithFilterPrefixAndSingleTag(bucketName, metricName, prefix, tag1),
@@ -470,9 +470,9 @@ func TestAccAWSS3BucketMetric_WithFilterMultipleTags(t *testing.T) {
 	tag2Update := fmt.Sprintf("tag2-update-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketMetricDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketMetricDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketMetricsConfigWithFilterMultipleTags(bucketName, metricName, tag1, tag2),
@@ -516,9 +516,9 @@ func TestAccAWSS3BucketMetric_WithFilterSingleTag(t *testing.T) {
 	tag1Update := fmt.Sprintf("tag-update-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketMetricDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketMetricDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketMetricsConfigWithFilterSingleTag(bucketName, metricName, tag1),

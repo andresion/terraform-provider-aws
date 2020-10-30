@@ -12,9 +12,9 @@ func testAccAwsSecurityHubActionTarget_basic(t *testing.T) {
 	resourceName := "aws_securityhub_action_target.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSecurityHubActionTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSecurityHubActionTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsSecurityHubActionTargetConfigIdentifier("testaction"),
@@ -39,9 +39,9 @@ func testAccAwsSecurityHubActionTarget_disappears(t *testing.T) {
 	resourceName := "aws_securityhub_action_target.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSecurityHubActionTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSecurityHubActionTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsSecurityHubActionTargetConfigIdentifier("testaction"),
@@ -59,9 +59,9 @@ func testAccAwsSecurityHubActionTarget_Description(t *testing.T) {
 	resourceName := "aws_securityhub_action_target.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSecurityHubActionTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSecurityHubActionTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsSecurityHubActionTargetConfigDescription("description1"),
@@ -90,9 +90,9 @@ func testAccAwsSecurityHubActionTarget_Name(t *testing.T) {
 	resourceName := "aws_securityhub_action_target.test"
 
 	resource.Test(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSecurityHubActionTargetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSecurityHubActionTargetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsSecurityHubActionTargetConfigName("name1"),

@@ -70,9 +70,9 @@ func TestAccAWSRedshiftEventSubscription_basicUpdate(t *testing.T) {
 	rName := fmt.Sprintf("tf-acc-test-redshift-event-subs-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftEventSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftEventSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftEventSubscriptionConfig(rInt),
@@ -110,9 +110,9 @@ func TestAccAWSRedshiftEventSubscription_withPrefix(t *testing.T) {
 	rName := fmt.Sprintf("tf-acc-test-redshift-event-subs-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftEventSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftEventSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftEventSubscriptionConfig(rInt),
@@ -143,9 +143,9 @@ func TestAccAWSRedshiftEventSubscription_withSourceIds(t *testing.T) {
 	rName := fmt.Sprintf("tf-acc-test-redshift-event-subs-with-ids-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftEventSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftEventSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftEventSubscriptionConfigWithSourceIds(rInt),
@@ -190,9 +190,9 @@ func TestAccAWSRedshiftEventSubscription_categoryUpdate(t *testing.T) {
 	rName := fmt.Sprintf("tf-acc-test-redshift-event-subs-%d", rInt)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftEventSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftEventSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftEventSubscriptionConfig(rInt),
@@ -231,9 +231,9 @@ func TestAccAWSRedshiftEventSubscription_tagsUpdate(t *testing.T) {
 	resourceName := "aws_redshift_event_subscription.bar"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSRedshiftEventSubscriptionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSRedshiftEventSubscriptionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSRedshiftEventSubscriptionConfig(rInt),

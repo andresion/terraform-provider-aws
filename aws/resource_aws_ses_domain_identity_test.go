@@ -73,9 +73,9 @@ func TestAccAWSSESDomainIdentity_basic(t *testing.T) {
 		acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSESDomainIdentityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSESDomainIdentityDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsSESDomainIdentityConfig(domain),
@@ -94,9 +94,9 @@ func TestAccAWSSESDomainIdentity_disappears(t *testing.T) {
 		acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSESDomainIdentityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSESDomainIdentityDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsSESDomainIdentityConfig(domain),
@@ -118,9 +118,9 @@ func TestAccAWSSESDomainIdentity_trailingPeriod(t *testing.T) {
 		acctest.RandStringFromCharSet(10, acctest.CharSetAlphaNum))
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsSESDomainIdentityDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSSES(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsSESDomainIdentityDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAwsSESDomainIdentityConfig(domain),

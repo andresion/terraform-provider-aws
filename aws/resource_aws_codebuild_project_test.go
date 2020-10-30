@@ -47,9 +47,9 @@ func TestAccAWSCodeBuildProject_basic(t *testing.T) {
 	roleResourceName := "aws_iam_role.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_basic(rName),
@@ -100,9 +100,9 @@ func TestAccAWSCodeBuildProject_BadgeEnabled(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_BadgeEnabled(rName, true),
@@ -127,9 +127,9 @@ func TestAccAWSCodeBuildProject_BuildTimeout(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_BuildTimeout(rName, 120),
@@ -160,9 +160,9 @@ func TestAccAWSCodeBuildProject_QueuedTimeout(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_QueuedTimeout(rName, 120),
@@ -193,9 +193,9 @@ func TestAccAWSCodeBuildProject_Cache(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSCodeBuildProjectConfig_Cache(rName, "", "S3"),
@@ -267,9 +267,9 @@ func TestAccAWSCodeBuildProject_Description(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Description(rName, "description1"),
@@ -300,9 +300,9 @@ func TestAccAWSCodeBuildProject_SourceVersion(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_SourceVersion(rName, "master"),
@@ -321,9 +321,9 @@ func TestAccAWSCodeBuildProject_EncryptionKey(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_EncryptionKey(rName),
@@ -347,9 +347,9 @@ func TestAccAWSCodeBuildProject_Environment_EnvironmentVariable(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Environment_EnvironmentVariable_One(rName, "KEY1", "VALUE1"),
@@ -395,9 +395,9 @@ func TestAccAWSCodeBuildProject_Environment_EnvironmentVariable_Type(t *testing.
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Environment_EnvironmentVariable_Type(rName, codebuild.EnvironmentVariableTypePlaintext),
@@ -438,9 +438,9 @@ func TestAccAWSCodeBuildProject_Environment_EnvironmentVariable_Value(t *testing
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Environment_EnvironmentVariable_One(rName, "KEY1", ""),
@@ -487,9 +487,9 @@ func TestAccAWSCodeBuildProject_Environment_Certificate(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Environment_Certificate(rName, bName, oName),
@@ -513,9 +513,9 @@ func TestAccAWSCodeBuildProject_LogsConfig_CloudWatchLogs(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_LogsConfig_CloudWatchLogs(rName, codebuild.LogsConfigStatusTypeEnabled, "group-name", ""),
@@ -558,9 +558,9 @@ func TestAccAWSCodeBuildProject_LogsConfig_S3Logs(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_LogsConfig_S3Logs(rName, bName, codebuild.LogsConfigStatusTypeEnabled, bName+"/build-log", false),
@@ -602,9 +602,9 @@ func TestAccAWSCodeBuildProject_Source_Auth(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSCodeBuildProjectConfig_Source_Auth(rName, "FAKERESOURCE1", "INVALID"),
@@ -634,9 +634,9 @@ func TestAccAWSCodeBuildProject_Source_GitCloneDepth(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Source_GitCloneDepth(rName, 1),
@@ -667,9 +667,9 @@ func TestAccAWSCodeBuildProject_Source_GitSubmodulesConfig_CodeCommit(t *testing
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Source_GitSubmodulesConfig_CodeCommit(rName, true),
@@ -702,9 +702,9 @@ func TestAccAWSCodeBuildProject_Source_GitSubmodulesConfig_GitHub(t *testing.T) 
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Source_GitSubmodulesConfig_GitHub(rName, true),
@@ -733,9 +733,9 @@ func TestAccAWSCodeBuildProject_Source_GitSubmodulesConfig_GitHubEnterprise(t *t
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Source_GitSubmodulesConfig_GitHubEnterprise(rName, true),
@@ -764,9 +764,9 @@ func TestAccAWSCodeBuildProject_SecondarySources_GitSubmodulesConfig_CodeCommit(
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_SecondarySources_GitSubmodulesConfig_CodeCommit(rName, true),
@@ -815,9 +815,9 @@ func TestAccAWSCodeBuildProject_SecondarySources_GitSubmodulesConfig_GitHub(t *t
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_SecondarySources_GitSubmodulesConfig_GitHub(rName, true),
@@ -846,9 +846,9 @@ func TestAccAWSCodeBuildProject_SecondarySources_GitSubmodulesConfig_GitHubEnter
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_SecondarySources_GitSubmodulesConfig_GitHubEnterprise(rName, true),
@@ -877,9 +877,9 @@ func TestAccAWSCodeBuildProject_Source_InsecureSSL(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Source_InsecureSSL(rName, true),
@@ -910,9 +910,9 @@ func TestAccAWSCodeBuildProject_Source_ReportBuildStatus_Bitbucket(t *testing.T)
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Source_ReportBuildStatus_Bitbucket(rName, true),
@@ -943,9 +943,9 @@ func TestAccAWSCodeBuildProject_Source_ReportBuildStatus_GitHub(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Source_ReportBuildStatus_GitHub(rName, true),
@@ -976,9 +976,9 @@ func TestAccAWSCodeBuildProject_Source_ReportBuildStatus_GitHubEnterprise(t *tes
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Source_ReportBuildStatus_GitHubEnterprise(rName, true),
@@ -1009,9 +1009,9 @@ func TestAccAWSCodeBuildProject_Source_Type_Bitbucket(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Source_Type_Bitbucket(rName),
@@ -1035,9 +1035,9 @@ func TestAccAWSCodeBuildProject_Source_Type_CodeCommit(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Source_Type_CodeCommit(rName),
@@ -1061,9 +1061,9 @@ func TestAccAWSCodeBuildProject_Source_Type_CodePipeline(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Source_Type_CodePipeline(rName),
@@ -1087,9 +1087,9 @@ func TestAccAWSCodeBuildProject_Source_Type_GitHubEnterprise(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Source_Type_GitHubEnterprise(rName),
@@ -1113,9 +1113,9 @@ func TestAccAWSCodeBuildProject_Source_Type_S3(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Source_Type_S3(rName),
@@ -1145,9 +1145,9 @@ phases:
 `
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Source_Type_NoSource(rName, "", rBuildspec),
@@ -1176,9 +1176,9 @@ phases:
 `
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config:      testAccAWSCodeBuildProjectConfig_Source_Type_NoSource(rName, "", ""),
@@ -1198,9 +1198,9 @@ func TestAccAWSCodeBuildProject_Tags(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Tags(rName, "tag2", "tag2value"),
@@ -1235,9 +1235,9 @@ func TestAccAWSCodeBuildProject_VpcConfig(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_VpcConfig2(rName),
@@ -1281,9 +1281,9 @@ func TestAccAWSCodeBuildProject_WindowsContainer(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_WindowsContainer(rName),
@@ -1313,9 +1313,9 @@ func TestAccAWSCodeBuildProject_WindowsServer2019Container(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_WindowsServer2019Container(rName),
@@ -1345,9 +1345,9 @@ func TestAccAWSCodeBuildProject_ARMContainer(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_ARMContainer(rName),
@@ -1374,9 +1374,9 @@ func TestAccAWSCodeBuildProject_Artifacts_ArtifactIdentifier(t *testing.T) {
 	artifactIdentifier2 := "artifactIdentifier2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_Artifacts_ArtifactIdentifier(rName, bName, artifactIdentifier1),
@@ -1410,9 +1410,9 @@ func TestAccAWSCodeBuildProject_Artifacts_EncryptionDisabled(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_Artifacts_EncryptionDisabled(rName, bName, true),
@@ -1447,9 +1447,9 @@ func TestAccAWSCodeBuildProject_Artifacts_Location(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_Artifacts_Location(rName, bName),
@@ -1486,9 +1486,9 @@ func TestAccAWSCodeBuildProject_Artifacts_Name(t *testing.T) {
 	name2 := "name2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_Artifacts_Name(rName, bName, name1),
@@ -1521,9 +1521,9 @@ func TestAccAWSCodeBuildProject_Artifacts_NamespaceType(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_Artifacts_NamespaceType(rName, codebuild.ArtifactNamespaceBuildId),
@@ -1557,9 +1557,9 @@ func TestAccAWSCodeBuildProject_Artifacts_OverrideArtifactName(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_Artifacts_OverrideArtifactName(rName, bName, true),
@@ -1592,9 +1592,9 @@ func TestAccAWSCodeBuildProject_Artifacts_Packaging(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_Artifacts_Packaging(rName, codebuild.ArtifactPackagingZip),
@@ -1627,9 +1627,9 @@ func TestAccAWSCodeBuildProject_Artifacts_Path(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_Artifacts_Path(rName, "path1"),
@@ -1666,9 +1666,9 @@ func TestAccAWSCodeBuildProject_Artifacts_Type(t *testing.T) {
 	type2 := codebuild.ArtifactsTypeCodepipeline
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_Artifacts_Type(rName, bName, type1),
@@ -1702,9 +1702,9 @@ func TestAccAWSCodeBuildProject_SecondaryArtifacts(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_SecondaryArtifacts(rName, bName),
@@ -1732,9 +1732,9 @@ func TestAccAWSCodeBuildProject_SecondaryArtifacts_ArtifactIdentifier(t *testing
 	artifactIdentifier2 := "artifactIdentifier2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_SecondaryArtifacts_ArtifactIdentifier(rName, bName, artifactIdentifier1),
@@ -1772,9 +1772,9 @@ func TestAccAWSCodeBuildProject_SecondaryArtifacts_OverrideArtifactName(t *testi
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_SecondaryArtifacts_OverrideArtifactName(rName, bName, true),
@@ -1812,9 +1812,9 @@ func TestAccAWSCodeBuildProject_SecondaryArtifacts_EncryptionDisabled(t *testing
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_SecondaryArtifacts_EncryptionDisabled(rName, bName, true),
@@ -1853,9 +1853,9 @@ func TestAccAWSCodeBuildProject_SecondaryArtifacts_Location(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_SecondaryArtifacts_Location(rName, bName),
@@ -1898,9 +1898,9 @@ func TestAccAWSCodeBuildProject_SecondaryArtifacts_Name(t *testing.T) {
 	name2 := "name2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_SecondaryArtifacts_Name(rName, bName, name1),
@@ -1937,9 +1937,9 @@ func TestAccAWSCodeBuildProject_SecondaryArtifacts_NamespaceType(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_SecondaryArtifacts_NamespaceType(rName, codebuild.ArtifactNamespaceBuildId),
@@ -1976,9 +1976,9 @@ func TestAccAWSCodeBuildProject_SecondaryArtifacts_Packaging(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_SecondaryArtifacts_Packaging(rName, codebuild.ArtifactPackagingZip),
@@ -2018,9 +2018,9 @@ func TestAccAWSCodeBuildProject_SecondaryArtifacts_Path(t *testing.T) {
 	path2 := "path2"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_SecondaryArtifacts_Path(rName, path1),
@@ -2058,9 +2058,9 @@ func TestAccAWSCodeBuildProject_SecondaryArtifacts_Type(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodebuildProjectConfig_SecondaryArtifacts_Type(rName, bName, codebuild.ArtifactsTypeS3),
@@ -2087,9 +2087,9 @@ func TestAccAWSCodeBuildProject_SecondarySources_CodeCommit(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_SecondarySources_CodeCommit(rName),
@@ -2140,9 +2140,9 @@ func TestAccAWSCodeBuildProject_Environment_RegistryCredential(t *testing.T) {
 	resourceName := "aws_codebuild_project.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCodeBuildProjectDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSCodeBuild(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCodeBuildProjectDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCodeBuildProjectConfig_Environment_RegistryCredential1(rName),

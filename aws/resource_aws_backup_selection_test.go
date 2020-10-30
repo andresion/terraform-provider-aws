@@ -17,9 +17,9 @@ func TestAccAwsBackupSelection_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupSelectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupSelectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBackupSelectionConfigBasic(rName),
@@ -43,9 +43,9 @@ func TestAccAwsBackupSelection_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupSelectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupSelectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBackupSelectionConfigBasic(rName),
@@ -66,9 +66,9 @@ func TestAccAwsBackupSelection_backupPlanDisappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupSelectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupSelectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBackupSelectionConfigBasic(rName),
@@ -89,9 +89,9 @@ func TestAccAwsBackupSelection_withTags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupSelectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupSelectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBackupSelectionConfigWithTags(rName),
@@ -116,9 +116,9 @@ func TestAccAwsBackupSelection_withResources(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupSelectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupSelectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBackupSelectionConfigWithResources(rName),
@@ -143,9 +143,9 @@ func TestAccAwsBackupSelection_updateTag(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAwsBackupSelectionDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSBackup(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAwsBackupSelectionDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccBackupSelectionConfigBasic(rName),

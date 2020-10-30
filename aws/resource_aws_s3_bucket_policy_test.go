@@ -35,9 +35,9 @@ func TestAccAWSS3BucketPolicy_basic(t *testing.T) {
 }`, partition, name, partition, name)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketPolicyConfig(name),
@@ -100,9 +100,9 @@ func TestAccAWSS3BucketPolicy_policyUpdate(t *testing.T) {
 }`, partition, name)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSS3BucketDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSS3BucketDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSS3BucketPolicyConfig(name),

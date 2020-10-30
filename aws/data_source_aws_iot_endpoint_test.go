@@ -12,8 +12,8 @@ func TestAccAWSIotEndpointDataSource_basic(t *testing.T) {
 	dataSourceName := "data.aws_iot_endpoint.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIotEndpointConfig,
@@ -29,8 +29,8 @@ func TestAccAWSIotEndpointDataSource_EndpointType_IOTCredentialProvider(t *testi
 	dataSourceName := "data.aws_iot_endpoint.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIotEndpointConfigEndpointType("iot:CredentialProvider"),
@@ -46,8 +46,8 @@ func TestAccAWSIotEndpointDataSource_EndpointType_IOTData(t *testing.T) {
 	dataSourceName := "data.aws_iot_endpoint.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIotEndpointConfigEndpointType("iot:Data"),
@@ -63,8 +63,8 @@ func TestAccAWSIotEndpointDataSource_EndpointType_IOTDataATS(t *testing.T) {
 	dataSourceName := "data.aws_iot_endpoint.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIotEndpointConfigEndpointType("iot:Data-ATS"),
@@ -80,8 +80,8 @@ func TestAccAWSIotEndpointDataSource_EndpointType_IOTJobs(t *testing.T) {
 	dataSourceName := "data.aws_iot_endpoint.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:  func() { testAccPreCheck(t) },
-		Providers: testAccProviders,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSIotEndpointConfigEndpointType("iot:Jobs"),

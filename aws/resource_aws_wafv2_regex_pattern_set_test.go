@@ -85,9 +85,9 @@ func TestAccAwsWafv2RegexPatternSet_basic(t *testing.T) {
 	resourceName := "aws_wafv2_regex_pattern_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafv2RegexPatternSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafv2RegexPatternSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RegexPatternSetConfig(rName),
@@ -144,9 +144,9 @@ func TestAccAwsWafv2RegexPatternSet_Disappears(t *testing.T) {
 	resourceName := "aws_wafv2_regex_pattern_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafv2RegexPatternSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafv2RegexPatternSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RegexPatternSetConfig_Minimal(rName),
@@ -166,9 +166,9 @@ func TestAccAwsWafv2RegexPatternSet_Minimal(t *testing.T) {
 	resourceName := "aws_wafv2_regex_pattern_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafv2RegexPatternSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafv2RegexPatternSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RegexPatternSetConfig_Minimal(rName),
@@ -192,9 +192,9 @@ func TestAccAwsWafv2RegexPatternSet_ChangeNameForceNew(t *testing.T) {
 	resourceName := "aws_wafv2_regex_pattern_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafv2RegexPatternSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafv2RegexPatternSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RegexPatternSetConfig(rName),
@@ -228,9 +228,9 @@ func TestAccAwsWafv2RegexPatternSet_Tags(t *testing.T) {
 	resourceName := "aws_wafv2_regex_pattern_set.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSWafv2RegexPatternSetDestroy,
+		PreCheck:                 func() { testAccPreCheck(t); testAccPreCheckAWSWafv2ScopeRegional(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSWafv2RegexPatternSetDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAwsWafv2RegexPatternSetConfig_OneTag(rName, "Tag1", "Value1"),

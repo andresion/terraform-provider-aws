@@ -83,9 +83,9 @@ func TestAccAWSCloudWatchEventRule_basic(t *testing.T) {
 	resourceName := "aws_cloudwatch_event_rule.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventRuleConfig(rName),
@@ -153,9 +153,9 @@ func TestAccAWSCloudWatchEventRule_EventBusName(t *testing.T) {
 	resourceName := "aws_cloudwatch_event_rule.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventRuleConfigEventBusName(rName, busName, "description 1"),
@@ -202,9 +202,9 @@ func TestAccAWSCloudWatchEventRule_role(t *testing.T) {
 	iamRoleResourceName := "aws_iam_role.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventRuleConfigRole(rName),
@@ -229,9 +229,9 @@ func TestAccAWSCloudWatchEventRule_description(t *testing.T) {
 	resourceName := "aws_cloudwatch_event_rule.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventRuleConfigDescription(rName, "description1"),
@@ -264,9 +264,9 @@ func TestAccAWSCloudWatchEventRule_pattern(t *testing.T) {
 	resourceName := "aws_cloudwatch_event_rule.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventRuleConfigPattern(rName, "{\"source\":[\"aws.ec2\"]}"),
@@ -300,9 +300,9 @@ func TestAccAWSCloudWatchEventRule_ScheduleAndPattern(t *testing.T) {
 	resourceName := "aws_cloudwatch_event_rule.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventRuleConfigScheduleAndPattern(rName, "{\"source\":[\"aws.ec2\"]}"),
@@ -328,9 +328,9 @@ func TestAccAWSCloudWatchEventRule_NamePrefix(t *testing.T) {
 	resourceName := "aws_cloudwatch_event_rule.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventRuleConfigNamePrefix(rName),
@@ -354,9 +354,9 @@ func TestAccAWSCloudWatchEventRule_Name_Generated(t *testing.T) {
 	resourceName := "aws_cloudwatch_event_rule.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventRuleConfigNameGenerated,
@@ -381,9 +381,9 @@ func TestAccAWSCloudWatchEventRule_tags(t *testing.T) {
 	resourceName := "aws_cloudwatch_event_rule.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventRuleConfigTags1(rName, "key1", "value1"),
@@ -432,9 +432,9 @@ func TestAccAWSCloudWatchEventRule_IsEnabled(t *testing.T) {
 	resourceName := "aws_cloudwatch_event_rule.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchEventRuleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchEventRuleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchEventRuleConfigIsEnabled(rName, false),

@@ -20,9 +20,9 @@ func TestAccAWSServiceCatalogPortfolio_basic(t *testing.T) {
 	var dpo servicecatalog.DescribePortfolioOutput
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckServiceCatlaogPortfolioDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckServiceCatlaogPortfolioDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsServiceCatalogPortfolioResourceConfigBasic(name),
@@ -51,9 +51,9 @@ func TestAccAWSServiceCatalogPortfolio_Disappears(t *testing.T) {
 	var dpo servicecatalog.DescribePortfolioOutput
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckServiceCatlaogPortfolioDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckServiceCatlaogPortfolioDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsServiceCatalogPortfolioResourceConfigBasic(name),
@@ -73,9 +73,9 @@ func TestAccAWSServiceCatalogPortfolio_Tags(t *testing.T) {
 	var dpo servicecatalog.DescribePortfolioOutput
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckServiceCatlaogPortfolioDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckServiceCatlaogPortfolioDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCheckAwsServiceCatalogPortfolioResourceConfigTags1(name, "key1", "value1"),

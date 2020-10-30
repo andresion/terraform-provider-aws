@@ -210,9 +210,9 @@ func TestAccAWSSnsPlatformApplication_basic(t *testing.T) {
 
 		t.Run(platform.Name, func(*testing.T) {
 			resource.ParallelTest(t, resource.TestCase{
-				PreCheck:     func() { testAccPreCheck(t) },
-				Providers:    testAccProviders,
-				CheckDestroy: testAccCheckAWSSNSPlatformApplicationDestroy,
+				PreCheck:                 func() { testAccPreCheck(t) },
+				ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+				CheckDestroy:             testAccCheckAWSSNSPlatformApplicationDestroy,
 				Steps: []resource.TestStep{
 					{
 						Config: testAccAwsSnsPlatformApplicationConfig_basic(name, &testAccAwsSnsPlatformApplicationPlatform{
@@ -276,9 +276,9 @@ func TestAccAWSSnsPlatformApplication_basicAttributes(t *testing.T) {
 					name := fmt.Sprintf("tf-acc-%d", acctest.RandInt())
 
 					resource.ParallelTest(t, resource.TestCase{
-						PreCheck:     func() { testAccPreCheck(t) },
-						Providers:    testAccProviders,
-						CheckDestroy: testAccCheckAWSSNSPlatformApplicationDestroy,
+						PreCheck:                 func() { testAccPreCheck(t) },
+						ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+						CheckDestroy:             testAccCheckAWSSNSPlatformApplicationDestroy,
 						Steps: []resource.TestStep{
 							{
 								Config: testAccAwsSnsPlatformApplicationConfig_basicAttribute(name, platform, tc.AttributeKey, tc.AttributeValue),
@@ -326,9 +326,9 @@ func TestAccAWSSnsPlatformApplication_iamRoleAttributes(t *testing.T) {
 					name := fmt.Sprintf("tf-acc-%d", acctest.RandInt())
 
 					resource.ParallelTest(t, resource.TestCase{
-						PreCheck:     func() { testAccPreCheck(t) },
-						Providers:    testAccProviders,
-						CheckDestroy: testAccCheckAWSSNSPlatformApplicationDestroy,
+						PreCheck:                 func() { testAccPreCheck(t) },
+						ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+						CheckDestroy:             testAccCheckAWSSNSPlatformApplicationDestroy,
 						Steps: []resource.TestStep{
 							{
 								Config: testAccAwsSnsPlatformApplicationConfig_iamRoleAttribute(name, platform, tc, iamRoleName1),
@@ -378,9 +378,9 @@ func TestAccAWSSnsPlatformApplication_snsTopicAttributes(t *testing.T) {
 					name := fmt.Sprintf("tf-acc-%d", acctest.RandInt())
 
 					resource.ParallelTest(t, resource.TestCase{
-						PreCheck:     func() { testAccPreCheck(t) },
-						Providers:    testAccProviders,
-						CheckDestroy: testAccCheckAWSSNSPlatformApplicationDestroy,
+						PreCheck:                 func() { testAccPreCheck(t) },
+						ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+						CheckDestroy:             testAccCheckAWSSNSPlatformApplicationDestroy,
 						Steps: []resource.TestStep{
 							{
 								Config: testAccAwsSnsPlatformApplicationConfig_snsTopicAttribute(name, platform, tc, snsTopicName1),

@@ -16,9 +16,9 @@ func TestAccAWSCloudWatchLogStream_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchLogStreamDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchLogStreamDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchLogStreamConfig(rName),
@@ -42,9 +42,9 @@ func TestAccAWSCloudWatchLogStream_disappears(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchLogStreamDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchLogStreamDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchLogStreamConfig(rName),
@@ -66,9 +66,9 @@ func TestAccAWSCloudWatchLogStream_disappears_LogGroup(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSCloudWatchLogStreamDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSCloudWatchLogStreamDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSCloudWatchLogStreamConfig(rName),

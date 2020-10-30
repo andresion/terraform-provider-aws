@@ -18,9 +18,9 @@ func TestAccAWSAMICopy_basic(t *testing.T) {
 	resourceName := "aws_ami_copy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAMICopyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAMICopyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAMICopyConfig(rName),
@@ -40,9 +40,9 @@ func TestAccAWSAMICopy_Description(t *testing.T) {
 	resourceName := "aws_ami_copy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAMICopyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAMICopyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAMICopyConfigDescription(rName, "description1"),
@@ -68,9 +68,9 @@ func TestAccAWSAMICopy_EnaSupport(t *testing.T) {
 	resourceName := "aws_ami_copy.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAMICopyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAMICopyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAMICopyConfigENASupport(rName),
@@ -89,9 +89,9 @@ func TestAccAWSAMICopy_tags(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAMICopyDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAMICopyDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAMICopyConfigTags1(rName, "key1", "value1"),

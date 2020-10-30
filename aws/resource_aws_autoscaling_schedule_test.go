@@ -24,9 +24,9 @@ func TestAccAWSAutoscalingSchedule_basic(t *testing.T) {
 	importInput := fmt.Sprintf("%s/%s", rName, scheduledActionName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAutoscalingScheduleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAutoscalingScheduleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAutoscalingScheduleConfig(rName, start, end),
@@ -58,9 +58,9 @@ func TestAccAWSAutoscalingSchedule_disappears(t *testing.T) {
 	end := testAccAWSAutoscalingScheduleValidEnd(t)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAutoscalingScheduleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAutoscalingScheduleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAutoscalingScheduleConfig(rName, start, end),
@@ -96,9 +96,9 @@ func TestAccAWSAutoscalingSchedule_recurrence(t *testing.T) {
 	importInput := fmt.Sprintf("%s/%s", rName, scheduledActionName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAutoscalingScheduleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAutoscalingScheduleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAutoscalingScheduleConfig_recurrence(rName),
@@ -129,9 +129,9 @@ func TestAccAWSAutoscalingSchedule_zeroValues(t *testing.T) {
 	importInput := fmt.Sprintf("%s/%s", rName, scheduledActionName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAutoscalingScheduleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAutoscalingScheduleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAutoscalingScheduleConfig_zeroValues(rName, start, end),
@@ -161,9 +161,9 @@ func TestAccAWSAutoscalingSchedule_negativeOne(t *testing.T) {
 	importInput := fmt.Sprintf("%s/%s", rName, scheduledActionName)
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckAWSAutoscalingScheduleDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckAWSAutoscalingScheduleDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAWSAutoscalingScheduleConfig_negativeOne(rName, start, end),

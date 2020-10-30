@@ -255,9 +255,9 @@ func TestAccAWSInternetGateway_disappears(t *testing.T) {
 	resourceName := "aws_internet_gateway.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t) },
-		Providers:    testAccProviders,
-		CheckDestroy: testAccCheckInternetGatewayDestroy,
+		PreCheck:                 func() { testAccPreCheck(t) },
+		ProtoV5ProviderFactories: testAccProtoV5ProviderFactories,
+		CheckDestroy:             testAccCheckInternetGatewayDestroy,
 		Steps: []resource.TestStep{
 			{
 				Config: testAccInternetGatewayConfig,
