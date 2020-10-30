@@ -11,7 +11,7 @@ require (
 	github.com/hashicorp/go-hclog v0.10.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.0
 	github.com/hashicorp/go-version v1.2.1
-	github.com/hashicorp/terraform-plugin-go v0.0.0-20201029133146-958fd960fed9
+	github.com/hashicorp/terraform-plugin-go v0.0.0-20201030131818-7e96a4130c51
 	github.com/hashicorp/terraform-plugin-mux v0.0.0-20201028111317-17e42a95ba19
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.1.0
 	github.com/jen20/awspolicyequivalence v1.1.0

@@ -302,6 +302,12 @@ github.com/golang/protobuf/ptypes/any
 github.com/golang/protobuf/ptypes/duration
 github.com/golang/protobuf/ptypes/empty
 github.com/golang/protobuf/ptypes/timestamp
+# github.com/google/go-cmp v0.5.2
+github.com/google/go-cmp/cmp
+github.com/google/go-cmp/cmp/internal/diff
+github.com/google/go-cmp/cmp/internal/flags
+github.com/google/go-cmp/cmp/internal/function
+github.com/google/go-cmp/cmp/internal/value
 # github.com/googleapis/gax-go/v2 v2.0.5
 github.com/googleapis/gax-go/v2
 # github.com/hashicorp/aws-sdk-go-base v0.7.0
@@ -353,7 +359,7 @@ github.com/hashicorp/terraform-exec/tfexec
 github.com/hashicorp/terraform-exec/tfinstall
 # github.com/hashicorp/terraform-json v0.5.0
 github.com/hashicorp/terraform-json
-# github.com/hashicorp/terraform-plugin-go v0.0.0-20201029133146-958fd960fed9
+# github.com/hashicorp/terraform-plugin-go v0.0.0-20201030131818-7e96a4130c51
 ## explicit
 github.com/hashicorp/terraform-plugin-go/tfprotov5
 github.com/hashicorp/terraform-plugin-go/tfprotov5/internal/fromproto

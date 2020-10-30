@@ -148,6 +148,8 @@ github.com/google/go-cmp v0.4.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/
 github.com/google/go-cmp v0.4.1/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/google/go-cmp v0.5.0 h1:/QaMHBdZ26BB3SSst0Iwl10Epc+xhTquomWX0oZEB6w=
 github.com/google/go-cmp v0.5.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
+github.com/google/go-cmp v0.5.2 h1:X2ev0eStA3AbceY54o37/0PQ/UWqKEiiO2dKL5OPaFM=
+github.com/google/go-cmp v0.5.2/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/google/martian v2.1.0+incompatible h1:/CP5g8u/VJHijgedC/Legn3BAbAaWPgecwXBIDzw5no=
 github.com/google/martian v2.1.0+incompatible/go.mod h1:9I4somxYTbIHy5NJKHRl3wXiIaQGbYVAs8BPL6v8lEs=
 github.com/google/martian/v3 v3.0.0 h1:pMen7vLs8nvgEYhywH3KDWJIJTeEr2ULsVWHWYHQyBs=
@@ -208,6 +210,8 @@ github.com/hashicorp/terraform-plugin-go v0.0.0-20201007135710-95da7fbd4bb8/go.m
 github.com/hashicorp/terraform-plugin-go v0.0.0-20201020231029-49daeca5241c/go.mod h1:iVxhkJdmLuDh+8BKTj9bdL+/lbusHKxAEuptE8VCjdM=
 github.com/hashicorp/terraform-plugin-go v0.0.0-20201029133146-958fd960fed9 h1:TMfkaSHtYSdW1P4CPjs1L0vsG1avPd1Itbciag47P5w=
 github.com/hashicorp/terraform-plugin-go v0.0.0-20201029133146-958fd960fed9/go.mod h1:xbqx6szM1IDO6Y3SqIKkC4F667L9c1sP6fxU1I+o6NU=
+github.com/hashicorp/terraform-plugin-go v0.0.0-20201030131818-7e96a4130c51 h1:aqCbOTsqQdQ0suUo5r2of1fCYeoePdz1TKe+SDOJ+7Y=
+github.com/hashicorp/terraform-plugin-go v0.0.0-20201030131818-7e96a4130c51/go.mod h1:10V6F3taeDWVAoLlkmArKttR3IULlRWFAGtQIQTIDr4=
 github.com/hashicorp/terraform-plugin-mux v0.0.0-20201028111317-17e42a95ba19 h1:20rSFsWb0ap/fFmgi9pKyDWPqbVF7U+zSgZpY61cTzM=
 github.com/hashicorp/terraform-plugin-mux v0.0.0-20201028111317-17e42a95ba19/go.mod h1:lKZXaUUhcUIwtLA2O1f29nc2cLateoTHQxvxTaKh0qU=
 github.com/hashicorp/terraform-plugin-sdk-private/v2 v2.0.5-0.20201030104909-08ecd4b5f413 h1:+1S3H+4vqtd0hYLndaOhSMVqPGe5UGpL2qlhaXJImZA=
@@ -284,6 +288,7 @@ github.com/mitchellh/reflectwalk v1.0.1 h1:FVzMWA5RllMAKIdUSC8mdWo3XtwoecrH79BY7
 github.com/mitchellh/reflectwalk v1.0.1/go.mod h1:mSTlrgnPZtwu0c4WaC2kGObEpuNDbx0jmZXqmk4esnw=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e h1:fD57ERR4JtEqsWbfPhv4DMiApHyliiK5xCTNVSPiaAs=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
+github.com/nsf/jsondiff v0.0.0-20200515183724-f29ed568f4ce/go.mod h1:uFMI8w+ref4v2r9jz+c9i1IfIttS/OkmLfrk1jne5hs=
 github.com/oklog/run v1.0.0 h1:Ru7dDtJNOyC66gQ5dQmaCa0qIsAUFY3sFpK1Xk8igrw=
 github.com/oklog/run v1.0.0/go.mod h1:dlhp/R75TPv97u0XWUtDeV/lRKWPKSdTuV0TZvrmrQA=
 github.com/pierrec/lz4 v2.0.5+incompatible/go.mod h1:pdkljMzZIN41W+lC3N2tnIh5sFi+IEE17M5jbnwPHcY=
