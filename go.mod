@@ -11,6 +11,8 @@ require (
 	github.com/hashicorp/go-hclog v0.10.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.0
 	github.com/hashicorp/go-version v1.2.1
+	github.com/hashicorp/terraform-plugin-go v0.0.0-20201029133146-958fd960fed9
+	github.com/hashicorp/terraform-plugin-mux v0.0.0-20201028111317-17e42a95ba19
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.1.0
 	github.com/jen20/awspolicyequivalence v1.1.0
 	github.com/keybase/go-crypto v0.0.0-20161004153544-93f5b35093ba
@@ -21,3 +23,5 @@ require (
 	github.com/stretchr/testify v1.6.1 // indirect
 	gopkg.in/yaml.v2 v2.3.0
 )
+
+replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/hashicorp/terraform-plugin-sdk-private/v2 v2.0.5-0.20201030104909-08ecd4b5f413
