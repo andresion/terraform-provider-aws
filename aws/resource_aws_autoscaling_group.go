@@ -58,16 +58,16 @@ func resourceAwsAutoscalingGroup() *schema.Resource {
 			},
 
 			"launch_configuration": {
-				Type:          schema.TypeString,
-				Optional:      true,
-				ConflictsWith: []string{"launch_template"},
+				Type:         schema.TypeString,
+				Optional:     true,
+				ExactlyOneOf: []string{"launch_configuration", "launch_template", "mixed_instances_policy"},
 			},
 
 			"launch_template": {
-				Type:          schema.TypeList,
-				MaxItems:      1,
-				Optional:      true,
-				ConflictsWith: []string{"launch_configuration"},
+				Type:         schema.TypeList,
+				MaxItems:     1,
+				Optional:     true,
+				ExactlyOneOf: []string{"launch_configuration", "launch_template", "mixed_instances_policy"},
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"id": {
@@ -94,9 +94,10 @@ func resourceAwsAutoscalingGroup() *schema.Resource {
 			},
 
 			"mixed_instances_policy": {
-				Type:     schema.TypeList,
-				Optional: true,
-				MaxItems: 1,
+				Type:         schema.TypeList,
+				Optional:     true,
+				MaxItems:     1,
+				ExactlyOneOf: []string{"launch_configuration", "launch_template", "mixed_instances_policy"},
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"instances_distribution": {
@@ -548,7 +549,6 @@ func resourceAwsAutoscalingGroupCreate(d *schema.ResourceData, meta interface{})
 
 	createOpts := autoscaling.CreateAutoScalingGroupInput{
 		AutoScalingGroupName:             aws.String(asgName),
-		MixedInstancesPolicy:             expandAutoScalingMixedInstancesPolicy(d.Get("mixed_instances_policy").([]interface{})),
 		NewInstancesProtectedFromScaleIn: aws.Bool(d.Get("protect_from_scale_in").(bool)),
 	}
 	updateOpts := autoscaling.UpdateAutoScalingGroupInput{
@@ -580,23 +580,20 @@ func resourceAwsAutoscalingGroupCreate(d *schema.ResourceData, meta interface{})
 		}
 	}
 
-	launchConfigurationValue, launchConfigurationOk := d.GetOk("launch_configuration")
-	launchTemplateValue, launchTemplateOk := d.GetOk("launch_template")
-
-	if createOpts.MixedInstancesPolicy == nil && !launchConfigurationOk && !launchTemplateOk {
-		return fmt.Errorf("One of `launch_configuration`, `launch_template`, or `mixed_instances_policy` must be set for an autoscaling group")
+	if v, ok := d.GetOk("launch_configuration"); ok {
+		createOpts.LaunchConfigurationName = aws.String(v.(string))
 	}
 
-	if launchConfigurationOk {
-		createOpts.LaunchConfigurationName = aws.String(launchConfigurationValue.(string))
-	}
-
-	if launchTemplateOk {
+	if v, ok := d.GetOk("launch_template"); ok {
 		var err error
-		createOpts.LaunchTemplate, err = expandLaunchTemplateSpecification(launchTemplateValue.([]interface{}))
+		createOpts.LaunchTemplate, err = expandLaunchTemplateSpecification(v.([]interface{}))
 		if err != nil {
 			return err
 		}
+	}
+
+	if v, ok := d.GetOk("mixed_instances_policy"); ok {
+		createOpts.MixedInstancesPolicy = expandAutoScalingMixedInstancesPolicy(v.([]interface{}))
 	}
 
 	// Availability Zones are optional if VPC Zone Identifier(s) are specified
