@@ -30,21 +30,21 @@ func init() {
 func testSweepAutoscalingGroups(region string) error {
 	client, err := sharedClientForRegion(region)
 	if err != nil {
-		return fmt.Errorf("error getting client: %s", err)
+		return fmt.Errorf("error getting client: %w", err)
 	}
 	conn := client.(*AWSClient).autoscalingconn
 
 	resp, err := conn.DescribeAutoScalingGroups(&autoscaling.DescribeAutoScalingGroupsInput{})
 	if err != nil {
 		if testSweepSkipSweepError(err) {
-			log.Printf("[WARN] Skipping AutoScaling Group sweep for %s: %s", region, err)
+			log.Printf("[WARN] Skipping Auto Scaling Group sweep for %s: %s", region, err)
 			return nil
 		}
-		return fmt.Errorf("Error retrieving AutoScaling Groups in Sweeper: %s", err)
+		return fmt.Errorf("error retrieving Auto Scaling Groups in Sweeper: %w", err)
 	}
 
 	if len(resp.AutoScalingGroups) == 0 {
-		log.Print("[DEBUG] No aws autoscaling groups to sweep")
+		log.Print("[DEBUG] No Auto Scaling Groups to sweep")
 		return nil
 	}
 
@@ -997,7 +997,7 @@ func testAccCheckAWSAutoScalingGroupDestroy(s *terraform.State) error {
 		if err == nil {
 			if len(describeGroups.AutoScalingGroups) != 0 &&
 				*describeGroups.AutoScalingGroups[0].AutoScalingGroupName == rs.Primary.ID {
-				return fmt.Errorf("AutoScaling Group still exists")
+				return fmt.Errorf("Auto Scaling Group still exists")
 			}
 		}
 
@@ -1017,11 +1017,11 @@ func testAccCheckAWSAutoScalingGroupDestroy(s *terraform.State) error {
 func testAccCheckAWSAutoScalingGroupAttributes(group *autoscaling.Group, name string) resource.TestCheckFunc {
 	return func(s *terraform.State) error {
 		if *group.AutoScalingGroupName != name {
-			return fmt.Errorf("Bad Autoscaling Group name, expected (%s), got (%s)", name, *group.AutoScalingGroupName)
+			return fmt.Errorf("bad Auto Scaling Group name, expected (%s), got (%s)", name, *group.AutoScalingGroupName)
 		}
 
 		if *group.MaxSize != 5 {
-			return fmt.Errorf("Bad max_size: %d", *group.MaxSize)
+			return fmt.Errorf("bad max_size: %d", *group.MaxSize)
 		}
 
 		if *group.MinSize != 2 {
@@ -1053,10 +1053,7 @@ func testAccCheckAWSAutoScalingGroupAttributes(group *autoscaling.Group, name st
 		}
 
 		if !reflect.DeepEqual(group.Tags[0], t) {
-			return fmt.Errorf(
-				"Got:\n\n%#v\n\nExpected:\n\n%#v\n",
-				group.Tags[0],
-				t)
+			return fmt.Errorf("Got:\n\n%s\n\nExpected:\n\n%s", group.Tags[0], t)
 		}
 
 		return nil
@@ -1081,7 +1078,7 @@ func testAccCheckAWSAutoScalingGroupExists(n string, group *autoscaling.Group) r
 		}
 
 		if rs.Primary.ID == "" {
-			return fmt.Errorf("No AutoScaling Group ID is set")
+			return fmt.Errorf("No Auto Scaling Group ID is set")
 		}
 
 		conn := testAccProvider.Meta().(*AWSClient).autoscalingconn
@@ -1097,7 +1094,7 @@ func testAccCheckAWSAutoScalingGroupExists(n string, group *autoscaling.Group) r
 
 		if len(describeGroups.AutoScalingGroups) != 1 ||
 			*describeGroups.AutoScalingGroups[0].AutoScalingGroupName != rs.Primary.ID {
-			return fmt.Errorf("AutoScaling Group not found")
+			return fmt.Errorf("Auto Scaling Group not found")
 		}
 
 		*group = *describeGroups.AutoScalingGroups[0]
@@ -1134,7 +1131,7 @@ func testAccCheckAWSAutoScalingGroupHealthyCapacity(
 			}
 		}
 		if healthy < exp {
-			return fmt.Errorf("Expected at least %d healthy, got %d.", exp, healthy)
+			return fmt.Errorf("expected at least %d healthy, got %d.", exp, healthy)
 		}
 		return nil
 	}
@@ -1152,7 +1149,7 @@ func testAccCheckAWSAutoScalingGroupAttributesVPCZoneIdentifier(group *autoscali
 		}
 
 		if group.VPCZoneIdentifier == nil {
-			return fmt.Errorf("Bad VPC Zone Identifier\nexpected: %s\ngot nil", subnets)
+			return fmt.Errorf("bad VPC Zone Identifier\nexpected: %s\ngot nil", subnets)
 		}
 
 		zones := strings.Split(*group.VPCZoneIdentifier, ",")
@@ -1167,7 +1164,7 @@ func testAccCheckAWSAutoScalingGroupAttributesVPCZoneIdentifier(group *autoscali
 		}
 
 		if remaining != 0 {
-			return fmt.Errorf("Bad VPC Zone Identifier match\nexpected: %s\ngot:%s", zones, subnets)
+			return fmt.Errorf("bad VPC Zone Identifier match\nexpected: %s\ngot:%s", zones, subnets)
 		}
 
 		return nil

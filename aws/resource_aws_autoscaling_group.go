@@ -304,7 +304,7 @@ func resourceAwsAutoscalingGroup() *schema.Resource {
 					duration, err := time.ParseDuration(value)
 					if err != nil {
 						errors = append(errors, fmt.Errorf(
-							"%q cannot be parsed as a duration: %s", k, err))
+							"%q cannot be parsed as a duration: %w", k, err))
 					}
 					if duration < 0 {
 						errors = append(errors, fmt.Errorf(
@@ -677,7 +677,7 @@ func resourceAwsAutoscalingGroupCreate(d *schema.ResourceData, meta interface{})
 		_, err = conn.CreateAutoScalingGroup(&createOpts)
 	}
 	if err != nil {
-		return fmt.Errorf("Error creating AutoScaling Group: %s", err)
+		return fmt.Errorf("Error creating AutoScaling Group: %w", err)
 	}
 
 	d.SetId(d.Get("name").(string))
@@ -686,13 +686,13 @@ func resourceAwsAutoscalingGroupCreate(d *schema.ResourceData, meta interface{})
 	if twoPhases {
 		for _, hook := range generatePutLifecycleHookInputs(asgName, initialLifecycleHooks) {
 			if err = resourceAwsAutoscalingLifecycleHookPutOp(conn, &hook); err != nil {
-				return fmt.Errorf("Error creating initial lifecycle hooks: %s", err)
+				return fmt.Errorf("Error creating initial lifecycle hooks: %w", err)
 			}
 		}
 
 		_, err = conn.UpdateAutoScalingGroup(&updateOpts)
 		if err != nil {
-			return fmt.Errorf("Error setting AutoScaling Group initial capacity: %s", err)
+			return fmt.Errorf("Error setting AutoScaling Group initial capacity: %w", err)
 		}
 	}
 
@@ -732,7 +732,7 @@ func resourceAwsAutoscalingGroupRead(d *schema.ResourceData, meta interface{}) e
 	}
 
 	if err := d.Set("availability_zones", flattenStringList(g.AvailabilityZones)); err != nil {
-		return fmt.Errorf("error setting availability_zones: %s", err)
+		return fmt.Errorf("error setting availability_zones: %w", err)
 	}
 
 	d.Set("arn", g.AutoScalingGroupARN)
@@ -744,7 +744,7 @@ func resourceAwsAutoscalingGroupRead(d *schema.ResourceData, meta interface{}) e
 	d.Set("metrics_granularity", "1Minute")
 	if g.EnabledMetrics != nil {
 		if err := d.Set("enabled_metrics", flattenAsgEnabledMetrics(g.EnabledMetrics)); err != nil {
-			return fmt.Errorf("error setting enabled_metrics: %s", err)
+			return fmt.Errorf("error setting enabled_metrics: %w", err)
 		}
 		d.Set("metrics_granularity", g.EnabledMetrics[0].Granularity)
 	}
@@ -753,7 +753,7 @@ func resourceAwsAutoscalingGroupRead(d *schema.ResourceData, meta interface{}) e
 	d.Set("health_check_type", g.HealthCheckType)
 
 	if err := d.Set("load_balancers", flattenStringList(g.LoadBalancerNames)); err != nil {
-		return fmt.Errorf("error setting load_balancers: %s", err)
+		return fmt.Errorf("error setting load_balancers: %w", err)
 	}
 
 	d.Set("launch_configuration", g.LaunchConfigurationName)
@@ -766,7 +766,7 @@ func resourceAwsAutoscalingGroupRead(d *schema.ResourceData, meta interface{}) e
 	d.Set("min_size", g.MinSize)
 
 	if err := d.Set("mixed_instances_policy", flattenAutoScalingMixedInstancesPolicy(g.MixedInstancesPolicy)); err != nil {
-		return fmt.Errorf("error setting mixed_instances_policy: %s", err)
+		return fmt.Errorf("error setting mixed_instances_policy: %w", err)
 	}
 
 	d.Set("name", g.AutoScalingGroupName)
@@ -776,7 +776,7 @@ func resourceAwsAutoscalingGroupRead(d *schema.ResourceData, meta interface{}) e
 	d.Set("max_instance_lifetime", g.MaxInstanceLifetime)
 
 	if err := d.Set("suspended_processes", flattenAsgSuspendedProcesses(g.SuspendedProcesses)); err != nil {
-		return fmt.Errorf("error setting suspended_processes: %s", err)
+		return fmt.Errorf("error setting suspended_processes: %w", err)
 	}
 
 	var tagOk, tagsOk bool
@@ -807,7 +807,7 @@ func resourceAwsAutoscalingGroupRead(d *schema.ResourceData, meta interface{}) e
 	}
 
 	if err := d.Set("target_group_arns", flattenStringList(g.TargetGroupARNs)); err != nil {
-		return fmt.Errorf("error setting target_group_arns: %s", err)
+		return fmt.Errorf("error setting target_group_arns: %w", err)
 	}
 
 	// If no termination polices are explicitly configured and the upstream state
@@ -818,14 +818,14 @@ func resourceAwsAutoscalingGroupRead(d *schema.ResourceData, meta interface{}) e
 		d.Set("termination_policies", []interface{}{})
 	} else {
 		if err := d.Set("termination_policies", flattenStringList(g.TerminationPolicies)); err != nil {
-			return fmt.Errorf("error setting termination_policies: %s", err)
+			return fmt.Errorf("error setting termination_policies: %w", err)
 		}
 	}
 
 	d.Set("vpc_zone_identifier", []string{})
 	if len(aws.StringValue(g.VPCZoneIdentifier)) > 0 {
 		if err := d.Set("vpc_zone_identifier", strings.Split(aws.StringValue(g.VPCZoneIdentifier), ",")); err != nil {
-			return fmt.Errorf("error setting vpc_zone_identifier: %s", err)
+			return fmt.Errorf("error setting vpc_zone_identifier: %w", err)
 		}
 	}
 
@@ -1020,7 +1020,7 @@ func resourceAwsAutoscalingGroupUpdate(d *schema.ResourceData, meta interface{})
 	log.Printf("[DEBUG] AutoScaling Group update configuration: %#v", opts)
 	_, err := conn.UpdateAutoScalingGroup(&opts)
 	if err != nil {
-		return fmt.Errorf("Error updating Autoscaling group: %s", err)
+		return fmt.Errorf("Error updating Autoscaling group: %w", err)
 	}
 
 	if d.HasChange("load_balancers") {
@@ -1056,11 +1056,11 @@ func resourceAwsAutoscalingGroupUpdate(d *schema.ResourceData, meta interface{})
 				})
 
 				if err != nil {
-					return fmt.Errorf("error detaching AutoScaling Group (%s) Load Balancers: %s", d.Id(), err)
+					return fmt.Errorf("error detaching AutoScaling Group (%s) Load Balancers: %w", d.Id(), err)
 				}
 
 				if err := waitUntilAutoscalingGroupLoadBalancersRemoved(conn, d.Id()); err != nil {
-					return fmt.Errorf("error describing AutoScaling Group (%s) Load Balancers being removed: %s", d.Id(), err)
+					return fmt.Errorf("error describing AutoScaling Group (%s) Load Balancers being removed: %w", d.Id(), err)
 				}
 			}
 		}
@@ -1083,11 +1083,11 @@ func resourceAwsAutoscalingGroupUpdate(d *schema.ResourceData, meta interface{})
 				})
 
 				if err != nil {
-					return fmt.Errorf("error attaching AutoScaling Group (%s) Load Balancers: %s", d.Id(), err)
+					return fmt.Errorf("error attaching AutoScaling Group (%s) Load Balancers: %w", d.Id(), err)
 				}
 
 				if err := waitUntilAutoscalingGroupLoadBalancersAdded(conn, d.Id()); err != nil {
-					return fmt.Errorf("error describing AutoScaling Group (%s) Load Balancers being added: %s", d.Id(), err)
+					return fmt.Errorf("error describing AutoScaling Group (%s) Load Balancers being added: %w", d.Id(), err)
 				}
 			}
 		}
@@ -1125,11 +1125,11 @@ func resourceAwsAutoscalingGroupUpdate(d *schema.ResourceData, meta interface{})
 					TargetGroupARNs:      batch,
 				})
 				if err != nil {
-					return fmt.Errorf("Error updating Load Balancers Target Groups for AutoScaling Group (%s), error: %s", d.Id(), err)
+					return fmt.Errorf("Error updating Load Balancers Target Groups for AutoScaling Group (%s), error: %w", d.Id(), err)
 				}
 
 				if err := waitUntilAutoscalingGroupLoadBalancerTargetGroupsRemoved(conn, d.Id()); err != nil {
-					return fmt.Errorf("error describing AutoScaling Group (%s) Load Balancer Target Groups being removed: %s", d.Id(), err)
+					return fmt.Errorf("error describing AutoScaling Group (%s) Load Balancer Target Groups being removed: %w", d.Id(), err)
 				}
 			}
 
@@ -1152,11 +1152,11 @@ func resourceAwsAutoscalingGroupUpdate(d *schema.ResourceData, meta interface{})
 				})
 
 				if err != nil {
-					return fmt.Errorf("Error updating Load Balancers Target Groups for AutoScaling Group (%s), error: %s", d.Id(), err)
+					return fmt.Errorf("Error updating Load Balancers Target Groups for AutoScaling Group (%s), error: %w", d.Id(), err)
 				}
 
 				if err := waitUntilAutoscalingGroupLoadBalancerTargetGroupsAdded(conn, d.Id()); err != nil {
-					return fmt.Errorf("error describing AutoScaling Group (%s) Load Balancer Target Groups being added: %s", d.Id(), err)
+					return fmt.Errorf("error describing AutoScaling Group (%s) Load Balancer Target Groups being added: %w", d.Id(), err)
 				}
 			}
 		}
@@ -1164,19 +1164,19 @@ func resourceAwsAutoscalingGroupUpdate(d *schema.ResourceData, meta interface{})
 
 	if shouldWaitForCapacity {
 		if err := waitForASGCapacity(d, meta, capacitySatisfiedUpdate); err != nil {
-			return fmt.Errorf("Error waiting for AutoScaling Group Capacity: %s", err)
+			return fmt.Errorf("Error waiting for AutoScaling Group Capacity: %w", err)
 		}
 	}
 
 	if d.HasChange("enabled_metrics") {
 		if err := updateASGMetricsCollection(d, conn); err != nil {
-			return fmt.Errorf("Error updating AutoScaling Group Metrics collection: %s", err)
+			return fmt.Errorf("Error updating AutoScaling Group Metrics collection: %w", err)
 		}
 	}
 
 	if d.HasChange("suspended_processes") {
 		if err := updateASGSuspendedProcesses(d, conn); err != nil {
-			return fmt.Errorf("Error updating AutoScaling Group Suspended Processes: %s", err)
+			return fmt.Errorf("Error updating AutoScaling Group Suspended Processes: %w", err)
 		}
 	}
 
@@ -1237,7 +1237,7 @@ func resourceAwsAutoscalingGroupDelete(d *schema.ResourceData, meta interface{})
 		}
 	}
 	if err != nil {
-		return fmt.Errorf("Error deleting autoscaling group: %s", err)
+		return fmt.Errorf("Error deleting autoscaling group: %w", err)
 	}
 
 	var group *autoscaling.Group
@@ -1256,7 +1256,7 @@ func resourceAwsAutoscalingGroupDelete(d *schema.ResourceData, meta interface{})
 		}
 	}
 	if err != nil {
-		return fmt.Errorf("Error deleting autoscaling group: %s", err)
+		return fmt.Errorf("Error deleting autoscaling group: %w", err)
 	}
 	return nil
 }
@@ -1274,7 +1274,7 @@ func getAwsAutoscalingGroup(asgName string, conn *autoscaling.AutoScaling) (*aut
 			return nil, nil
 		}
 
-		return nil, fmt.Errorf("Error retrieving AutoScaling groups: %s", err)
+		return nil, fmt.Errorf("Error retrieving AutoScaling groups: %w", err)
 	}
 
 	// Search for the autoscaling group
@@ -1304,7 +1304,7 @@ func resourceAwsAutoscalingGroupDrain(d *schema.ResourceData, meta interface{}) 
 		MaxSize:              aws.Int64(0),
 	}
 	if _, err := conn.UpdateAutoScalingGroup(&opts); err != nil {
-		return fmt.Errorf("Error setting capacity to zero to drain: %s", err)
+		return fmt.Errorf("Error setting capacity to zero to drain: %w", err)
 	}
 
 	// Next, wait for the autoscale group to drain
@@ -1331,14 +1331,14 @@ func resourceAwsAutoscalingGroupDrain(d *schema.ResourceData, meta interface{}) 
 	if isResourceTimeoutError(err) {
 		g, err = getAwsAutoscalingGroup(d.Id(), conn)
 		if err != nil {
-			return fmt.Errorf("Error getting autoscaling group info when draining: %s", err)
+			return fmt.Errorf("Error getting autoscaling group info when draining: %w", err)
 		}
 		if g != nil && len(g.Instances) > 0 {
 			return fmt.Errorf("Group still has %d instances", len(g.Instances))
 		}
 	}
 	if err != nil {
-		return fmt.Errorf("Error draining autoscaling group: %s", err)
+		return fmt.Errorf("Error draining autoscaling group: %w", err)
 	}
 	return nil
 }
@@ -1387,7 +1387,7 @@ func updateASGSuspendedProcesses(d *schema.ResourceData, conn *autoscaling.AutoS
 
 		_, err := conn.ResumeProcesses(props)
 		if err != nil {
-			return fmt.Errorf("Error Resuming Processes for ASG %q: %s", d.Id(), err)
+			return fmt.Errorf("Error Resuming Processes for ASG %q: %w", d.Id(), err)
 		}
 	}
 
@@ -1400,7 +1400,7 @@ func updateASGSuspendedProcesses(d *schema.ResourceData, conn *autoscaling.AutoS
 
 		_, err := conn.SuspendProcesses(props)
 		if err != nil {
-			return fmt.Errorf("Error Suspending Processes for ASG %q: %s", d.Id(), err)
+			return fmt.Errorf("Error Suspending Processes for ASG %q: %w", d.Id(), err)
 		}
 	}
 
@@ -1430,7 +1430,7 @@ func updateASGMetricsCollection(d *schema.ResourceData, conn *autoscaling.AutoSc
 
 		_, err := conn.DisableMetricsCollection(props)
 		if err != nil {
-			return fmt.Errorf("Failure to Disable metrics collection types for ASG %s: %s", d.Id(), err)
+			return fmt.Errorf("Failure to Disable metrics collection types for ASG %s: %w", d.Id(), err)
 		}
 	}
 
@@ -1444,7 +1444,7 @@ func updateASGMetricsCollection(d *schema.ResourceData, conn *autoscaling.AutoSc
 
 		_, err := conn.EnableMetricsCollection(props)
 		if err != nil {
-			return fmt.Errorf("Failure to Enable metrics collection types for ASG %s: %s", d.Id(), err)
+			return fmt.Errorf("Failure to Enable metrics collection types for ASG %s: %w", d.Id(), err)
 		}
 	}
 
