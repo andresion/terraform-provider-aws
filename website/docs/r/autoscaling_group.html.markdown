@@ -230,9 +230,9 @@ The following arguments are supported:
 * `availability_zones` - (Optional) A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
 * `capacity_rebalance` - (Optional) Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 * `default_cooldown` - (Optional) The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
-* `launch_configuration` - (Optional) The name of the launch configuration to use.
-* `launch_template` - (Optional) Nested argument with Launch template specification to use to launch instances. Defined below.
-* `mixed_instances_policy` (Optional) Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
+* `launch_configuration` - (Optional) The name of the launch configuration to use. One of `launch_configuration`, `launch_template`, or `mixed_instances_policy` is required.
+* `launch_template` - (Optional) Nested argument with Launch template specification to use to launch instances. Defined below. One of `launch_configuration`, `launch_template`, or `mixed_instances_policy` is required.
+* `mixed_instances_policy` (Optional) Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below. One of `launch_configuration`, `launch_template`, or `mixed_instances_policy` is required.
 * `initial_lifecycle_hook` - (Optional) One or more
   [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
   to attach to the autoscaling group **before** instances are launched. The
