@@ -17,6 +17,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
+	"github.com/terraform-providers/terraform-provider-aws/aws/internal/hashcode"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/keyvaluetags"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service/elasticache/finder"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service/elasticache/waiter"
@@ -118,7 +119,7 @@ func resourceAwsElasticacheReplicationGroup() *schema.Resource {
 				Optional: true,
 				Computed: true,
 				StateFunc: func(val interface{}) string {
-					// Elasticache always changes the maintenance to lowercase
+					// ElastiCache always changes the maintenance window to lowercase
 					return strings.ToLower(val.(string))
 				},
 				ValidateFunc: validateOnceAWeekWindowFormat,
@@ -133,6 +134,44 @@ func resourceAwsElasticacheReplicationGroup() *schema.Resource {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
+			},
+			"node_groups": {
+				Type: schema.TypeSet,
+				// Optional: true,
+				Computed: true,
+				Elem: &schema.Resource{
+					Schema: map[string]*schema.Schema{
+						"node_group_id": {
+							Type: schema.TypeString,
+							// Optional: true,
+							Computed: true,
+							// ValidateFunc: ???,
+						},
+						"primary_availability_zone": {
+							// Settable, but needs to be synthesized on read
+							Type:     schema.TypeString,
+							Computed: true,
+						},
+						"replica_availability_zones": {
+							// Settable, but needs to be synthesized on read
+							Type:     schema.TypeList,
+							Elem:     &schema.Schema{Type: schema.TypeString},
+							Computed: true,
+						},
+						"replica_count": {
+							Type:     schema.TypeInt,
+							Computed: true,
+						},
+						"slots": {
+							Type:     schema.TypeString,
+							Computed: true,
+						},
+					},
+				},
+				Set: func(v interface{}) int {
+					m := v.(map[string]interface{})
+					return hashcode.String(m["node_group_id"].(string))
+				},
 			},
 			"node_type": {
 				Type:     schema.TypeString,
@@ -308,11 +347,13 @@ func resourceAwsElasticacheReplicationGroup() *schema.Resource {
 
 				return nil
 			},
-			customdiff.ComputedIf("member_clusters", func(ctx context.Context, diff *schema.ResourceDiff, meta interface{}) bool {
-				return diff.HasChange("number_cache_clusters") ||
-					diff.HasChange("cluster_mode.0.num_node_groups") ||
-					diff.HasChange("cluster_mode.0.replicas_per_node_group")
-			}),
+			func(ctx context.Context, diff *schema.ResourceDiff, meta interface{}) error {
+				if diff.HasChange("number_cache_clusters") || diff.HasChange("cluster_mode.0.num_node_groups") {
+					diff.SetNewComputed("member_clusters")
+					diff.SetNewComputed("node_groups")
+				}
+				return nil
+			},
 		),
 	}
 }
@@ -489,6 +530,10 @@ func resourceAwsElasticacheReplicationGroupRead(d *schema.ResourceData, meta int
 	d.Set("cluster_enabled", rgp.ClusterEnabled)
 	d.Set("replication_group_id", rgp.ReplicationGroupId)
 	d.Set("arn", rgp.ARN)
+
+	if err := d.Set("node_groups", flattenElastiCacheNodeGroups(rgp.NodeGroups)); err != nil {
+		return fmt.Errorf("error setting node_groups: %w", err)
+	}
 
 	if rgp.NodeGroups != nil {
 		if len(rgp.NodeGroups[0].NodeGroupMembers) == 0 {
@@ -755,6 +800,43 @@ func flattenElasticacheNodeGroupsToClusterMode(nodeGroups []*elasticache.NodeGro
 		"replicas_per_node_group": (len(nodeGroups[0].NodeGroupMembers) - 1),
 	}
 	return []map[string]interface{}{m}
+}
+
+func flattenElastiCacheNodeGroups(nodeGroups []*elasticache.NodeGroup) []map[string]interface{} {
+	if len(nodeGroups) == 0 {
+		return []map[string]interface{}{}
+	}
+
+	result := make([]map[string]interface{}, len(nodeGroups))
+	for i, nodeGroup := range nodeGroups {
+		result[i] = flattenElastiCacheNodeGroup(nodeGroup)
+	}
+	return result
+}
+
+func flattenElastiCacheNodeGroup(nodeGroup *elasticache.NodeGroup) map[string]interface{} {
+	result := map[string]interface{}{
+		"node_group_id": aws.StringValue(nodeGroup.NodeGroupId),
+		"replica_count": len(nodeGroup.NodeGroupMembers) - 1,
+	}
+
+	if nodeGroup.Slots != nil {
+		result["slots"] = aws.StringValue(nodeGroup.Slots)
+	}
+
+	replicaAZs := make([]string, 0, len(nodeGroup.NodeGroupMembers)-1)
+	for _, member := range nodeGroup.NodeGroupMembers {
+		if aws.StringValue(member.CurrentRole) == "primary" {
+			result["primary_availability_zone"] = aws.StringValue(member.PreferredAvailabilityZone)
+		} else if aws.StringValue(member.CurrentRole) == "replica" {
+			replicaAZs = append(replicaAZs, aws.StringValue(member.PreferredAvailabilityZone))
+		}
+	}
+	if len(replicaAZs) != 0 {
+		result["replica_availability_zones"] = replicaAZs
+	}
+
+	return result
 }
 
 func elasticacheReplicationGroupModifyShardConfiguration(conn *elasticache.ElastiCache, d *schema.ResourceData) error {
