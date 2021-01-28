@@ -492,21 +492,20 @@ func TestAccAWSElasticacheReplicationGroup_ClusterMode_Basic(t *testing.T) {
 					resource.TestCheckResourceAttr(resourceName, "automatic_failover_enabled", "true"),
 					resource.TestCheckResourceAttr(resourceName, "number_cache_clusters", "4"),
 					resource.TestCheckResourceAttr(resourceName, "member_clusters.#", "4"),
+
 					resource.TestCheckResourceAttr(resourceName, "node_groups.#", "2"),
-					resource.TestMatchTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]*regexp.Regexp{
-						"node_group_id":                regexp.MustCompile(`^0001$`),
-						"primary_availability_zone":    regexp.MustCompile(`^$`),
-						"replica_availability_zones.#": regexp.MustCompile(`^0$`),
-						"replica_count":                regexp.MustCompile(`^1$`),
-						"slots":                        regexp.MustCompile(`^\d+-\d+$`),
-					}),
-					resource.TestMatchTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]*regexp.Regexp{
-						"node_group_id":                regexp.MustCompile(`^0002$`),
-						"primary_availability_zone":    regexp.MustCompile(`^$`),
-						"replica_availability_zones.#": regexp.MustCompile(`^0$`),
-						"replica_count":                regexp.MustCompile(`^1$`),
-						"slots":                        regexp.MustCompile(`^\d+-\d+$`),
-					}),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.node_group_id", "0001"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.primary_availability_zone", ""),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_availability_zones.#", "0"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_count", "1"),
+					resource.TestMatchResourceAttr(resourceName, "node_groups.0.slots", regexp.MustCompile(`^\d+-\d+$`)),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.1.node_group_id", "0002"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.1.primary_availability_zone", ""),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.1.replica_availability_zones.#", "0"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.1.replica_count", "1"),
+					resource.TestMatchResourceAttr(resourceName, "node_groups.1.slots", regexp.MustCompile(`^\d+-\d+$`)),
 				),
 			},
 			{
@@ -542,14 +541,14 @@ func TestAccAWSElasticacheReplicationGroup_ClusterMode_NonClusteredParameterGrou
 					resource.TestCheckNoResourceAttr(resourceName, "configuration_endpoint_address"),
 					resource.TestCheckResourceAttr(resourceName, "number_cache_clusters", "2"),
 					resource.TestCheckResourceAttr(resourceName, "member_clusters.#", "2"),
+
 					resource.TestCheckResourceAttr(resourceName, "node_groups.#", "1"),
-					resource.TestMatchTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]*regexp.Regexp{
-						"node_group_id":                regexp.MustCompile(`^0001$`),
-						"primary_availability_zone":    regexp.MustCompile(testAccGetRegion()),
-						"replica_availability_zones.#": regexp.MustCompile(`^1$`),
-						"replica_count":                regexp.MustCompile(`^1$`),
-						"slots":                        regexp.MustCompile(`^$`),
-					}),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.node_group_id", "0001"),
+					resource.TestMatchResourceAttr(resourceName, "node_groups.0.primary_availability_zone", regexp.MustCompile("^"+testAccGetRegion())),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_availability_zones.#", "1"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_count", "1"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.slots", ""),
 				),
 			},
 			{
@@ -582,15 +581,14 @@ func TestAccAWSElasticacheReplicationGroup_ClusterMode_UpdateNumNodeGroups_Scale
 					resource.TestCheckResourceAttr(resourceName, "cluster_mode.#", "1"),
 					resource.TestCheckResourceAttr(resourceName, "cluster_mode.0.num_node_groups", "2"),
 					resource.TestCheckResourceAttr(resourceName, "cluster_mode.0.replicas_per_node_group", "1"),
+
 					resource.TestCheckResourceAttr(resourceName, "node_groups.#", "2"),
-					resource.TestCheckTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]string{
-						"node_group_id": "0001",
-						"replica_count": "1",
-					}),
-					resource.TestCheckTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]string{
-						"node_group_id": "0002",
-						"replica_count": "1",
-					}),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.node_group_id", "0001"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_count", "1"),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.1.node_group_id", "0002"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.1.replica_count", "1"),
 				),
 			},
 			{
@@ -604,19 +602,17 @@ func TestAccAWSElasticacheReplicationGroup_ClusterMode_UpdateNumNodeGroups_Scale
 					resource.TestCheckResourceAttr(resourceName, "cluster_mode.0.replicas_per_node_group", "1"),
 					resource.TestCheckResourceAttr(resourceName, "number_cache_clusters", "6"),
 					resource.TestCheckResourceAttr(resourceName, "member_clusters.#", "6"),
+
 					resource.TestCheckResourceAttr(resourceName, "node_groups.#", "3"),
-					resource.TestCheckTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]string{
-						"node_group_id": "0001",
-						"replica_count": "1",
-					}),
-					resource.TestCheckTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]string{
-						"node_group_id": "0002",
-						"replica_count": "1",
-					}),
-					resource.TestCheckTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]string{
-						"node_group_id": "0003",
-						"replica_count": "1",
-					}),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.node_group_id", "0001"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_count", "1"),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.1.node_group_id", "0002"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.1.replica_count", "1"),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.2.node_group_id", "0003"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.2.replica_count", "1"),
 				),
 			},
 		},
@@ -644,22 +640,20 @@ func TestAccAWSElasticacheReplicationGroup_ClusterMode_UpdateNumNodeGroups_Scale
 					resource.TestCheckResourceAttr(resourceName, "cluster_mode.0.replicas_per_node_group", "1"),
 					resource.TestCheckResourceAttr(resourceName, "number_cache_clusters", "6"),
 					resource.TestCheckResourceAttr(resourceName, "member_clusters.#", "6"),
+
 					resource.TestCheckResourceAttr(resourceName, "node_groups.#", "3"),
-					resource.TestMatchTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]*regexp.Regexp{
-						"node_group_id": regexp.MustCompile(`^0001$`),
-						"replica_count": regexp.MustCompile(`^1$`),
-						"slots":         regexp.MustCompile(`^\d+-\d+$`),
-					}),
-					resource.TestMatchTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]*regexp.Regexp{
-						"node_group_id": regexp.MustCompile(`^0002$`),
-						"replica_count": regexp.MustCompile(`^1$`),
-						"slots":         regexp.MustCompile(`^\d+-\d+$`),
-					}),
-					resource.TestMatchTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]*regexp.Regexp{
-						"node_group_id": regexp.MustCompile(`^0003$`),
-						"replica_count": regexp.MustCompile(`^1$`),
-						"slots":         regexp.MustCompile(`^\d+-\d+$`),
-					}),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.node_group_id", "0001"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_count", "1"),
+					resource.TestMatchResourceAttr(resourceName, "node_groups.0.slots", regexp.MustCompile(`^\d+-\d+$`)),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.1.node_group_id", "0002"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.1.replica_count", "1"),
+					resource.TestMatchResourceAttr(resourceName, "node_groups.1.slots", regexp.MustCompile(`^\d+-\d+$`)),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.2.node_group_id", "0003"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.2.replica_count", "1"),
+					resource.TestMatchResourceAttr(resourceName, "node_groups.2.slots", regexp.MustCompile(`^\d+-\d+$`)),
 				),
 			},
 			{
@@ -673,17 +667,16 @@ func TestAccAWSElasticacheReplicationGroup_ClusterMode_UpdateNumNodeGroups_Scale
 					resource.TestCheckResourceAttr(resourceName, "cluster_mode.0.replicas_per_node_group", "1"),
 					resource.TestCheckResourceAttr(resourceName, "number_cache_clusters", "4"),
 					resource.TestCheckResourceAttr(resourceName, "member_clusters.#", "4"),
+
 					resource.TestCheckResourceAttr(resourceName, "node_groups.#", "2"),
-					resource.TestMatchTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]*regexp.Regexp{
-						"node_group_id": regexp.MustCompile(`^0001$`),
-						"replica_count": regexp.MustCompile(`^1$`),
-						"slots":         regexp.MustCompile(`^\d+-\d+(,\d+-\d+)*$`),
-					}),
-					resource.TestMatchTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]*regexp.Regexp{
-						"node_group_id": regexp.MustCompile(`^0002$`),
-						"replica_count": regexp.MustCompile(`^1$`),
-						"slots":         regexp.MustCompile(`^\d+-\d+(,\d+-\d+)*$`),
-					}),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.node_group_id", "0001"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_count", "1"),
+					resource.TestMatchResourceAttr(resourceName, "node_groups.0.slots", regexp.MustCompile(`^\d+-\d+(,\d+-\d+)*$`)),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.1.node_group_id", "0002"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.1.replica_count", "1"),
+					resource.TestMatchResourceAttr(resourceName, "node_groups.1.slots", regexp.MustCompile(`^\d+-\d+(,\d+-\d+)*$`)),
 				),
 			},
 		},
@@ -737,15 +730,14 @@ func TestAccAWSElasticacheReplicationGroup_ClusterMode_UpdateReplicasPerNodeGrou
 					resource.TestCheckResourceAttr(resourceName, "cluster_mode.0.replicas_per_node_group", "2"),
 					resource.TestCheckResourceAttr(resourceName, "number_cache_clusters", "6"),
 					resource.TestCheckResourceAttr(resourceName, "member_clusters.#", "6"),
+
 					resource.TestCheckResourceAttr(resourceName, "node_groups.#", "2"),
-					resource.TestMatchTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]*regexp.Regexp{
-						"node_group_id": regexp.MustCompile(`^0001$`),
-						"replica_count": regexp.MustCompile(`^2$`),
-					}),
-					resource.TestMatchTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]*regexp.Regexp{
-						"node_group_id": regexp.MustCompile(`^0002$`),
-						"replica_count": regexp.MustCompile(`^2$`),
-					}),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.node_group_id", "0001"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_count", "2"),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.1.node_group_id", "0002"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.1.replica_count", "2"),
 				),
 			},
 		},
@@ -826,15 +818,117 @@ func TestAccAWSElasticacheReplicationGroup_ClusterMode_UpdateNumNodeGroupsAndRep
 					resource.TestCheckResourceAttr(resourceName, "cluster_mode.0.replicas_per_node_group", "1"),
 					resource.TestCheckResourceAttr(resourceName, "number_cache_clusters", "4"),
 					resource.TestCheckResourceAttr(resourceName, "member_clusters.#", "4"),
+
 					resource.TestCheckResourceAttr(resourceName, "node_groups.#", "2"),
-					resource.TestMatchTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]*regexp.Regexp{
-						"node_group_id": regexp.MustCompile(`^0001$`),
-						"replica_count": regexp.MustCompile(`^1$`),
-					}),
-					resource.TestMatchTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]*regexp.Regexp{
-						"node_group_id": regexp.MustCompile(`^0002$`),
-						"replica_count": regexp.MustCompile(`^1$`),
-					}),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.node_group_id", "0001"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_count", "1"),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.1.node_group_id", "0002"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.1.replica_count", "1"),
+				),
+			},
+		},
+	})
+}
+
+func TestAccAWSElasticacheReplicationGroup_NodeGroups_NonClusterMode_NoReplicas(t *testing.T) {
+	var rg elasticache.ReplicationGroup
+	rName := acctest.RandomWithPrefix("tf-acc-test")
+	resourceName := "aws_elasticache_replication_group.test"
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:     func() { testAccPreCheck(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		Steps: []resource.TestStep{
+			{
+				Config: testAccAWSElasticacheReplicationGroupNativeConfig_NodeGroups_NonClusterMode_NoReplicas(rName),
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckAWSElasticacheReplicationGroupExists(resourceName, &rg),
+
+					resource.TestCheckResourceAttr(resourceName, "parameter_group_name", "default.redis6.x"),
+					resource.TestCheckResourceAttr(resourceName, "cluster_mode.#", "1"),
+					resource.TestCheckResourceAttr(resourceName, "cluster_mode.0.num_node_groups", "1"),
+					resource.TestCheckResourceAttr(resourceName, "cluster_mode.0.replicas_per_node_group", "0"),
+					resource.TestCheckResourceAttr(resourceName, "number_cache_clusters", "1"),
+					resource.TestCheckResourceAttr(resourceName, "member_clusters.#", "1"),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.#", "1"),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.node_group_id", "0001"),
+					resource.TestCheckResourceAttrPair(resourceName, "node_groups.0.primary_availability_zone", "aws_subnet.test.0", "availability_zone"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_availability_zones.#", "0"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_count", "0"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.slots", ""),
+				),
+			},
+			{
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"apply_immediately"},
+			},
+		},
+	})
+}
+
+func TestAccAWSElasticacheReplicationGroup_NodeGroups_NonClusterMode_Replicas(t *testing.T) {
+	var rg elasticache.ReplicationGroup
+	rName := acctest.RandomWithPrefix("tf-acc-test")
+	resourceName := "aws_elasticache_replication_group.test"
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:     func() { testAccPreCheck(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckAWSElasticacheReplicationDestroy,
+		Steps: []resource.TestStep{
+			{
+				Config: testAccAWSElasticacheReplicationGroupNativeConfig_NodeGroups_NonClusterMode_Replicas(rName, 1),
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckAWSElasticacheReplicationGroupExists(resourceName, &rg),
+
+					resource.TestCheckResourceAttr(resourceName, "parameter_group_name", "default.redis6.x"),
+					resource.TestCheckResourceAttr(resourceName, "cluster_mode.#", "1"),
+					resource.TestCheckResourceAttr(resourceName, "cluster_mode.0.num_node_groups", "1"),
+					resource.TestCheckResourceAttr(resourceName, "cluster_mode.0.replicas_per_node_group", "1"),
+					resource.TestCheckResourceAttr(resourceName, "number_cache_clusters", "2"),
+					resource.TestCheckResourceAttr(resourceName, "member_clusters.#", "2"),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.#", "1"),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.node_group_id", "0001"),
+					resource.TestMatchResourceAttr(resourceName, "node_groups.0.primary_availability_zone", regexp.MustCompile("^"+testAccGetRegion())),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_availability_zones.#", "1"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_count", "1"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.slots", ""),
+				),
+			},
+			{
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"apply_immediately"},
+			},
+			{
+				Config: testAccAWSElasticacheReplicationGroupNativeConfig_NodeGroups_NonClusterMode_Replicas(rName, 3),
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckAWSElasticacheReplicationGroupExists(resourceName, &rg),
+
+					resource.TestCheckResourceAttr(resourceName, "parameter_group_name", "default.redis6.x"),
+					resource.TestCheckResourceAttr(resourceName, "cluster_mode.#", "1"),
+					resource.TestCheckResourceAttr(resourceName, "cluster_mode.0.num_node_groups", "1"),
+					resource.TestCheckResourceAttr(resourceName, "cluster_mode.0.replicas_per_node_group", "3"),
+					resource.TestCheckResourceAttr(resourceName, "number_cache_clusters", "4"),
+					resource.TestCheckResourceAttr(resourceName, "member_clusters.#", "4"),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.#", "1"),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.node_group_id", "0001"),
+					resource.TestMatchResourceAttr(resourceName, "node_groups.0.primary_availability_zone", regexp.MustCompile("^"+testAccGetRegion())),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_availability_zones.#", "3"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_count", "3"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.slots", ""),
 				),
 			},
 		},
@@ -984,14 +1078,14 @@ func TestAccAWSElasticacheReplicationGroup_NumberCacheClusters_Basic(t *testing.
 					resource.TestCheckResourceAttr(resourceName, "multi_az_enabled", "false"),
 					resource.TestCheckResourceAttr(resourceName, "number_cache_clusters", "2"),
 					resource.TestCheckResourceAttr(resourceName, "member_clusters.#", "2"),
+
 					resource.TestCheckResourceAttr(resourceName, "node_groups.#", "1"),
-					resource.TestMatchTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]*regexp.Regexp{
-						"node_group_id":                regexp.MustCompile(`^0001$`),
-						"primary_availability_zone":    regexp.MustCompile(testAccGetRegion()),
-						"replica_availability_zones.#": regexp.MustCompile(`^1$`),
-						"replica_count":                regexp.MustCompile(`^1$`),
-						"slots":                        regexp.MustCompile(`^$`),
-					}),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.node_group_id", "0001"),
+					resource.TestMatchResourceAttr(resourceName, "node_groups.0.primary_availability_zone", regexp.MustCompile("^"+testAccGetRegion())),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_availability_zones.#", "1"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_count", "1"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.slots", ""),
 				),
 			},
 			{
@@ -1008,14 +1102,14 @@ func TestAccAWSElasticacheReplicationGroup_NumberCacheClusters_Basic(t *testing.
 					resource.TestCheckResourceAttr(resourceName, "multi_az_enabled", "false"),
 					resource.TestCheckResourceAttr(resourceName, "number_cache_clusters", "4"),
 					resource.TestCheckResourceAttr(resourceName, "member_clusters.#", "4"),
+
 					resource.TestCheckResourceAttr(resourceName, "node_groups.#", "1"),
-					resource.TestMatchTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]*regexp.Regexp{
-						"node_group_id":                regexp.MustCompile(`^0001$`),
-						"primary_availability_zone":    regexp.MustCompile(testAccGetRegion()),
-						"replica_availability_zones.#": regexp.MustCompile(`^3$`),
-						"replica_count":                regexp.MustCompile(`^3$`),
-						"slots":                        regexp.MustCompile(`^$`),
-					}),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.node_group_id", "0001"),
+					resource.TestMatchResourceAttr(resourceName, "node_groups.0.primary_availability_zone", regexp.MustCompile("^"+testAccGetRegion())),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_availability_zones.#", "3"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_count", "3"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.slots", ""),
 				),
 			},
 			{
@@ -1026,14 +1120,14 @@ func TestAccAWSElasticacheReplicationGroup_NumberCacheClusters_Basic(t *testing.
 					resource.TestCheckResourceAttr(resourceName, "multi_az_enabled", "false"),
 					resource.TestCheckResourceAttr(resourceName, "number_cache_clusters", "2"),
 					resource.TestCheckResourceAttr(resourceName, "member_clusters.#", "2"),
+
 					resource.TestCheckResourceAttr(resourceName, "node_groups.#", "1"),
-					resource.TestMatchTypeSetElemNestedAttrs(resourceName, "node_groups.*", map[string]*regexp.Regexp{
-						"node_group_id":                regexp.MustCompile(`^0001$`),
-						"primary_availability_zone":    regexp.MustCompile(testAccGetRegion()),
-						"replica_availability_zones.#": regexp.MustCompile(`^1$`),
-						"replica_count":                regexp.MustCompile(`^1$`),
-						"slots":                        regexp.MustCompile(`^$`),
-					}),
+
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.node_group_id", "0001"),
+					resource.TestMatchResourceAttr(resourceName, "node_groups.0.primary_availability_zone", regexp.MustCompile("^"+testAccGetRegion())),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_availability_zones.#", "1"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_count", "1"),
+					resource.TestCheckResourceAttr(resourceName, "node_groups.0.slots", ""),
 				),
 			},
 		},
@@ -1985,7 +2079,7 @@ resource "aws_elasticache_subnet_group" "test" {
 
   subnet_ids = [
     aws_subnet.test.id,
-    aws_subnet.test.id,
+    aws_subnet.test2.id,
   ]
 }
 
@@ -2066,7 +2160,7 @@ resource "aws_elasticache_subnet_group" "test" {
 
   subnet_ids = [
     aws_subnet.test.id,
-    aws_subnet.test.id,
+    aws_subnet.test2.id,
   ]
 }
 
@@ -2117,6 +2211,83 @@ resource "aws_elasticache_replication_group" "test" {
   }
 }
 `, rName))
+}
+
+func testAccAWSElasticacheReplicationGroupBase(rName string) string {
+	return composeConfig(
+		testAccAvailableAZsNoOptInConfig(),
+		fmt.Sprintf(`
+resource "aws_vpc" "test" {
+  cidr_block = "192.168.0.0/16"
+}
+
+resource "aws_subnet" "test" {
+  count = 2
+
+  vpc_id            = aws_vpc.test.id
+  cidr_block        = cidrsubnet(aws_vpc.test.cidr_block, 2, count.index)
+  availability_zone = data.aws_availability_zones.available.names[count.index]
+}
+
+resource "aws_elasticache_subnet_group" "test" {
+  name = %[1]q
+
+  subnet_ids = aws_subnet.test[*].id
+}
+
+resource "aws_security_group" "test" {
+  name   = %[1]q
+  vpc_id = aws_vpc.test.id
+
+  ingress {
+    from_port   = -1
+    to_port     = -1
+    protocol    = "icmp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+`, rName),
+	)
+}
+
+func testAccAWSElasticacheReplicationGroupNativeConfig_NodeGroups_NonClusterMode_NoReplicas(rName string) string {
+	return composeConfig(
+		testAccAWSElasticacheReplicationGroupBase(rName),
+		fmt.Sprintf(`
+resource "aws_elasticache_replication_group" "test" {
+  replication_group_id          = %[1]q
+  replication_group_description = "test description"
+  node_type                     = "cache.t2.micro"
+  subnet_group_name             = aws_elasticache_subnet_group.test.name
+  security_group_ids            = [aws_security_group.test.id]
+
+  number_cache_clusters = 1
+
+  node_groups {
+    primary_availability_zone = aws_subnet.test[0].availability_zone
+  }
+}
+`, rName))
+}
+
+func testAccAWSElasticacheReplicationGroupNativeConfig_NodeGroups_NonClusterMode_Replicas(rName string, replicaCount int) string {
+	return composeConfig(
+		testAccAWSElasticacheReplicationGroupBase(rName),
+		fmt.Sprintf(`
+resource "aws_elasticache_replication_group" "test" {
+  replication_group_id          = %[1]q
+  replication_group_description = "test description"
+  node_type                     = "cache.t2.micro"
+  subnet_group_name             = aws_elasticache_subnet_group.test.name
+  security_group_ids            = [aws_security_group.test.id]
+
+  number_cache_clusters = %[2]d
+
+  node_groups {
+    primary_availability_zone = aws_subnet.test[0].availability_zone
+  }
+}
+`, rName, replicaCount+1))
 }
 
 func testAccAWSElasticacheReplicationGroup_UseCmkKmsKeyId(rInt int, rString string) string {

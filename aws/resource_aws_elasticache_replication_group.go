@@ -17,7 +17,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/terraform-providers/terraform-provider-aws/aws/internal/hashcode"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/keyvaluetags"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service/elasticache/finder"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service/elasticache/waiter"
@@ -87,13 +86,14 @@ func resourceAwsElasticacheReplicationGroup() *schema.Resource {
 				ExactlyOneOf: []string{"cluster_mode", "number_cache_clusters"},
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
-						"replicas_per_node_group": {
-							Type:     schema.TypeInt,
-							Required: true,
-						},
 						"num_node_groups": {
 							Type:     schema.TypeInt,
 							Required: true,
+						},
+						"replicas_per_node_group": {
+							Type:     schema.TypeInt,
+							Optional: true,
+							ForceNew: true,
 						},
 					},
 				},
@@ -136,41 +136,41 @@ func resourceAwsElasticacheReplicationGroup() *schema.Resource {
 				Default:  false,
 			},
 			"node_groups": {
-				Type: schema.TypeSet,
-				// Optional: true,
+				Type:     schema.TypeList,
+				Optional: true,
 				Computed: true,
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"node_group_id": {
-							Type: schema.TypeString,
-							// Optional: true,
+							Type:     schema.TypeString,
+							Optional: true,
 							Computed: true,
 							// ValidateFunc: ???,
 						},
 						"primary_availability_zone": {
 							// Settable, but needs to be synthesized on read
 							Type:     schema.TypeString,
+							Optional: true,
 							Computed: true,
 						},
 						"replica_availability_zones": {
 							// Settable, but needs to be synthesized on read
 							Type:     schema.TypeList,
 							Elem:     &schema.Schema{Type: schema.TypeString},
+							Optional: true,
 							Computed: true,
 						},
 						"replica_count": {
 							Type:     schema.TypeInt,
+							Optional: true,
 							Computed: true,
 						},
 						"slots": {
 							Type:     schema.TypeString,
+							Optional: true,
 							Computed: true,
 						},
 					},
-				},
-				Set: func(v interface{}) int {
-					m := v.(map[string]interface{})
-					return hashcode.String(m["node_group_id"].(string))
 				},
 			},
 			"node_type": {
@@ -459,6 +459,11 @@ func resourceAwsElasticacheReplicationGroupCreate(d *schema.ResourceData, meta i
 
 	if cacheClusters, ok := d.GetOk("number_cache_clusters"); ok {
 		params.NumCacheClusters = aws.Int64(int64(cacheClusters.(int)))
+	}
+
+	if v, ok := d.GetOk("node_groups"); ok {
+		nodeGroups := v.([]interface{})
+		params.NodeGroupConfiguration = expandElastiCacheNodeGroups(nodeGroups)
 	}
 
 	resp, err := conn.CreateReplicationGroup(params)
@@ -814,14 +819,26 @@ func flattenElastiCacheNodeGroups(nodeGroups []*elasticache.NodeGroup) []map[str
 	return result
 }
 
+func expandElastiCacheNodeGroups(s []interface{}) []*elasticache.NodeGroupConfiguration {
+	result := make([]*elasticache.NodeGroupConfiguration, len(s))
+	for i, v := range s {
+		m := v.(map[string]interface{})
+		node := &elasticache.NodeGroupConfiguration{
+			PrimaryAvailabilityZone: aws.String(m["primary_availability_zone"].(string)),
+		}
+		if s, ok := m["node_group_id"].(string); ok && s != "" {
+			node.NodeGroupId = aws.String(m["node_group_id"].(string))
+		}
+		result[i] = node
+	}
+	return result
+}
+
 func flattenElastiCacheNodeGroup(nodeGroup *elasticache.NodeGroup) map[string]interface{} {
 	result := map[string]interface{}{
 		"node_group_id": aws.StringValue(nodeGroup.NodeGroupId),
 		"replica_count": len(nodeGroup.NodeGroupMembers) - 1,
-	}
-
-	if nodeGroup.Slots != nil {
-		result["slots"] = aws.StringValue(nodeGroup.Slots)
+		"slots":         aws.StringValue(nodeGroup.Slots),
 	}
 
 	replicaAZs := make([]string, 0, len(nodeGroup.NodeGroupMembers)-1)
