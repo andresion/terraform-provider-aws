@@ -314,6 +314,7 @@ func TestAccAWSElasticacheReplicationGroup_multiAzNotInVpc(t *testing.T) {
 	var rg elasticache.ReplicationGroup
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_elasticache_replication_group.test"
+	azsDataSourceName := "data.aws_availability_zones.available"
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:     func() { testAccPreCheck(t) },
@@ -343,8 +344,8 @@ func TestAccAWSElasticacheReplicationGroup_multiAzNotInVpc(t *testing.T) {
 					resource.TestCheckResourceAttr(resourceName, "multi_az_enabled", "true"),
 					resource.TestCheckResourceAttr(resourceName, "automatic_failover_enabled", "true"),
 					resource.TestCheckResourceAttr(resourceName, "availability_zones.#", "2"),
-					resource.TestCheckResourceAttrPair(resourceName, "availability_zones.0", "data.aws_availability_zones.available", "names.0"),
-					resource.TestCheckResourceAttrPair(resourceName, "availability_zones.1", "data.aws_availability_zones.available", "names.1"),
+					resource.TestCheckResourceAttrPair(resourceName, "availability_zones.0", azsDataSourceName, "names.0"),
+					resource.TestCheckResourceAttrPair(resourceName, "availability_zones.1", azsDataSourceName, "names.1"),
 				),
 			},
 			{
@@ -522,6 +523,7 @@ func TestAccAWSElasticacheReplicationGroup_ClusterMode_NonClusteredParameterGrou
 	var rg elasticache.ReplicationGroup
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_elasticache_replication_group.test"
+	subnet0ResourceName := "aws_subnet.test.0"
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:     func() { testAccPreCheck(t) },
@@ -545,7 +547,7 @@ func TestAccAWSElasticacheReplicationGroup_ClusterMode_NonClusteredParameterGrou
 					resource.TestCheckResourceAttr(resourceName, "node_groups.#", "1"),
 
 					resource.TestCheckResourceAttr(resourceName, "node_groups.0.node_group_id", "0001"),
-					resource.TestMatchResourceAttr(resourceName, "node_groups.0.primary_availability_zone", regexp.MustCompile("^"+testAccGetRegion())),
+					resource.TestCheckResourceAttrPair(resourceName, "node_groups.0.primary_availability_zone", subnet0ResourceName, "availability_zone"),
 					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_availability_zones.#", "1"),
 					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_count", "1"),
 					resource.TestCheckResourceAttr(resourceName, "node_groups.0.slots", ""),
@@ -836,6 +838,7 @@ func TestAccAWSElasticacheReplicationGroup_NodeGroups_NonClusterMode_NoReplicas(
 	var rg elasticache.ReplicationGroup
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_elasticache_replication_group.test"
+	subnet0ResourceName := "aws_subnet.test.0"
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:     func() { testAccPreCheck(t) },
@@ -857,7 +860,7 @@ func TestAccAWSElasticacheReplicationGroup_NodeGroups_NonClusterMode_NoReplicas(
 					resource.TestCheckResourceAttr(resourceName, "node_groups.#", "1"),
 
 					resource.TestCheckResourceAttr(resourceName, "node_groups.0.node_group_id", "0001"),
-					resource.TestCheckResourceAttrPair(resourceName, "node_groups.0.primary_availability_zone", "aws_subnet.test.0", "availability_zone"),
+					resource.TestCheckResourceAttrPair(resourceName, "node_groups.0.primary_availability_zone", subnet0ResourceName, "availability_zone"),
 					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_availability_zones.#", "0"),
 					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_count", "0"),
 					resource.TestCheckResourceAttr(resourceName, "node_groups.0.slots", ""),
@@ -877,6 +880,7 @@ func TestAccAWSElasticacheReplicationGroup_NodeGroups_NonClusterMode_Replicas(t 
 	var rg elasticache.ReplicationGroup
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_elasticache_replication_group.test"
+	subnet0ResourceName := "aws_subnet.test.0"
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:     func() { testAccPreCheck(t) },
@@ -898,7 +902,7 @@ func TestAccAWSElasticacheReplicationGroup_NodeGroups_NonClusterMode_Replicas(t 
 					resource.TestCheckResourceAttr(resourceName, "node_groups.#", "1"),
 
 					resource.TestCheckResourceAttr(resourceName, "node_groups.0.node_group_id", "0001"),
-					resource.TestMatchResourceAttr(resourceName, "node_groups.0.primary_availability_zone", regexp.MustCompile("^"+testAccGetRegion())),
+					resource.TestCheckResourceAttrPair(resourceName, "node_groups.0.primary_availability_zone", subnet0ResourceName, "availability_zone"),
 					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_availability_zones.#", "1"),
 					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_count", "1"),
 					resource.TestCheckResourceAttr(resourceName, "node_groups.0.slots", ""),
@@ -925,7 +929,7 @@ func TestAccAWSElasticacheReplicationGroup_NodeGroups_NonClusterMode_Replicas(t 
 					resource.TestCheckResourceAttr(resourceName, "node_groups.#", "1"),
 
 					resource.TestCheckResourceAttr(resourceName, "node_groups.0.node_group_id", "0001"),
-					resource.TestMatchResourceAttr(resourceName, "node_groups.0.primary_availability_zone", regexp.MustCompile("^"+testAccGetRegion())),
+					resource.TestCheckResourceAttrPair(resourceName, "node_groups.0.primary_availability_zone", subnet0ResourceName, "availability_zone"),
 					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_availability_zones.#", "3"),
 					resource.TestCheckResourceAttr(resourceName, "node_groups.0.replica_count", "3"),
 					resource.TestCheckResourceAttr(resourceName, "node_groups.0.slots", ""),
