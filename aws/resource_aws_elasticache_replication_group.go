@@ -143,19 +143,17 @@ func resourceAwsElasticacheReplicationGroup() *schema.Resource {
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"node_group_id": {
-							Type:     schema.TypeString,
-							Optional: true,
-							Computed: true,
-							// ValidateFunc: ???,
+							Type:         schema.TypeString,
+							Optional:     true,
+							Computed:     true,
+							ValidateFunc: validation.StringMatch(regexp.MustCompile(`\d{4}`), "node_group_id must be four digits"),
 						},
 						"primary_availability_zone": {
-							// Settable, but needs to be synthesized on read
 							Type:     schema.TypeString,
 							Optional: true,
 							Computed: true,
 						},
 						"replica_availability_zones": {
-							// Settable, but needs to be synthesized on read
 							Type:     schema.TypeList,
 							Elem:     &schema.Schema{Type: schema.TypeString},
 							Optional: true,
