@@ -83,7 +83,7 @@ func resourceAwsElasticacheReplicationGroup() *schema.Resource {
 				Optional:     true,
 				Computed:     true,
 				MaxItems:     1,
-				ExactlyOneOf: []string{"cluster_mode", "number_cache_clusters"},
+				ExactlyOneOf: []string{"cluster_mode", "number_cache_clusters", "node_groups"},
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"num_node_groups": {
@@ -136,9 +136,10 @@ func resourceAwsElasticacheReplicationGroup() *schema.Resource {
 				Default:  false,
 			},
 			"node_groups": {
-				Type:     schema.TypeList,
-				Optional: true,
-				Computed: true,
+				Type:         schema.TypeList,
+				Optional:     true,
+				Computed:     true,
+				ExactlyOneOf: []string{"cluster_mode", "number_cache_clusters", "node_groups"},
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"node_group_id": {
@@ -187,7 +188,7 @@ func resourceAwsElasticacheReplicationGroup() *schema.Resource {
 				Type:         schema.TypeInt,
 				Computed:     true,
 				Optional:     true,
-				ExactlyOneOf: []string{"cluster_mode", "number_cache_clusters"},
+				ExactlyOneOf: []string{"cluster_mode", "number_cache_clusters", "node_groups"},
 			},
 			"parameter_group_name": {
 				Type:     schema.TypeString,
@@ -347,8 +348,8 @@ func resourceAwsElasticacheReplicationGroup() *schema.Resource {
 
 				return nil
 			},
-			func(ctx context.Context, diff *schema.ResourceDiff, meta interface{}) error {
-				if diff.HasChange("number_cache_clusters") || diff.HasChange("cluster_mode.0.num_node_groups") {
+			func(_ context.Context, diff *schema.ResourceDiff, meta interface{}) error {
+				if diff.Id() != "" && (diff.HasChange("number_cache_clusters") || diff.HasChange("cluster_mode.0.num_node_groups")) {
 					diff.SetNewComputed("member_clusters")
 					diff.SetNewComputed("node_groups")
 				}
@@ -462,8 +463,7 @@ func resourceAwsElasticacheReplicationGroupCreate(d *schema.ResourceData, meta i
 	}
 
 	if v, ok := d.GetOk("node_groups"); ok {
-		nodeGroups := v.([]interface{})
-		params.NodeGroupConfiguration = expandElastiCacheNodeGroups(nodeGroups)
+		params.NodeGroupConfiguration = expandElastiCacheNodeGroups(v.([]interface{}))
 	}
 
 	resp, err := conn.CreateReplicationGroup(params)
@@ -819,15 +819,25 @@ func flattenElastiCacheNodeGroups(nodeGroups []*elasticache.NodeGroup) []map[str
 	return result
 }
 
-func expandElastiCacheNodeGroups(s []interface{}) []*elasticache.NodeGroupConfiguration {
-	result := make([]*elasticache.NodeGroupConfiguration, len(s))
-	for i, v := range s {
+func expandElastiCacheNodeGroups(l []interface{}) []*elasticache.NodeGroupConfiguration {
+	result := make([]*elasticache.NodeGroupConfiguration, len(l))
+	for i, v := range l {
 		m := v.(map[string]interface{})
-		node := &elasticache.NodeGroupConfiguration{
-			PrimaryAvailabilityZone: aws.String(m["primary_availability_zone"].(string)),
+		node := &elasticache.NodeGroupConfiguration{}
+		if v, ok := m["node_group_id"].(string); ok && v != "" {
+			node.NodeGroupId = aws.String(v)
 		}
-		if s, ok := m["node_group_id"].(string); ok && s != "" {
-			node.NodeGroupId = aws.String(m["node_group_id"].(string))
+		if v, ok := m["primary_availability_zone"].(string); ok && v != "" {
+			node.PrimaryAvailabilityZone = aws.String(v)
+		}
+		if v, ok := m["replica_availability_zones"].([]interface{}); ok && len(v) > 0 {
+			node.ReplicaAvailabilityZones = expandStringList(v)
+		}
+		if v, ok := m["replica_count"].(int); ok && v > 0 {
+			node.ReplicaCount = aws.Int64(int64(v))
+		}
+		if v, ok := m["slots"].(string); ok && v != "" {
+			node.Slots = aws.String(v)
 		}
 		result[i] = node
 	}
