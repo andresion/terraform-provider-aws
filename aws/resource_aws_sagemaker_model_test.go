@@ -29,6 +29,12 @@ func testSweepSagemakerModels(region string) error {
 
 	req := &sagemaker.ListModelsInput{}
 	resp, err := conn.ListModels(req)
+
+	if testSweepSkipSweepError(err) {
+		log.Printf("[WARN] Skipping SageMaker model sweep for %s: %s", region, err)
+		return nil
+	}
+
 	if err != nil {
 		return fmt.Errorf("error listing models: %w", err)
 	}

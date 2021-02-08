@@ -1075,6 +1075,9 @@ func testSweepSkipSweepError(err error) bool {
 		return true
 	}
 	// Ignore unsupported API calls
+	if isAWSErr(err, "UnknownOperationException", "") {
+		return true
+	}
 	if isAWSErr(err, "UnsupportedOperation", "") {
 		return true
 	}
@@ -1100,6 +1103,10 @@ func testSweepSkipSweepError(err error) bool {
 	}
 	// Example: InvalidAction: The action DescribeTransitGatewayAttachments is not valid for this web service
 	if isAWSErr(err, "InvalidAction", "is not valid") {
+		return true
+	}
+	// For example for GovCloud SNS Platform Applications
+	if isAWSErr(err, "InvalidAction", "not supported in this region") {
 		return true
 	}
 	// For example from GovCloud SES.SetActiveReceiptRuleSet.

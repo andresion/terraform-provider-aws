@@ -8,6 +8,7 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/rds"
+	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
@@ -51,7 +52,7 @@ func testSweepRdsDbProxies(region string) error {
 		return !lastPage
 	})
 
-	if testSweepSkipSweepError(err) {
+	if testSweepSkipSweepError(err) || tfawserr.ErrCodeEquals(err, "InvalidAction") {
 		log.Printf("[WARN] Skipping RDS DB Proxy sweep for %s: %s", region, err)
 		return nil
 	}

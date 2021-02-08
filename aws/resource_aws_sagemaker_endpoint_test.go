@@ -34,6 +34,12 @@ func testSweepSagemakerEndpoints(region string) error {
 		NameContains: aws.String("tf-acc-test"),
 	}
 	resp, err := conn.ListEndpoints(req)
+
+	if testSweepSkipSweepError(err) {
+		log.Printf("[WARN] Skipping SageMaker endpoint sweep for %s: %s", region, err)
+		return nil
+	}
+
 	if err != nil {
 		return fmt.Errorf("error listing endpoints: %s", err)
 	}
