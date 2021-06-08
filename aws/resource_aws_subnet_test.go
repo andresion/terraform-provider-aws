@@ -481,6 +481,74 @@ func TestAccAWSSubnet_defaultTags_providerAndResource_duplicateTag(t *testing.T)
 	})
 }
 
+func TestAccAWSSubnet_defaultTags_dynamicResourceTags(t *testing.T) {
+	var providers []*schema.Provider
+	var subnet ec2.Subnet
+
+	resourceName := "aws_subnet.test"
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:          func() { testAccPreCheck(t) },
+		ErrorCheck:        testAccErrorCheck(t, ec2.EndpointsID),
+		ProviderFactories: testAccProviderFactoriesInternal(&providers),
+		CheckDestroy:      testAccCheckSubnetDestroy,
+		Steps: []resource.TestStep{
+			{
+				Config: composeConfig(
+					testAccAWSProviderConfigDefaultTags_Tags2("providerkey1", "providervalue1", "providerkey2", "providervalue2"),
+					testAccSubnetConfig_DynamicTags,
+				),
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckSubnetExists(resourceName, &subnet),
+					resource.TestCheckResourceAttr(resourceName, "tags.%", "1"),
+					resource.TestCheckResourceAttrSet(resourceName, "tags.CreatedAt"),
+					resource.TestCheckResourceAttr(resourceName, "tags_all.%", "3"),
+					resource.TestCheckResourceAttrSet(resourceName, "tags_all.CreatedAt"),
+					resource.TestCheckResourceAttr(resourceName, "tags_all.providerkey1", "providervalue1"),
+					resource.TestCheckResourceAttr(resourceName, "tags_all.providerkey2", "providervalue2"),
+				),
+			},
+			{
+				ResourceName:      resourceName,
+				ImportState:       true,
+				ImportStateVerify: true,
+			},
+			{
+				Config: composeConfig(
+					testAccAWSProviderConfigDefaultTags_Tags2("providerkey1", "providervalue1", "providerkey2", "providervalue2"),
+					testAccSubnetConfig,
+				),
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckSubnetExists(resourceName, &subnet),
+					resource.TestCheckResourceAttr(resourceName, "tags.%", "0"),
+					resource.TestCheckResourceAttr(resourceName, "tags_all.%", "2"),
+					resource.TestCheckResourceAttr(resourceName, "tags_all.providerkey1", "providervalue1"),
+					resource.TestCheckResourceAttr(resourceName, "tags_all.providerkey2", "providervalue2"),
+				),
+			},
+			{
+				ResourceName:      resourceName,
+				ImportState:       true,
+				ImportStateVerify: true,
+			},
+			{
+				Config: composeConfig(
+					testAccAWSProviderConfigDefaultTags_Tags1("providerkey1", "providervalue1"),
+					testAccAWSVpcConfig_DynamicTags,
+				),
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckSubnetExists(resourceName, &subnet),
+					resource.TestCheckResourceAttr(resourceName, "tags.%", "1"),
+					resource.TestCheckResourceAttrSet(resourceName, "tags.CreatedAt"),
+					resource.TestCheckResourceAttr(resourceName, "tags_all.%", "2"),
+					resource.TestCheckResourceAttrSet(resourceName, "tags_all.CreatedAt"),
+					resource.TestCheckResourceAttr(resourceName, "tags_all.providerkey1", "providervalue1"),
+				),
+			},
+		},
+	})
+}
+
 func TestAccAWSSubnet_defaultAndIgnoreTags(t *testing.T) {
 	var providers []*schema.Provider
 	var subnet ec2.Subnet
@@ -958,6 +1026,38 @@ resource "aws_vpc" "test" {
 resource "aws_subnet" "test" {
   cidr_block = "10.1.1.0/24"
   vpc_id     = aws_vpc.test.id
+}
+`
+
+const testAccSubnetConfig_DynamicTags = `
+resource "aws_vpc" "test" {
+  cidr_block = "10.1.0.0/16"
+
+  tags = {
+    CreatedAt = timestamp()
+  }
+
+  lifecycle {
+    ignore_changes = [
+      tags["CreatedAt"],
+    ]
+  }
+}
+
+resource "aws_subnet" "test" {
+  cidr_block = "10.1.1.0/24"
+  vpc_id     = aws_vpc.test.id
+
+  tags = {
+    Name     = "terraform-testacc-subnet"
+    CreatedAt = timestamp()
+  }
+  
+  lifecycle {
+    ignore_changes = [
+      tags["CreatedAt"],
+    ]
+  }
 }
 `
 

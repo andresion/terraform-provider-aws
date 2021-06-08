@@ -595,6 +595,20 @@ func TestAccAWSVpc_defaultTags_dynamicResourceTags(t *testing.T) {
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
+			{
+				Config: composeConfig(
+					testAccAWSProviderConfigDefaultTags_Tags1("providerkey1", "providervalue1"),
+					testAccAWSVpcConfig_DynamicTags,
+				),
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckVpcExists(resourceName, &vpc),
+					resource.TestCheckResourceAttr(resourceName, "tags.%", "1"),
+					resource.TestCheckResourceAttrSet(resourceName, "tags.CreatedAt"),
+					resource.TestCheckResourceAttr(resourceName, "tags_all.%", "2"),
+					resource.TestCheckResourceAttrSet(resourceName, "tags_all.CreatedAt"),
+					resource.TestCheckResourceAttr(resourceName, "tags_all.providerkey1", "providervalue1"),
+				),
+			},
 		},
 	})
 }
