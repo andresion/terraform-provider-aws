@@ -565,9 +565,9 @@ func TestAccAWSVpc_defaultTags_dynamicResourceTags(t *testing.T) {
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckVpcExists(resourceName, &vpc),
 					resource.TestCheckResourceAttr(resourceName, "tags.%", "1"),
-					resource.TestCheckResourceAttrSet(resourceName, "tags.CreatedAt"),
+					resource.TestCheckResourceAttrSet(resourceName, "tags.created_at"),
 					resource.TestCheckResourceAttr(resourceName, "tags_all.%", "3"),
-					resource.TestCheckResourceAttrSet(resourceName, "tags_all.CreatedAt"),
+					resource.TestCheckResourceAttrSet(resourceName, "tags_all.created_at"),
 					resource.TestCheckResourceAttr(resourceName, "tags_all.providerkey1", "providervalue1"),
 					resource.TestCheckResourceAttr(resourceName, "tags_all.providerkey2", "providervalue2"),
 				),
@@ -598,16 +598,17 @@ func TestAccAWSVpc_defaultTags_dynamicResourceTags(t *testing.T) {
 			{
 				Config: composeConfig(
 					testAccAWSProviderConfigDefaultTags_Tags1("providerkey1", "providervalue1"),
-					testAccAWSVpcConfig_DynamicTags,
+					testAccAWSVpcConfig_DynamicTagsUpdated,
 				),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckVpcExists(resourceName, &vpc),
 					resource.TestCheckResourceAttr(resourceName, "tags.%", "1"),
-					resource.TestCheckResourceAttrSet(resourceName, "tags.CreatedAt"),
+					resource.TestCheckResourceAttrSet(resourceName, "tags.updated_at"),
 					resource.TestCheckResourceAttr(resourceName, "tags_all.%", "2"),
-					resource.TestCheckResourceAttrSet(resourceName, "tags_all.CreatedAt"),
+					resource.TestCheckResourceAttrSet(resourceName, "tags_all.updated_at"),
 					resource.TestCheckResourceAttr(resourceName, "tags_all.providerkey1", "providervalue1"),
 				),
+				ExpectNonEmptyPlan: true,
 			},
 		},
 	})
@@ -1138,8 +1139,8 @@ resource "aws_vpc" "test" {
   cidr_block = "10.1.0.0/16"
 
   tags = merge(local.tags, {
-    "created_at" = timestamp()
-    "updated_at" = timestamp()
+    created_at = timestamp()
+    updated_at = timestamp()
   })
 
   lifecycle {
@@ -1156,8 +1157,8 @@ resource "aws_vpc" "test" {
   cidr_block = "10.1.0.0/16"
 
   tags = {
-    "created_at" = timestamp()
-    "updated_at" = timestamp()
+    created_at = timestamp()
+    updated_at = timestamp()
   }
 
   lifecycle {
@@ -1173,14 +1174,30 @@ resource "aws_vpc" "test" {
   cidr_block = "10.1.0.0/16"
 
   tags = {
-    CreatedAt = timestamp() 
+    created_at = timestamp() 
   }
 
   lifecycle {
     ignore_changes = [
-      tags["CreatedAt"],
+      tags["created_at"], # to prevent non-empty plan
     ]
   }
+}
+`
+
+const testAccAWSVpcConfig_DynamicTagsUpdated = `
+resource "aws_vpc" "test" {
+  cidr_block = "10.1.0.0/16"
+
+  tags = {
+    updated_at = timestamp() 
+  }
+
+  //lifecycle {
+  //  ignore_changes = [
+  //    tags["updated_at"], # to prevent non-empty plan
+  //  ]
+  //}
 }
 `
 

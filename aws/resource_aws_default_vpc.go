@@ -45,6 +45,8 @@ func resourceAwsDefaultVpcCreate(d *schema.ResourceData, meta interface{}) error
 		},
 	}
 
+	conn.CreateDefaultVpc()
+
 	resp, err := conn.DescribeVpcs(req)
 	if err != nil {
 		return err

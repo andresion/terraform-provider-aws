@@ -127,10 +127,17 @@ func SetTagsDiff(_ context.Context, diff *schema.ResourceDiff, meta interface{})
 	}
 
 	if len(resourceTags) == 0 {
-		if diff.HasChange("tags") && len(diff.Get("tags_all").(map[string]interface{})) == 0 {
-			if err := diff.SetNewComputed("tags_all"); err != nil {
-				return fmt.Errorf("error setting tags_all to computed: %w", err)
+		if diff.HasChange("tags") && len(diff.Get("tags_all").(map[string]interface{})) >= 0 {
+			if diff.HasChange("tags_all") {
+				if err := diff.SetNewComputed("tags_all"); err != nil {
+					return fmt.Errorf("error setting tags_all to computed: %w", err)
+				}
+			} else {
+				if err := diff.SetNew("tags_all", diff.Get("tags").(map[string]interface{})); err != nil {
+					return fmt.Errorf("error setting tags_all to computed: %w", err)
+				}
 			}
+			return nil
 		}
 	}
 
