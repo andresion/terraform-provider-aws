@@ -14,19 +14,20 @@ type ServicePackage interface {
 	Configure(context.Context) error
 
 	// DataSources returns a map of the data sources implemented in this service package.
-	DataSources(context.Context) (map[string]*schema.Resource, error)
+	DataSources() map[string]*schema.Resource
 
 	// DocumentationCategories returns a list of categories which can be used for the documentation sidebar.
-	DocumentationCategories(context.Context) ([]string, error)
+	DocumentationCategories() []string
 
 	// Name returns the service package's name.
 	// This name must be unique.
 	Name() string
 
 	// Resources returns a map of the resources implemented in this service package.
-	Resources(context.Context) (map[string]*schema.Resource, error)
+	Resources() map[string]*schema.Resource
 }
 
+var servicePackageRegistrationClosed bool
 var servicePackageRegistry map[string]ServicePackage
 var servicePackageRegistryMu sync.Mutex
 
@@ -34,6 +35,10 @@ var servicePackageRegistryMu sync.Mutex
 func RegisterServicePackage(servicePackage ServicePackage) error {
 	servicePackageRegistryMu.Lock()
 	defer servicePackageRegistryMu.Unlock()
+
+	if servicePackageRegistrationClosed {
+		return fmt.Errorf("Service package registration is closed")
+	}
 
 	if servicePackageRegistry == nil {
 		servicePackageRegistry = make(map[string]ServicePackage)
@@ -48,4 +53,15 @@ func RegisterServicePackage(servicePackage ServicePackage) error {
 	servicePackageRegistry[name] = servicePackage
 
 	return nil
+}
+
+// ServicePackages returns the registered service packages.
+// Service package registration is closed.
+func ServicePackages() map[string]ServicePackage {
+	servicePackageRegistryMu.Lock()
+	defer servicePackageRegistryMu.Unlock()
+
+	servicePackageRegistrationClosed = true
+
+	return servicePackageRegistry
 }

@@ -1,13 +1,17 @@
 package aws
 
 import (
+	"context"
+	"fmt"
 	"log"
 	"strings"
 
+	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/keyvaluetags"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/mutexkv"
+	awsprovider "github.com/terraform-providers/terraform-provider-aws/aws/internal/provider"
 )
 
 // Provider returns a *schema.Provider.
@@ -1204,14 +1208,33 @@ func Provider() *schema.Provider {
 	provider.DataSourcesMap["aws_serverlessapplicationrepository_application"] = dataSourceAwsServerlessApplicationRepositoryApplication()
 	provider.ResourcesMap["aws_serverlessapplicationrepository_cloudformation_stack"] = resourceAwsServerlessApplicationRepositoryCloudFormationStack()
 
-	provider.ConfigureFunc = func(d *schema.ResourceData) (interface{}, error) {
+	// Add in service package data sources and resources.
+	for _, servicePackage := range awsprovider.ServicePackages() {
+		for name, ds := range servicePackage.DataSources() {
+			if _, exists := provider.DataSourcesMap[name]; exists {
+				panic(fmt.Sprintf("A data source named %q is already registered", name))
+			}
+
+			provider.DataSourcesMap[name] = ds
+		}
+
+		for name, res := range servicePackage.Resources() {
+			if _, exists := provider.ResourcesMap[name]; exists {
+				panic(fmt.Sprintf("A resource named %q is already registered", name))
+			}
+
+			provider.ResourcesMap[name] = res
+		}
+	}
+
+	provider.ConfigureContextFunc = func(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
 		terraformVersion := provider.TerraformVersion
 		if terraformVersion == "" {
 			// Terraform 0.12 introduced this field to the protocol
 			// We can therefore assume that if it's missing it's 0.10 or 0.11
 			terraformVersion = "0.11+compatible"
 		}
-		return providerConfigure(d, terraformVersion)
+		return providerConfigure(ctx, d, terraformVersion)
 	}
 
 	return provider
@@ -1432,7 +1455,7 @@ func init() {
 	}
 }
 
-func providerConfigure(d *schema.ResourceData, terraformVersion string) (interface{}, error) {
+func providerConfigure(ctx context.Context, d *schema.ResourceData, terraformVersion string) (interface{}, []diag.Diagnostic) {
 	config := Config{
 		AccessKey:               d.Get("access_key").(string),
 		SecretKey:               d.Get("secret_key").(string),
@@ -1539,7 +1562,13 @@ func providerConfigure(d *schema.ResourceData, terraformVersion string) (interfa
 		}
 	}
 
-	return config.Client()
+	awsClient, err := config.Client()
+
+	if err != nil {
+		return nil, diag.FromErr(err)
+	}
+
+	return awsClient, nil
 }
 
 // This is a global MutexKV for use within this plugin.

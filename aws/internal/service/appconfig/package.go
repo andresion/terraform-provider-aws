@@ -20,16 +20,16 @@ func (sp *servicePackage) Name() string {
 	return appconfig.ServiceName
 }
 
-func (sp *servicePackage) DataSources(ctx context.Context) (map[string]*schema.Resource, error) {
-	return map[string]*schema.Resource{}, nil
+func (sp *servicePackage) DataSources() map[string]*schema.Resource {
+	return map[string]*schema.Resource{}
 }
 
-func (sp *servicePackage) Resources(ctx context.Context) (map[string]*schema.Resource, error) {
-	return map[string]*schema.Resource{}, nil
+func (sp *servicePackage) Resources() map[string]*schema.Resource {
+	return map[string]*schema.Resource{}
 }
 
-func (sp *servicePackage) DocumentationCategories(context.Context) ([]string, error) {
-	return []string{}, nil
+func (sp *servicePackage) DocumentationCategories() []string {
+	return []string{}
 }
 
 func (sp *servicePackage) Configure(ctx context.Context) error {
