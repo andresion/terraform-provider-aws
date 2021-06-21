@@ -29,7 +29,13 @@ func (sp *servicePackage) DataSources() map[string]*schema.Resource {
 }
 
 func (sp *servicePackage) Resources() map[string]*schema.Resource {
-	return map[string]*schema.Resource{}
+	return map[string]*schema.Resource{
+		"aws_amplify_app":                 resourceAwsAmplifyApp(),
+		"aws_amplify_backend_environment": resourceAwsAmplifyBackendEnvironment(),
+		"aws_amplify_branch":              resourceAwsAmplifyBranch(),
+		"aws_amplify_domain_association":  resourceAwsAmplifyDomainAssociation(),
+		"aws_amplify_webhook":             resourceAwsAmplifyWebhook(),
+	}
 }
 
 func (sp *servicePackage) Configure(ctx context.Context) error {
