@@ -1,15 +1,15 @@
-package appconfig
+package amplify
 
 import (
 	"context"
 
-	"github.com/aws/aws-sdk-go/service/appconfig"
+	"github.com/aws/aws-sdk-go/service/amplify"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/registry"
 )
 
 const (
-	servicePackageName = appconfig.ServiceID
+	servicePackageName = amplify.ServiceID
 )
 
 func init() {
