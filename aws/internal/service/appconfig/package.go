@@ -8,6 +8,10 @@ import (
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/registry"
 )
 
+const (
+	servicePackageName = appconfig.ServiceID
+)
+
 func init() {
 	if err := registry.AddServicePackage(&servicePackage{}); err != nil {
 		panic(err)
@@ -17,7 +21,7 @@ func init() {
 type servicePackage struct{}
 
 func (sp *servicePackage) Name() string {
-	return appconfig.ServiceName
+	return servicePackageName
 }
 
 func (sp *servicePackage) DataSources() map[string]*schema.Resource {
