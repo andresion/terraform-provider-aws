@@ -11,6 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/keyvaluetags"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/mutexkv"
+	_ "github.com/terraform-providers/terraform-provider-aws/aws/internal/provider" // TMP to ensure service packages are compiled
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/registry"
 )
 
