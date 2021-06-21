@@ -174,8 +174,8 @@ func resourceAwsAmplifyBranch() *schema.Resource {
 				},
 			},
 
-			"tags":     tagsSchema(),
-			"tags_all": tagsSchemaComputed(),
+			"tags":     keyvaluetags.Schema(),
+			"tags_all": keyvaluetags.SchemaComputed(),
 		},
 	}
 }

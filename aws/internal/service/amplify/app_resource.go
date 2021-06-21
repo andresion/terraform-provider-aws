@@ -308,8 +308,8 @@ func resourceAwsAmplifyApp() *schema.Resource {
 				ValidateFunc: validation.StringLenBetween(1, 1000),
 			},
 
-			"tags":     tagsSchema(),
-			"tags_all": tagsSchemaComputed(),
+			"tags":     keyvaluetags.Schema(),
+			"tags_all": keyvaluetags.SchemaComputed(),
 		},
 	}
 }
