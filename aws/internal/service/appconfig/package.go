@@ -5,11 +5,11 @@ import (
 
 	"github.com/aws/aws-sdk-go/service/appconfig"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/terraform-providers/terraform-provider-aws/aws/internal/provider"
+	"github.com/terraform-providers/terraform-provider-aws/aws/internal/registry"
 )
 
 func init() {
-	if err := provider.RegisterServicePackage(&servicePackage{}); err != nil {
+	if err := registry.AddServicePackage(&servicePackage{}); err != nil {
 		panic(err)
 	}
 }
@@ -26,10 +26,6 @@ func (sp *servicePackage) DataSources() map[string]*schema.Resource {
 
 func (sp *servicePackage) Resources() map[string]*schema.Resource {
 	return map[string]*schema.Resource{}
-}
-
-func (sp *servicePackage) DocumentationCategories() []string {
-	return []string{}
 }
 
 func (sp *servicePackage) Configure(ctx context.Context) error {
