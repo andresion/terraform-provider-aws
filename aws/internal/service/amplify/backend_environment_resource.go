@@ -1,4 +1,4 @@
-package aws
+package amplify
 
 import (
 	"fmt"
@@ -10,7 +10,6 @@ import (
 	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	tfamplify "github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify/finder"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/tfresource"
 )
@@ -67,7 +66,7 @@ func resourceAwsAmplifyBackendEnvironmentCreate(d *schema.ResourceData, meta int
 
 	appID := d.Get("app_id").(string)
 	environmentName := d.Get("environment_name").(string)
-	id := tfamplify.BackendEnvironmentCreateResourceID(appID, environmentName)
+	id := BackendEnvironmentCreateResourceID(appID, environmentName)
 
 	input := &amplify.CreateBackendEnvironmentInput{
 		AppId:           aws.String(appID),
@@ -97,7 +96,7 @@ func resourceAwsAmplifyBackendEnvironmentCreate(d *schema.ResourceData, meta int
 func resourceAwsAmplifyBackendEnvironmentRead(d *schema.ResourceData, meta interface{}) error {
 	conn := meta.(*AWSClient).amplifyconn
 
-	appID, environmentName, err := tfamplify.BackendEnvironmentParseResourceID(d.Id())
+	appID, environmentName, err := BackendEnvironmentParseResourceID(d.Id())
 
 	if err != nil {
 		return fmt.Errorf("error parsing Amplify Backend Environment ID: %w", err)
@@ -127,7 +126,7 @@ func resourceAwsAmplifyBackendEnvironmentRead(d *schema.ResourceData, meta inter
 func resourceAwsAmplifyBackendEnvironmentDelete(d *schema.ResourceData, meta interface{}) error {
 	conn := meta.(*AWSClient).amplifyconn
 
-	appID, environmentName, err := tfamplify.BackendEnvironmentParseResourceID(d.Id())
+	appID, environmentName, err := BackendEnvironmentParseResourceID(d.Id())
 
 	if err != nil {
 		return fmt.Errorf("error parsing Amplify Backend Environment ID: %w", err)

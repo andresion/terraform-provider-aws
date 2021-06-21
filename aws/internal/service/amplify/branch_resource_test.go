@@ -1,4 +1,4 @@
-package aws
+package amplify
 
 import (
 	"encoding/base64"
@@ -10,7 +10,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	tfamplify "github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify/finder"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/tfresource"
 )
@@ -290,7 +289,7 @@ func testAccCheckAWSAmplifyBranchExists(resourceName string, v *amplify.Branch) 
 			return fmt.Errorf("No Amplify Branch ID is set")
 		}
 
-		appID, branchName, err := tfamplify.BranchParseResourceID(rs.Primary.ID)
+		appID, branchName, err := BranchParseResourceID(rs.Primary.ID)
 
 		if err != nil {
 			return err
@@ -318,7 +317,7 @@ func testAccCheckAWSAmplifyBranchDestroy(s *terraform.State) error {
 			continue
 		}
 
-		appID, branchName, err := tfamplify.BranchParseResourceID(rs.Primary.ID)
+		appID, branchName, err := BranchParseResourceID(rs.Primary.ID)
 
 		if err != nil {
 			return err

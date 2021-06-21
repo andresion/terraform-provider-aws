@@ -1,4 +1,4 @@
-package aws
+package amplify
 
 import (
 	"fmt"
@@ -10,7 +10,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	tfamplify "github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify/finder"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/tfresource"
 )
@@ -155,7 +154,7 @@ func testAccCheckAWSAmplifyDomainAssociationExists(resourceName string, v *ampli
 			return fmt.Errorf("No Amplify Domain Association ID is set")
 		}
 
-		appID, domainName, err := tfamplify.DomainAssociationParseResourceID(rs.Primary.ID)
+		appID, domainName, err := DomainAssociationParseResourceID(rs.Primary.ID)
 
 		if err != nil {
 			return err
@@ -183,7 +182,7 @@ func testAccCheckAWSAmplifyDomainAssociationDestroy(s *terraform.State) error {
 			continue
 		}
 
-		appID, domainName, err := tfamplify.DomainAssociationParseResourceID(rs.Primary.ID)
+		appID, domainName, err := DomainAssociationParseResourceID(rs.Primary.ID)
 
 		if err != nil {
 			return err

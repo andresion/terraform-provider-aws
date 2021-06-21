@@ -1,4 +1,4 @@
-package aws
+package amplify
 
 import (
 	"fmt"
@@ -9,7 +9,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	tfamplify "github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify/finder"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/tfresource"
 )
@@ -114,7 +113,7 @@ func testAccCheckAWSAmplifyBackendEnvironmentExists(resourceName string, v *ampl
 			return fmt.Errorf("No Amplify Backend Environment ID is set")
 		}
 
-		appID, environmentName, err := tfamplify.BackendEnvironmentParseResourceID(rs.Primary.ID)
+		appID, environmentName, err := BackendEnvironmentParseResourceID(rs.Primary.ID)
 
 		if err != nil {
 			return err
@@ -142,7 +141,7 @@ func testAccCheckAWSAmplifyBackendEnvironmentDestroy(s *terraform.State) error {
 			continue
 		}
 
-		appID, environmentName, err := tfamplify.BackendEnvironmentParseResourceID(rs.Primary.ID)
+		appID, environmentName, err := BackendEnvironmentParseResourceID(rs.Primary.ID)
 
 		if err != nil {
 			return err

@@ -1,4 +1,4 @@
-package aws
+package amplify
 
 import (
 	"context"
@@ -13,7 +13,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/keyvaluetags"
-	tfamplify "github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify/finder"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/tfresource"
 )
@@ -126,7 +125,7 @@ func resourceAwsAmplifyApp() *schema.Resource {
 							ValidateFunc: validation.StringInSlice(amplify.Stage_Values(), false),
 							DiffSuppressFunc: func(k, old, new string, d *schema.ResourceData) bool {
 								// API returns "NONE" by default.
-								if old == tfamplify.StageNone && new == "" {
+								if old == StageNone && new == "" {
 									return true
 								}
 
@@ -638,7 +637,7 @@ func expandAmplifyAutoBranchCreationConfig(tfMap map[string]interface{}) *amplif
 		apiObject.PullRequestEnvironmentName = aws.String(v)
 	}
 
-	if v, ok := tfMap["stage"].(string); ok && v != "" && v != tfamplify.StageNone {
+	if v, ok := tfMap["stage"].(string); ok && v != "" && v != StageNone {
 		apiObject.Stage = aws.String(v)
 	}
 

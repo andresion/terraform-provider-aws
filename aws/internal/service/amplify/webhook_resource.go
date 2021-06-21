@@ -1,4 +1,4 @@
-package aws
+package amplify
 
 import (
 	"fmt"

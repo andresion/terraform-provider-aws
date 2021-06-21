@@ -1,4 +1,4 @@
-package aws
+package amplify
 
 import (
 	"fmt"
@@ -9,7 +9,6 @@ import (
 	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	tfamplify "github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify/finder"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify/waiter"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/tfresource"
@@ -90,7 +89,7 @@ func resourceAwsAmplifyDomainAssociationCreate(d *schema.ResourceData, meta inte
 
 	appID := d.Get("app_id").(string)
 	domainName := d.Get("domain_name").(string)
-	id := tfamplify.DomainAssociationCreateResourceID(appID, domainName)
+	id := DomainAssociationCreateResourceID(appID, domainName)
 
 	input := &amplify.CreateDomainAssociationInput{
 		AppId:             aws.String(appID),
@@ -123,7 +122,7 @@ func resourceAwsAmplifyDomainAssociationCreate(d *schema.ResourceData, meta inte
 func resourceAwsAmplifyDomainAssociationRead(d *schema.ResourceData, meta interface{}) error {
 	conn := meta.(*AWSClient).amplifyconn
 
-	appID, domainName, err := tfamplify.DomainAssociationParseResourceID(d.Id())
+	appID, domainName, err := DomainAssociationParseResourceID(d.Id())
 
 	if err != nil {
 		return fmt.Errorf("error parsing Amplify Domain Association ID: %w", err)
@@ -155,7 +154,7 @@ func resourceAwsAmplifyDomainAssociationRead(d *schema.ResourceData, meta interf
 func resourceAwsAmplifyDomainAssociationUpdate(d *schema.ResourceData, meta interface{}) error {
 	conn := meta.(*AWSClient).amplifyconn
 
-	appID, domainName, err := tfamplify.DomainAssociationParseResourceID(d.Id())
+	appID, domainName, err := DomainAssociationParseResourceID(d.Id())
 
 	if err != nil {
 		return fmt.Errorf("error parsing Amplify Domain Association ID: %w", err)
@@ -188,7 +187,7 @@ func resourceAwsAmplifyDomainAssociationUpdate(d *schema.ResourceData, meta inte
 func resourceAwsAmplifyDomainAssociationDelete(d *schema.ResourceData, meta interface{}) error {
 	conn := meta.(*AWSClient).amplifyconn
 
-	appID, domainName, err := tfamplify.DomainAssociationParseResourceID(d.Id())
+	appID, domainName, err := DomainAssociationParseResourceID(d.Id())
 
 	if err != nil {
 		return fmt.Errorf("error parsing Amplify Domain Association ID: %w", err)
