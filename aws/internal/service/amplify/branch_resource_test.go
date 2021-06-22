@@ -295,7 +295,7 @@ func testAccCheckAWSAmplifyBranchExists(resourceName string, v *amplify.Branch) 
 			return err
 		}
 
-		conn := testAccProvider.Meta().(*AWSClient).amplifyconn
+		conn := connFromMeta(testAccProvider.Meta())
 
 		branch, err := finder.BranchByAppIDAndBranchName(conn, appID, branchName)
 
@@ -310,7 +310,7 @@ func testAccCheckAWSAmplifyBranchExists(resourceName string, v *amplify.Branch) 
 }
 
 func testAccCheckAWSAmplifyBranchDestroy(s *terraform.State) error {
-	conn := testAccProvider.Meta().(*AWSClient).amplifyconn
+	conn := connFromMeta(testAccProvider.Meta())
 
 	for _, rs := range s.RootModule().Resources {
 		if rs.Type != "aws_amplify_branch" {

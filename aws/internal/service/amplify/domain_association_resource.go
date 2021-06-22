@@ -85,7 +85,7 @@ func resourceAwsAmplifyDomainAssociation() *schema.Resource {
 }
 
 func resourceAwsAmplifyDomainAssociationCreate(d *schema.ResourceData, meta interface{}) error {
-	conn := meta.(*AWSClient).amplifyconn
+	conn := connFromMeta(meta)
 
 	appID := d.Get("app_id").(string)
 	domainName := d.Get("domain_name").(string)
@@ -120,7 +120,7 @@ func resourceAwsAmplifyDomainAssociationCreate(d *schema.ResourceData, meta inte
 }
 
 func resourceAwsAmplifyDomainAssociationRead(d *schema.ResourceData, meta interface{}) error {
-	conn := meta.(*AWSClient).amplifyconn
+	conn := connFromMeta(meta)
 
 	appID, domainName, err := DomainAssociationParseResourceID(d.Id())
 
@@ -152,7 +152,7 @@ func resourceAwsAmplifyDomainAssociationRead(d *schema.ResourceData, meta interf
 }
 
 func resourceAwsAmplifyDomainAssociationUpdate(d *schema.ResourceData, meta interface{}) error {
-	conn := meta.(*AWSClient).amplifyconn
+	conn := connFromMeta(meta)
 
 	appID, domainName, err := DomainAssociationParseResourceID(d.Id())
 
@@ -185,7 +185,7 @@ func resourceAwsAmplifyDomainAssociationUpdate(d *schema.ResourceData, meta inte
 }
 
 func resourceAwsAmplifyDomainAssociationDelete(d *schema.ResourceData, meta interface{}) error {
-	conn := meta.(*AWSClient).amplifyconn
+	conn := connFromMeta(meta)
 
 	appID, domainName, err := DomainAssociationParseResourceID(d.Id())
 

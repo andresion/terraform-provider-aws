@@ -12,10 +12,12 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/customdiff"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
+	tfaws "github.com/terraform-providers/terraform-provider-aws/aws"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/dataconv"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/keyvaluetags"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify/finder"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/tfresource"
+	"github.com/terraform-providers/terraform-provider-aws/aws/internal/validate"
 )
 
 func resourceAwsAmplifyApp() *schema.Resource {
@@ -29,7 +31,7 @@ func resourceAwsAmplifyApp() *schema.Resource {
 		},
 
 		CustomizeDiff: customdiff.Sequence(
-			SetTagsDiff,
+			tfaws.SetTagsDiff,
 			customdiff.ForceNewIfChange("description", func(_ context.Context, old, new, meta interface{}) bool {
 				// Any existing value cannot be cleared.
 				return new.(string) == ""
@@ -251,7 +253,7 @@ func resourceAwsAmplifyApp() *schema.Resource {
 			"iam_service_role_arn": {
 				Type:         schema.TypeString,
 				Optional:     true,
-				ValidateFunc: validateArn,
+				ValidateFunc: validate.ARN,
 			},
 
 			"name": {
@@ -316,8 +318,8 @@ func resourceAwsAmplifyApp() *schema.Resource {
 }
 
 func resourceAwsAmplifyAppCreate(d *schema.ResourceData, meta interface{}) error {
-	conn := meta.(*AWSClient).amplifyconn
-	defaultTagsConfig := meta.(*AWSClient).DefaultTagsConfig
+	conn := connFromMeta(meta)
+	defaultTagsConfig := meta.(*tfaws.AWSClient).DefaultTagsConfig
 	tags := defaultTagsConfig.MergeTags(keyvaluetags.New(d.Get("tags").(map[string]interface{})))
 
 	name := d.Get("name").(string)
@@ -407,9 +409,9 @@ func resourceAwsAmplifyAppCreate(d *schema.ResourceData, meta interface{}) error
 }
 
 func resourceAwsAmplifyAppRead(d *schema.ResourceData, meta interface{}) error {
-	conn := meta.(*AWSClient).amplifyconn
-	defaultTagsConfig := meta.(*AWSClient).DefaultTagsConfig
-	ignoreTagsConfig := meta.(*AWSClient).IgnoreTagsConfig
+	conn := connFromMeta(meta)
+	defaultTagsConfig := meta.(*tfaws.AWSClient).DefaultTagsConfig
+	ignoreTagsConfig := meta.(*tfaws.AWSClient).IgnoreTagsConfig
 
 	app, err := finder.AppByID(conn, d.Id())
 
@@ -470,7 +472,7 @@ func resourceAwsAmplifyAppRead(d *schema.ResourceData, meta interface{}) error {
 }
 
 func resourceAwsAmplifyAppUpdate(d *schema.ResourceData, meta interface{}) error {
-	conn := meta.(*AWSClient).amplifyconn
+	conn := connFromMeta(meta)
 
 	if d.HasChangesExcept("tags", "tags_all") {
 		input := &amplify.UpdateAppInput{
@@ -577,7 +579,7 @@ func resourceAwsAmplifyAppUpdate(d *schema.ResourceData, meta interface{}) error
 }
 
 func resourceAwsAmplifyAppDelete(d *schema.ResourceData, meta interface{}) error {
-	conn := meta.(*AWSClient).amplifyconn
+	conn := connFromMeta(meta)
 
 	log.Printf("[DEBUG] Deleting Amplify App (%s)", d.Id())
 	_, err := conn.DeleteApp(&amplify.DeleteAppInput{

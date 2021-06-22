@@ -10,9 +10,11 @@ import (
 	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
+	"github.com/terraform-providers/terraform-provider-aws/aws/internal/dataconv"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/keyvaluetags"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify/finder"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/tfresource"
+	"github.com/terraform-providers/terraform-provider-aws/aws/internal/validate"
 )
 
 func resourceAwsAmplifyBranch() *schema.Resource {
@@ -48,7 +50,7 @@ func resourceAwsAmplifyBranch() *schema.Resource {
 			"backend_environment_arn": {
 				Type:         schema.TypeString,
 				Optional:     true,
-				ValidateFunc: validateArn,
+				ValidateFunc: validate.ARN,
 			},
 
 			"basic_auth_credentials": {
@@ -181,7 +183,7 @@ func resourceAwsAmplifyBranch() *schema.Resource {
 }
 
 func resourceAwsAmplifyBranchCreate(d *schema.ResourceData, meta interface{}) error {
-	conn := meta.(*AWSClient).amplifyconn
+	conn := connFromMeta(meta)
 	defaultTagsConfig := meta.(*AWSClient).DefaultTagsConfig
 	tags := defaultTagsConfig.MergeTags(keyvaluetags.New(d.Get("tags").(map[string]interface{})))
 
@@ -228,7 +230,7 @@ func resourceAwsAmplifyBranchCreate(d *schema.ResourceData, meta interface{}) er
 	}
 
 	if v, ok := d.GetOk("environment_variables"); ok && len(v.(map[string]interface{})) > 0 {
-		input.EnvironmentVariables = expandStringMap(v.(map[string]interface{}))
+		input.EnvironmentVariables = dataconv.ExpandStringMap(v.(map[string]interface{}))
 	}
 
 	if v, ok := d.GetOk("framework"); ok {
@@ -264,7 +266,7 @@ func resourceAwsAmplifyBranchCreate(d *schema.ResourceData, meta interface{}) er
 }
 
 func resourceAwsAmplifyBranchRead(d *schema.ResourceData, meta interface{}) error {
-	conn := meta.(*AWSClient).amplifyconn
+	conn := connFromMeta(meta)
 	defaultTagsConfig := meta.(*AWSClient).DefaultTagsConfig
 	ignoreTagsConfig := meta.(*AWSClient).IgnoreTagsConfig
 
@@ -322,7 +324,7 @@ func resourceAwsAmplifyBranchRead(d *schema.ResourceData, meta interface{}) erro
 }
 
 func resourceAwsAmplifyBranchUpdate(d *schema.ResourceData, meta interface{}) error {
-	conn := meta.(*AWSClient).amplifyconn
+	conn := connFromMeta(meta)
 
 	if d.HasChangesExcept("tags", "tags_all") {
 		appID, branchName, err := BranchParseResourceID(d.Id())
@@ -374,7 +376,7 @@ func resourceAwsAmplifyBranchUpdate(d *schema.ResourceData, meta interface{}) er
 
 		if d.HasChange("environment_variables") {
 			if v := d.Get("environment_variables").(map[string]interface{}); len(v) > 0 {
-				input.EnvironmentVariables = expandStringMap(v)
+				input.EnvironmentVariables = dataconv.ExpandStringMap(v)
 			} else {
 				input.EnvironmentVariables = aws.StringMap(map[string]string{"": ""})
 			}
@@ -414,7 +416,7 @@ func resourceAwsAmplifyBranchUpdate(d *schema.ResourceData, meta interface{}) er
 }
 
 func resourceAwsAmplifyBranchDelete(d *schema.ResourceData, meta interface{}) error {
-	conn := meta.(*AWSClient).amplifyconn
+	conn := connFromMeta(meta)
 
 	appID, branchName, err := BranchParseResourceID(d.Id())
 

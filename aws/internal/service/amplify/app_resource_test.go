@@ -31,7 +31,7 @@ func testSweepAmplifyApps(region string) error {
 	if err != nil {
 		return fmt.Errorf("error getting client: %s", err)
 	}
-	conn := client.(*AWSClient).amplifyconn
+	conn := connFromMeta(client)
 	input := &amplify.ListAppsInput{}
 	var sweeperErrs *multierror.Error
 
@@ -638,7 +638,7 @@ func testAccCheckAWSAmplifyAppExists(n string, v *amplify.App) resource.TestChec
 			return fmt.Errorf("No Amplify App ID is set")
 		}
 
-		conn := testAccProvider.Meta().(*AWSClient).amplifyconn
+		conn := connFromMeta(testAccProvider.Meta())
 
 		output, err := finder.AppByID(conn, rs.Primary.ID)
 
@@ -653,7 +653,7 @@ func testAccCheckAWSAmplifyAppExists(n string, v *amplify.App) resource.TestChec
 }
 
 func testAccCheckAWSAmplifyAppDestroy(s *terraform.State) error {
-	conn := testAccProvider.Meta().(*AWSClient).amplifyconn
+	conn := connFromMeta(testAccProvider.Meta())
 
 	for _, rs := range s.RootModule().Resources {
 		if rs.Type != "aws_amplify_app" {

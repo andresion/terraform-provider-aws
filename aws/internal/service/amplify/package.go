@@ -5,6 +5,7 @@ import (
 
 	"github.com/aws/aws-sdk-go/service/amplify"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+	tfaws "github.com/terraform-providers/terraform-provider-aws/aws"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/registry"
 )
 
@@ -40,4 +41,10 @@ func (sp *servicePackage) Resources() map[string]*schema.Resource {
 
 func (sp *servicePackage) Configure(ctx context.Context) error {
 	return nil
+}
+
+func connFromMeta(meta interface{}) *amplify.Amplify {
+	conn := meta.(*tfaws.AWSClient).amplifyconn
+
+	return conn
 }

@@ -113,7 +113,7 @@ func testAccCheckAWSAmplifyWebhookExists(resourceName string, v *amplify.Webhook
 			return fmt.Errorf("No Amplify Webhook ID is set")
 		}
 
-		conn := testAccProvider.Meta().(*AWSClient).amplifyconn
+		conn := connFromMeta(testAccProvider.Meta())
 
 		webhook, err := finder.WebhookByID(conn, rs.Primary.ID)
 
@@ -128,7 +128,7 @@ func testAccCheckAWSAmplifyWebhookExists(resourceName string, v *amplify.Webhook
 }
 
 func testAccCheckAWSAmplifyWebhookDestroy(s *terraform.State) error {
-	conn := testAccProvider.Meta().(*AWSClient).amplifyconn
+	conn := connFromMeta(testAccProvider.Meta())
 
 	for _, rs := range s.RootModule().Resources {
 		if rs.Type != "aws_amplify_webhook" {
