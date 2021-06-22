@@ -12,6 +12,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/customdiff"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
+	"github.com/terraform-providers/terraform-provider-aws/aws/internal/dataconv"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/keyvaluetags"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify/finder"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/tfresource"
@@ -334,7 +335,7 @@ func resourceAwsAmplifyAppCreate(d *schema.ResourceData, meta interface{}) error
 	}
 
 	if v, ok := d.GetOk("auto_branch_creation_patterns"); ok && v.(*schema.Set).Len() > 0 {
-		input.AutoBranchCreationPatterns = expandStringSet(v.(*schema.Set))
+		input.AutoBranchCreationPatterns = dataconv.ExpandStringSet(v.(*schema.Set))
 	}
 
 	if v, ok := d.GetOk("basic_auth_credentials"); ok {
@@ -370,7 +371,7 @@ func resourceAwsAmplifyAppCreate(d *schema.ResourceData, meta interface{}) error
 	}
 
 	if v, ok := d.GetOk("environment_variables"); ok && len(v.(map[string]interface{})) > 0 {
-		input.EnvironmentVariables = expandStringMap(v.(map[string]interface{}))
+		input.EnvironmentVariables = dataconv.ExpandStringMap(v.(map[string]interface{}))
 	}
 
 	if v, ok := d.GetOk("iam_service_role_arn"); ok {
@@ -491,7 +492,7 @@ func resourceAwsAmplifyAppUpdate(d *schema.ResourceData, meta interface{}) error
 		}
 
 		if d.HasChange("auto_branch_creation_patterns") {
-			input.AutoBranchCreationPatterns = expandStringSet(d.Get("auto_branch_creation_patterns").(*schema.Set))
+			input.AutoBranchCreationPatterns = dataconv.ExpandStringSet(d.Get("auto_branch_creation_patterns").(*schema.Set))
 		}
 
 		if d.HasChange("basic_auth_credentials") {
@@ -532,7 +533,7 @@ func resourceAwsAmplifyAppUpdate(d *schema.ResourceData, meta interface{}) error
 
 		if d.HasChange("environment_variables") {
 			if v := d.Get("environment_variables").(map[string]interface{}); len(v) > 0 {
-				input.EnvironmentVariables = expandStringMap(v)
+				input.EnvironmentVariables = dataconv.ExpandStringMap(v)
 			} else {
 				input.EnvironmentVariables = aws.StringMap(map[string]string{"": ""})
 			}
@@ -626,7 +627,7 @@ func expandAmplifyAutoBranchCreationConfig(tfMap map[string]interface{}) *amplif
 	}
 
 	if v, ok := tfMap["environment_variables"].(map[string]interface{}); ok && len(v) > 0 {
-		apiObject.EnvironmentVariables = expandStringMap(v)
+		apiObject.EnvironmentVariables = dataconv.ExpandStringMap(v)
 	}
 
 	if v, ok := tfMap["framework"].(string); ok && v != "" {
