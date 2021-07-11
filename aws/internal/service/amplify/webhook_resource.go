@@ -58,7 +58,7 @@ func resourceAwsAmplifyWebhook() *schema.Resource {
 }
 
 func resourceAwsAmplifyWebhookCreate(d *schema.ResourceData, meta interface{}) error {
-	conn := connFromMeta(meta)
+	conn, _, _ := fromMeta(meta)
 
 	input := &amplify.CreateWebhookInput{
 		AppId:      aws.String(d.Get("app_id").(string)),
@@ -82,7 +82,7 @@ func resourceAwsAmplifyWebhookCreate(d *schema.ResourceData, meta interface{}) e
 }
 
 func resourceAwsAmplifyWebhookRead(d *schema.ResourceData, meta interface{}) error {
-	conn := connFromMeta(meta)
+	conn, _, _ := fromMeta(meta)
 
 	webhook, err := finder.WebhookByID(conn, d.Id())
 
@@ -120,7 +120,7 @@ func resourceAwsAmplifyWebhookRead(d *schema.ResourceData, meta interface{}) err
 }
 
 func resourceAwsAmplifyWebhookUpdate(d *schema.ResourceData, meta interface{}) error {
-	conn := connFromMeta(meta)
+	conn, _, _ := fromMeta(meta)
 
 	input := &amplify.UpdateWebhookInput{
 		WebhookId: aws.String(d.Id()),
@@ -145,7 +145,7 @@ func resourceAwsAmplifyWebhookUpdate(d *schema.ResourceData, meta interface{}) e
 }
 
 func resourceAwsAmplifyWebhookDelete(d *schema.ResourceData, meta interface{}) error {
-	conn := connFromMeta(meta)
+	conn, _, _ := fromMeta(meta)
 
 	log.Printf("[DEBUG] Deleting Amplify Webhook: %s", d.Id())
 	_, err := conn.DeleteWebhook(&amplify.DeleteWebhookInput{

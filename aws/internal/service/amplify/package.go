@@ -5,31 +5,23 @@ import (
 
 	"github.com/aws/aws-sdk-go/service/amplify"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	tfaws "github.com/terraform-providers/terraform-provider-aws/aws"
-	"github.com/terraform-providers/terraform-provider-aws/aws/internal/registry"
+	"github.com/terraform-providers/terraform-provider-aws/aws/internal/keyvaluetags"
 )
 
-const (
-	servicePackageName = amplify.ServiceID
-)
-
-func init() {
-	if err := registry.AddServicePackage(&servicePackage{}); err != nil {
-		panic(err)
-	}
+// Implements the provider.ServicePackage interface,
+type ServicePackage struct {
+	conn *amplify.Amplify
 }
 
-type servicePackage struct{}
-
-func (sp *servicePackage) Name() string {
-	return servicePackageName
+func (sp *ServicePackage) ID() string {
+	return amplify.ServiceID
 }
 
-func (sp *servicePackage) DataSources() map[string]*schema.Resource {
+func (sp *ServicePackage) DataSources() map[string]*schema.Resource {
 	return map[string]*schema.Resource{}
 }
 
-func (sp *servicePackage) Resources() map[string]*schema.Resource {
+func (sp *ServicePackage) Resources() map[string]*schema.Resource {
 	return map[string]*schema.Resource{
 		"aws_amplify_app":                 resourceAwsAmplifyApp(),
 		"aws_amplify_backend_environment": resourceAwsAmplifyBackendEnvironment(),
@@ -39,12 +31,20 @@ func (sp *servicePackage) Resources() map[string]*schema.Resource {
 	}
 }
 
-func (sp *servicePackage) Configure(ctx context.Context) error {
+func (sp *ServicePackage) Configure(ctx context.Context) error {
+	// TODO Initialize conn.
 	return nil
 }
 
-func connFromMeta(meta interface{}) *amplify.Amplify {
-	conn := meta.(*tfaws.AWSClient).amplifyconn
+// TODO Consolidate into a single internal package.
+type Meta interface {
+	GetDefaultTagsConfig() *keyvaluetags.DefaultConfig
+	GetIgnoreTagsConfig() *keyvaluetags.IgnoreConfig
+	GetServicePackage(id string) interface{}
+}
 
-	return conn
+func fromMeta(meta interface{}) (*amplify.Amplify, *keyvaluetags.DefaultConfig, *keyvaluetags.IgnoreConfig) {
+	m := meta.(Meta)
+
+	return m.GetServicePackage(amplify.ServiceID).(*ServicePackage).conn, m.GetDefaultTagsConfig(), m.GetIgnoreTagsConfig()
 }

@@ -27,7 +27,7 @@ func resourceAwsAmplifyBranch() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 
-		CustomizeDiff: SetTagsDiff,
+		CustomizeDiff: keyvaluetags.SetTagsDiff,
 
 		Schema: map[string]*schema.Schema{
 			"app_id": {
@@ -183,8 +183,7 @@ func resourceAwsAmplifyBranch() *schema.Resource {
 }
 
 func resourceAwsAmplifyBranchCreate(d *schema.ResourceData, meta interface{}) error {
-	conn := connFromMeta(meta)
-	defaultTagsConfig := meta.(*AWSClient).DefaultTagsConfig
+	conn, defaultTagsConfig, _ := fromMeta(meta)
 	tags := defaultTagsConfig.MergeTags(keyvaluetags.New(d.Get("tags").(map[string]interface{})))
 
 	appID := d.Get("app_id").(string)
@@ -266,9 +265,7 @@ func resourceAwsAmplifyBranchCreate(d *schema.ResourceData, meta interface{}) er
 }
 
 func resourceAwsAmplifyBranchRead(d *schema.ResourceData, meta interface{}) error {
-	conn := connFromMeta(meta)
-	defaultTagsConfig := meta.(*AWSClient).DefaultTagsConfig
-	ignoreTagsConfig := meta.(*AWSClient).IgnoreTagsConfig
+	conn, defaultTagsConfig, ignoreTagsConfig := fromMeta(meta)
 
 	appID, branchName, err := BranchParseResourceID(d.Id())
 
@@ -324,7 +321,7 @@ func resourceAwsAmplifyBranchRead(d *schema.ResourceData, meta interface{}) erro
 }
 
 func resourceAwsAmplifyBranchUpdate(d *schema.ResourceData, meta interface{}) error {
-	conn := connFromMeta(meta)
+	conn, _, _ := fromMeta(meta)
 
 	if d.HasChangesExcept("tags", "tags_all") {
 		appID, branchName, err := BranchParseResourceID(d.Id())
@@ -416,7 +413,7 @@ func resourceAwsAmplifyBranchUpdate(d *schema.ResourceData, meta interface{}) er
 }
 
 func resourceAwsAmplifyBranchDelete(d *schema.ResourceData, meta interface{}) error {
-	conn := connFromMeta(meta)
+	conn, _, _ := fromMeta(meta)
 
 	appID, branchName, err := BranchParseResourceID(d.Id())
 

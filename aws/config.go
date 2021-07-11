@@ -1,6 +1,7 @@
 package aws
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"strings"
@@ -174,6 +175,7 @@ import (
 	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/logging"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/keyvaluetags"
+	"github.com/terraform-providers/terraform-provider-aws/aws/internal/provider"
 	"github.com/terraform-providers/terraform-provider-aws/version"
 )
 
@@ -362,6 +364,7 @@ type AWSClient struct {
 	secretsmanagerconn                  *secretsmanager.SecretsManager
 	securityhubconn                     *securityhub.SecurityHub
 	serverlessapplicationrepositoryconn *serverlessapplicationrepository.ServerlessApplicationRepository
+	ServicePackages                     map[string]provider.ServicePackage
 	servicequotasconn                   *servicequotas.ServiceQuotas
 	sesconn                             *ses.SES
 	sfnconn                             *sfn.SFN
@@ -870,7 +873,33 @@ func (c *Config) Client() (interface{}, error) {
 		}
 	}
 
+	ctx := context.TODO()
+	servicePackages, err := provider.ServicePackages()
+
+	if err != nil {
+		return nil, err
+	}
+
+	for id, servicePackage := range servicePackages {
+		if err := servicePackage.Configure(ctx); err != nil {
+			return nil, fmt.Errorf("error configuring Service Package (%s): %w", id, err)
+		}
+	}
+
 	return client, nil
+}
+
+// Implement each service package's Meta interface.
+func (c *AWSClient) GetDefaultTagsConfig() *keyvaluetags.DefaultConfig {
+	return c.DefaultTagsConfig
+}
+
+func (c *AWSClient) GetIgnoreTagsConfig() *keyvaluetags.IgnoreConfig {
+	return c.IgnoreTagsConfig
+}
+
+func (c *AWSClient) GetServicePackage(id string) interface{} {
+	return c.ServicePackages[id]
 }
 
 func hasEc2Classic(platforms []string) bool {

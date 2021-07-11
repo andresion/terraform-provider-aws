@@ -62,7 +62,7 @@ func resourceAwsAmplifyBackendEnvironment() *schema.Resource {
 }
 
 func resourceAwsAmplifyBackendEnvironmentCreate(d *schema.ResourceData, meta interface{}) error {
-	conn := connFromMeta(meta)
+	conn, _, _ := fromMeta(meta)
 
 	appID := d.Get("app_id").(string)
 	environmentName := d.Get("environment_name").(string)
@@ -94,7 +94,7 @@ func resourceAwsAmplifyBackendEnvironmentCreate(d *schema.ResourceData, meta int
 }
 
 func resourceAwsAmplifyBackendEnvironmentRead(d *schema.ResourceData, meta interface{}) error {
-	conn := connFromMeta(meta)
+	conn, _, _ := fromMeta(meta)
 
 	appID, environmentName, err := BackendEnvironmentParseResourceID(d.Id())
 
@@ -124,7 +124,7 @@ func resourceAwsAmplifyBackendEnvironmentRead(d *schema.ResourceData, meta inter
 }
 
 func resourceAwsAmplifyBackendEnvironmentDelete(d *schema.ResourceData, meta interface{}) error {
-	conn := connFromMeta(meta)
+	conn, _, _ := fromMeta(meta)
 
 	appID, environmentName, err := BackendEnvironmentParseResourceID(d.Id())
 

@@ -12,7 +12,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/customdiff"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	tfaws "github.com/terraform-providers/terraform-provider-aws/aws"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/dataconv"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/keyvaluetags"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify/finder"
@@ -31,7 +30,7 @@ func resourceAwsAmplifyApp() *schema.Resource {
 		},
 
 		CustomizeDiff: customdiff.Sequence(
-			tfaws.SetTagsDiff,
+			keyvaluetags.SetTagsDiff,
 			customdiff.ForceNewIfChange("description", func(_ context.Context, old, new, meta interface{}) bool {
 				// Any existing value cannot be cleared.
 				return new.(string) == ""
@@ -318,8 +317,7 @@ func resourceAwsAmplifyApp() *schema.Resource {
 }
 
 func resourceAwsAmplifyAppCreate(d *schema.ResourceData, meta interface{}) error {
-	conn := connFromMeta(meta)
-	defaultTagsConfig := meta.(*tfaws.AWSClient).DefaultTagsConfig
+	conn, defaultTagsConfig, _ := fromMeta(meta)
 	tags := defaultTagsConfig.MergeTags(keyvaluetags.New(d.Get("tags").(map[string]interface{})))
 
 	name := d.Get("name").(string)
@@ -409,9 +407,7 @@ func resourceAwsAmplifyAppCreate(d *schema.ResourceData, meta interface{}) error
 }
 
 func resourceAwsAmplifyAppRead(d *schema.ResourceData, meta interface{}) error {
-	conn := connFromMeta(meta)
-	defaultTagsConfig := meta.(*tfaws.AWSClient).DefaultTagsConfig
-	ignoreTagsConfig := meta.(*tfaws.AWSClient).IgnoreTagsConfig
+	conn, defaultTagsConfig, ignoreTagsConfig := fromMeta(meta)
 
 	app, err := finder.AppByID(conn, d.Id())
 
@@ -472,7 +468,7 @@ func resourceAwsAmplifyAppRead(d *schema.ResourceData, meta interface{}) error {
 }
 
 func resourceAwsAmplifyAppUpdate(d *schema.ResourceData, meta interface{}) error {
-	conn := connFromMeta(meta)
+	conn, _, _ := fromMeta(meta)
 
 	if d.HasChangesExcept("tags", "tags_all") {
 		input := &amplify.UpdateAppInput{
@@ -579,7 +575,7 @@ func resourceAwsAmplifyAppUpdate(d *schema.ResourceData, meta interface{}) error
 }
 
 func resourceAwsAmplifyAppDelete(d *schema.ResourceData, meta interface{}) error {
-	conn := connFromMeta(meta)
+	conn, _, _ := fromMeta(meta)
 
 	log.Printf("[DEBUG] Deleting Amplify App (%s)", d.Id())
 	_, err := conn.DeleteApp(&amplify.DeleteAppInput{

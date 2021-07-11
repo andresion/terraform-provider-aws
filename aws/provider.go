@@ -11,8 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/keyvaluetags"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/mutexkv"
-	_ "github.com/terraform-providers/terraform-provider-aws/aws/internal/provider" // TMP to ensure service packages are compiled
-	"github.com/terraform-providers/terraform-provider-aws/aws/internal/registry"
+	tfprovider "github.com/terraform-providers/terraform-provider-aws/aws/internal/provider"
 )
 
 // Provider returns a *schema.Provider.
@@ -1205,7 +1204,13 @@ func Provider() *schema.Provider {
 	provider.ResourcesMap["aws_serverlessapplicationrepository_cloudformation_stack"] = resourceAwsServerlessApplicationRepositoryCloudFormationStack()
 
 	// Add in service package data sources and resources.
-	for _, servicePackage := range registry.ServicePackages() {
+	servicePackages, err := tfprovider.ServicePackages()
+
+	if err != nil {
+		panic(err)
+	}
+
+	for _, servicePackage := range servicePackages {
 		for name, ds := range servicePackage.DataSources() {
 			if _, exists := provider.DataSourcesMap[name]; exists {
 				panic(fmt.Sprintf("A data source named %q is already registered", name))
