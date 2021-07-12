@@ -5,20 +5,16 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service"
 )
 
 // Meta is the interface implemented by the CRUD handlers' `meta` parameter.
-// This is a local copy of the definition from `internal/provider/meta` to avoid circular imports.
+// This is a local copy of a subset of the definition from `internal/provider/meta` to avoid circular imports.
 type Meta interface {
 	// GetDefaultTagsConfig returns the provider's `default_tags` configuration.
 	GetDefaultTagsConfig() *DefaultConfig
 
 	// GetIgnoreTagsConfig returns the provider's `ignore_tags` configuration.
 	GetIgnoreTagsConfig() *IgnoreConfig
-
-	// GetServicePackage returns the ServicePackage for the specified service ID.
-	GetServicePackage(id string) service.ServicePackage
 }
 
 func fromMeta(v interface{}) (*DefaultConfig, *IgnoreConfig) {

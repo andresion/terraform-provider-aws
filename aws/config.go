@@ -892,12 +892,20 @@ func (c *Config) Client() (interface{}, error) {
 
 // Implement the Meta interface.
 
+func (c *AWSClient) GetAccountID() string {
+	return c.accountid
+}
+
 func (c *AWSClient) GetDefaultTagsConfig() *keyvaluetags.DefaultConfig {
 	return c.DefaultTagsConfig
 }
 
 func (c *AWSClient) GetIgnoreTagsConfig() *keyvaluetags.IgnoreConfig {
 	return c.IgnoreTagsConfig
+}
+
+func (c *AWSClient) GetRegion() string {
+	return c.region
 }
 
 func (c *AWSClient) GetServicePackage(id string) interface{} {
