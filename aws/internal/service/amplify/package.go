@@ -15,6 +15,10 @@ type servicePackage struct {
 	conn *amplify.Amplify
 }
 
+func (sp *servicePackage) CustomEndpointsKey() string {
+	return "amplify"
+}
+
 func (sp *servicePackage) ID() string {
 	return amplify.ServiceID
 }

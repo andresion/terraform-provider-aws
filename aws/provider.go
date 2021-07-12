@@ -1210,10 +1210,10 @@ func Provider() *schema.Provider {
 		panic(err)
 	}
 
-	for _, servicePackage := range servicePackages {
+	for serviceName, servicePackage := range servicePackages {
 		for name, ds := range servicePackage.DataSources() {
 			if _, exists := provider.DataSourcesMap[name]; exists {
-				panic(fmt.Sprintf("A data source named %q is already registered", name))
+				panic(fmt.Sprintf("(%s) A data source named %q is already registered", serviceName, name))
 			}
 
 			provider.DataSourcesMap[name] = ds
@@ -1221,11 +1221,42 @@ func Provider() *schema.Provider {
 
 		for name, res := range servicePackage.Resources() {
 			if _, exists := provider.ResourcesMap[name]; exists {
-				panic(fmt.Sprintf("A resource named %q is already registered", name))
+				panic(fmt.Sprintf("(%s) A resource named %q is already registered", serviceName, name))
 			}
 
 			provider.ResourcesMap[name] = res
 		}
+	}
+
+	// Custom endpoints.
+	customEndpoints := make(map[string]struct{})
+
+	for _, endpointServiceName := range endpointServiceNames {
+		if _, ok := customEndpoints[endpointServiceName]; ok {
+			panic(fmt.Sprintf("A service named %q is already registered for custom endpoints", endpointServiceName))
+		}
+
+		customEndpoints[endpointServiceName] = struct{}{}
+	}
+
+	for serviceName, servicePackage := range servicePackages {
+		endpointServiceName := servicePackage.CustomEndpointsKey()
+
+		if endpointServiceName == "" {
+			continue
+		}
+
+		if _, ok := customEndpoints[endpointServiceName]; ok {
+			panic(fmt.Sprintf("(%s) A service named %q is already registered for custom endpoints", serviceName, endpointServiceName))
+		}
+
+		customEndpoints[endpointServiceName] = struct{}{}
+	}
+
+	endpointServiceNames = make([]string, len(customEndpoints))
+
+	for endpointServiceName := range customEndpoints {
+		endpointServiceNames = append(endpointServiceNames, endpointServiceName)
 	}
 
 	provider.ConfigureContextFunc = func(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
