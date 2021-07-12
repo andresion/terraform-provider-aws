@@ -1,7 +1,9 @@
-package net
+package net_test
 
 import (
 	"testing"
+
+	tfnet "github.com/terraform-providers/terraform-provider-aws/aws/internal/net"
 )
 
 func Test_CIDRBlocksEqual(t *testing.T) {
@@ -18,7 +20,7 @@ func Test_CIDRBlocksEqual(t *testing.T) {
 		{"::/0", "::0/0", true},
 		{"", "", false},
 	} {
-		equal := CIDRBlocksEqual(ts.cidr1, ts.cidr2)
+		equal := tfnet.CIDRBlocksEqual(ts.cidr1, ts.cidr2)
 		if ts.equal != equal {
 			t.Fatalf("CIDRBlocksEqual(%q, %q) should be: %t", ts.cidr1, ts.cidr2, ts.equal)
 		}
