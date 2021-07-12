@@ -3,6 +3,7 @@ package amplify
 import (
 	"context"
 
+	"github.com/aws/aws-sdk-go/aws/client"
 	"github.com/aws/aws-sdk-go/service/amplify"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/keyvaluetags"
@@ -15,7 +16,7 @@ type servicePackage struct {
 	conn *amplify.Amplify
 }
 
-func (sp *servicePackage) CustomEndpointsKey() string {
+func (sp *servicePackage) CustomEndpointKey() string {
 	return "amplify"
 }
 
@@ -37,8 +38,9 @@ func (sp *servicePackage) Resources() map[string]*schema.Resource {
 	}
 }
 
-func (sp *servicePackage) Configure(ctx context.Context) error {
-	// TODO Initialize conn.
+func (sp *servicePackage) Configure(ctx context.Context, sess client.ConfigProvider) error {
+	sp.conn = amplify.New(sess)
+
 	return nil
 }
 

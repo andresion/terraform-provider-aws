@@ -3,17 +3,17 @@ package service
 import (
 	"context"
 
+	"github.com/aws/aws-sdk-go/aws/client"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
 // ServicePackage is the core interface that all service packages must implement.
 type ServicePackage interface {
 	// Configure is called during provider configuration.
-	Configure(context.Context) error
+	Configure(context.Context, client.ConfigProvider) error
 
 	// The key for the service in the provider's `endpoints` configuration.
-	// Returning an empty string indicates that this service does not support custom endpoints.
-	CustomEndpointsKey() string
+	CustomEndpointKey() string
 
 	// DataSources returns a map of the data sources implemented in this service package.
 	DataSources() map[string]*schema.Resource

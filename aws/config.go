@@ -882,7 +882,7 @@ func (c *Config) Client() (interface{}, error) {
 	}
 
 	for id, servicePackage := range servicePackages {
-		if err := servicePackage.Configure(ctx); err != nil {
+		if err := servicePackage.Configure(ctx, sess.Copy(&aws.Config{Endpoint: aws.String(c.Endpoints[servicePackage.CustomEndpointKey()])})); err != nil {
 			return nil, fmt.Errorf("error configuring Service Package (%s): %w", id, err)
 		}
 	}
@@ -891,6 +891,7 @@ func (c *Config) Client() (interface{}, error) {
 }
 
 // Implement the Meta interface.
+
 func (c *AWSClient) GetDefaultTagsConfig() *keyvaluetags.DefaultConfig {
 	return c.DefaultTagsConfig
 }

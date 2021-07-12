@@ -1240,11 +1240,7 @@ func Provider() *schema.Provider {
 	}
 
 	for serviceName, servicePackage := range servicePackages {
-		endpointServiceName := servicePackage.CustomEndpointsKey()
-
-		if endpointServiceName == "" {
-			continue
-		}
+		endpointServiceName := servicePackage.CustomEndpointKey()
 
 		if _, ok := customEndpoints[endpointServiceName]; ok {
 			panic(fmt.Sprintf("(%s) A service named %q is already registered for custom endpoints", serviceName, endpointServiceName))
