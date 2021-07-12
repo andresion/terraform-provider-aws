@@ -175,7 +175,8 @@ import (
 	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/logging"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/keyvaluetags"
-	"github.com/terraform-providers/terraform-provider-aws/aws/internal/provider"
+	tfprovider "github.com/terraform-providers/terraform-provider-aws/aws/internal/provider"
+	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service"
 	"github.com/terraform-providers/terraform-provider-aws/version"
 )
 
@@ -364,7 +365,7 @@ type AWSClient struct {
 	secretsmanagerconn                  *secretsmanager.SecretsManager
 	securityhubconn                     *securityhub.SecurityHub
 	serverlessapplicationrepositoryconn *serverlessapplicationrepository.ServerlessApplicationRepository
-	ServicePackages                     map[string]provider.ServicePackage
+	ServicePackages                     map[string]service.ServicePackage
 	servicequotasconn                   *servicequotas.ServiceQuotas
 	sesconn                             *ses.SES
 	sfnconn                             *sfn.SFN
@@ -874,7 +875,7 @@ func (c *Config) Client() (interface{}, error) {
 	}
 
 	ctx := context.TODO()
-	servicePackages, err := provider.ServicePackages()
+	servicePackages, err := tfprovider.ServicePackages()
 
 	if err != nil {
 		return nil, err
@@ -889,7 +890,7 @@ func (c *Config) Client() (interface{}, error) {
 	return client, nil
 }
 
-// Implement each service package's Meta interface.
+// Implement the Meta interface.
 func (c *AWSClient) GetDefaultTagsConfig() *keyvaluetags.DefaultConfig {
 	return c.DefaultTagsConfig
 }

@@ -5,17 +5,24 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service"
 )
 
-// TODO Consolidate into a single internal package.
+// Meta is the interface implemented by the CRUD handlers' `meta` parameter.
+// This is a local copy of the definition from `internal/provider/meta` to avoid circular imports.
 type Meta interface {
+	// GetDefaultTagsConfig returns the provider's `default_tags` configuration.
 	GetDefaultTagsConfig() *DefaultConfig
+
+	// GetIgnoreTagsConfig returns the provider's `ignore_tags` configuration.
 	GetIgnoreTagsConfig() *IgnoreConfig
-	// GetServicePackage(id string) interface{}
+
+	// GetServicePackage returns the ServicePackage for the specified service ID.
+	GetServicePackage(id string) service.ServicePackage
 }
 
-func fromMeta(meta interface{}) (*DefaultConfig, *IgnoreConfig) {
-	return meta.(Meta).GetDefaultTagsConfig(), meta.(Meta).GetIgnoreTagsConfig()
+func fromMeta(v interface{}) (*DefaultConfig, *IgnoreConfig) {
+	return v.(Meta).GetDefaultTagsConfig(), v.(Meta).GetIgnoreTagsConfig()
 }
 
 // SetTagsDiff sets the new plan difference with the result of
