@@ -27,7 +27,7 @@ func testAccAWSAmplifyDomainAssociation_basic(t *testing.T) {
 	rName := data.RandomName()
 	resourceName := "aws_amplify_domain_association.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -69,7 +69,7 @@ func testAccAWSAmplifyDomainAssociation_disappears(t *testing.T) {
 	rName := data.RandomName()
 	resourceName := "aws_amplify_domain_association.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -99,7 +99,7 @@ func testAccAWSAmplifyDomainAssociation_update(t *testing.T) {
 	rName := data.RandomName()
 	resourceName := "aws_amplify_domain_association.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,

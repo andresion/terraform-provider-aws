@@ -22,7 +22,7 @@ func testAccAWSAmplifyBackendEnvironment_basic(t *testing.T) {
 
 	environmentName := data.RandomAlphaString(10)
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -55,7 +55,7 @@ func testAccAWSAmplifyBackendEnvironment_disappears(t *testing.T) {
 
 	environmentName := data.RandomAlphaString(10)
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -81,7 +81,7 @@ func testAccAWSAmplifyBackendEnvironment_DeploymentArtifacts_StackName(t *testin
 
 	environmentName := data.RandomAlphaString(10)
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,

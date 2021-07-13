@@ -21,7 +21,7 @@ func testAccAWSAmplifyBranch_basic(t *testing.T) {
 	rName := data.RandomName()
 	resourceName := "aws_amplify_branch.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -69,7 +69,7 @@ func testAccAWSAmplifyBranch_disappears(t *testing.T) {
 	rName := data.RandomName()
 	resourceName := "aws_amplify_branch.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -93,7 +93,7 @@ func testAccAWSAmplifyBranch_Tags(t *testing.T) {
 	rName := data.RandomName()
 	resourceName := "aws_amplify_branch.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -142,7 +142,7 @@ func testAccAWSAmplifyBranch_BasicAuthCredentials(t *testing.T) {
 	credentials1 := base64.StdEncoding.EncodeToString([]byte("username1:password1"))
 	credentials2 := base64.StdEncoding.EncodeToString([]byte("username2:password2"))
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -188,7 +188,7 @@ func testAccAWSAmplifyBranch_EnvironmentVariables(t *testing.T) {
 	rName := data.RandomName()
 	resourceName := "aws_amplify_branch.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -236,7 +236,7 @@ func testAccAWSAmplifyBranch_OptionalArguments(t *testing.T) {
 	backendEnvironment1ResourceName := "aws_amplify_backend_environment.test1"
 	backendEnvironment2ResourceName := "aws_amplify_backend_environment.test2"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,

@@ -75,7 +75,7 @@ func testAccAWSAmplifyApp_basic(t *testing.T) {
 	rName := data.RandomName()
 	resourceName := "aws_amplify_app.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -123,7 +123,7 @@ func testAccAWSAmplifyApp_disappears(t *testing.T) {
 	rName := data.RandomName()
 	resourceName := "aws_amplify_app.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -147,7 +147,7 @@ func testAccAWSAmplifyApp_Tags(t *testing.T) {
 	rName := data.RandomName()
 	resourceName := "aws_amplify_app.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -195,7 +195,7 @@ func testAccAWSAmplifyApp_AutoBranchCreationConfig(t *testing.T) {
 
 	credentials := base64.StdEncoding.EncodeToString([]byte("username1:password1"))
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -292,7 +292,7 @@ func testAccAWSAmplifyApp_BasicAuthCredentials(t *testing.T) {
 	credentials1 := base64.StdEncoding.EncodeToString([]byte("username1:password1"))
 	credentials2 := base64.StdEncoding.EncodeToString([]byte("username2:password2"))
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -338,7 +338,7 @@ func testAccAWSAmplifyApp_BuildSpec(t *testing.T) {
 	rName := data.RandomName()
 	resourceName := "aws_amplify_app.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -381,7 +381,7 @@ func testAccAWSAmplifyApp_CustomRules(t *testing.T) {
 	rName := data.RandomName()
 	resourceName := "aws_amplify_app.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -432,7 +432,7 @@ func testAccAWSAmplifyApp_Description(t *testing.T) {
 	rName := data.RandomName()
 	resourceName := "aws_amplify_app.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -476,7 +476,7 @@ func testAccAWSAmplifyApp_EnvironmentVariables(t *testing.T) {
 	rName := data.RandomName()
 	resourceName := "aws_amplify_app.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -523,7 +523,7 @@ func testAccAWSAmplifyApp_IamServiceRole(t *testing.T) {
 	iamRole1ResourceName := "aws_iam_role.test1"
 	iamRole2ResourceName := "aws_iam_role.test2"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -567,7 +567,7 @@ func testAccAWSAmplifyApp_Name(t *testing.T) {
 	rName2 := data.RandomName()
 	resourceName := "aws_amplify_app.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -614,7 +614,7 @@ func testAccAWSAmplifyApp_Repository(t *testing.T) {
 	rName := data.RandomName()
 	resourceName := "aws_amplify_app.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,

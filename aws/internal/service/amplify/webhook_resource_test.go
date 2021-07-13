@@ -19,7 +19,7 @@ func testAccAWSAmplifyWebhook_basic(t *testing.T) {
 	rName := data.RandomName()
 	resourceName := "aws_amplify_webhook.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -50,7 +50,7 @@ func testAccAWSAmplifyWebhook_disappears(t *testing.T) {
 	rName := data.RandomName()
 	resourceName := "aws_amplify_webhook.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
@@ -74,7 +74,7 @@ func testAccAWSAmplifyWebhook_update(t *testing.T) {
 	rName := data.RandomName()
 	resourceName := "aws_amplify_webhook.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	resource.Test(t, resource.TestCase{
 		PreCheck:     func() { TestAccPreCheck(t); testAccPreCheckAWSAmplify(t) },
 		ErrorCheck:   TestAccErrorCheck(t, amplify.EndpointsID),
 		Providers:    TestAccProviders,
