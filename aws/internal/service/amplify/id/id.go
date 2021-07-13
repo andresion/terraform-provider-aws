@@ -1,4 +1,4 @@
-package amplify
+package id
 
 import (
 	"fmt"

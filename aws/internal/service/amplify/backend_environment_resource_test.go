@@ -10,6 +10,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
 	. "github.com/terraform-providers/terraform-provider-aws/aws/internal/acctest"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify/finder"
+	. "github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify/id"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/tfresource"
 )
 
@@ -64,7 +65,7 @@ func testAccAWSAmplifyBackendEnvironment_disappears(t *testing.T) {
 				Config: testAccAWSAmplifyBackendEnvironmentConfigBasic(rName, environmentName),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckAWSAmplifyBackendEnvironmentExists(resourceName, &env),
-					TestAccCheckResourceDisappears(TestAccProvider, resourceAwsAmplifyBackendEnvironment(), resourceName),
+					TestAccCheckResourceDisappears(TestAccProvider, resourceAwsAmplifyBackendEnvironment, resourceName),
 				),
 				ExpectNonEmptyPlan: true,
 			},
@@ -122,7 +123,7 @@ func testAccCheckAWSAmplifyBackendEnvironmentExists(resourceName string, v *ampl
 			return err
 		}
 
-		conn, _, _ := fromMeta(TestAccProvider.Meta())
+		conn := fromMeta(TestAccProvider.Meta())
 
 		backendEnvironment, err := finder.BackendEnvironmentByAppIDAndEnvironmentName(conn, appID, environmentName)
 
@@ -137,7 +138,7 @@ func testAccCheckAWSAmplifyBackendEnvironmentExists(resourceName string, v *ampl
 }
 
 func testAccCheckAWSAmplifyBackendEnvironmentDestroy(s *terraform.State) error {
-	conn, _, _ := fromMeta(TestAccProvider.Meta())
+	conn := fromMeta(TestAccProvider.Meta())
 
 	for _, rs := range s.RootModule().Resources {
 		if rs.Type != "aws_amplify_backend_environment" {

@@ -31,7 +31,7 @@ func testSweepAmplifyApps(region string) error {
 	if err != nil {
 		return fmt.Errorf("error getting client: %s", err)
 	}
-	conn, _, _ := fromMeta(client)
+	conn := fromMeta(client)
 	input := &amplify.ListAppsInput{}
 	var sweeperErrs *multierror.Error
 
@@ -133,7 +133,7 @@ func testAccAWSAmplifyApp_disappears(t *testing.T) {
 				Config: testAccAWSAmplifyAppConfigName(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					testAccCheckAWSAmplifyAppExists(resourceName, &app),
-					TestAccCheckResourceDisappears(TestAccProvider, resourceAwsAmplifyApp(), resourceName),
+					TestAccCheckResourceDisappears(TestAccProvider, resourceAwsAmplifyApp, resourceName),
 				),
 				ExpectNonEmptyPlan: true,
 			},
@@ -651,7 +651,7 @@ func testAccCheckAWSAmplifyAppExists(n string, v *amplify.App) resource.TestChec
 			return fmt.Errorf("No Amplify App ID is set")
 		}
 
-		conn, _, _ := fromMeta(TestAccProvider.Meta())
+		conn := fromMeta(TestAccProvider.Meta())
 
 		output, err := finder.AppByID(conn, rs.Primary.ID)
 
@@ -666,7 +666,7 @@ func testAccCheckAWSAmplifyAppExists(n string, v *amplify.App) resource.TestChec
 }
 
 func testAccCheckAWSAmplifyAppDestroy(s *terraform.State) error {
-	conn, _, _ := fromMeta(TestAccProvider.Meta())
+	conn := fromMeta(TestAccProvider.Meta())
 
 	for _, rs := range s.RootModule().Resources {
 		if rs.Type != "aws_amplify_app" {

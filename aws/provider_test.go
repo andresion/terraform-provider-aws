@@ -1314,6 +1314,12 @@ func TestAccAWSProvider_DefaultAndIgnoreTags_EmptyConfigurationBlocks(t *testing
 }
 
 func TestAccAWSProvider_Endpoints(t *testing.T) {
+	endpointServiceNames, err := EndpointServiceNames()
+
+	if err != nil {
+		t.Fatal(err)
+	}
+
 	var providers []*schema.Provider
 	var endpoints strings.Builder
 
@@ -1331,7 +1337,7 @@ func TestAccAWSProvider_Endpoints(t *testing.T) {
 			{
 				Config: testAccAWSProviderConfigEndpoints(endpoints.String()),
 				Check: resource.ComposeTestCheckFunc(
-					testAccCheckAWSProviderEndpoints(&providers),
+					testAccCheckAWSProviderEndpoints(&providers, endpointServiceNames),
 				),
 			},
 		},
@@ -1623,7 +1629,7 @@ func testAccCheckAWSProviderDnsSuffix(providers *[]*schema.Provider, expectedDns
 	}
 }
 
-func testAccCheckAWSProviderEndpoints(providers *[]*schema.Provider) resource.TestCheckFunc {
+func testAccCheckAWSProviderEndpoints(providers *[]*schema.Provider, endpointServiceNames []string) resource.TestCheckFunc {
 	return func(s *terraform.State) error {
 		if providers == nil {
 			return fmt.Errorf("no providers initialized")

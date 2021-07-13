@@ -13,11 +13,15 @@ import (
 
 // Implements the service.ServicePackage interface,
 type servicePackage struct {
-	conn *amplify.Amplify
+	client *amplify.Amplify
 }
 
-func (sp *servicePackage) CustomEndpointKey() string {
-	return "amplify"
+func (sp *servicePackage) Client() interface{} {
+	return sp.client
+}
+
+func (sp *servicePackage) EndpointsID() string {
+	return amplify.EndpointsID
 }
 
 func (sp *servicePackage) ID() string {
@@ -39,7 +43,7 @@ func (sp *servicePackage) Resources() map[string]*schema.Resource {
 }
 
 func (sp *servicePackage) Configure(ctx context.Context, sess client.ConfigProvider) error {
-	sp.conn = amplify.New(sess)
+	sp.client = amplify.New(sess)
 
 	return nil
 }
@@ -51,5 +55,5 @@ func NewServicePackage() service.ServicePackage {
 func fromMeta(v interface{}) (*amplify.Amplify, *keyvaluetags.DefaultConfig, *keyvaluetags.IgnoreConfig) {
 	m := v.(meta.Meta)
 
-	return m.GetServicePackage(amplify.ServiceID).(*servicePackage).conn, m.GetDefaultTagsConfig(), m.GetIgnoreTagsConfig()
+	return m.GetServicePackage(amplify.ServiceID).Client().(*amplify.Amplify), m.GetDefaultTagsConfig(), m.GetIgnoreTagsConfig()
 }

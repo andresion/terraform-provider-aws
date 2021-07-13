@@ -882,7 +882,7 @@ func (c *Config) Client() (interface{}, error) {
 	}
 
 	for id, servicePackage := range servicePackages {
-		if err := servicePackage.Configure(ctx, sess.Copy(&aws.Config{Endpoint: aws.String(c.Endpoints[servicePackage.CustomEndpointKey()])})); err != nil {
+		if err := servicePackage.Configure(ctx, sess.Copy(&aws.Config{Endpoint: aws.String(c.Endpoints[servicePackage.EndpointsID()])})); err != nil {
 			return nil, fmt.Errorf("error configuring Service Package (%s): %w", id, err)
 		}
 	}
@@ -908,7 +908,7 @@ func (c *AWSClient) GetRegion() string {
 	return c.region
 }
 
-func (c *AWSClient) GetServicePackage(id string) interface{} {
+func (c *AWSClient) GetServicePackage(id string) service.ServicePackage {
 	return c.ServicePackages[id]
 }
 

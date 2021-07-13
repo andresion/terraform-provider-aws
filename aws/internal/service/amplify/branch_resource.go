@@ -13,6 +13,7 @@ import (
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/dataconv"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/keyvaluetags"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify/finder"
+	. "github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify/id"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/tfresource"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/validate"
 )

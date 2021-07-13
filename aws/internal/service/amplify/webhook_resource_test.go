@@ -60,7 +60,7 @@ func testAccAWSAmplifyWebhook_disappears(t *testing.T) {
 				Config: testAccAWSAmplifyWebhookConfig(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					testAccCheckAWSAmplifyWebhookExists(resourceName, &webhook),
-					TestAccCheckResourceDisappears(TestAccProvider, resourceAwsAmplifyWebhook(), resourceName),
+					TestAccCheckResourceDisappears(TestAccProvider, resourceAwsAmplifyWebhook, resourceName),
 				),
 				ExpectNonEmptyPlan: true,
 			},
@@ -116,7 +116,7 @@ func testAccCheckAWSAmplifyWebhookExists(resourceName string, v *amplify.Webhook
 			return fmt.Errorf("No Amplify Webhook ID is set")
 		}
 
-		conn, _, _ := fromMeta(TestAccProvider.Meta())
+		conn := fromMeta(TestAccProvider.Meta())
 
 		webhook, err := finder.WebhookByID(conn, rs.Primary.ID)
 
@@ -131,7 +131,7 @@ func testAccCheckAWSAmplifyWebhookExists(resourceName string, v *amplify.Webhook
 }
 
 func testAccCheckAWSAmplifyWebhookDestroy(s *terraform.State) error {
-	conn, _, _ := fromMeta(TestAccProvider.Meta())
+	conn := fromMeta(TestAccProvider.Meta())
 
 	for _, rs := range s.RootModule().Resources {
 		if rs.Type != "aws_amplify_webhook" {

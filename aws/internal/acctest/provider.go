@@ -25,6 +25,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/structure"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
+	tfaws "github.com/terraform-providers/terraform-provider-aws/aws"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/envvar"
 	tfnet "github.com/terraform-providers/terraform-provider-aws/aws/internal/net"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/provider/meta"
@@ -877,7 +878,7 @@ func TestAccDeleteResource(resource *schema.Resource, d *schema.ResourceData, me
 	return resource.Delete(d, meta)
 }
 
-func TestAccCheckResourceDisappears(provider *schema.Provider, resource *schema.Resource, resourceName string) resource.TestCheckFunc {
+func TestAccCheckResourceDisappears(provider *schema.Provider, resourceFunc func(interface{}) *schema.Resource, resourceName string) resource.TestCheckFunc {
 	return func(s *terraform.State) error {
 		resourceState, ok := s.RootModule().Resources[resourceName]
 
@@ -889,7 +890,10 @@ func TestAccCheckResourceDisappears(provider *schema.Provider, resource *schema.
 			return fmt.Errorf("resource ID missing: %s", resourceName)
 		}
 
-		return TestAccDeleteResource(resource, resource.Data(resourceState.Primary), provider.Meta())
+		meta := provider.Meta()
+		resource := resourceFunc(meta)
+
+		return TestAccDeleteResource(resource, resource.Data(resourceState.Primary), meta)
 	}
 }
 

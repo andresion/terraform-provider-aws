@@ -11,6 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
 	. "github.com/terraform-providers/terraform-provider-aws/aws/internal/acctest"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify/finder"
+	. "github.com/terraform-providers/terraform-provider-aws/aws/internal/service/amplify/id"
 	"github.com/terraform-providers/terraform-provider-aws/aws/internal/tfresource"
 )
 
@@ -78,7 +79,7 @@ func testAccAWSAmplifyDomainAssociation_disappears(t *testing.T) {
 				Config: testAccAWSAmplifyDomainAssociationConfig(rName, domainName, false),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckAWSAmplifyDomainAssociationExists(resourceName, &domain),
-					TestAccCheckResourceDisappears(TestAccProvider, resourceAwsAmplifyDomainAssociation(), resourceName),
+					TestAccCheckResourceDisappears(TestAccProvider, resourceAwsAmplifyDomainAssociation, resourceName),
 				),
 				ExpectNonEmptyPlan: true,
 			},
@@ -163,7 +164,7 @@ func testAccCheckAWSAmplifyDomainAssociationExists(resourceName string, v *ampli
 			return err
 		}
 
-		conn, _, _ := fromMeta(TestAccProvider.Meta())
+		conn := fromMeta(TestAccProvider.Meta())
 
 		domainAssociation, err := finder.DomainAssociationByAppIDAndDomainName(conn, appID, domainName)
 
@@ -178,7 +179,7 @@ func testAccCheckAWSAmplifyDomainAssociationExists(resourceName string, v *ampli
 }
 
 func testAccCheckAWSAmplifyDomainAssociationDestroy(s *terraform.State) error {
-	conn, _, _ := fromMeta(TestAccProvider.Meta())
+	conn := fromMeta(TestAccProvider.Meta())
 
 	for _, rs := range s.RootModule().Resources {
 		if rs.Type != "aws_amplify_domain_association" {

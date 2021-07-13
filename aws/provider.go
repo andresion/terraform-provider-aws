@@ -19,6 +19,55 @@ func Provider() *schema.Provider {
 	// TODO: Move the validation to this, requires conditional schemas
 	// TODO: Move the configuration to this, requires validation
 
+	descriptions := map[string]string{
+		"region": "The region where AWS operations will take place. Examples\n" +
+			"are us-east-1, us-west-2, etc.", // lintignore:AWSAT003
+
+		"access_key": "The access key for API operations. You can retrieve this\n" +
+			"from the 'Security & Credentials' section of the AWS console.",
+
+		"secret_key": "The secret key for API operations. You can retrieve this\n" +
+			"from the 'Security & Credentials' section of the AWS console.",
+
+		"profile": "The profile for API operations. If not set, the default profile\n" +
+			"created with `aws configure` will be used.",
+
+		"shared_credentials_file": "The path to the shared credentials file. If not set\n" +
+			"this defaults to ~/.aws/credentials.",
+
+		"token": "session token. A session token is only required if you are\n" +
+			"using temporary security credentials.",
+
+		"max_retries": "The maximum number of times an AWS API request is\n" +
+			"being executed. If the API request still fails, an error is\n" +
+			"thrown.",
+
+		"endpoint": "Use this to override the default service endpoint URL",
+
+		"insecure": "Explicitly allow the provider to perform \"insecure\" SSL requests. If omitted," +
+			"default value is `false`",
+
+		"skip_credentials_validation": "Skip the credentials validation via STS API. " +
+			"Used for AWS API implementations that do not have STS available/implemented.",
+
+		"skip_get_ec2_platforms": "Skip getting the supported EC2 platforms. " +
+			"Used by users that don't have ec2:DescribeAccountAttributes permissions.",
+
+		"skip_region_validation": "Skip static validation of region name. " +
+			"Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).",
+
+		"skip_requesting_account_id": "Skip requesting the account ID. " +
+			"Used for AWS API implementations that do not have IAM/STS API and/or metadata API.",
+
+		"skip_medatadata_api_check": "Skip the AWS Metadata API check. " +
+			"Used for AWS API implementations that do not have a metadata api endpoint.",
+
+		"s3_force_path_style": "Set this to true to force the request to use path-style addressing,\n" +
+			"i.e., http://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will\n" +
+			"use virtual hosted bucket addressing when possible\n" +
+			"(http://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.",
+	}
+
 	// The actual provider
 	provider := &schema.Provider{
 		Schema: map[string]*schema.Schema{
@@ -109,8 +158,6 @@ func Provider() *schema.Provider {
 					},
 				},
 			},
-
-			"endpoints": endpointsSchema(),
 
 			"ignore_tags": {
 				Type:        schema.TypeList,
@@ -1228,32 +1275,13 @@ func Provider() *schema.Provider {
 		}
 	}
 
-	// Custom endpoints.
-	customEndpoints := make(map[string]struct{})
+	endpointServiceNames, err := EndpointServiceNames()
 
-	for _, endpointServiceName := range endpointServiceNames {
-		if _, ok := customEndpoints[endpointServiceName]; ok {
-			panic(fmt.Sprintf("A service named %q is already registered for custom endpoints", endpointServiceName))
-		}
-
-		customEndpoints[endpointServiceName] = struct{}{}
+	if err != nil {
+		panic(err)
 	}
 
-	for serviceName, servicePackage := range servicePackages {
-		endpointServiceName := servicePackage.CustomEndpointKey()
-
-		if _, ok := customEndpoints[endpointServiceName]; ok {
-			panic(fmt.Sprintf("(%s) A service named %q is already registered for custom endpoints", serviceName, endpointServiceName))
-		}
-
-		customEndpoints[endpointServiceName] = struct{}{}
-	}
-
-	endpointServiceNames = make([]string, len(customEndpoints))
-
-	for endpointServiceName := range customEndpoints {
-		endpointServiceNames = append(endpointServiceNames, endpointServiceName)
-	}
+	provider.Schema["endpoints"] = endpointsSchema(endpointServiceNames, descriptions)
 
 	provider.ConfigureContextFunc = func(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
 		terraformVersion := provider.TerraformVersion
@@ -1262,228 +1290,13 @@ func Provider() *schema.Provider {
 			// We can therefore assume that if it's missing it's 0.10 or 0.11
 			terraformVersion = "0.11+compatible"
 		}
-		return providerConfigure(ctx, d, terraformVersion)
+		return providerConfigure(ctx, d, terraformVersion, endpointServiceNames)
 	}
 
 	return provider
 }
 
-var descriptions map[string]string
-var endpointServiceNames []string
-
-func init() {
-	descriptions = map[string]string{
-		"region": "The region where AWS operations will take place. Examples\n" +
-			"are us-east-1, us-west-2, etc.", // lintignore:AWSAT003
-
-		"access_key": "The access key for API operations. You can retrieve this\n" +
-			"from the 'Security & Credentials' section of the AWS console.",
-
-		"secret_key": "The secret key for API operations. You can retrieve this\n" +
-			"from the 'Security & Credentials' section of the AWS console.",
-
-		"profile": "The profile for API operations. If not set, the default profile\n" +
-			"created with `aws configure` will be used.",
-
-		"shared_credentials_file": "The path to the shared credentials file. If not set\n" +
-			"this defaults to ~/.aws/credentials.",
-
-		"token": "session token. A session token is only required if you are\n" +
-			"using temporary security credentials.",
-
-		"max_retries": "The maximum number of times an AWS API request is\n" +
-			"being executed. If the API request still fails, an error is\n" +
-			"thrown.",
-
-		"endpoint": "Use this to override the default service endpoint URL",
-
-		"insecure": "Explicitly allow the provider to perform \"insecure\" SSL requests. If omitted," +
-			"default value is `false`",
-
-		"skip_credentials_validation": "Skip the credentials validation via STS API. " +
-			"Used for AWS API implementations that do not have STS available/implemented.",
-
-		"skip_get_ec2_platforms": "Skip getting the supported EC2 platforms. " +
-			"Used by users that don't have ec2:DescribeAccountAttributes permissions.",
-
-		"skip_region_validation": "Skip static validation of region name. " +
-			"Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).",
-
-		"skip_requesting_account_id": "Skip requesting the account ID. " +
-			"Used for AWS API implementations that do not have IAM/STS API and/or metadata API.",
-
-		"skip_medatadata_api_check": "Skip the AWS Metadata API check. " +
-			"Used for AWS API implementations that do not have a metadata api endpoint.",
-
-		"s3_force_path_style": "Set this to true to force the request to use path-style addressing,\n" +
-			"i.e., http://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will\n" +
-			"use virtual hosted bucket addressing when possible\n" +
-			"(http://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.",
-	}
-
-	endpointServiceNames = []string{
-		"accessanalyzer",
-		"acm",
-		"acmpca",
-		"amplify",
-		"apigateway",
-		"appconfig",
-		"applicationautoscaling",
-		"applicationinsights",
-		"appmesh",
-		"apprunner",
-		"appstream",
-		"appsync",
-		"athena",
-		"auditmanager",
-		"autoscaling",
-		"autoscalingplans",
-		"backup",
-		"batch",
-		"budgets",
-		"chime",
-		"cloud9",
-		"cloudformation",
-		"cloudfront",
-		"cloudhsm",
-		"cloudsearch",
-		"cloudtrail",
-		"cloudwatch",
-		"cloudwatchevents",
-		"cloudwatchlogs",
-		"codeartifact",
-		"codebuild",
-		"codecommit",
-		"codedeploy",
-		"codepipeline",
-		"codestarconnections",
-		"cognitoidentity",
-		"cognitoidp",
-		"configservice",
-		"connect",
-		"cur",
-		"dataexchange",
-		"datapipeline",
-		"datasync",
-		"dax",
-		"detective",
-		"devicefarm",
-		"directconnect",
-		"dlm",
-		"dms",
-		"docdb",
-		"ds",
-		"dynamodb",
-		"ec2",
-		"ecr",
-		"ecrpublic",
-		"ecs",
-		"efs",
-		"eks",
-		"elasticache",
-		"elasticbeanstalk",
-		"elastictranscoder",
-		"elb",
-		"emr",
-		"emrcontainers",
-		"es",
-		"firehose",
-		"fms",
-		"forecast",
-		"fsx",
-		"gamelift",
-		"glacier",
-		"globalaccelerator",
-		"glue",
-		"greengrass",
-		"guardduty",
-		"iam",
-		"identitystore",
-		"imagebuilder",
-		"inspector",
-		"iot",
-		"iotanalytics",
-		"iotevents",
-		"kafka",
-		"kinesis",
-		"kinesisanalytics",
-		"kinesisanalyticsv2",
-		"kinesisvideo",
-		"kms",
-		"lakeformation",
-		"lambda",
-		"lexmodels",
-		"licensemanager",
-		"lightsail",
-		"location",
-		"macie",
-		"macie2",
-		"managedblockchain",
-		"marketplacecatalog",
-		"mediaconnect",
-		"mediaconvert",
-		"medialive",
-		"mediapackage",
-		"mediastore",
-		"mediastoredata",
-		"mq",
-		"mwaa",
-		"neptune",
-		"networkfirewall",
-		"networkmanager",
-		"opsworks",
-		"organizations",
-		"outposts",
-		"personalize",
-		"pinpoint",
-		"pricing",
-		"qldb",
-		"quicksight",
-		"ram",
-		"rds",
-		"redshift",
-		"resourcegroups",
-		"resourcegroupstaggingapi",
-		"route53",
-		"route53domains",
-		"route53resolver",
-		"s3",
-		"s3control",
-		"s3outposts",
-		"sagemaker",
-		"schemas",
-		"sdb",
-		"secretsmanager",
-		"securityhub",
-		"serverlessrepo",
-		"servicecatalog",
-		"servicediscovery",
-		"servicequotas",
-		"ses",
-		"shield",
-		"signer",
-		"sns",
-		"sqs",
-		"ssm",
-		"ssoadmin",
-		"stepfunctions",
-		"storagegateway",
-		"sts",
-		"swf",
-		"synthetics",
-		"timestreamwrite",
-		"transfer",
-		"waf",
-		"wafregional",
-		"wafv2",
-		"worklink",
-		"workmail",
-		"workspaces",
-		"xray",
-	}
-}
-
-func providerConfigure(ctx context.Context, d *schema.ResourceData, terraformVersion string) (interface{}, []diag.Diagnostic) {
+func providerConfigure(ctx context.Context, d *schema.ResourceData, terraformVersion string, endpointServiceNames []string) (interface{}, []diag.Diagnostic) {
 	config := Config{
 		AccessKey:               d.Get("access_key").(string),
 		SecretKey:               d.Get("secret_key").(string),
@@ -1662,7 +1475,7 @@ func assumeRoleSchema() *schema.Schema {
 	}
 }
 
-func endpointsSchema() *schema.Schema {
+func endpointsSchema(endpointServiceNames []string, descriptions map[string]string) *schema.Schema {
 	endpointsAttributes := make(map[string]*schema.Schema)
 
 	for _, endpointServiceName := range endpointServiceNames {
@@ -1725,4 +1538,200 @@ func ReverseDns(hostname string) string {
 	}
 
 	return strings.Join(parts, ".")
+}
+
+func EndpointServiceNames() ([]string, error) {
+	servicePackages, err := tfprovider.ServicePackages()
+
+	if err != nil {
+		return nil, err
+	}
+
+	endpointServiceNames := []string{
+		"accessanalyzer",
+		"acm",
+		"acmpca",
+		"amplify",
+		"apigateway",
+		"appconfig",
+		"applicationautoscaling",
+		"applicationinsights",
+		"appmesh",
+		"apprunner",
+		"appstream",
+		"appsync",
+		"athena",
+		"auditmanager",
+		"autoscaling",
+		"autoscalingplans",
+		"backup",
+		"batch",
+		"budgets",
+		"chime",
+		"cloud9",
+		"cloudformation",
+		"cloudfront",
+		"cloudhsm",
+		"cloudsearch",
+		"cloudtrail",
+		"cloudwatch",
+		"cloudwatchevents",
+		"cloudwatchlogs",
+		"codeartifact",
+		"codebuild",
+		"codecommit",
+		"codedeploy",
+		"codepipeline",
+		"codestarconnections",
+		"cognitoidentity",
+		"cognitoidp",
+		"configservice",
+		"connect",
+		"cur",
+		"dataexchange",
+		"datapipeline",
+		"datasync",
+		"dax",
+		"detective",
+		"devicefarm",
+		"directconnect",
+		"dlm",
+		"dms",
+		"docdb",
+		"ds",
+		"dynamodb",
+		"ec2",
+		"ecr",
+		"ecrpublic",
+		"ecs",
+		"efs",
+		"eks",
+		"elasticache",
+		"elasticbeanstalk",
+		"elastictranscoder",
+		"elb",
+		"emr",
+		"emrcontainers",
+		"es",
+		"firehose",
+		"fms",
+		"forecast",
+		"fsx",
+		"gamelift",
+		"glacier",
+		"globalaccelerator",
+		"glue",
+		"greengrass",
+		"guardduty",
+		"iam",
+		"identitystore",
+		"imagebuilder",
+		"inspector",
+		"iot",
+		"iotanalytics",
+		"iotevents",
+		"kafka",
+		"kinesis",
+		"kinesisanalytics",
+		"kinesisanalyticsv2",
+		"kinesisvideo",
+		"kms",
+		"lakeformation",
+		"lambda",
+		"lexmodels",
+		"licensemanager",
+		"lightsail",
+		"location",
+		"macie",
+		"macie2",
+		"managedblockchain",
+		"marketplacecatalog",
+		"mediaconnect",
+		"mediaconvert",
+		"medialive",
+		"mediapackage",
+		"mediastore",
+		"mediastoredata",
+		"mq",
+		"mwaa",
+		"neptune",
+		"networkfirewall",
+		"networkmanager",
+		"opsworks",
+		"organizations",
+		"outposts",
+		"personalize",
+		"pinpoint",
+		"pricing",
+		"qldb",
+		"quicksight",
+		"ram",
+		"rds",
+		"redshift",
+		"resourcegroups",
+		"resourcegroupstaggingapi",
+		"route53",
+		"route53domains",
+		"route53resolver",
+		"s3",
+		"s3control",
+		"s3outposts",
+		"sagemaker",
+		"schemas",
+		"sdb",
+		"secretsmanager",
+		"securityhub",
+		"serverlessrepo",
+		"servicecatalog",
+		"servicediscovery",
+		"servicequotas",
+		"ses",
+		"shield",
+		"signer",
+		"sns",
+		"sqs",
+		"ssm",
+		"ssoadmin",
+		"stepfunctions",
+		"storagegateway",
+		"sts",
+		"swf",
+		"synthetics",
+		"timestreamwrite",
+		"transfer",
+		"waf",
+		"wafregional",
+		"wafv2",
+		"worklink",
+		"workmail",
+		"workspaces",
+		"xray",
+	}
+	endpointServiceNamesSet := make(map[string]struct{})
+
+	for _, endpointServiceName := range endpointServiceNames {
+		if _, ok := endpointServiceNamesSet[endpointServiceName]; !ok {
+			endpointServiceNamesSet[endpointServiceName] = struct{}{}
+		}
+	}
+
+	for _, servicePackage := range servicePackages {
+		endpointServiceName := servicePackage.EndpointsID()
+
+		if endpointServiceName == "" {
+			continue
+		}
+
+		if _, ok := endpointServiceNamesSet[endpointServiceName]; !ok {
+			endpointServiceNamesSet[endpointServiceName] = struct{}{}
+		}
+	}
+
+	endpointServiceNames = make([]string, 0)
+
+	for endpointServiceName := range endpointServiceNamesSet {
+		endpointServiceNames = append(endpointServiceNames, endpointServiceName)
+	}
+
+	return endpointServiceNames, nil
 }
