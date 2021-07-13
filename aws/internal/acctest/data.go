@@ -13,6 +13,11 @@ func (td *TestData) RandomName() string {
 	return acctest.RandomWithPrefix("tf-acc-test")
 }
 
+// RandomAlphaString returns a new alphabetic random string of length `n`.
+func (td *TestData) RandomAlphaString(n int) string {
+	return acctest.RandStringFromCharSet(n, acctest.CharSetAlpha)
+}
+
 // NewTestData returns a new TestData structure.
 func NewTestData(t *testing.T) TestData {
 	data := TestData{}
