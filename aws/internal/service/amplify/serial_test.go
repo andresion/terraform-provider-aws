@@ -1,4 +1,4 @@
-package amplify
+package amplify_test
 
 import (
 	"testing"
