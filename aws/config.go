@@ -887,6 +887,8 @@ func (c *Config) Client() (interface{}, error) {
 		}
 	}
 
+	client.ServicePackages = servicePackages
+
 	return client, nil
 }
 
