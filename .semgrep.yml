@@ -319,6 +319,7 @@ rules:
     message: Calling `d.SetId("")` should ensure `!d.IsNewResource()` is checked first
     paths:
       exclude:
+        - aws/data_source_aws_*.go
         - aws/resource_aws_api_gateway_*.go
         - aws/resource_aws_apigatewayv2_*.go
         - aws/resource_aws_app_cookie_stickiness_policy.go
@@ -338,7 +339,7 @@ rules:
         - aws/resource_aws_securityhub*.go
         - aws/resource_aws_[t-x]*.go
       include:
-        - aws/resource*.go
+        - aws/
     patterns:
       - pattern-either:
         - pattern: |

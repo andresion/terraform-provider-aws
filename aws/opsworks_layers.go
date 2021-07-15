@@ -284,11 +284,11 @@ func (lt *opsworksLayerType) Read(d *schema.ResourceData, meta interface{}) erro
 
 	resp, err := conn.DescribeLayers(req)
 	if err != nil {
-		if isAWSErr(err, opsworks.ErrCodeResourceNotFoundException, "") {
+		if !d.IsNewResource() && isAWSErr(err, opsworks.ErrCodeResourceNotFoundException, "") {
 			d.SetId("")
 			return nil
 		}
-		return err
+		return fmt.Errorf("error reading OpsWorks layer (%s): %w", d.Id(), err)
 	}
 
 	layer := resp.Layers[0]
