@@ -89,7 +89,7 @@ func resourceAwsApiGatewayVpcLinkCreate(d *schema.ResourceData, meta interface{}
 
 	_, err = stateConf.WaitForState()
 	if err != nil {
-		return fmt.Errorf("error waiting for APIGateway Vpc Link status to be \"%s\": %w", apigateway.VpcLinkStatusAvailable, err)
+		return fmt.Errorf("error waiting for API Gateway VPC Link status to be \"%s\": %w", apigateway.VpcLinkStatusAvailable, err)
 	}
 
 	return resourceAwsApiGatewayVpcLinkRead(d, meta)
@@ -106,12 +106,12 @@ func resourceAwsApiGatewayVpcLinkRead(d *schema.ResourceData, meta interface{}) 
 
 	resp, err := conn.GetVpcLink(input)
 	if err != nil {
-		if isAWSErr(err, apigateway.ErrCodeNotFoundException, "") {
-			log.Printf("[WARN] VPC Link %s not found, removing from state", d.Id())
+		if !d.IsNewResource() && isAWSErr(err, apigateway.ErrCodeNotFoundException, "") {
+			log.Printf("[WARN] API Gateway VPC Link (%s) not found, removing from state", d.Id())
 			d.SetId("")
 			return nil
 		}
-		return err
+		return fmt.Errorf("error reading API Gateway VPC Link (%s): %w", d.Id(), err)
 	}
 
 	tags := keyvaluetags.ApigatewayKeyValueTags(resp.Tags).IgnoreAws().IgnoreConfig(ignoreTagsConfig)
@@ -174,12 +174,7 @@ func resourceAwsApiGatewayVpcLinkUpdate(d *schema.ResourceData, meta interface{}
 
 	_, err := conn.UpdateVpcLink(input)
 	if err != nil {
-		if isAWSErr(err, apigateway.ErrCodeNotFoundException, "") {
-			log.Printf("[WARN] VPC Link %s not found, removing from state", d.Id())
-			d.SetId("")
-			return nil
-		}
-		return err
+		return fmt.Errorf("error updating API Gateway VPC Link (%s): %w", d.Id(), err)
 	}
 
 	stateConf := &resource.StateChangeConf{
@@ -192,7 +187,7 @@ func resourceAwsApiGatewayVpcLinkUpdate(d *schema.ResourceData, meta interface{}
 
 	_, err = stateConf.WaitForState()
 	if err != nil {
-		return fmt.Errorf("Error waiting for APIGateway Vpc Link status to be \"%s\": %s", apigateway.VpcLinkStatusAvailable, err)
+		return fmt.Errorf("Error waiting for API Gateway Vpc Link status to be \"%s\": %s", apigateway.VpcLinkStatusAvailable, err)
 	}
 
 	return resourceAwsApiGatewayVpcLinkRead(d, meta)

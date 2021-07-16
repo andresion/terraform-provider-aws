@@ -320,7 +320,6 @@ rules:
     paths:
       exclude:
         - aws/data_source_aws_*.go
-        - aws/resource_aws_api_gateway_*.go
         - aws/resource_aws_apigatewayv2_*.go
         - aws/resource_aws_app_cookie_stickiness_policy.go
         - aws/resource_aws_appautoscaling_*.go

@@ -200,12 +200,12 @@ func resourceAwsApiGatewayUsagePlanRead(d *schema.ResourceData, meta interface{}
 		UsagePlanId: aws.String(d.Id()),
 	})
 	if err != nil {
-		if isAWSErr(err, apigateway.ErrCodeNotFoundException, "") {
+		if !d.IsNewResource() && isAWSErr(err, apigateway.ErrCodeNotFoundException, "") {
 			log.Printf("[WARN] API Gateway Usage Plan (%s) not found, removing from state", d.Id())
 			d.SetId("")
 			return nil
 		}
-		return err
+		return fmt.Errorf("error reading API Gateway Usage Plan (%s): %w", d.Id(), err)
 	}
 
 	tags := keyvaluetags.ApigatewayKeyValueTags(up.Tags).IgnoreAws().IgnoreConfig(ignoreTagsConfig)

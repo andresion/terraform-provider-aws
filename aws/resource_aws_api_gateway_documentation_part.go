@@ -102,15 +102,13 @@ func resourceAwsApiGatewayDocumentationPartRead(d *schema.ResourceData, meta int
 		RestApiId:           aws.String(apiId),
 	})
 	if err != nil {
-		if isAWSErr(err, apigateway.ErrCodeNotFoundException, "") {
+		if !d.IsNewResource() && isAWSErr(err, apigateway.ErrCodeNotFoundException, "") {
 			log.Printf("[WARN] API Gateway Documentation Part (%s) not found, removing from state", d.Id())
 			d.SetId("")
 			return nil
 		}
-		return err
+		return fmt.Errorf("error reading API Gateway Documentation Part (%s): %w", d.Id(), err)
 	}
-
-	log.Printf("[DEBUG] Received API Gateway Documentation Part: %s", docPart)
 
 	d.Set("rest_api_id", apiId)
 	d.Set("location", flattenApiGatewayDocumentationPartLocation(docPart.Location))

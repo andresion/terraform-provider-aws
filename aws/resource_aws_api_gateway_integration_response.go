@@ -141,12 +141,12 @@ func resourceAwsApiGatewayIntegrationResponseRead(d *schema.ResourceData, meta i
 		StatusCode: aws.String(d.Get("status_code").(string)),
 	})
 	if err != nil {
-		if isAWSErr(err, apigateway.ErrCodeNotFoundException, "") {
+		if !d.IsNewResource() && isAWSErr(err, apigateway.ErrCodeNotFoundException, "") {
 			log.Printf("[WARN] API Gateway Integration Response (%s) not found, removing from state", d.Id())
 			d.SetId("")
 			return nil
 		}
-		return err
+		return fmt.Errorf("error reading API Gateway Integration Response (%s): %s", d.Id(), err)
 	}
 
 	log.Printf("[DEBUG] Received API Gateway Integration Response: %s", integrationResponse)

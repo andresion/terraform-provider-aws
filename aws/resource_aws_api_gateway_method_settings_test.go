@@ -203,7 +203,11 @@ func TestAccAWSAPIGatewayMethodSettings_Settings_LoggingLevel(t *testing.T) {
 	resourceName := "aws_api_gateway_method_settings.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		PreCheck: func() {
+			testAccPreCheck(t)
+			testAccPreCheckAWSAPIGatewayAccountCloudWatchRoleArn(t)
+			testAccAPIGatewayTypeEDGEPreCheck(t)
+		},
 		ErrorCheck:   testAccErrorCheck(t, apigateway.EndpointsID),
 		Providers:    testAccProviders,
 		CheckDestroy: testAccCheckAWSAPIGatewayMethodSettingsDestroy,
@@ -281,7 +285,11 @@ func TestAccAWSAPIGatewayMethodSettings_Settings_Multiple(t *testing.T) {
 	resourceName := "aws_api_gateway_method_settings.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		PreCheck: func() {
+			testAccPreCheck(t)
+			testAccPreCheckAWSAPIGatewayAccountCloudWatchRoleArn(t)
+			testAccAPIGatewayTypeEDGEPreCheck(t)
+		},
 		ErrorCheck:   testAccErrorCheck(t, apigateway.EndpointsID),
 		Providers:    testAccProviders,
 		CheckDestroy: testAccCheckAWSAPIGatewayMethodSettingsDestroy,
@@ -399,7 +407,11 @@ func TestAccAWSAPIGatewayMethodSettings_Settings_ThrottlingBurstLimitDisabledByD
 	resourceName := "aws_api_gateway_method_settings.test"
 
 	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:     func() { testAccPreCheck(t); testAccAPIGatewayTypeEDGEPreCheck(t) },
+		PreCheck: func() {
+			testAccPreCheck(t)
+			testAccPreCheckAWSAPIGatewayAccountCloudWatchRoleArn(t)
+			testAccAPIGatewayTypeEDGEPreCheck(t)
+		},
 		ErrorCheck:   testAccErrorCheck(t, apigateway.EndpointsID),
 		Providers:    testAccProviders,
 		CheckDestroy: testAccCheckAWSAPIGatewayMethodSettingsDestroy,
