@@ -36,9 +36,9 @@ resource "aws_dms_replication_task" "test" {
 The following arguments are supported:
 
 * `cdc_start_time` - (Optional) The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
-* `migration_type` - (Required) The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
-* `replication_instance_arn` - (Required) The Amazon Resource Name (ARN) of the replication instance.
-* `replication_task_id` - (Required) The replication task identifier.
+* `migration_type` - (Required, Forces new resource) The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
+* `replication_instance_arn` - (Required, Forces new resource) The Amazon Resource Name (ARN) of the replication instance.
+* `replication_task_id` - (Required, Forces new resource) The replication task identifier.
 
     - Must contain from 1 to 255 alphanumeric characters or hyphens.
     - First character must be a letter.
@@ -46,10 +46,10 @@ The following arguments are supported:
     - Cannot contain two consecutive hyphens.
 
 * `replication_task_settings` - (Optional) An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
-* `source_endpoint_arn` - (Required) The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+* `source_endpoint_arn` - (Required, Forces new resource) The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
 * `table_mappings` - (Required) An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
 * `tags` - (Optional) A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-* `target_endpoint_arn` - (Required) The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+* `target_endpoint_arn` - (Required, Forces new resource) The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
 
 ## Attributes Reference
 

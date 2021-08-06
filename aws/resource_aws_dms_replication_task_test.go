@@ -2,44 +2,36 @@ package aws
 
 import (
 	"fmt"
+	"regexp"
 	"testing"
 
-	"github.com/aws/aws-sdk-go/aws"
 	dms "github.com/aws/aws-sdk-go/service/databasemigrationservice"
 	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
+	"github.com/terraform-providers/terraform-provider-aws/aws/internal/service/databasemigrationservice/finder"
 )
 
 func TestAccAWSDmsReplicationTask_basic(t *testing.T) {
 	rName := acctest.RandomWithPrefix("tf-acc-test")
 	resourceName := "aws_dms_replication_task.test"
 
-	tags := `
-    Update = "to-update"
-    Remove = "to-remove"
-`
-	updatedTags := `
-    Update = "updated"
-    Add    = "added"
-`
-
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:     func() { testAccPreCheck(t) },
 		ErrorCheck:   testAccErrorCheck(t, dms.EndpointsID),
 		Providers:    testAccProviders,
-		CheckDestroy: dmsReplicationTaskDestroy,
+		CheckDestroy: testAccCheckDmsReplicationTaskDestroy,
 		Steps: []resource.TestStep{
 			{
-				Config: dmsReplicationTaskConfig(rName, tags),
+				Config: dmsReplicationTaskConfig(rName, dms.MigrationTypeValueFullLoad),
 				Check: resource.ComposeTestCheckFunc(
-					checkDmsReplicationTaskExists(resourceName),
-					resource.TestCheckResourceAttrSet(resourceName, "replication_task_arn"),
+					testAccCheckDmsReplicationTaskExists(resourceName),
+					testAccMatchResourceAttrRegionalARN(resourceName, "replication_task_arn", "dms", regexp.MustCompile(`task:.+$`)),
 				),
 			},
 			{
-				Config:             dmsReplicationTaskConfig(rName, tags),
+				Config:             dmsReplicationTaskConfig(rName, dms.MigrationTypeValueFullLoad),
 				PlanOnly:           true,
 				ExpectNonEmptyPlan: false,
 			},
@@ -48,17 +40,171 @@ func TestAccAWSDmsReplicationTask_basic(t *testing.T) {
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
+		},
+	})
+}
+
+func TestAccAWSDmsReplicationTask_disappears(t *testing.T) {
+	rName := acctest.RandomWithPrefix("tf-acc-test")
+	resourceName := "aws_dms_replication_task.test"
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:     func() { testAccPreCheck(t) },
+		ErrorCheck:   testAccErrorCheck(t, dms.EndpointsID),
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckDmsReplicationTaskDestroy,
+		Steps: []resource.TestStep{
 			{
-				Config: dmsReplicationTaskConfig(rName, updatedTags),
+				Config: dmsReplicationTaskConfig(rName, dms.MigrationTypeValueFullLoad),
 				Check: resource.ComposeTestCheckFunc(
-					checkDmsReplicationTaskExists(resourceName),
+					testAccCheckDmsReplicationTaskExists(resourceName),
+					testAccCheckResourceDisappears(testAccProvider, resourceAwsDmsReplicationTask(), resourceName),
+				),
+				ExpectNonEmptyPlan: true,
+			},
+		},
+	})
+}
+
+func TestAccAWSDmsReplicationTask_tags(t *testing.T) {
+	rName := acctest.RandomWithPrefix("tf-acc-test")
+	resourceName := "aws_dms_replication_task.test"
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:     func() { testAccPreCheck(t) },
+		ErrorCheck:   testAccErrorCheck(t, dms.EndpointsID),
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckDmsReplicationTaskDestroy,
+		Steps: []resource.TestStep{
+			{
+				Config: dmsReplicationTaskConfig_Tags1(rName, "key1", "value1"),
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckDmsReplicationTaskExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "tags.%", "1"),
+					resource.TestCheckResourceAttr(resourceName, "tags.key1", "value1"),
+				),
+			},
+			{
+				Config: dmsReplicationTaskConfig_Tags2(rName, "key1", "value1", "key2", "value2"),
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckDmsReplicationTaskExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "tags.%", "2"),
+					resource.TestCheckResourceAttr(resourceName, "tags.key1", "value1"),
+					resource.TestCheckResourceAttr(resourceName, "tags.key2", "value2"),
+				),
+			},
+			{
+				ResourceName:      resourceName,
+				ImportState:       true,
+				ImportStateVerify: true,
+			},
+			{
+				Config: dmsReplicationTaskConfig_Tags1(rName, "key2", "value2"),
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckDmsReplicationTaskExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "tags.%", "1"),
+					resource.TestCheckResourceAttr(resourceName, "tags.key2", "value2"),
 				),
 			},
 		},
 	})
 }
 
-func checkDmsReplicationTaskExists(n string) resource.TestCheckFunc {
+func TestAccAWSDmsReplicationTask_updateMigrationType(t *testing.T) {
+	rName := acctest.RandomWithPrefix("tf-acc-test")
+	resourceName := "aws_dms_replication_task.test"
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:     func() { testAccPreCheck(t) },
+		ErrorCheck:   testAccErrorCheck(t, dms.EndpointsID),
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckDmsReplicationTaskDestroy,
+		Steps: []resource.TestStep{
+			{
+				Config: dmsReplicationTaskConfig(rName, dms.MigrationTypeValueFullLoad),
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckDmsReplicationTaskExists(resourceName),
+				),
+			},
+			{
+				// Test resource re-creation due to migration_type change
+				Config: dmsReplicationTaskConfig(rName, dms.MigrationTypeValueCdc),
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckDmsReplicationTaskExists(resourceName),
+				),
+			},
+			{
+				ResourceName:      resourceName,
+				ImportState:       true,
+				ImportStateVerify: true,
+			},
+		},
+	})
+}
+
+func TestAccAWSDmsReplicationTask_updateReplicationTaskSettings(t *testing.T) {
+	rName := acctest.RandomWithPrefix("tf-acc-test")
+	resourceName := "aws_dms_replication_task.test"
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:     func() { testAccPreCheck(t) },
+		ErrorCheck:   testAccErrorCheck(t, dms.EndpointsID),
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckDmsReplicationTaskDestroy,
+		Steps: []resource.TestStep{
+			{
+				Config: dmsReplicationTaskConfig(rName, dms.MigrationTypeValueFullLoad),
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckDmsReplicationTaskExists(resourceName),
+				),
+			},
+			{
+				Config: dmsReplicationTaskConfig_ReplicationTaskSettings(rName, dms.MigrationTypeValueFullLoad),
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckDmsReplicationTaskExists(resourceName),
+				),
+			},
+			{
+				ResourceName:      resourceName,
+				ImportState:       true,
+				ImportStateVerify: true,
+			},
+		},
+	})
+}
+
+func TestAccAWSDmsReplicationTask_updateTableMappings(t *testing.T) {
+	rName := acctest.RandomWithPrefix("tf-acc-test")
+	resourceName := "aws_dms_replication_task.test"
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:     func() { testAccPreCheck(t) },
+		ErrorCheck:   testAccErrorCheck(t, dms.EndpointsID),
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckDmsReplicationTaskDestroy,
+		Steps: []resource.TestStep{
+			{
+				Config: dmsReplicationTaskConfig(rName, dms.MigrationTypeValueFullLoad),
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckDmsReplicationTaskExists(resourceName),
+				),
+			},
+			{
+				Config: dmsReplicationTaskConfig_TableMappings(rName, dms.MigrationTypeValueFullLoad),
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckDmsReplicationTaskExists(resourceName),
+				),
+			},
+			{
+				ResourceName:      resourceName,
+				ImportState:       true,
+				ImportStateVerify: true,
+			},
+		},
+	})
+}
+
+func testAccCheckDmsReplicationTaskExists(n string) resource.TestCheckFunc {
 	return func(s *terraform.State) error {
 		rs, ok := s.RootModule().Resources[n]
 		if !ok {
@@ -70,41 +216,30 @@ func checkDmsReplicationTaskExists(n string) resource.TestCheckFunc {
 		}
 
 		conn := testAccProvider.Meta().(*AWSClient).dmsconn
-		resp, err := conn.DescribeReplicationTasks(&dms.DescribeReplicationTasksInput{
-			Filters: []*dms.Filter{
-				{
-					Name:   aws.String("replication-task-id"),
-					Values: []*string{aws.String(rs.Primary.ID)},
-				},
-			},
-		})
+
+		task, err := finder.ReplicationTask(conn, rs.Primary.ID)
 
 		if err != nil {
 			return err
 		}
 
-		if resp.ReplicationTasks == nil {
-			return fmt.Errorf("DMS replication task error: %v", err)
+		if task == nil {
+			return fmt.Errorf("DMS replication task (%s) not found", rs.Primary.ID)
 		}
+
 		return nil
 	}
 }
 
-func dmsReplicationTaskDestroy(s *terraform.State) error {
+func testAccCheckDmsReplicationTaskDestroy(s *terraform.State) error {
 	for _, rs := range s.RootModule().Resources {
 		if rs.Type != "aws_dms_replication_task" {
 			continue
 		}
 
 		conn := testAccProvider.Meta().(*AWSClient).dmsconn
-		resp, err := conn.DescribeReplicationTasks(&dms.DescribeReplicationTasksInput{
-			Filters: []*dms.Filter{
-				{
-					Name:   aws.String("replication-task-id"),
-					Values: []*string{aws.String(rs.Primary.ID)},
-				},
-			},
-		})
+
+		task, err := finder.ReplicationTask(conn, rs.Primary.ID)
 
 		if tfawserr.ErrCodeEquals(err, dms.ErrCodeResourceNotFoundFault) {
 			continue
@@ -114,16 +249,16 @@ func dmsReplicationTaskDestroy(s *terraform.State) error {
 			return fmt.Errorf("error reading DMS Replication Task (%s): %w", rs.Primary.ID, err)
 		}
 
-		if resp != nil && len(resp.ReplicationTasks) > 0 {
-			return fmt.Errorf("DMS replication task still exists: %v", err)
+		if task != nil {
+			return fmt.Errorf("DMS replication task (%s) still exists", rs.Primary.ID)
 		}
 	}
 
 	return nil
 }
 
-func dmsReplicationTaskConfig(rName, tags string) string {
-	return composeConfig(testAccAvailableAZsNoOptInConfig(), fmt.Sprintf(`
+func dmsReplicationTaskConfigBase(rName string) string {
+	return fmt.Sprintf(`
 data "aws_partition" "current" {}
 
 data "aws_region" "current" {}
@@ -193,7 +328,63 @@ resource "aws_dms_replication_instance" "test" {
   publicly_accessible          = false
   replication_subnet_group_id  = aws_dms_replication_subnet_group.test.replication_subnet_group_id
 }
+`, rName)
+}
 
+func dmsReplicationTaskConfig(rName, migrationType string) string {
+	return composeConfig(
+		testAccAvailableAZsNoOptInConfig(),
+		dmsReplicationTaskConfigBase(rName),
+		fmt.Sprintf(`
+resource "aws_dms_replication_task" "test" {
+  migration_type            = %[1]q
+  replication_instance_arn  = aws_dms_replication_instance.test.replication_instance_arn
+  replication_task_id       = %[2]q
+  source_endpoint_arn       = aws_dms_endpoint.source.endpoint_arn
+  table_mappings            = "{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%%\",\"table-name\":\"%%\"},\"rule-action\":\"include\"}]}"
+  target_endpoint_arn       = aws_dms_endpoint.target.endpoint_arn
+}
+`, migrationType, rName))
+}
+
+func dmsReplicationTaskConfig_ReplicationTaskSettings(rName, migrationType string) string {
+	return composeConfig(
+		testAccAvailableAZsNoOptInConfig(),
+		dmsReplicationTaskConfigBase(rName),
+		fmt.Sprintf(`
+resource "aws_dms_replication_task" "test" {
+  migration_type            = %[1]q
+  replication_instance_arn  = aws_dms_replication_instance.test.replication_instance_arn
+  replication_task_id       = %[2]q
+  replication_task_settings = "{\"BeforeImageSettings\":null,\"FailTaskWhenCleanTaskResourceFailed\":false,\"ChangeProcessingDdlHandlingPolicy\":{\"HandleSourceTableAltered\":true,\"HandleSourceTableDropped\":true,\"HandleSourceTableTruncated\":true},\"ChangeProcessingTuning\":{\"BatchApplyMemoryLimit\":500,\"BatchApplyPreserveTransaction\":true,\"BatchApplyTimeoutMax\":60,\"BatchApplyTimeoutMin\":1,\"BatchSplitSize\":0,\"CommitTimeout\":1,\"MemoryKeepTime\":60,\"MemoryLimitTotal\":1024,\"MinTransactionSize\":1000,\"StatementCacheSize\":50},\"CharacterSetSettings\":null,\"ControlTablesSettings\":{\"ControlSchema\":\"\",\"FullLoadExceptionTableEnabled\":false,\"HistoryTableEnabled\":false,\"HistoryTimeslotInMinutes\":5,\"StatusTableEnabled\":false,\"SuspendedTablesTableEnabled\":false},\"ErrorBehavior\":{\"ApplyErrorDeletePolicy\":\"IGNORE_RECORD\",\"ApplyErrorEscalationCount\":0,\"ApplyErrorEscalationPolicy\":\"LOG_ERROR\",\"ApplyErrorFailOnTruncationDdl\":false,\"ApplyErrorInsertPolicy\":\"LOG_ERROR\",\"ApplyErrorUpdatePolicy\":\"LOG_ERROR\",\"DataErrorEscalationCount\":0,\"DataErrorEscalationPolicy\":\"SUSPEND_TABLE\",\"DataErrorPolicy\":\"LOG_ERROR\",\"DataTruncationErrorPolicy\":\"LOG_ERROR\",\"FailOnNoTablesCaptured\":false,\"FailOnTransactionConsistencyBreached\":false,\"FullLoadIgnoreConflicts\":true,\"RecoverableErrorCount\":-1,\"RecoverableErrorInterval\":5,\"RecoverableErrorStopRetryAfterThrottlingMax\":false,\"RecoverableErrorThrottling\":true,\"RecoverableErrorThrottlingMax\":1800,\"TableErrorEscalationCount\":0,\"TableErrorEscalationPolicy\":\"STOP_TASK\",\"TableErrorPolicy\":\"SUSPEND_TABLE\"},\"FullLoadSettings\":{\"CommitRate\":10000,\"CreatePkAfterFullLoad\":false,\"MaxFullLoadSubTasks\":8,\"StopTaskCachedChangesApplied\":false,\"StopTaskCachedChangesNotApplied\":false,\"TargetTablePrepMode\":\"DROP_AND_CREATE\",\"TransactionConsistencyTimeout\":600},\"Logging\":{\"EnableLogging\":false,\"LogComponents\":[{\"Id\":\"TRANSFORMATION\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SOURCE_UNLOAD\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"IO\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TARGET_LOAD\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"PERFORMANCE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SOURCE_CAPTURE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SORTER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"REST_SERVER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"VALIDATOR_EXT\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TARGET_APPLY\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TASK_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TABLES_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"METADATA_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"FILE_FACTORY\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"COMMON\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"ADDONS\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"DATA_STRUCTURE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"COMMUNICATION\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"FILE_TRANSFER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"}]},\"LoopbackPreventionSettings\":null,\"PostProcessingRules\":null,\"StreamBufferSettings\":{\"CtrlStreamBufferSizeInMB\":5,\"StreamBufferCount\":3,\"StreamBufferSizeInMB\":8},\"TargetMetadata\":{\"BatchApplyEnabled\":false,\"FullLobMode\":false,\"InlineLobMaxSize\":0,\"LimitedSizeLobMode\":true,\"LoadMaxFileSize\":0,\"LobChunkSize\":0,\"LobMaxSize\":32,\"ParallelApplyBufferSize\":0,\"ParallelApplyQueuesPerThread\":0,\"ParallelApplyThreads\":0,\"ParallelLoadBufferSize\":0,\"ParallelLoadQueuesPerThread\":0,\"ParallelLoadThreads\":0,\"SupportLobs\":true,\"TargetSchema\":\"\",\"TaskRecoveryTableEnabled\":false}}"
+  source_endpoint_arn       = aws_dms_endpoint.source.endpoint_arn
+  table_mappings            = "{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%%\",\"table-name\":\"%%\"},\"rule-action\":\"include\"}]}"
+  target_endpoint_arn       = aws_dms_endpoint.target.endpoint_arn
+}
+`, migrationType, rName))
+}
+
+func dmsReplicationTaskConfig_TableMappings(rName, migrationType string) string {
+	return composeConfig(
+		testAccAvailableAZsNoOptInConfig(),
+		dmsReplicationTaskConfigBase(rName),
+		fmt.Sprintf(`
+resource "aws_dms_replication_task" "test" {
+  migration_type            = %[1]q
+  replication_instance_arn  = aws_dms_replication_instance.test.replication_instance_arn
+  replication_task_id       = %[2]q
+  source_endpoint_arn       = aws_dms_endpoint.source.endpoint_arn
+  table_mappings            = "{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"Test\",\"table-name\":\"%%\"},\"rule-action\":\"include\"},{\"rule-type\":\"selection\",\"rule-id\":\"2\",\"rule-name\":\"2\",\"object-locator\":{\"schema-name\":\"Test\",\"table-name\":\"DMS%%\"},\"rule-action\":\"exclude\"}]}"
+  target_endpoint_arn       = aws_dms_endpoint.target.endpoint_arn
+}
+`, migrationType, rName))
+}
+
+func dmsReplicationTaskConfig_Tags1(rName, key, value string) string {
+	return composeConfig(
+		testAccAvailableAZsNoOptInConfig(),
+		dmsReplicationTaskConfigBase(rName),
+		fmt.Sprintf(`
 resource "aws_dms_replication_task" "test" {
   migration_type            = "full-load"
   replication_instance_arn  = aws_dms_replication_instance.test.replication_instance_arn
@@ -201,13 +392,33 @@ resource "aws_dms_replication_task" "test" {
   replication_task_settings = "{\"BeforeImageSettings\":null,\"FailTaskWhenCleanTaskResourceFailed\":false,\"ChangeProcessingDdlHandlingPolicy\":{\"HandleSourceTableAltered\":true,\"HandleSourceTableDropped\":true,\"HandleSourceTableTruncated\":true},\"ChangeProcessingTuning\":{\"BatchApplyMemoryLimit\":500,\"BatchApplyPreserveTransaction\":true,\"BatchApplyTimeoutMax\":30,\"BatchApplyTimeoutMin\":1,\"BatchSplitSize\":0,\"CommitTimeout\":1,\"MemoryKeepTime\":60,\"MemoryLimitTotal\":1024,\"MinTransactionSize\":1000,\"StatementCacheSize\":50},\"CharacterSetSettings\":null,\"ControlTablesSettings\":{\"ControlSchema\":\"\",\"FullLoadExceptionTableEnabled\":false,\"HistoryTableEnabled\":false,\"HistoryTimeslotInMinutes\":5,\"StatusTableEnabled\":false,\"SuspendedTablesTableEnabled\":false},\"ErrorBehavior\":{\"ApplyErrorDeletePolicy\":\"IGNORE_RECORD\",\"ApplyErrorEscalationCount\":0,\"ApplyErrorEscalationPolicy\":\"LOG_ERROR\",\"ApplyErrorFailOnTruncationDdl\":false,\"ApplyErrorInsertPolicy\":\"LOG_ERROR\",\"ApplyErrorUpdatePolicy\":\"LOG_ERROR\",\"DataErrorEscalationCount\":0,\"DataErrorEscalationPolicy\":\"SUSPEND_TABLE\",\"DataErrorPolicy\":\"LOG_ERROR\",\"DataTruncationErrorPolicy\":\"LOG_ERROR\",\"FailOnNoTablesCaptured\":false,\"FailOnTransactionConsistencyBreached\":false,\"FullLoadIgnoreConflicts\":true,\"RecoverableErrorCount\":-1,\"RecoverableErrorInterval\":5,\"RecoverableErrorStopRetryAfterThrottlingMax\":false,\"RecoverableErrorThrottling\":true,\"RecoverableErrorThrottlingMax\":1800,\"TableErrorEscalationCount\":0,\"TableErrorEscalationPolicy\":\"STOP_TASK\",\"TableErrorPolicy\":\"SUSPEND_TABLE\"},\"FullLoadSettings\":{\"CommitRate\":10000,\"CreatePkAfterFullLoad\":false,\"MaxFullLoadSubTasks\":8,\"StopTaskCachedChangesApplied\":false,\"StopTaskCachedChangesNotApplied\":false,\"TargetTablePrepMode\":\"DROP_AND_CREATE\",\"TransactionConsistencyTimeout\":600},\"Logging\":{\"EnableLogging\":false,\"LogComponents\":[{\"Id\":\"TRANSFORMATION\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SOURCE_UNLOAD\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"IO\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TARGET_LOAD\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"PERFORMANCE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SOURCE_CAPTURE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SORTER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"REST_SERVER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"VALIDATOR_EXT\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TARGET_APPLY\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TASK_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TABLES_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"METADATA_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"FILE_FACTORY\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"COMMON\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"ADDONS\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"DATA_STRUCTURE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"COMMUNICATION\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"FILE_TRANSFER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"}]},\"LoopbackPreventionSettings\":null,\"PostProcessingRules\":null,\"StreamBufferSettings\":{\"CtrlStreamBufferSizeInMB\":5,\"StreamBufferCount\":3,\"StreamBufferSizeInMB\":8},\"TargetMetadata\":{\"BatchApplyEnabled\":false,\"FullLobMode\":false,\"InlineLobMaxSize\":0,\"LimitedSizeLobMode\":true,\"LoadMaxFileSize\":0,\"LobChunkSize\":0,\"LobMaxSize\":32,\"ParallelApplyBufferSize\":0,\"ParallelApplyQueuesPerThread\":0,\"ParallelApplyThreads\":0,\"ParallelLoadBufferSize\":0,\"ParallelLoadQueuesPerThread\":0,\"ParallelLoadThreads\":0,\"SupportLobs\":true,\"TargetSchema\":\"\",\"TaskRecoveryTableEnabled\":false}}"
   source_endpoint_arn       = aws_dms_endpoint.source.endpoint_arn
   table_mappings            = "{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%%\",\"table-name\":\"%%\"},\"rule-action\":\"include\"}]}"
+  target_endpoint_arn       = aws_dms_endpoint.target.endpoint_arn
 
   tags = {
-    Name = %[1]q
-%[2]s
+    %[2]q = %[3]q
   }
-
-  target_endpoint_arn = aws_dms_endpoint.target.endpoint_arn
 }
-`, rName, tags))
+`, rName, key, value))
+}
+
+func dmsReplicationTaskConfig_Tags2(rName, key1, value1, key2, value2 string) string {
+	return composeConfig(
+		testAccAvailableAZsNoOptInConfig(),
+		dmsReplicationTaskConfigBase(rName),
+		fmt.Sprintf(`
+resource "aws_dms_replication_task" "test" {
+  migration_type            = "full-load"
+  replication_instance_arn  = aws_dms_replication_instance.test.replication_instance_arn
+  replication_task_id       = %[1]q
+  replication_task_settings = "{\"BeforeImageSettings\":null,\"FailTaskWhenCleanTaskResourceFailed\":false,\"ChangeProcessingDdlHandlingPolicy\":{\"HandleSourceTableAltered\":true,\"HandleSourceTableDropped\":true,\"HandleSourceTableTruncated\":true},\"ChangeProcessingTuning\":{\"BatchApplyMemoryLimit\":500,\"BatchApplyPreserveTransaction\":true,\"BatchApplyTimeoutMax\":30,\"BatchApplyTimeoutMin\":1,\"BatchSplitSize\":0,\"CommitTimeout\":1,\"MemoryKeepTime\":60,\"MemoryLimitTotal\":1024,\"MinTransactionSize\":1000,\"StatementCacheSize\":50},\"CharacterSetSettings\":null,\"ControlTablesSettings\":{\"ControlSchema\":\"\",\"FullLoadExceptionTableEnabled\":false,\"HistoryTableEnabled\":false,\"HistoryTimeslotInMinutes\":5,\"StatusTableEnabled\":false,\"SuspendedTablesTableEnabled\":false},\"ErrorBehavior\":{\"ApplyErrorDeletePolicy\":\"IGNORE_RECORD\",\"ApplyErrorEscalationCount\":0,\"ApplyErrorEscalationPolicy\":\"LOG_ERROR\",\"ApplyErrorFailOnTruncationDdl\":false,\"ApplyErrorInsertPolicy\":\"LOG_ERROR\",\"ApplyErrorUpdatePolicy\":\"LOG_ERROR\",\"DataErrorEscalationCount\":0,\"DataErrorEscalationPolicy\":\"SUSPEND_TABLE\",\"DataErrorPolicy\":\"LOG_ERROR\",\"DataTruncationErrorPolicy\":\"LOG_ERROR\",\"FailOnNoTablesCaptured\":false,\"FailOnTransactionConsistencyBreached\":false,\"FullLoadIgnoreConflicts\":true,\"RecoverableErrorCount\":-1,\"RecoverableErrorInterval\":5,\"RecoverableErrorStopRetryAfterThrottlingMax\":false,\"RecoverableErrorThrottling\":true,\"RecoverableErrorThrottlingMax\":1800,\"TableErrorEscalationCount\":0,\"TableErrorEscalationPolicy\":\"STOP_TASK\",\"TableErrorPolicy\":\"SUSPEND_TABLE\"},\"FullLoadSettings\":{\"CommitRate\":10000,\"CreatePkAfterFullLoad\":false,\"MaxFullLoadSubTasks\":8,\"StopTaskCachedChangesApplied\":false,\"StopTaskCachedChangesNotApplied\":false,\"TargetTablePrepMode\":\"DROP_AND_CREATE\",\"TransactionConsistencyTimeout\":600},\"Logging\":{\"EnableLogging\":false,\"LogComponents\":[{\"Id\":\"TRANSFORMATION\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SOURCE_UNLOAD\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"IO\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TARGET_LOAD\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"PERFORMANCE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SOURCE_CAPTURE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SORTER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"REST_SERVER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"VALIDATOR_EXT\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TARGET_APPLY\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TASK_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TABLES_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"METADATA_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"FILE_FACTORY\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"COMMON\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"ADDONS\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"DATA_STRUCTURE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"COMMUNICATION\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"FILE_TRANSFER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"}]},\"LoopbackPreventionSettings\":null,\"PostProcessingRules\":null,\"StreamBufferSettings\":{\"CtrlStreamBufferSizeInMB\":5,\"StreamBufferCount\":3,\"StreamBufferSizeInMB\":8},\"TargetMetadata\":{\"BatchApplyEnabled\":false,\"FullLobMode\":false,\"InlineLobMaxSize\":0,\"LimitedSizeLobMode\":true,\"LoadMaxFileSize\":0,\"LobChunkSize\":0,\"LobMaxSize\":32,\"ParallelApplyBufferSize\":0,\"ParallelApplyQueuesPerThread\":0,\"ParallelApplyThreads\":0,\"ParallelLoadBufferSize\":0,\"ParallelLoadQueuesPerThread\":0,\"ParallelLoadThreads\":0,\"SupportLobs\":true,\"TargetSchema\":\"\",\"TaskRecoveryTableEnabled\":false}}"
+  source_endpoint_arn       = aws_dms_endpoint.source.endpoint_arn
+  table_mappings            = "{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%%\",\"table-name\":\"%%\"},\"rule-action\":\"include\"}]}"
+  target_endpoint_arn       = aws_dms_endpoint.target.endpoint_arn
+
+  tags = {
+    %[2]q = %[3]q
+    %[4]q = %[5]q
+  }
+}
+`, rName, key1, value1, key2, value2))
 }
